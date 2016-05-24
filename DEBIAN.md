@@ -45,10 +45,21 @@ from the Debian Packaging and Java Packaging guides that seem most applicable:
   The fullversion is that of the jar file and is not necessarily the same as
   the package.
 
-### Package structure
-Here we describe the structure of individual packages, we'll err on the side of
+### Packaging workflow
+We'll start by treating veraPDF as an upstream source and adopt a "typical"
+Debian packaging workflow, see [Debian Maintainers Guide](https://www.debian.org/doc/manuals/maint-guide/first.en.html).
+
+### Initial Package structure
+Starting with the path of least resistance we'll produce a package per Maven
+project using the `mh_make` tool. This is designed to produce the appropriate
+Debian files/structure using the Maven POM files and leveraging Maven project
+conventions.
+
+### Package structure goals
+This sections describes where we'd like to get to. We'll err on the side of
 caution and add everything to a package specific library directory
 `/usr/share/verapdf`. All examples use our current 0.14 version number.
+
 #### verapdf-core
 Source and binary library package that installs 3 jars to `/usr/share/verapdf`,
 and symlinks as suggested by the guidelines:
