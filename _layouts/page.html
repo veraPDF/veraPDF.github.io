@@ -1,0 +1,22 @@
+{% include header.html %}
+<body role="document">
+{% include navbar.html %}
+{% include masthead.html %}
+<section class="main-content">
+    <div class="container">
+      <div class="row">
+        <div id="content" class="main-content-inner col-sm-12">
+          <article>
+{{ content }}
+          </article><!-- #post-## -->
+        </div><!-- close .*-inner (main-content or sidebar, depending if sidebar is used) -->
+    </div><!-- close .row -->
+  </div><!-- close .container -->
+</section><!-- close .main-content -->
+{% include footer.html %}
+<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js?ver=1.11.3'></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script type='text/javascript' src='http://staging.verapdf.org/wp-content/themes/veraPDF-site/includes/js/bootstrap-wp.js?ver=1.11.3'></script>
+<script type='text/javascript' src='http://staging.verapdf.org/wp-content/themes/veraPDF-site/includes/js/ie10-viewport-bug-workaround.js?ver=4.5.3'></script>
+</body>
