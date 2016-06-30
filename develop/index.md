@@ -23,7 +23,7 @@ This method can be used as an entry point for veraPDF processing. It takes the f
  - As a result of processing, the method returns `ProcessingResult` object that contains general information about status of the process (or processes, if for example feature report generation or metadata fixing is requested in addition to validation) and other debug level info (such as the list of all exceptions caught during processing).
 
 ## Example Integration
-{% highlight java %}
+```Java
 public static void main(String[] args) {
    try {
      /* Create default config and change its properties if necessary
@@ -87,4 +87,4 @@ public static void main(String[] args) {
        e.printStackTrace();
    }
 }
-{% endhighlight %}
+```
