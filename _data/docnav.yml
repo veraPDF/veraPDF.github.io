@@ -1,0 +1,14 @@
+- title: "Developers"
+  href: "/develop/"
+
+- title: "Plugins"
+  href: "/plugins/"
+
+- title: "GUI"
+  href: "/gui/"
+
+- title: "CLI"
+  href: "/cli/"
+
+- title: "Get started"
+  href: "/"
