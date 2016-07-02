@@ -9,7 +9,7 @@ veraPDF Plugins
 ## Overview
 If a user wants to use a third-party Tool for extracting additional features he needs to have the Adaptor for it that shall be a part of the Plugin for veraPDF software. After the Plugin is loaded by veraPDF software the Tool becomes available for the Features Reporter through the Extractor interface.
 
-A Plugin is represented by a folder in the plugins folder that is located in the veraPDF application folder. The Plugin folder shall contain a `.jar` file with the Extractor class definition. This Extractor class is an extension of the [FeaturesExtractor](https://github.com/veraPDF/veraPDF-library/blob/integration/core/src/main/java/org/verapdf/features/FeaturesExtractor.java) - the base class defining the interfaces for the Features Reporter.
+A Plugin is represented by a `.jar` file with the Extractor class definition. This Extractor class is an extension of the [FeaturesExtractor](https://github.com/veraPDF/veraPDF-library/blob/integration/core/src/main/java/org/verapdf/features/FeaturesExtractor.java) - the base class defining the interfaces for the Features Reporter.
 
 The veraPDF software loads the Plugins on startup. It uses plugins.xml file for enabling and configuring the plugins. That config file should be placed near the app config file `.../verapdf/config/plugins.xml`. The plugins config xml file should contain a root element `pluginsConfig`. That root element contains child elements `plugin`. Each of plugin element refers to one plugin. It can contain five children and one attribute. The attribute’s name is enabled and its value should be a `boolean true|false` value. If this value is true, then the specified plugin will be used in features collection. The child elements of the plugin element are listed in the following table:
 
@@ -66,7 +66,7 @@ For example, a Plugin defines the Extractor that for some specific ICC profile (
     <iccProfile id="someID">
       ...
       <customFeatures>
-        <pluginFeatures description="This plugin reports the features of the ICC profiles" namepluginId="plugin namefaf62ad0-89de-11e5-a837-0800200c9a66" version=”1.0” description="This plugin reports the features of the ICC profiles">
+        <pluginFeatures description="This plugin reports the features of the ICC profiles" name="plugin name" version=”1.0”>
           <theCustomFeature1>theFeatureValue1</theCustomFeature1>
           <theCustomFeature2>theFeatureValue2</theCustomFeature2>
         </pluginFeatures>
