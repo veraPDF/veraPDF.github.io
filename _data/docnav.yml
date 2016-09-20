@@ -12,6 +12,13 @@
 
 - title: "Validation"
   href: "/validation/"
+  subcategories:
+    - subtitle: "Model"
+      subhref: "/model/"
+    - subtitle: "Part 1"
+      subhref: "/part1/"
+    - subtitle: "Parts 2 & 3"
+      subhref: "/parts23/"
 
 - title: "Get started"
   href: "/"
