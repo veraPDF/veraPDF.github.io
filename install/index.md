@@ -48,26 +48,36 @@ resources, including:
 - test PDF Documents; and
 - the veraPDF Validation Profiles.
 
-Installing veraPDF
-------------------
+Using the veraPDF installer
+---------------------------
 The installer simply unpacks components from the installer package to the local
-computer. It consists of the several steps:
+computer. It consists of the five steps:
 
-### Choose installation location
-Initially it is possible to specify the installation folder:
+### 1: About veraPDF
+The first tells you which version of the software you're installing:
 
-![veraPDF Installer folder selection screen](/images/installer/screen2.png "veraPDF installer screen 2")
+![veraPDF Installer folder selection screen](/images/installer/screen1.png "veraPDF installer step 1 of 5")
 
-### Select components
-The next step defines which veraPDF components are installed:
+### 2: Choose installation location
+At step two you can specify the installation folder:
 
-![veraPDF Installer pack selection screen](/images/installer/screen3.png "veraPDF installer screen 3")
+![veraPDF Installer folder selection screen](/images/installer/screen2.png "veraPDF installer step 2 of 5")
 
-### Generate installation script
+### 3: Select components
+Screen three allows you to select the components to be installed:
+
+![veraPDF Installer pack selection screen](/images/installer/screen3.png "veraPDF installer step 3 of 5")
+
+### 4: Installation
+The fourth stage installs the selected components to the chosen location:
+
+![veraPDF Installer pack selection screen](/images/installer/screen4.png "veraPDF installer step 4 of 5")
+
+### 5: Generate installation script
 It is possible to generate an installation script that can be used to repeat
 the installation on another computer:
 
-![veraPDF Installer script screen](/images/installer/screen5.png "veraPDF installer screen 5")
+![veraPDF Installer script screen](/images/installer/screen5.png "veraPDF installer step 4 of 5")
 
 What's installed where?
 -----------------------
