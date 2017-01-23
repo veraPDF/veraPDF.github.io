@@ -112,7 +112,7 @@ The `validatorConfig` element defines the following attributes:
 
 <a name="features.xml"></a>Configuring feature extraction
 ----------------------------------------------------
-The `features.xml` file configures the types of PDF features extracted by the
+The `config/features.xml` file configures the types of PDF features extracted by the
 veraPDF software. The default file contains a single entry:
 
     <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
