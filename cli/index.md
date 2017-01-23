@@ -22,6 +22,11 @@ Getting help
 You can get the software to output its built in CLI usage message by typing
 `verapdf.bat -h` or `verapdf --help`, an online version is [available here](help).
 
+Configuring veraPDF
+-------------------
+veraPDF is controlled by a set of configuration files, you can read a [brief
+overview here](config).
+
 How-tos
 -------
 The following examples all make use of the veraPDF test corpus. This is
