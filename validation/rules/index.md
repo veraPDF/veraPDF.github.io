@@ -3,18 +3,16 @@ layout: page
 title: Structure of validation rules
 ---
 
-Structure of validation rules
----------------
-
-
-Validation profiles define a set of requirements - rules in a formal syntax - based on the generic veraPDF validation model. 
+{{ page.title }}
+================
+Validation profiles define a set of requirements - rules in a formal syntax - based on the generic veraPDF validation model.
 
 The syntax of rules is based on the PDF model consisting of an object-oriented hierarchy of object types to be validated. Each object type contains a predefined inheritable set of simple properties and named links to lists of objects of other types. The complete description of the PDF model is located in [GitHub veraPDF-model repository](https://github.com/veraPDF/veraPDF-model).
 
 For example, here is the definition of the `CosArray` type, representing Array objects in PDF documents:
 
 <pre>
-% PDF Array type	
+% PDF Array type
 type CosArray extends CosObject {
 	% number of elements in the array
 	property size: Integer;

@@ -3,15 +3,14 @@ layout: page
 title: PDF/A-1 validation rules
 ---
 
-PDF/A-1 validation rules
----------------
+{{ page.title }}
+================
 
-## Rule 6.1.2-1
+## Rule <a name="6.1.2-1"></a>6.1.2-1
 
 ### Requirement
 
 >*The % character of the file header shall occur at byte offset 0 of the file. The first line of a PDF file is a header identifying the version of the PDF specification to which the file conforms.*
-
 
 ### Error details
 
@@ -21,11 +20,10 @@ File header does not start at byte offset 0 or does not correctly identify the v
 * Test condition: `headerOffset == 0 && /%PDF-\d\.\d/.test(header)`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * PDF 1.4 Reference, 3.4.1
 
-
-## Rule 6.1.2-2
+## Rule <a name="6.1.2-2"></a>$
 
 ### Requirement
 
@@ -33,7 +31,7 @@ File header does not start at byte offset 0 or does not correctly identify the v
 
 ### Error details
 
-Binary comment in the file header is missing or does not conform to Rule 6.1.2-2. 
+Binary comment in the file header is missing or does not conform to Rule 6.1.2-2.
 
 The presence of encoded character byte values greater than decimal 127 near the beginning of a file is used by various software tools and protocols to classify the file as containing 8-bit binary data that should be preserved during processing.
 
@@ -42,7 +40,7 @@ The presence of encoded character byte values greater than decimal 127 near the 
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule 6.1.3-1
+## Rule <a name="6.1.3-1"></a>$
 
 ### Requirement
 
@@ -54,7 +52,7 @@ Missing ID keyword in the document trailer.
 
 Processing systems and documents may contain references to PDF files. Simply storing a file name, however, even in a platform-independent format, does not guarantee that the file can be found. Even if the file still exists and its name has not been changed, different server software applications may identify it in different ways. For example, servers running on DOS platforms must convert all file names to 8 characters and a 3-character extension; different servers may use different strategies for converting longer file names to this format.
 
-External file referencescan be made more reliable by including a file identifier in the file itself and using it in addition to the normal platform-based file designation. File identifiers are defined by the optional ID entry in a PDF file’s trailer dictionary. The value of this entry is an array of two strings. The first string is a permanent identifier based on the contents of the file at the time it was originally created, and does not change when the file is incrementally updated. The second string is a changing identifier based on the file's contents at the time it was
+External file references can be made more reliable by including a file identifier in the file itself and using it in addition to the normal platform-based file designation. File identifiers are defined by the optional ID entry in a PDF file’s trailer dictionary. The value of this entry is an array of two strings. The first string is a permanent identifier based on the contents of the file at the time it was originally created, and does not change when the file is incrementally updated. The second string is a changing identifier based on the file's contents at the time it was
 last updated. When a file is first written, both identifiers are set to the same value. If both identifiers match when a file reference is resolved, it is very likely that the correct file has been found; if only the first identifier matches, then a different version of the correct file has been found.
 
 * Object type: `CosDocument`
@@ -64,7 +62,7 @@ last updated. When a file is first written, both identifiers are set to the same
 * Additional references:
   * PDF 1.4 Reference, 3.3.4, 3.3.5, 9.3, F.2
 
-## Rule 6.1.3-2
+## Rule <a name="6.1.3-2"></a>$
 
 ### Requirement
 
@@ -72,7 +70,7 @@ last updated. When a file is first written, both identifiers are set to the same
 
 ### Error details
 
-Encrypt keyword is present in the trailer dictionary. 
+Encrypt keyword is present in the trailer dictionary.
 
 The explicit prohibition of the Encrypt keyword has the implicit effect of disallowing encryption and password-protected
 access permissions.
@@ -82,7 +80,7 @@ access permissions.
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule 6.1.3-3
+## Rule <a name="6.1.3-3"></a>$
 
 ### Requirement
 
@@ -92,14 +90,14 @@ access permissions.
 
 Data is present after the last end-of-file marker.
 
-The trailer of a PDF file enables an application reading the file to quickly find the cross-reference table and certain special objects. Applications should read a PDF file from its end. The last line of the file contains only the end-of-file marker, %%EOF. Some PDF viewers require only that the %%EOF marker appear somewhere within the last 1024 bytes of the file. But having any data after %%EOF marker introduces risks that the PDF document might not be processed correctly. 
+The trailer of a PDF file enables an application reading the file to quickly find the cross-reference table and certain special objects. Applications should read a PDF file from its end. The last line of the file contains only the end-of-file marker, %%EOF. Some PDF viewers require only that the %%EOF marker appear somewhere within the last 1024 bytes of the file. But having any data after %%EOF marker introduces risks that the PDF document might not be processed correctly.
 
 * Object type: `CosDocument`
 * Test condition: `postEOFDataSize == 0`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule 6.1.3-4
+## Rule <a name="6.1.3-4"></a>$
 
 ### Requirement
 
@@ -111,17 +109,17 @@ The Linearized PDF contains both the ID keyword in the last trailer and in the t
 
 A linearized PDF file is one that has been organized in a special way to enable efficient incremental access in a network environment. The file is valid PDF in all respects, and is compatible with all existing viewers and other PDF applications. Enhanced viewer applications can recognize that a PDF file has been linearized and can take advantage of that organization (as well as added "hint" information) to enhance viewing performance.
 
-As a result of this optimization, the ID of the linearized PDF can be fount in two different places: in the last document trailer and in the trailer for the first page, normally located at the beginning of the document. These two IDs shall be identical to avoid any ambiguities in identifying the PDF document by its ID entry. 
+As a result of this optimization, the ID of the linearized PDF can be fount in two different places: in the last document trailer and in the trailer for the first page, normally located at the beginning of the document. These two IDs shall be identical to avoid any ambiguities in identifying the PDF document by its ID entry.
 
 * Object type: `CosDocument`
 * Test condition: `(isLinearized != true)|| lastID == null || (firstPageID == lastID)`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * ISO 19005-1:2005/Cor.2:2011, 6.1.3
   * Rule 6.1.3-1
 
-## Rule 6.1.4-1
+## Rule <a name="6.1.4-1"></a>$
 
 ### Requirement
 
@@ -133,14 +131,14 @@ Spacings of a subsection header in the cross reference table do not conform to R
 
 The cross-reference table contains information that permits random access to indirect objects within the file, so that the entire file need not be read to locate any particular object. The table contains a one-line entry for each indirect object, specifying the location of that object within the body of the file.
 
-The cross-reference table is the only part of a PDF file with a fixed format; this permits entries in the table to be accessed randomly. Any variations in this format, including unnecessary SPACE charaters may result in incorrect parsing of the cross-reference table and, thus, errors in reading the PDF document. 
+The cross-reference table is the only part of a PDF file with a fixed format; this permits entries in the table to be accessed randomly. Any variations in this format, including unnecessary SPACE charaters may result in incorrect parsing of the cross-reference table and, thus, errors in reading the PDF document.
 
 * Object type: `CosXRef`
 * Test condition: `subsectionHeaderSpaceSeparated == true`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule 6.1.4-2
+## Rule <a name="6.1.4-2"></a>$
 
 ### Requirement
 
@@ -148,7 +146,7 @@ The cross-reference table is the only part of a PDF file with a fixed format; th
 
 ### Error details
 
-Spacings after the "xref" keyword in the cross reference table do not conform to Rule 6.1.4-2. 
+Spacings after the "xref" keyword in the cross reference table do not conform to Rule 6.1.4-2.
 
 As mentioned in Rule 6.1.4-1, any variations in cross reference table format may result in incorrect parsing of the cross-reference table and, thus, errors in reading the PDF document.
 
@@ -159,7 +157,7 @@ As mentioned in Rule 6.1.4-1, any variations in cross reference table format may
 * Additional references:
   * Rule 6.1.4-1
 
-## Rule 6.1.6-1
+## Rule <a name="6.1.6-1"></a>$
 
 ### Requirement
 
@@ -180,7 +178,7 @@ Each pair of hexadecimal digits defines one byte of the string. White-space char
 
 White-space characters are defined as NULL (00h), TAB (09h), LINE FEED (0Ah), FORM FEED (0Ch), CARRIGE RETURN (0Dh), SPACE (20h). They may appear within hexadecimal strings for formatting purposes:
 
-`<4E6F 7620 7368 6D6F` 
+`<4E6F 7620 7368 6D6F`
 ` 7A20 6B61 2070 6F70>`
 
 * Object type: `CosString`
@@ -188,7 +186,7 @@ White-space characters are defined as NULL (00h), TAB (09h), LINE FEED (0Ah), FO
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule 6.1.6-2
+## Rule <a name="6.1.6-2"></a>$
 
 ### Requirement
 
@@ -205,7 +203,7 @@ Hexadecimal string contains non-white-space characters outside the range 0 to 9,
 * Other references:
   * Rule 6.1.6-1
 
-## Rule 6.1.7-1
+## Rule <a name="6.1.7-1"></a>$
 
 ### Requirement
 
@@ -213,7 +211,7 @@ Hexadecimal string contains non-white-space characters outside the range 0 to 9,
 
 ### Error details
 
-Actual length of the stream does not match the value of the Length key in the Stream dictionary. 
+Actual length of the stream does not match the value of the Length key in the Stream dictionary.
 
 Every stream dictionary has a Length entry that indicates how many bytes of the PDF file are used for the stream's data. (If the stream has a filter, Length is the number of bytes of encoded data.) In addition, most filters are defined so that the data is self-limiting; that is, they use an encoding scheme in which an explicit end-of-data (EOD) marker delimits the extent of the data. Finally, streams are used to represent many objects from whose attributes a length can be inferred. All of these constraints must be consistent.
 
@@ -222,7 +220,7 @@ Every stream dictionary has a Length entry that indicates how many bytes of the 
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule 6.1.7-2
+## Rule <a name="6.1.7-2"></a>$
 
 ### Requirement
 
@@ -239,7 +237,7 @@ These requirements remove potential ambiguity regarding the ending of stream con
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule 6.1.7-3
+## Rule <a name="6.1.7-3"></a>$
 
 ### Requirement
 
@@ -255,10 +253,10 @@ These keys are used to point to document content external to the file. The expli
 * Test condition: `F == null && FFilter == null && FDecodeParms == null`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * 19005-1:2005/Cor.2:2011, 6.1.7
 
-## Rule 6.1.8-1
+## Rule <a name="6.1.8-1"></a>$
 
 ### Requirement
 
@@ -268,14 +266,14 @@ These keys are used to point to document content external to the file. The expli
 
 Spacings of object number and generation number or keywords "obj" and "endobj" do not conform to Rule 6.1.8-1.
 
-The definition of an indirect object in a PDF file consists of its object number and generation number, followed by the value of the object itself bracketed between the keywords "obj" and "endobj". The requirements of this rule guarantee that the definition of an indirect object can be parsed unambiguously. 
+The definition of an indirect object in a PDF file consists of its object number and generation number, followed by the value of the object itself bracketed between the keywords "obj" and "endobj". The requirements of this rule guarantee that the definition of an indirect object can be parsed unambiguously.
 
 * Object type: `CosIndirect`
 * Test condition: `spacingCompliesPDFA`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule 6.1.10-1
+## Rule <a name="6.1.10-1"></a>$
 
 ### Requirement
 
@@ -292,11 +290,11 @@ The use of the LZW compression algorithm has been subject to intellectual proper
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule 6.1.10-2
+## Rule <a name="6.1.10-2"></a>$
 
 ### Requirement
 
->*The LZWDecode filter shall not be permitted*
+>*The LZWDecode filter shall not be permitted.*
 
 ### Error details
 
@@ -311,7 +309,7 @@ Inline images are defined directly within the content stream in which it will be
 * Other references:
   * Rule 6.1.10-1
 
-## Rule 6.1.11-1
+## Rule <a name="6.1.11-1"></a>$
 
 ### Requirement
 
@@ -319,7 +317,7 @@ Inline images are defined directly within the content stream in which it will be
 
 ### Error details
 
-A file specification dictionary contains the EF key. 
+A file specification dictionary contains the EF key.
 
 This key is used to encapsulate files containing arbitrary content within a PDF file. The explicit prohibition
 of EF key has the implicit effect of disallowing embedded files that can create external dependencies and complicate
@@ -329,10 +327,10 @@ preservation efforts.
 * Test condition: `EF_size == 0`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * PDF 1.4 Reference, 3.10.2
 
-## Rule 6.1.11-2
+## Rule <a name="6.1.11-2"></a>$
 
 ### Requirement
 
@@ -342,16 +340,16 @@ preservation efforts.
 
 The document contains embedded files (EmbeddedFiles key is present in the file's name dictionary).
 
-PDF/A-1 standard does not permit embedded files. This requirement was relaxed in PDF/A-2 to embed other PDF documenbts conforming to either PDF/A-1 or PDF/A-2, and in PDF/A-3 to allow any embedded files.
+PDF/A-1 standard does not permit embedded files. This requirement was relaxed in PDF/A-2 to embed other PDF documents conforming to either PDF/A-1 or PDF/A-2, and in PDF/A-3 to allow any embedded files.
 
 * Object type: `CosDocument`
 * Test condition: `EmbeddedFiles_size == 0`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * PDF 1.4 Reference, 3.6.3
 
-## Rule 6.1.12-1
+## Rule <a name="6.1.12-1"></a>$
 
 ### Requirement
 
@@ -365,10 +363,10 @@ Integer value is out of range.
 * Test condition: `(intValue <= 2147483647) && (intValue >= -2147483648)`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * PDF Reference 1.4, Table C.1
 
-## Rule 6.1.12-2
+## Rule <a name="6.1.12-2"></a>$
 
 ### Requirement
 
@@ -382,10 +380,10 @@ Real value is out of range.
 * Test condition: `(realValue >= -32767.0) && (realValue <= 32767.0)`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * PDF Reference 1.4, Table C.1
 
-## Rule 6.1.12-3
+## Rule <a name="6.1.12-3"></a>$
 
 ### Requirement
 
@@ -399,10 +397,10 @@ Maximum length of a String (65535) is exceeded.
 * Test condition: `value.length() < 65536`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * PDF Reference 1.4, Table C.1
 
-## Rule 6.1.12-4
+## Rule <a name="6.1.12-4"></a>$
 
 ### Requirement
 
@@ -410,16 +408,16 @@ Maximum length of a String (65535) is exceeded.
 
 ### Error details
 
-Maximum length of a Name (127) is exceeded.
+Maximum length of a Name (127 bytes) is exceeded.
 
 * Object type: `CosName`
 * Test condition: `internalRepresentation.length() <= 127`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * PDF Reference 1.4, Table C.1
 
-## Rule 6.1.12-5
+## Rule <a name="6.1.12-5"></a>$
 
 ### Requirement
 
@@ -433,10 +431,10 @@ Maximum capacity of an array (8191) is exceeded.
 * Test condition: `size <= 8191`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * PDF Reference 1.4, Table C.1
 
-## Rule 6.1.12-6
+## Rule <a name="6.1.12-6"></a>$
 
 ### Requirement
 
@@ -450,10 +448,10 @@ Maximum capacity of a dictionary (4095) is exceeded.
 * Test condition: `size <= 4095`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * PDF Reference 1.4, Table C.1
 
-## Rule 6.1.12-7
+## Rule <a name="6.1.12-7"></a>$
 
 ### Requirement
 
@@ -467,10 +465,10 @@ Maximum number of indirect objects (8,388,607) in a PDF file is exceeded.
 * Test condition: `nrIndirects <= 8388607`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * PDF Reference 1.4, Table C.1
 
-## Rule 6.1.12-8
+## Rule <a name="6.1.12-8"></a>$
 
 ### Requirement
 
@@ -484,10 +482,10 @@ Maximum depth of graphics state nesting (q and Q operators) is exceeded.
 * Test condition: `nestingLevel <= 28`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * PDF Reference 1.4, Table C.1
 
-## Rule 6.1.12-9
+## Rule <a name="6.1.12-9"></a>$
 
 ### Requirement
 
@@ -501,10 +499,10 @@ Maximum number of DeviceN components (8) is exceeded.
 * Test condition: `nrComponents <= 8`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * PDF Reference 1.4, Table C.1
 
-## Rule 6.1.12-10
+## Rule <a name="6.1.12-1"></a>$0
 
 ### Requirement
 
@@ -518,10 +516,10 @@ Maximum value of a CID (65,535) is exceeded.
 * Test condition: `CID <= 65535`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * PDF Reference 1.4, Table C.1
 
-## Rule 6.1.13-1
+## Rule <a name="6.1.13-1"></a>$
 
 ### Requirement
 
@@ -538,7 +536,7 @@ The explicit prohibition of the OCProperties key has the implicit effect of disa
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule 6.2.2-1
+## Rule <a name="6.2.2-1"></a>$
 
 ### Requirement
 
@@ -550,9 +548,9 @@ The embedded PDF/A Output Intent colour profile is either invalid or does not pr
 
 PDF/A standard requires that all colours shall be specified in a device-independent manner, either directly by the use of a device-independent colour space, or indirectly by the use of an OutputIntent.
 
-The BToA information in ICC profiles connects the PDF colour space with the colour space of the output device. 
+The BToA information in ICC profiles connects the PDF colour space with the colour space of the output device.
 
-The ICC specification is an evolving standard. The ICCBased color spaces supported in PDF 1.3 are based on ICC specification version 3.3; those in PDF 1.4 are based on the ICC specification ICC.1:1998-09 and its addendum ICC.1A:1999-04. 
+The ICC specification is an evolving standard. The ICCBased color spaces supported in PDF 1.3 are based on ICC specification version 3.3; those in PDF 1.4 are based on the ICC specification ICC.1:1998-09 and its addendum ICC.1A:1999-04.
 
 ### PDF Validation Technical Working Group notes
 
@@ -562,12 +560,11 @@ It is generally accepted in practice that PDF/A-1 documents may use any ICC colo
 * Test condition: `(deviceClass == "prtr" || deviceClass == "mntr") && (colorSpace == "RGB " || colorSpace == "CMYK" || colorSpace == "GRAY") && version < 3.0`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * PDF 1.4 Reference, 9.4.10
   * International Color Consortium, [ICC Specifications](http://color.org/icc_specs2.xalter)
 
-
-## Rule 6.2.2-2
+## Rule <a name="6.2.2-2"></a>$
 
 ### Requirement
 
@@ -577,7 +574,7 @@ It is generally accepted in practice that PDF/A-1 documents may use any ICC colo
 
 File's OutputIntents array contains several output intent dictionaries with non-matching destination output profiles.
 
-A PDF document may conform to several PDF standarda at the same time, such as PDF/X, PDF/E or PDF/UA. Each of these standards relies on the presense of the OutputIntent color profile and has to identify such profile via a standard-specific subtype entry (S key in the OutputIntent dictionary). For example, the value of this key is "GTS_PDFA1" for the PDF/A standards, and is "GTS_PDFX" for PDF/X standards. 
+A PDF document may conform to several PDF standarda at the same time, such as PDF/X, PDF/E or PDF/UA. Each of these standards relies on the presense of the OutputIntent color profile and has to identify such profile via a standard-specific subtype entry (S key in the OutputIntent dictionary). For example, the value of this key is "GTS_PDFA1" for the PDF/A standards, and is "GTS_PDFX" for PDF/X standards.
 
 The requirement for all output intent dictionaries to share the same output ICC profile mimimizes risks that a wrong ICC output profile is used for rendering the PDF document.
 
@@ -586,7 +583,7 @@ The requirement for all output intent dictionaries to share the same output ICC 
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule 6.2.3-1
+## Rule <a name="6.2.3-1"></a>$
 
 ### Requirement
 
@@ -594,21 +591,21 @@ The requirement for all output intent dictionaries to share the same output ICC 
 
 ### Error details
 
-The embedded ICC profile is either invalid or does not satisfy PDF 1.4 requirements. 
+The embedded ICC profile is either invalid or does not satisfy PDF 1.4 requirements.
 
 ICC profiles can be used in PDF documents to identify the source color spaces. Similar to the requirements for the ICC output profile (see Rule 6.2.2-1), the embedded ICC input profile shall satisfy a number of additional requements of PDF 1.4 Specification. These requirements cover the device calss of the ICC profile, its connection color space and the version of the ICC standard the input profile is based on.
 
 * Object type: `ICCInputProfile`
-* Test condition: `(deviceClass == "prtr" || deviceClass == "mntr" || deviceClass == "scnr" || deviceClass == "spac") && 
+* Test condition: `(deviceClass == "prtr" || deviceClass == "mntr" || deviceClass == "scnr" || deviceClass == "spac") &&
 			(colorSpace == "RGB " || colorSpace == "CMYK" || colorSpace == "GRAY" || colorSpace == "LAB ") && version < 3.0`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * PDF 1.4 Reference, 4.5.4, ICCBased Color Spaces
   * International Color Consortium, [ICC Specifications](http://color.org/icc_specs2.xalter)
   * Rule 6.2.2-1
 
-## Rule 6.2.3-2
+## Rule <a name="6.2.3-2"></a>$
 
 ### Requirement
 
@@ -618,7 +615,7 @@ ICC profiles can be used in PDF documents to identify the source color spaces. S
 
 DeviceRGB colour space is used without RGB-based output intent ICC profile.
 
-A conforming PDF/A document may use either DeviceRGB or DeviceCMYK colour spaces, but shall not use both. In an uncalibrated 
+A conforming PDF/A document may use either DeviceRGB or DeviceCMYK colour spaces, but shall not use both. In an uncalibrated
 colour space is used in a file then that file shall contain an PDF/A-1 OutputIntent specifying the output ICC profile with
 matching colour space.
 
@@ -631,7 +628,7 @@ in the conforming PDF/A document.
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule 6.2.3-3
+## Rule <a name="6.2.3-3"></a>$
 
 ### Requirement
 
@@ -641,7 +638,7 @@ in the conforming PDF/A document.
 
 DeviceCMYK colour space is used without RGB-based output intent ICC profile.
 
-A conforming PDF/A document may use either DeviceRGB or DeviceCMYK colour spaces, but shall not use both. In an uncalibrated 
+A conforming PDF/A document may use either DeviceRGB or DeviceCMYK colour spaces, but shall not use both. In an uncalibrated
 colour space is used in a file then that file shall contain an PDF/A-1 OutputIntent specifying the output ICC profile with
 matching colour space.
 
@@ -655,7 +652,7 @@ in the conforming PDF/A document.
 * Levels: A, B
 
 
-## Rule 6.2.3-4
+## Rule <a name="6.2.3-4"></a>$
 
 ### Requirement
 
@@ -689,7 +686,7 @@ black = 1.0 – gray
 * Additional references:
   * PDF 1.4 Reference, 6.2.1, 6.2.2
 
-## Rule 6.2.3-5
+## Rule <a name="6.2.3-5"></a>$
 
 ### Requirement
 
@@ -700,7 +697,7 @@ black = 1.0 – gray
 
 The N entry in the ICC profile dictionary is missing or does not match the number of components in the embedded ICC profile.
 
-PDF 1.4 References requires that the number of color components in the color space described by the ICC profile data 
+PDF 1.4 References requires that the number of color components in the color space described by the ICC profile data
 must match the number of components actually in the ICC profile. As of PDF 1.4, N must be 1, 3, or 4.
 
 A conforming reader shall render ICCBased colour spaces as specified by the ICC specification, and shall not
@@ -710,11 +707,11 @@ use the Alternate colour space specified in an ICC profile stream dictionary.
 * Test condition: `N != null && ((N == 1 && colorSpace == "GRAY") || (N == 3 && (colorSpace == "RGB " || colorSpace == "LAB ")) || (N == 4 && colorSpace == "CMYK"))`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * PDF 1.4 Reference, 4.5.4, Table 4.16
 
 
-## Rule 6.2.4-1
+## Rule <a name="6.2.4-1"></a>$
 
 ### Requirement
 
@@ -733,7 +730,7 @@ Alternate images provide a straightforward and backward-compatible way to includ
 * Additional references:
   * PDF 1.4 Reference, 4.8.4, Alternate Images
 
-## Rule 6.2.4-2
+## Rule <a name="6.2.4-2"></a>$
 
 ### Requirement
 
@@ -756,7 +753,7 @@ Similar to Rule 6.2.4-1, this mechanism is prohibited in PDF/A-compliant documen
   * PDF 1.4 Reference, 9.10.6, Open Prepress Interface (OPI)
   * Rule 6.2.4-1
 
-## Rule 6.2.4-3
+## Rule <a name="6.2.4-3"></a>$
 
 ### Requirement
 
@@ -767,7 +764,7 @@ Similar to Rule 6.2.4-1, this mechanism is prohibited in PDF/A-compliant documen
 The value of the Interpolate key in the Image dictionary is true.
 
 When the resolution of a source image is significantly lower than that of the output device, each source sample covers many device pixels. This can cause images to appear "jaggy" or "blocky." These visual artifacts can be reduced by applying
-an image interpolation algorithm during rendering. Instead of painting all pixels covered by a source sample with the same color, image interpolation attempts to produce a smooth transition between adjacent sample values. 
+an image interpolation algorithm during rendering. Instead of painting all pixels covered by a source sample with the same color, image interpolation attempts to produce a smooth transition between adjacent sample values.
 
 However, the interpolation algorithm is implementation-dependent and is not specified by PDF. Image interpolation may not always be performed for some classes of images or on some output devices. Therefore, this mechanism is not permitted in PDF/A-compliant documents.
 
@@ -778,7 +775,7 @@ However, the interpolation algorithm is implementation-dependent and is not spec
 * Additional references:
   * PDF 1.4 Reference, 4.8.4, Image interpolation
 
-## Rule 6.2.5-1
+## Rule <a name="6.2.5-1"></a>$
 
 ### Requirement
 
@@ -797,7 +794,7 @@ In earlier versions of PDF, a content stream can include PostScript language fra
 * Additional references:
   * PDF 1.4 Reference, 4.10, PostScript XObjects
 
-## Rule 6.2.6-1
+## Rule <a name="6.2.6-1"></a>$
 
 ### Requirement
 
@@ -807,7 +804,7 @@ In earlier versions of PDF, a content stream can include PostScript language fra
 
 The document contains a reference XObject (Ref key in the form XObject dictionary).
 
-Reference XObjects enable one PDF document to import content from another. The document in which the reference occurs is called the containing document; the one whose content is being imported is the target document. The target document may reside in a file external to the containing document or may be included within it as an embedded file stream. 
+Reference XObjects enable one PDF document to import content from another. The document in which the reference occurs is called the containing document; the one whose content is being imported is the target document. The target document may reside in a file external to the containing document or may be included within it as an embedded file stream.
 
 As this makes the inital PDF document depentent on the presence of external resources, this mechanism is not permitted in PDF/A-compliant documents.
 
@@ -818,7 +815,7 @@ As this makes the inital PDF document depentent on the presence of external reso
 * Additional references:
   * PDF 1.4 Reference, 4.9.3, Reference XObjects
 
-## Rule 6.2.7-1
+## Rule <a name="6.2.7-1"></a>$
 
 ### Requirement
 
@@ -839,7 +836,7 @@ with reliable and predictable rendering. See Rule 6.2.5-1 for more detail.
   * PDF 1.4 Reference, 4.10, PostScript XObjects
   * Rule 6.2.5-1
 
-## Rule 6.2.8-1
+## Rule <a name="6.2.8-1"></a>$
 
 ### Requirement
 
@@ -851,7 +848,7 @@ An ExtGState dictionary contains the TR key.
 
 In PDF, a transfer function adjusts the values of color components to compensate for nonlinear response in an output device and in the human eye. Each component of a device color space (for example, the red component of the
 DeviceRGB space) is intended to represent the perceived lightness or intensity of that color component in proportion to the component’s numeric value. Many devices do not actually behave this way, however; the purpose of a transfer function
-is to compensate for the device's actual behavior. 
+is to compensate for the device's actual behavior.
 
 As this may lead in significantly different visual appearance of PDF documents on different devices, the use of transfer functions is not permitted by PDF/A.
 
@@ -862,7 +859,7 @@ As this may lead in significantly different visual appearance of PDF documents o
 * Additional references:
   * PDF 1.4 Reference, 6.3, Transfer Functions
 
-## Rule 6.2.8-2
+## Rule <a name="6.2.8-2"></a>$
 
 ### Requirement
 
@@ -881,7 +878,7 @@ The TR2 key has the same meaning as TR key (see Rule 6.2.8-1) except that the va
 * Additional references:
   * Rule 6.2.8-1
 
-## Rule 6.2.9-1
+## Rule <a name="6.2.9-1"></a>$
 
 ### Requirement
 
@@ -894,7 +891,7 @@ A rendering intent with non-standard value is used.
 Although CIE-based color specifications are theoretically device-independent, they are subject to practical limitations in the color reproduction capabilities of the output device. Such limitations may sometimes require compromises to be
 made among various properties of a color specification when rendering colors for a given device. Specifying a rendering intent allows a PDF file to set priorities regarding which of these properties to preserve and which to sacrifice.
 
-PDF 1.4 defines four standard rendering intents, which can be specificed directly in the page content stream via the "ri" operator or attached to any image as an extra property. These standard intents have been deliberately chosen to correspond closely to those defined by the International Color Consortium (ICC), an industry organization that has developed standards for device-independent color. 
+PDF 1.4 defines four standard rendering intents, which can be specificed directly in the page content stream via the "ri" operator or attached to any image as an extra property. These standard intents have been deliberately chosen to correspond closely to those defined by the International Color Consortium (ICC), an industry organization that has developed standards for device-independent color.
 
 However, that the exact set of rendering intents supported may vary from one output device to another; a particular device may not support all possible intents, or may support additional ones beyond those listed in the table. To guarantee the predictability of PDF rendering results, non-standard rendering intents are not permitted in PDF/A-compliant documents.
 
@@ -905,7 +902,7 @@ However, that the exact set of rendering intents supported may vary from one out
 * Additional references:
   * PDF 1.4 Reference, 4.5.4, Rendering Intents
 
-## Rule 6.2.10-1
+## Rule <a name="6.2.10-1"></a>$
 
 ### Requirement
 
@@ -931,7 +928,7 @@ PDF Reference its use is implicitly prohibited by PDF/A-1 specification.
 * Additional references:
   * PDF 1.4 Specification, 3.7.1, Content Streams
 
-## Rule 6.3.2-1
+## Rule <a name="6.3.2-1"></a>$
 
 ### Requirement
 
@@ -947,13 +944,13 @@ A Font dictionary has missing or invalid Type entry
 * Test condition: `Type == "Font"`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * PDF 1.4 Reference, 5.5.1 - Table 5.8
   * PDF 1.4 Reference, 5.5.4 - Table 5.9
   * PDF 1.4 Reference, 5.6.3 - Table 5.13
   * PDF 1.4 Reference, 5.6.5 - Table 5.17
 
-## Rule 6.3.2-2
+## Rule <a name="6.3.2-2"></a>$
 
 ### Requirement
 
@@ -968,17 +965,17 @@ A Font dictionary has missing or invalid Subtype entry.
 The correct value of the Subtype entry in the font dictionary is critical for the text rendering in PDF documents.
 
 * Object type: `PDFont`
-* Test condition: `Subtype == "Type1" || Subtype == "MMType1" || Subtype == "TrueType" || Subtype == "Type3" || Subtype == "Type0" 
+* Test condition: `Subtype == "Type1" || Subtype == "MMType1" || Subtype == "TrueType" || Subtype == "Type3" || Subtype == "Type0"
 			|| Subtype == "CIDFontType0" || Subtype == "CIDFontType2"`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * PDF 1.4 Reference, 5.5.1 - Table 5.8
   * PDF 1.4 Reference, 5.5.4 - Table 5.9
   * PDF 1.4 Reference, 5.6.3 - Table 5.13
   * PDF 1.4 Reference, 5.6.5 - Table 5.17
 
-## Rule 6.3.2-3
+## Rule <a name="6.3.2-3"></a>$
 
 ### Requirement
 
@@ -998,13 +995,13 @@ For TrueType fonts the value of BaseFont is determined in one of two ways. It is
 * Test condition: `Subtype == "Type3" || fontName != null`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * PDF 1.4 Reference, 5.5.1 - Table 5.8
   * PDF 1.4 Reference, 5.5.4 - Table 5.9
   * PDF 1.4 Reference, 5.6.3 - Table 5.13
   * PDF 1.4 Reference, 5.6.5 - Table 5.17
 
-## Rule 6.3.2-4
+## Rule <a name="6.3.2-4"></a>$
 
 ### Requirement
 
@@ -1029,11 +1026,11 @@ These fonts, or their font metrics and suitable substitution fonts, are guarante
 * Test condition: `isStandard == true || FirstChar != null`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * PDF 1.4 Reference, 5.5.1 - Table 5.8
   * PDF 1.4 Reference, 5.5.4 - Table 5.9
 
-## Rule 6.3.2-5
+## Rule <a name="6.3.2-5"></a>$
 
 ### Requirement
 
@@ -1051,12 +1048,12 @@ See also Rule 6.3.2-4.
 * Test condition: `isStandard == true || LastChar != null`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * PDF 1.4 Reference, 5.5.1 - Table 5.8
   * PDF 1.4 Reference, 5.5.4 - Table 5.9
   * Rule 6.3.2-4
 
-## Rule 6.3.2-6
+## Rule <a name="6.3.2-6"></a>$
 
 ### Requirement
 
@@ -1074,12 +1071,12 @@ See also Rule 6.3.2-4.
 * Test condition: `isStandard == true || (Widths_size != null && Widths_size == LastChar - FirstChar + 1)`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * PDF 1.4 Reference, 5.5.1 - Table 5.8
   * PDF 1.4 Reference, 5.5.4 - Table 5.9
   * Rule 6.3.2-4
 
-## Rule 6.3.3-1
+## Rule <a name="6.3.3-1"></a>$
 
 ### Requirement
 
@@ -1097,10 +1094,10 @@ PDF/A-1 standard requires that the Registry and Ordering strings of the CIDSyste
 * Test condition: `areRegistryOrderingCompatible == true`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * PDF 1.4 Reference, 5.6.2
 
-## Rule 6.3.3-2
+## Rule <a name="6.3.3-2"></a>$
 
 ### Requirement
 
@@ -1119,11 +1116,11 @@ If the TrueType font program is embedded, the Type 2 CIDFont dictionary must con
 * Test condition: `Subtype != "CIDFontType2" || CIDToGIDMap != null`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * PDF 1.4 Reference, 5.6.3 - Table 5.13
 
 
-## Rule 6.3.3-3
+## Rule <a name="6.3.3-3"></a>$
 
 ### Requirement
 
@@ -1133,10 +1130,10 @@ If the TrueType font program is embedded, the Type 2 CIDFont dictionary must con
 
 A CMap is different from "Identity-H" or "Identity-V" and is not embedded.
 
-A CMap specifies the mapping from character codes to character selectors (CIDs, or character codes) in the associated CIDFont. It serves a function analogous to the Encoding dictionary for a simple font. 
+A CMap specifies the mapping from character codes to character selectors (CIDs, or character codes) in the associated CIDFont. It serves a function analogous to the Encoding dictionary for a simple font.
 
 A CMap may be specified in two ways: as a name object identifying a predefined CMap, whose definition is known to
-the viewer application, or as a stream object whose contents are an embedded CMap file. 
+the viewer application, or as a stream object whose contents are an embedded CMap file.
 
 The "Identity−H" and "Identity−V" CMaps are two predefined CMap names that can be used to refer to characters directly by their CIDs when showing a text string.
 
@@ -1144,11 +1141,11 @@ The "Identity−H" and "Identity−V" CMaps are two predefined CMap names that c
 * Test condition: `CMapName == "Identity-H" || CMapName == "Identity-V" || embeddedFile_size == 1`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * PDF 1.4 Reference, 5.6.4
 
 
-## Rule 6.3.3-4
+## Rule <a name="6.3.3-4"></a>$
 
 ### Requirement
 
@@ -1167,7 +1164,7 @@ In case of embedded CMap file, the writing mode is specified in two different pl
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule 6.3.4-1
+## Rule <a name="6.3.4-1"></a>$
 
 ### Requirement
 
@@ -1185,11 +1182,11 @@ Text rendering mode 3 specifies that glyphs are not stroked, filled or used as a
 * Test condition: `Subtype == "Type3" || Subtype == "Type0" || fontFile_size == 1`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * PDF 1.4 Reference, 5.8
 
 
-## Rule 6.3.5-1
+## Rule <a name="6.3.5-1"></a>$
 
 ### Requirement
 
@@ -1210,7 +1207,7 @@ There is no exemption from the requirements of this rule for the 14 standard Typ
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule 6.3.5-2
+## Rule <a name="6.3.5-2"></a>$
 
 ### Requirement
 
@@ -1226,10 +1223,10 @@ Font subsets are acceptable by PDF/A as long as the embedded font programs provi
 * Test condition: `fontName.search(/[A-Z]{6}\+/) != 0 || CharSet != null`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * PDF 1.4 Reference, 5.5.3
 
-## Rule 6.3.5-3
+## Rule <a name="6.3.5-3"></a>$
 
 ### Requirement
 
@@ -1247,11 +1244,11 @@ See also Rule 6.3.5-2.
 * Test condition: `fontName.search(/[A-Z]{6}\+/) != 0 || CIDSet_size == 1`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * PDF 1.4 Reference, 5.5.3
   * Rule 6.3.5-2.
 
-## Rule 6.3.6-1
+## Rule <a name="6.3.6-1"></a>$
 
 ### Requirement
 
@@ -1268,7 +1265,7 @@ This requirement is necessary to ensure predictable font rendering, regardless o
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule 6.3.7-1
+## Rule <a name="6.3.7-1"></a>$
 
 ### Requirement
 
@@ -1280,21 +1277,21 @@ A non-symbolic TrueType font has an encoding different from MacRomanEncoding or 
 
 Because some aspects of TrueType glyph selection are dependent on the viewer implementation or the operating system, PDF files that use TrueType fonts should follow certain guidelines to ensure predictable behavior across all viewer applications.
 
-This requirement makes normative the suggested guidelines described in PDF 1.4 Reference 5.5.5. 
+This requirement makes normative the suggested guidelines described in PDF 1.4 Reference 5.5.5.
 
-A Font is called non-symbolc, if its character set is the Adobe standard Latin character set (or a subset of it) and 
+A Font is called non-symbolc, if its character set is the Adobe standard Latin character set (or a subset of it) and
 it uses the standard names for those characters. The characters in this character set are given in PDF 1.4 Reference, Section D.1, "Latin Character Set and Encodings."
 
 * Object type: `PDTrueTypeFont`
 * Test condition: `isSymbolic == true || (Encoding == "MacRomanEncoding" || Encoding == "WinAnsiEncoding")`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * ISO19005-1:2005/Cor.2:2011, 6.3.7
   * PDF 1.4 Reference, 5.5.5.
   * PDF 1.4 Reference, Section D.1, "Latin Character Set and Encodings."
 
-## Rule 6.3.7-2
+## Rule <a name="6.3.7-2"></a>$
 
 ### Requirement
 
@@ -1310,13 +1307,13 @@ A Font is called symbolic if it contains characters outside the Adobe standard L
 * Test condition: `isSymbolic == false || Encoding == null`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * ISO19005-1:2005/Cor.2:2011, 6.3.7
   * PDF 1.4 Reference, 5.5.5
   * PDF 1.4 Reference, Section D.1, "Latin Character Set and Encodings."
   * Rule 6.3.7-1
 
-## Rule 6.3.7-3
+## Rule <a name="6.3.7-3"></a>$
 
 ### Requirement
 
@@ -1335,13 +1332,13 @@ A Font is called symbolic if it contains characters outside the Adobe standard L
 * Test condition: `isSymbolic == false || nrCmaps == 1`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * ISO19005-1:2005/Cor.2:2011, 6.3.7
   * PDF 1.4 Reference, 5.5.5
   * PDF 1.4 Reference, Section D.1, "Latin Character Set and Encodings."
   * Rule 6.3.7-2
 
-## Rule 6.4-1
+## Rule <a name="6.4-1"></a>6.4-1
 
 ### Requirement
 
@@ -1353,7 +1350,7 @@ An ExtGState contains SMask key with a value other than None.
 
 The SMask key in an ExtGState dictionary defines the soft mask, which specifies the mask shape or mask opacity values to be used in the PDF transparent imaging model.
 
-This provision anlong with Rules 6.4-2 to 6.4-6 prohibits the use of transparency within a conforming PDF/A-1 document.
+This provision, along with Rules 6.4-2 to 6.4-6, prohibits the use of transparency within a conforming PDF/A-1 document.
 
 * Object type: `PDExtGState`
 * Test condition: `SMask == null || SMask == "None"`
@@ -1362,7 +1359,7 @@ This provision anlong with Rules 6.4-2 to 6.4-6 prohibits the use of transparenc
 * Additional references:
   * PDF 1.4 Reference, 7.2.6, 7.5.4
 
-## Rule 6.4-2
+## Rule <a name="6.4-2"></a>6.4-2
 
 ### Requirement
 
@@ -1374,16 +1371,16 @@ An XObject contains an SMask key.
 
 The SMask key in XObject dictionaries specifies a subsidiary image XObject defining a soft-mask image to be used as a source of mask shape or mask opacity values in the PDF transparent imaging model.
 
-This provision anlong with Rules 6.4-1 and 6.4.3 to 6.4-6 prohibits the use of transparency within a conforming PDF/A-1 document.
+This provision, along with Rules 6.4-1 and 6.4-3 to 6.4-6, prohibits the use of transparency within a conforming PDF/A-1 document.
 
 * Object type: `PDXObject`
 * Test condition: `SMask_size == 0`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * ISO19005-1:2005/Cor.2:2011, 6.4
 
-## Rule 6.4-3
+## Rule <a name="6.4-3"></a>6.4-3
 
 ### Requirement
 
@@ -1397,19 +1394,19 @@ A transparency group is present in a form XObject or page dictionary.
 
 A group XObject is a special type of form XObject that can be used to group graphical elements together as a unit for various purposes. It is distinguished by the presence of the optional Group entry in the form dictionary. The value of this entry is a subsidiary group attributes dictionary describing the properties of the group.
 
-A transparency group XObject is defined as a group whole S (subtype) key has value Transparency. It represents a
+A transparency group XObject is defined as a group whose S (subtype) key has value Transparency. It represents a
 transparency group for use in the PDF transparent imaging model.
 
-This provision anlong with Rules 6.4-1, 6.4-2 and 6.4.4 to 6.4-6 prohibits the use of transparency within a conforming PDF/A-1 document.
+This provision, along with Rules 6.4-1, 6.4-2, and 6.4-4 to 6.4-6, prohibits the use of transparency within a conforming PDF/A-1 document.
 
 * Object type: `PDGroup`
 * Test condition: `S != "Transparency"`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * ISO19005-1:2005/Cor.2:2011, 6.4
 
-## Rule 6.4-4
+## Rule <a name="6.4-4"></a>6.4-4
 
 ### Requirement
 
@@ -1423,7 +1420,7 @@ The BM key in the ExtGState dictionary specifies the current blend mode to be us
 
 The "Normal" blend mode selects the source color, ignoring the backdrop and, thus, corresponding to the traditional non-transparent imaging model. An additional standard blend mode, "Compatible", is a vestige of an earlier design and is no longer needed, but is still recognized for the sake of compatibility; its effect is equivalent to that of the "Normal" blend mode.
 
-This provision anlong with Rules 6.4-1 to 6.4-3, 6.4.5 and 6.4-6 prohibits the use of transparency within a conforming PDF/A-1 document.
+This provision, along with Rules 6.4-1 to 6.4-3, 6.4-5, and 6.4-6, prohibits the use of transparency within a conforming PDF/A-1 document.
 
 * Object type: `PDExtGState`
 * Test condition: `BM == null || BM == "Normal" || BM == "Compatible"`
@@ -1432,7 +1429,7 @@ This provision anlong with Rules 6.4-1 to 6.4-3, 6.4.5 and 6.4-6 prohibits the u
 * Additional references:
   * PDF 1.4 Reference, 7.2.4, 7.5.2
 
-## Rule 6.4-5
+## Rule <a name="6.4-5"></a>6.4-5
 
 ### Requirement
 
@@ -1444,7 +1441,7 @@ An ExtGState dictionary contains the CA key (stroke alpha) with a value other th
 
 The CA key defines the current stroking alpha constant, specifying the constant shape or constant opacity value to be used for stroking operations in the PDF transparent imaging model.
 
-This provision anlong with Rules 6.4-1 to 6.4-4 and 6.4-6 prohibits the use of transparency within a conforming PDF/A-1 document.
+This provision, along with Rules 6.4-1 to 6.4-4 and 6.4-6, prohibits the use of transparency within a conforming PDF/A-1 document.
 
 * Object type: `PDExtGState`
 * Test condition: `CA == null || CA - 1.0 < 0.000001 && CA - 1.0 > -0.000001`
@@ -1453,7 +1450,7 @@ This provision anlong with Rules 6.4-1 to 6.4-4 and 6.4-6 prohibits the use of t
 * Additional references:
   * PDF 1.4 Reference, 7.5.3
 
-## Rule 6.4-6
+## Rule <a name="6.4-6"></a>6.4-6
 
 ### Requirement
 
@@ -1465,7 +1462,7 @@ An ExtGState dictionary contains the ca key (fill alpha) with a value other than
 
 The ca key defines the current non-stroking alpha constant, specifying the constant shape or constant opacity value to be used for all non-stroking operations (such as path fill or image drawing) in the PDF transparent imaging model.
 
-This provision anlong with Rules 6.4-1 to 6.4-5 prohibits the use of transparency within a conforming PDF/A-1 document.
+This provision, along with Rules 6.4-1 to 6.4-5, prohibits the use of transparency within a conforming PDF/A-1 document.
 
 * Object type: `PDExtGState`
 * Test condition: `ca == null || ca - 1.0 < 0.000001 && ca - 1.0 > -0.000001`
@@ -1474,7 +1471,7 @@ This provision anlong with Rules 6.4-1 to 6.4-5 prohibits the use of transparenc
 * Additional references:
   * PDF 1.4 Reference, 7.5.3
 
-## Rule 6.5.2-1
+## Rule <a name="6.5.2-1"></a>$
 
 ### Requirement
 
@@ -1489,16 +1486,16 @@ An annotation associates an object such as a note, sound, or movie with a locati
 Support for multimedia content is outside the scope of PDF/A-1, and, thus, annotations of type "Sound" and "Movie" are not permitted. Annotations of type "FileAttachment" are also not permitted, as PDF/A-1 does not allow any file attachments.
 
 * Object type: `PDAnnot`
-* Test condition: `Subtype == "Text" || Subtype == "Link" || Subtype == "FreeText" || Subtype == "Line" || 
+* Test condition: `Subtype == "Text" || Subtype == "Link" || Subtype == "FreeText" || Subtype == "Line" ||
 			Subtype == "Square" || Subtype == "Circle" || Subtype == "Highlight" || Subtype == "Underline" ||
 			Subtype == "Squiggly" || Subtype == "StrikeOut" || Subtype == "Stamp" || Subtype == "Ink" ||
 			Subtype == "Popup" || Subtype == "Widget" || Subtype == "PrinterMark" || Subtype == "TrapNet"`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * PDF 1.4 Reference, 8.4.5
 
-## Rule 6.5.3-1
+## Rule <a name="6.5.3-1"></a>$
 
 ### Requirement
 
@@ -1518,11 +1515,11 @@ The CA key specifies the constant opacity value to be used in painting the annot
   * PDF 1.4 Reference, 7.2.6
   * Rules 6.4-5, 6.4-6
 
-## Rule 6.5.3-2
+## Rule <a name="6.5.3-2"></a>$
 
 ### Requirement
 
->*An annotation dictionary shall contain the F key. The F key’s Print flag bit shall be set to 1 and its Hidden, Invisible and NoView flag bits shall be set to 0.*
+>*An annotation dictionary shall contain the F key. The F key's Print flag bit shall be set to 1 and its Hidden, Invisible and NoView flag bits shall be set to 0.*
 
 ### Error details
 
@@ -1545,7 +1542,7 @@ The restrictions on annotation flags prevent the use of annotations that are hid
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule 6.5.3-3
+## Rule <a name="6.5.3-3"></a>$
 
 ### Requirement
 
@@ -1563,7 +1560,7 @@ appearance stream are indirectly defined by means of the PDF/A-1 OutputIntent. S
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule 6.5.3-4
+## Rule <a name="6.5.3-4"></a>$
 
 ### Requirement
 
@@ -1579,18 +1576,18 @@ In accordance with the PDF 1.4 Specification, 8.4.4, a Button form field needs t
 
 ### PDF Validation Technical Working Group notes
 
-Even if a Button form field has only one state, it is still required to have an appearance subdictionary with a single key as its default (and only) state. 
+Even if a Button form field has only one state, it is still required to have an appearance subdictionary with a single key as its default (and only) state.
 
 * Object type: `PDAnnot`
 * Test condition: `AP == null || ( AP == "N" && ( ((Subtype != "Widget" || FT != "Btn") && N_type == "Stream")
 			|| (Subtype == "Widget" && FT == "Btn" && N_type == "Dict") ) )`
 * Specification: ISO 19005-1:2005/Corr.2:2011
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * ISO19005-1/Cor.2:2011, 6.5.3
   * PDF 1.4 Reference, 8.4.4
 
-## Rule 6.6.1-1
+## Rule <a name="6.6.1-1"></a>$
 
 ### Requirement
 
@@ -1606,11 +1603,11 @@ Support for multimedia content is outside the scope of PDF/A-1. The ResetForm ac
 * Test condition: `S == "GoTo" || S == "GoToR" || S == "Thread" || S == "URI" || S == "Named" || S == "SubmitForm"`
 * Specification: ISO 19005-1:2005/Corr.2:2011
 * Levels: A, B
-* Additional references: 
-  * ISO19005-1:2005/Cor.2:2011, 6.6.1
+* Additional references:
+  * ISO 19005-1:2005/Cor.2:2011, 6.6.1
 
 
-## Rule 6.6.1-2
+## Rule <a name="6.6.1-2"></a>$
 
 ### Requirement
 
@@ -1627,10 +1624,10 @@ any document using them will not be portable.
 * Test condition: `N == "NextPage" || N == "PrevPage" || N == "FirstPage" || N == "LastPage"`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * PDF 1.4 Reference, 8.5.3 - Named Actions - Table 8.45
 
-## Rule 6.6.1-3
+## Rule <a name="6.6.1-3"></a>$
 
 ### Requirement
 
@@ -1647,7 +1644,7 @@ Such actions may modify the values of the forms and alter the visual representat
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule 6.6.2-1
+## Rule <a name="6.6.2-1"></a>$
 
 ### Requirement
 
@@ -1662,7 +1659,7 @@ A Widget annotation contains an additional-actions dictionary (AA entry).
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule 6.6.2-2
+## Rule <a name="6.6.2-2"></a>$
 
 ### Requirement
 
@@ -1681,7 +1678,7 @@ preservation efforts.
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule 6.6.2-3
+## Rule <a name="6.6.2-3"></a>$
 
 ### Requirement
 
@@ -1700,7 +1697,7 @@ preservation efforts.
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule 6.7.2-1
+## Rule <a name="6.7.2-1"></a>$
 
 ### Requirement
 
@@ -1721,7 +1718,7 @@ A metadata stream can be attached to a document through the Metadata entry in th
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule 6.7.2-2
+## Rule <a name="6.7.2-2"></a>$
 
 ### Requirement
 
@@ -1734,20 +1731,26 @@ The metadata object stream dictionary contains the Filter key.
 The explicit prohibition of the Filter key has the implicit effect of preserving the contents of XMP metadata
 streams as plain text that is visible to non-PDF aware tools.
 
+### PDF Validation Technical Working Group notes
+
+All requirements in the PDF/A-1 standard pertaining to XMP metadata address only the document level XMP package (the /Metadata entry in the document Catalog), and font metadata. But the ISO 19005-1 clause 6.7.2 "Metadata object stream dictionaries shall not contain the Filter key" explicitly requires all XMP Metadata streams in PDF/A-1 documents to be uncompressed, that is contain no /Filter key.
+
+However, all other non-document Metadata streams may not conform to XMP or even to XML format.
+
 * Object type: `PDMetadata`
 * Test condition: `Filter == null`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule 6.7.3-1
+## Rule <a name="6.7.3-1"></a>$
 
 ### Requirement
 
->*If a document information dictionary does appear at a document, then all of its entries that have analogous properties in predefined XMP schemas, shall also be embedded in the file in XMP form with equivalent values.*
+>*If [a document information dictionary appears in a document], then all of its entries that have analogous properties in predefined XMP schemas … shall also be embedded in the file in XMP form with equivalent values.*
 
 ### Error details
 
-Some of document information dictionary entries' that have analogous properties in predefined XMP schemas do not embedded or have not equivalent values in the file in XMP form.
+Some of the document information dictionary entries that have analogous properties in predefined XMP schemas are not embedded, or do not have equivalent values, in XMP form.
 
 The explicit requirement for equivalence between the values of document information dictionary entries and
 their analogous XMP properties has the implicit effect of providing unambiguous interpretation of that property's value.
@@ -1756,11 +1759,10 @@ their analogous XMP properties has the implicit effect of providing unambiguous 
 * Test condition: `doesInfoMatchXMP`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * ISO 19005-1:2005/Cor.1:2007/Cor.2:2011, 6.7.3
 
-
-## Rule 6.7.5-1
+## Rule <a name="6.7.5-1"></a>$
 
 ### Requirement
 
@@ -1777,7 +1779,7 @@ Both the bytes and encoding attributes are deprecated in XMP Specification.
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule 6.7.5-2
+## Rule <a name="6.7.5-2"></a>$
 
 ### Requirement
 
@@ -1794,51 +1796,50 @@ Both the bytes and encoding attributes are deprecated in XMP Specification.
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule 6.7.8-1
+## Rule <a name="6.7.8-1"></a>$
 
 ### Requirement
 
->*Extension schema descriptions shall be specified using the PDF/A extension schema description schema defined in this clause.*
+>*[Extension schema] descriptions shall be specified using the PDF/A extension schema container schema defined in this clause.*
 
 ### Error details
 
 An extension schema object contains fields not defined by the specification.
 
-An extension schema is any XMP schema that is not defined in XMP Specification. All objects of the extension shcemas and their fields are specified in ISO 19005-1:2005, 6.7.8 and its technical corrigenda. 
+An extension schema is any XMP schema that is not defined in the XMP Specification. All objects of the extension schemas and their fields are specified in ISO 19005-1:2005, 6.7.8 and its technical corrigenda.
 
 * Object type: `ExtensionSchemaObject`
 * Test condition: `containsUndefinedFields == false`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * ISO 19005-1:2005/Cor.1:2007, 6.7.8
 
-
-## Rule 6.7.8-2
+## Rule <a name="6.7.8-2"></a>$
 
 ### Requirement
 
->*The extension schema container schema uses the namespace URI "http://www.aiim.org/pdfa/ns/extension/". The required schema namespace prefix is pdfaExtension. pdfaExtension:schemas - Bag Schema - Description of extension schemas.*
+>*The extension schema container schema … uses the namespace URI "http://www.aiim.org/pdfa/ns/extension/". The required schema namespace prefix is pdfaExtension. [The container schema includes the following property: pdfaExtension:schemas (Bag).]*
 
 ### Error details
 
 Invalid syntax of the extension schema container.
 
-Extension schema container srotes a sequence of extension schemas defined in the XMP package.
+Extension schema container stores a sequence of extension schemas defined in the XMP package.
 
 * Object type: `ExtensionSchemasContainer`
 * Test condition: `isValidBag == true && prefix == "pdfaExtension"`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * ISO 19005-1:2005/Cor.1:2007, 6.7.8
 
 
-## Rule 6.7.8-3
+## Rule <a name="6.7.8-3"></a>$
 
 ### Requirement
 
->*The Schema type is an XMP structure containing the definition of an extension schema. The field namespace URI is "http://www.aiim.org/pdfa/ns/schema#". The required field namespace prefix is pdfaSchema. The Schema type includes the following fields: pdfaSchema:schema (Text), pdfaSchema:namespaceURI (URI), pdfaSchema:prefix (Text), pdfaSchema:property (Seq Property), pdfaSchema:valueType (Seq ValueType).*
+>*The Schema type … is an XMP structure containing the definition of an extension schema. The field namespace URI is "http://www.aiim.org/pdfa/ns/schema#". The required field namespace prefix is pdfaSchema. [The Schema type includes the following fields: pdfaSchema:schema (Text), pdfaSchema:namespaceURI (URI), pdfaSchema:prefix (Text), pdfaSchema:property (Seq Property), pdfaSchema:valueType (Seq ValueType).]*
 
 
 ### Error details
@@ -1846,78 +1847,78 @@ Extension schema container srotes a sequence of extension schemas defined in the
 Invalid Extension Schema definition.
 
 * Object type: `ExtensionSchemaDefinition`
-* Test condition: `(isSchemaValidText == true && (schemaPrefix == null || schemaPrefix == "pdfaSchema") ) && 
+* Test condition: `(isSchemaValidText == true && (schemaPrefix == null || schemaPrefix == "pdfaSchema") ) &&
 			(isNamespaceURIValidURI == true && ( (ExtensionSchemaProperties_size == 0 && namespaceURIPrefix == null) || namespaceURIPrefix == "pdfaSchema" ) ) &&
 			(isPrefixValidText == true && (prefixPrefix == null || prefixPrefix == "pdfaSchema") ) &&
 			(isPropertyValidSeq == true && (propertyPrefix == null || propertyPrefix == "pdfaSchema") ) &&
 			(isValueTypeValidSeq == true && (valueTypePrefix == null || valueTypePrefix == "pdfaSchema") )`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * ISO 19005-1:2005/Cor.1:2007, 6.7.8
 
 
-## Rule 6.7.8-4
+## Rule <a name="6.7.8-4"></a>$
 
 ### Requirement
 
->*The Property type defined is an XMP structure containing the definition of a schema property. The field namespace URI is "http://www.aiim.org/pdfa/ns/property#". The required field namespace prefix is pdfaProperty. The Property type includes the following fields: pdfaProperty:name (Text), pdfaProperty:valueType (Open Choice of Text), pdfaProperty:category (Closed Choice of Text), pdfaProperty:description (Text).*
+>*The Property type … is an XMP structure containing the description of a schema property. The field namespace URI is "http://www.aiim.org/pdfa/ns/property#". The required field namespace prefix is pdfaProperty. [The Property type includes the following fields: pdfaProperty:name (Text), pdfaProperty:valueType (Open Choice of Text), pdfaProperty:category (Closed Choice of Text), pdfaProperty:description (Text).]*
 
 ### Error details
 
 Invalid Property type definition in an extension schema.
 
 * Object type: `ExtensionSchemaProperty`
-* Test condition: `(isNameValidText == true && namePrefix == "pdfaProperty" ) && 
+* Test condition: `(isNameValidText == true && namePrefix == "pdfaProperty" ) &&
 			(isValueTypeValidText == true && isValueTypeDefined == true && valueTypePrefix == "pdfaProperty" ) &&
 			(isCategoryValidText == true && (category == "external" || category == "internal") && categoryPrefix == "pdfaProperty") &&
 			(isDescriptionValidText == true && descriptionPrefix == "pdfaProperty" )`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * ISO 19005-1:2005/Cor.1:2007, 6.7.8
 
-## Rule 6.7.8-5
+## Rule <a name="6.7.8-5"></a>$
 
 ### Requirement
 
->*The ValueType type is an XMP structure containing the definition of all property value types used by embedded extension schemas that are not defined in the XMP Specification. The field namespace URI is "http://www.aiim.org/pdfa/ns/type#". The required field namespace prefix is pdfaType. The ValueType type includes the following fields: pdfaType:type (Text), pdfaType:namespaceURI (URI), pdfaType:prefix (Text), pdfaType:description (Text), pdfaType:field (Seq Field).*
+>*The ValueType type … is an XMP structure containing the definition of all property value types used by embedded extension schemas that are not defined in XMP Specification. The field namespace URI is "http://www.aiim.org/pdfa/ns/type#". The required field namespace prefix is pdfaType. [The ValueType type includes the following fields: pdfaType:type (Text), pdfaType:namespaceURI (URI), pdfaType:prefix (Text), pdfaType:description (Text), pdfaType:field (Seq Field).]*
 
 ### Error details
 
 Invalid ValueType type definition in an extension schema.
 
 * Object type: `ExtensionSchemaValueType`
-* Test condition: `(isTypeValidText == true && typePrefix == "pdfaType" ) && 
+* Test condition: `(isTypeValidText == true && typePrefix == "pdfaType" ) &&
 			(isNamespaceURIValidURI == true && namespaceURIPrefix == "pdfaType" ) &&
 			(isPrefixValidText == true && (prefixPrefix == null || prefixPrefix == "pdfaType") ) &&
 			(isDescriptionValidText == true && descriptionPrefix == "pdfaType" ) &&
 			(isFieldValidSeq == true && fieldPrefix == "pdfaType")`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * ISO 19005-1:2005/Cor.1:2007, 6.7.8
 
-## Rule 6.7.8-6
+## Rule <a name="6.7.8-6"></a>$
 
 ### Requirement
 
->*The Field type defined in Table 6 is an XMP structure containing the definition of a property value type field. The field namespace URI is "http://www.aiim.org/pdfa/ns/field#". The required field namespace prefix is pdfaField. The Field type contains the following fields: pdfaField:name (Text), pdfaField:valueType (Open Choice of Text), pdfaField:description (Text).*
+>*The Field type … is an XMP structure containing the definition of a property value type field. The field namespace URI is "http://www.aiim.org/pdfa/ns/field#". The required field namespace prefix is pdfaField. [The Field type contains the following fields: pdfaField:name (Text), pdfaField:valueType (Open Choice of Text), pdfaField:description (Text).]*
 
 ### Error details
 
 Invalid Field type definition in an extension schema.
 
 * Object type: `ExtensionSchemaField`
-* Test condition: `(isNameValidText == true && namePrefix == "pdfaField" ) && 
+* Test condition: `(isNameValidText == true && namePrefix == "pdfaField" ) &&
 			(isValueTypeValidText == true && isValueTypeDefined == true && valueTypePrefix == "pdfaField" ) &&
 			(isDescriptionValidText == true && descriptionPrefix == "pdfaField" )`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
+* Additional references:
   * ISO 19005-1:2005/Cor.1:2007, 6.7.8
 
-## Rule 6.7.9-1
+## Rule <a name="6.7.9-1"></a>$
 
 ### Requirement
 
@@ -1931,11 +1932,11 @@ The serialization of the metadata stream does not conform to XMP Specification.
 * Test condition: `isSerializationValid`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
-* Additional references: 
-  * XMP Specification January 2004, 
+* Additional references:
+  * XMP Specification January 2004,
 
 
-## Rule 6.7.9-2
+## Rule <a name="6.7.9-2"></a>$
 
 ### Requirement
 
@@ -1950,7 +1951,7 @@ A property is either not defined in XMP Specification, or is not defined in any 
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule 6.7.11-1
+## Rule <a name="6.7.11-1"></a>$
 
 ### Requirement
 
@@ -1965,7 +1966,7 @@ The document metadata stream does not contain a PDF/A Identification Schema.
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule 6.7.11-2
+## Rule <a name="6.7.11-2"></a>$
 
 ### Requirement
 
@@ -1980,7 +1981,7 @@ The "part" property of the PDF/A Identification Schema is not equal to 1 for a P
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule 6.7.11-3
+## Rule <a name="6.7.11-3"></a>$
 
 ### Requirement
 
@@ -1988,11 +1989,11 @@ The "part" property of the PDF/A Identification Schema is not equal to 1 for a P
 
 ### Error details
 
-The "conformance" property of the PDF/A Identification Schema is not equal to "A" for PDF/A-1a conforming file.
+The "conformance" property of the PDF/A Identification Schema is not equal to "A" for a PDF/A-1a conforming file.
 
-The "conformance" property of the PDF/A Identification Schema is not equal to "A" or "B" for PDF/A-1b conforming file.
+The "conformance" property of the PDF/A Identification Schema is not equal to "A" or "B" for a PDF/A-1b conforming file.
 
-As Level B requirements for a strict subset of Level A requirements, validation for Level B conformance accepts value of "conformance" property also to be "A".
+As Level B requirements form a strict subset of Level A requirements, validation for Level B conformance also accepts the "conformance" property having a value of "A".
 
 * PDF/A-1a validation:
   * Object type: `PDFAIdentification`
@@ -2006,11 +2007,11 @@ As Level B requirements for a strict subset of Level A requirements, validation 
   * Specification: ISO 19005-1:2005
   * Levels: B
 
-## Rule 6.7.11-4
+## Rule <a name="6.7.11-4"></a>$
 
 ### Requirement
 
->*The PDF/A Identification schema defined in Table 8 uses the namespace URI "http://www.aiim.org/pdfa/ns/id/". The required schema namespace prefix is pdfaid. It contains the following fields: pdfaid:part (Open Choice of Integer), pdfaid:amd (Open Choice of Text), pdfaid:conformance (Open Choice of Text).*
+>*The [PDF/A] Identification schema … uses the namespace URI "http://www.aiim.org/pdfa/ns/id/". The required schema namespace prefix is pdfaid. [The Identification schema contains the following properties: pdfaid:part (Open Choice of Integer), pdfaid:amd (Open Choice of Text), pdfaid:conformance (Open Choice of Text).]*
 
 ### Error details
 
@@ -2022,7 +2023,7 @@ A property of the PDF/A Identification Schema has an invalid namespace prefix.
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule 6.8.2-1
+## Rule <a name="6.8.2-1"></a>$
 
 ### Requirement
 
@@ -2038,11 +2039,10 @@ This setting indicates that the file conforms to the Tagged PDF conventions.
 * Test condition: `Marked == true`
 * Specification: ISO 19005-1:2005
 * Levels: A
-* Additional references: 
+* Additional references:
   * PDF 1.4 Reference, 9.7.1
 
-
-## Rule 6.8.3-1
+## Rule <a name="6.8.3-1"></a>$
 
 ### Requirement
 
@@ -2058,14 +2058,12 @@ The logical structure of a document is described by a hierarchy of objects calle
 * Test condition: `StructTreeRoot_size == 1`
 * Specification: ISO 19005-1:2005
 * Levels: A
-* Additional references: 
+* Additional references:
   * PDF 1.4 Reference, 9.6.1
 
-
-## Rule 6.8.3-2
+## Rule <a name="6.8.3-2"></a>$
 
 ### Requirement
-
 
 >*All non-standard structure types shall be mapped to the nearest functionally equivalent standard type, as defined in PDF Reference 9.7.4, in the role map dictionary of the structure tree root.*
 
@@ -2077,17 +2075,14 @@ Non-standard structure type is not mapped to a standard type.
 * Test condition: `standardType != null`
 * Specification: ISO 19005-1:2005
 * Levels: A
-* Additional references: 
+* Additional references:
   * PDF 1.4 Reference, 9.7.4
 
-
-## Rule 6.9-1
+## Rule <a name="6.9-1"></a>6.9-1
 
 ### Requirement
 
-
 >*The NeedAppearances flag of the interactive form dictionary shall either not be present or shall be false.*
-
 
 ### Error details
 
@@ -2102,15 +2097,15 @@ Every form field shall have an appearance dictionary associated with the field's
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule 6.9-2
+## Rule <a name="6.9-2"></a>6.9-2
 
 ### Requirement
 
->*A Widget annotation dictionary or Field dictionary shall not contain the A or AA keys.*
+>*A Widget annotation dictionary … shall not contain the A or AA keys.*
 
 ### Error details
 
-A Widget annotation contains either A or AA entry.
+A Widget annotation contains either the A or AA entry.
 
 These entries define arbitrary JavaScript actions that can alter values of interactive forms and their visual appearance.
 
@@ -2119,15 +2114,15 @@ These entries define arbitrary JavaScript actions that can alter values of inter
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule 6.9-3
+## Rule <a name="6.9-3"></a>6.9-3
 
 ### Requirement
 
->*A Widget annotation dictionary or Field dictionary shall not contain the A or AA keys.*
+>*[A] Field dictionary shall not contain the A or AA keys.*
 
 ### Error details
 
-A Form field dictionary contains the AA entry. 
+A Form field dictionary contains the AA entry.
 
 This entry define arbitrary JavaScript actions that can alter values of interactive forms and their visual appearance.
 
@@ -2136,7 +2131,7 @@ This entry define arbitrary JavaScript actions that can alter values of interact
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule 6.9-4
+## Rule <a name="6.9-4"></a>6.9-4
 
 ### Requirement
 
@@ -2146,7 +2141,7 @@ This entry define arbitrary JavaScript actions that can alter values of interact
 
 A form field does not have an appearance dictionary associated with the field's data.
 
-A conforming reader shall render the field according to the appearance dictionary without regard to the form data. Requiring an appearance dictionary 
+A conforming reader shall render the field according to the appearance dictionary without regard to the form data. Requiring an appearance dictionary
 ensures the reliable rendering of the form.
 
 Interactive forms use widget annotations to represent the appearance of fields and to manage user interactions.
