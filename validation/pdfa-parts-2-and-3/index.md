@@ -3,11 +3,10 @@ layout: page
 title: PDF/A-2 and PDF/A-3 validation rules
 ---
 
-PDF/A-2 and PDF/A-3 validation rules
----------------
+{{ page.title }}
+================
 
-
-## Rule 6.1.2-1
+## Rule <a name="6.1.2-1"></a>6.1.2-1
 
 ### Requirement
 
@@ -22,7 +21,7 @@ File header does not start at byte offset 0 or does not conform to Rule 6.1.2-1.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.1.2-2
+## Rule <a name="6.1.2-2"></a>6.1.2-2
 
 ### Requirement
 
@@ -42,7 +41,7 @@ The presence of encoded character byte values greater than decimal 127 near the 
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.1.3-1
+## Rule <a name="6.1.3-1"></a>6.1.3-1
 
 ### Requirement
 
@@ -61,11 +60,11 @@ last updated. When a file is first written, both identifiers are set to the same
 * Test condition: `lastID != null && lastID.length() > 0`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
-* Additional references: 
+* Additional references:
   * ISO32000-1:2008, 14.4
 
 
-## Rule 6.1.3-2
+## Rule <a name="6.1.3-2"></a>6.1.3-2
 
 ### Requirement
 
@@ -83,7 +82,7 @@ access permissions.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.1.3-3
+## Rule <a name="6.1.3-3"></a>6.1.3-3
 
 ### Requirement
 
@@ -93,17 +92,17 @@ access permissions.
 
 Data is present after the last end-of-file marker.
 
-The trailer of a PDF file enables an application reading the file to quickly find the cross-reference table and certain special objects. Applications should read a PDF file from its end. The last line of the file contains only the end-of-file marker, %%EOF. Some PDF viewers require only that the %%EOF marker appear somewhere within the last 1024 bytes of the file. But having any data after %%EOF marker introduces risks that the PDF document might not be processed correctly. 
+The trailer of a PDF file enables an application reading the file to quickly find the cross-reference table and certain special objects. Applications should read a PDF file from its end. The last line of the file contains only the end-of-file marker, %%EOF. Some PDF viewers require only that the %%EOF marker appear somewhere within the last 1024 bytes of the file. But having any data after %%EOF marker introduces risks that the PDF document might not be processed correctly.
 
 * Object type: `CosDocument`
 * Test condition: `postEOFDataSize == 0`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
-* Additional references: 
+* Additional references:
   * ISO32000-1:2008, 7.5.5
 
 
-## Rule 6.1.4-2
+## Rule <a name="6.1.4-2"></a>6.1.4-2
 
 ### Requirement
 
@@ -115,14 +114,14 @@ Spacings after the 'xref' keyword in the cross reference table do conform to Rul
 
 The cross-reference table contains information that permits random access to indirect objects within the file, so that the entire file need not be read to locate any particular object. The table contains a one-line entry for each indirect object, specifying the location of that object within the body of the file.
 
-The cross-reference table is the only part of a PDF file with a fixed format; this permits entries in the table to be accessed randomly. Any variations in this format, including unnecessary EOL markers may result in incorrect parsing of the cross-reference table and, thus, errors in reading the PDF document. 
+The cross-reference table is the only part of a PDF file with a fixed format; this permits entries in the table to be accessed randomly. Any variations in this format, including unnecessary EOL markers may result in incorrect parsing of the cross-reference table and, thus, errors in reading the PDF document.
 
 * Object type: `CosXRef`
 * Test condition: `xrefEOLMarkersComplyPDFA`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.1.6-1
+## Rule <a name="6.1.6-1"></a>6.1.6-1
 
 ### Requirement
 
@@ -144,7 +143,7 @@ Each pair of hexadecimal digits defines one byte of the string. White-space char
 
 White-space characters are defined as NULL (00h), TAB (09h), LINE FEED (0Ah), FORM FEED (0Ch), CARRIGE RETURN (0Dh), SPACE (20h). They may appear within hexadecimal strings for formatting purposes:
 
-`<4E6F 7620 7368 6D6F` 
+`<4E6F 7620 7368 6D6F`
 ` 7A20 6B61 2070 6F70>`
 
 * Object type: `CosString`
@@ -152,7 +151,7 @@ White-space characters are defined as NULL (00h), TAB (09h), LINE FEED (0Ah), FO
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.1.6-2
+## Rule <a name="6.1.6-2"></a>6.1.6-2
 
 ### Requirement
 
@@ -169,7 +168,7 @@ Hexadecimal string contains non-white-space characters outside the range 0 to 9,
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.1.7-1
+## Rule <a name="6.1.7-1"></a>6.1.7-1
 
 ### Requirement
 
@@ -188,7 +187,7 @@ Every stream dictionary has a Length entry that indicates how many bytes of the 
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.1.7-2
+## Rule <a name="6.1.7-2"></a>6.1.7-2
 
 ### Requirement
 
@@ -206,7 +205,7 @@ These requirements remove potential ambiguity regarding the ending of stream con
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.1.7-3
+## Rule <a name="6.1.7-3"></a>6.1.7-3
 
 ### Requirement
 
@@ -223,7 +222,7 @@ These keys are used to point to document content external to the file. The expli
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.1.7-4
+## Rule <a name="6.1.7-4"></a>6.1.7-4
 
 ### Requirement
 
@@ -247,7 +246,7 @@ The use of the LZW compression algorithm has been subject to intellectual proper
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.1.8-1
+## Rule <a name="6.1.8-1"></a>6.1.8-1
 
 ### Requirement
 
@@ -258,7 +257,7 @@ The use of the LZW compression algorithm has been subject to intellectual proper
 
 The name object does not represent a correct Utf8 byte sequence.
 
-As stated above, name objects shall be treated as atomic within a PDF file. Ordinarily, the bytes making up the name are never treated as text to be presented to a human user or to an application external to a conforming reader. However, occasionally the need arises to treat a name object as text, such as one that represents a font name, a colorant name in a separation or DeviceN colour space, or a structure type. 
+As stated above, name objects shall be treated as atomic within a PDF file. Ordinarily, the bytes making up the name are never treated as text to be presented to a human user or to an application external to a conforming reader. However, occasionally the need arises to treat a name object as text, such as one that represents a font name, a colorant name in a separation or DeviceN colour space, or a structure type.
 
 In such situations, the sequence of bytes (after expansion of NUMBER SIGN sequences, if any) should be interpreted according to UTF-8, a variable-length byte-encoded representation of Unicode in which the printable ASCII characters have the same representations as in ASCII. This enables a name object to represent text virtually in any natural language, subject to the implementation limit on the length of a name.
 
@@ -266,11 +265,11 @@ In such situations, the sequence of bytes (after expansion of NUMBER SIGN sequen
 * Test condition: `isValidUtf8 == true`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
-* Additional references: 
+* Additional references:
   * ISO32000-1:2008, 7.3.5
 
 
-## Rule 6.1.9-1
+## Rule <a name="6.1.9-1"></a>6.1.9-1
 
 ### Requirement
 
@@ -281,14 +280,14 @@ In such situations, the sequence of bytes (after expansion of NUMBER SIGN sequen
 
 Spacings of object number and generation number or keywords 'obj' and 'endobj' do not conform to Rule 6.1.9-1.
 
-The definition of an indirect object in a PDF file consists of its object number and generation number, followed by the value of the object itself bracketed between the keywords "obj" and "endobj". The requirements of this rule guarantee that the definition of an indirect object can be parsed unambiguously. 
+The definition of an indirect object in a PDF file consists of its object number and generation number, followed by the value of the object itself bracketed between the keywords "obj" and "endobj". The requirements of this rule guarantee that the definition of an indirect object can be parsed unambiguously.
 
 * Object type: `CosIndirect`
 * Test condition: `spacingCompliesPDFA`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.1.10-1
+## Rule <a name="6.1.10-1"></a>6.1.10-1
 
 ### Requirement
 
@@ -313,7 +312,7 @@ Inline images are defined directly within the content stream in which it will be
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.1.12-1
+## Rule <a name="6.1.12-1"></a>6.1.12-1
 
 ### Requirement
 
@@ -329,11 +328,11 @@ The document permissions dictionary contains keys other than UR3 and DocMDP.
 * Test condition: `containsOtherEntries == false`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
-* Additional references: 
+* Additional references:
   * ISO 32000-1:2008, 12.8.4
 
 
-## Rule 6.1.12-2
+## Rule <a name="6.1.12-2"></a>6.1.12-2
 
 ### Requirement
 
@@ -351,11 +350,11 @@ These restrictions are present to ensure that functionality such as obsolete ver
 * Test condition: `permsContainDocMDP == false || containsDigestEntries == false`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
-* Additional references: 
+* Additional references:
   * ISO 32000-1:2008, 12.8.1
 
 
-## Rule 6.1.13-1
+## Rule <a name="6.1.13-1"></a>6.1.13-1
 
 ### Requirement
 
@@ -370,7 +369,7 @@ Integer value is out of range.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.1.13-2
+## Rule <a name="6.1.13-2"></a>6.1.13-2
 
 ### Requirement
 
@@ -385,7 +384,7 @@ Real value is out of range.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.1.13-3
+## Rule <a name="6.1.13-3"></a>6.1.13-3
 
 ### Requirement
 
@@ -401,7 +400,7 @@ Maximum length of a String (32767) is exceeded.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.1.13-4
+## Rule <a name="6.1.13-4"></a>6.1.13-4
 
 ### Requirement
 
@@ -416,7 +415,7 @@ Maximum length of a Name (127) is exceeded.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.1.13-5
+## Rule <a name="6.1.13-5"></a>6.1.13-5
 
 ### Requirement
 
@@ -431,7 +430,7 @@ Non-zero real value is too close to 0.0.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.1.13-7
+## Rule <a name="6.1.13-7"></a>6.1.13-7
 
 ### Requirement
 
@@ -446,7 +445,7 @@ Maximum number of indirect objects (8,388,607) in a PDF file is exceeded.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.1.13-8
+## Rule <a name="6.1.13-8"></a>6.1.13-8
 
 ### Requirement
 
@@ -463,7 +462,7 @@ Maximum depth of graphics state nesting (q and Q operators) is exceeded.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.1.13-9
+## Rule <a name="6.1.13-9"></a>6.1.13-9
 
 ### Requirement
 
@@ -478,7 +477,7 @@ Maximum number of DeviceN components (32) is exceeded
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.1.13-10
+## Rule <a name="6.1.13-1"></a>6.1.13-10
 
 ### Requirement
 
@@ -493,7 +492,7 @@ Maximum value of a CID (65535) is exceeded.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.1.13-11
+## Rule <a name="6.1.13-1"></a>6.1.13-11
 
 ### Requirement
 
@@ -508,7 +507,7 @@ One of the page boundaries is out of range (3-14400) in one of the directions.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.2.2-1
+## Rule <a name="6.2.2-1"></a>6.2.2-1
 
 ### Requirement
 
@@ -523,7 +522,7 @@ A content stream contains an operator not defined in ISO 32000-1.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.2.2-2
+## Rule <a name="6.2.2-2"></a>6.2.2-2
 
 ### Requirement
 
@@ -538,10 +537,10 @@ A content stream references a named resource that is not defined in an explicitl
 * Test condition: `isInherited == false`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
-* Additional references: 
+* Additional references:
   * ISO 32000-1:2008, 7.8.3
 
-## Rule 6.2.3-1
+## Rule <a name="6.2.3-1"></a>6.2.3-1
 
 ### Requirement
 
@@ -557,11 +556,11 @@ The embedded PDF/A Output Intent colour profile has invalid header
 * Test condition: `(deviceClass == "prtr" || deviceClass == "mntr") && (colorSpace == "RGB " || colorSpace == "CMYK" || colorSpace == "GRAY") && version < 5.0`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
-* Additional references: 
+* Additional references:
   * ISO32000-1:2008, 14.11.5
 
 
-## Rule 6.2.3-2
+## Rule <a name="6.2.3-2"></a>6.2.3-2
 
 ### Requirement
 
@@ -577,7 +576,7 @@ File's OutputIntents array contains output intent dictionaries with non-matching
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.2.3-3
+## Rule <a name="6.2.3-3"></a>6.2.3-3
 
 ### Requirement
 
@@ -592,11 +591,11 @@ The output intent dictionary contains entry DestOutputProfileRef, which is not p
 * Test condition: `DestOutputProfileRef_size == 0`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
-* Additional references: 
+* Additional references:
   * ISO15930-7:2010, Annex A
 
 
-## Rule 6.2.4.2-1
+## Rule <a name="6.2.4.2-1"></a>6.2.4.2-1
 
 ### Requirement
 
@@ -607,15 +606,15 @@ The output intent dictionary contains entry DestOutputProfileRef, which is not p
 The embedded ICC profile is either invalid or does not satisfy PDF 1.7 requirements.
 
 * Object type: `ICCInputProfile`
-* Test condition: `(deviceClass == "prtr" || deviceClass == "mntr" || deviceClass == "scnr" || deviceClass == "spac") && 
+* Test condition: `(deviceClass == "prtr" || deviceClass == "mntr" || deviceClass == "scnr" || deviceClass == "spac") &&
 			(colorSpace == "RGB " || colorSpace == "CMYK" || colorSpace == "GRAY" || colorSpace == "LAB ") && version < 5.0`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
-* Additional references: 
+* Additional references:
   * ISO 32000-1:2008, 8.6.5.5
 
 
-## Rule 6.2.4.2-2
+## Rule <a name="6.2.4.2-2"></a>6.2.4.2-2
 
 ### Requirement
 
@@ -631,11 +630,11 @@ This prohibition avoids unpredictable overprinting behaviour when overprint mode
 * Test condition: `overprintFlag == false || OPM == 0`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
-* Additional references: 
+* Additional references:
   * ISO 32000-1:2008, 8.6.7
 
 
-## Rule 6.2.4.3-2
+## Rule <a name="6.2.4.3-2"></a>6.2.4.3-2
 
 ### Requirement
 
@@ -653,7 +652,7 @@ DeviceRGB colour space is used without RGB output intent profile
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.2.4.3-3
+## Rule <a name="6.2.4.3-3"></a>6.2.4.3-3
 
 ### Requirement
 
@@ -670,7 +669,7 @@ DeviceCMYK colour space is used without CMYK output intent profile
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.2.4.3-4
+## Rule <a name="6.2.4.3-4"></a>6.2.4.3-4
 
 ### Requirement
 
@@ -685,7 +684,7 @@ DeviceGray colour space is used without an ICC output intent profile.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.2.4.4-1
+## Rule <a name="6.2.4.4-1"></a>6.2.4.4-1
 
 ### Requirement
 
@@ -699,11 +698,11 @@ A colorant of the DeviceN color space is not defined in the Colorants dictionary
 * Test condition: `areColorantsPresent == true`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
-* Additional references: 
+* Additional references:
   * ISO32000-1:2008, 8.6.6.5, Table 71
 
 
-## Rule 6.2.4.4-2
+## Rule <a name="6.2.4.4-2"></a>6.2.4.4-2
 
 ### Requirement
 
@@ -720,7 +719,7 @@ Several occurrances of a Separation colour space with the same name are not cons
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.2.5-1
+## Rule <a name="6.2.5-1"></a>6.2.5-1
 
 ### Requirement
 
@@ -735,7 +734,7 @@ An ExtGState dictionary contains the TR key.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.2.5-2
+## Rule <a name="6.2.5-2"></a>6.2.5-2
 
 ### Requirement
 
@@ -750,7 +749,7 @@ An ExtGState dictionary contains the TR2 key with a value other than Default.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.2.5-3
+## Rule <a name="6.2.5-3"></a>6.2.5-3
 
 ### Requirement
 
@@ -765,7 +764,7 @@ An ExtGState dictionary contains the HTP key.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.2.5-4
+## Rule <a name="6.2.5-4"></a>6.2.5-4
 
 ### Requirement
 
@@ -780,7 +779,7 @@ A Halftone has type other than 1 or 5
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.2.5-5
+## Rule <a name="6.2.5-5"></a>6.2.5-5
 
 ### Requirement
 
@@ -795,7 +794,7 @@ A Halftone dictionary contains the HalftoneName key
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.2.6-1
+## Rule <a name="6.2.6-1"></a>6.2.6-1
 
 ### Requirement
 
@@ -810,7 +809,7 @@ A rendering intent with non-standard value is used
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.2.8-1
+## Rule <a name="6.2.8-1"></a>6.2.8-1
 
 ### Requirement
 
@@ -825,7 +824,7 @@ Alternates key is present in the Image dictionary.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.2.8-2
+## Rule <a name="6.2.8-2"></a>6.2.8-2
 
 ### Requirement
 
@@ -840,7 +839,7 @@ OPI key is present in the XObject dictionary.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.2.8-3
+## Rule <a name="6.2.8-3"></a>6.2.8-3
 
 ### Requirement
 
@@ -856,7 +855,7 @@ The value of the Interpolate key in the Image dictionary is true
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.2.8.3-1
+## Rule <a name="6.2.8.3-1"></a>6.2.8.3-1
 
 ### Requirement
 
@@ -871,7 +870,7 @@ JPEG2000 image has number of colour channels different from 1, 3 or 4.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.2.8.3-2
+## Rule <a name="6.2.8.3-2"></a>6.2.8.3-2
 
 ### Requirement
 
@@ -886,7 +885,7 @@ The JPEG2000 image contains more than one colour specification with the best col
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.2.8.3-3
+## Rule <a name="6.2.8.3-3"></a>6.2.8.3-3
 
 ### Requirement
 
@@ -901,7 +900,7 @@ Colour specification of the JPEG2000 image has invalid specification method.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.2.8.3-4
+## Rule <a name="6.2.8.3-4"></a>6.2.8.3-4
 
 ### Requirement
 
@@ -916,7 +915,7 @@ JPEG2000 image uses enumerated colour space 19 (CIEJab), which is not allowed in
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.2.8.3-5
+## Rule <a name="6.2.8.3-5"></a>6.2.8.3-5
 
 ### Requirement
 
@@ -931,7 +930,7 @@ JPEG2000 image has bit-depth parameters outside of the permitted rante 1 to 38.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.2.9-1
+## Rule <a name="6.2.9-1"></a>6.2.9-1
 
 ### Requirement
 
@@ -946,7 +945,7 @@ The form XObject dictionary contains a PS key, or a Subtype2 key with value PS, 
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.2.9-2
+## Rule <a name="6.2.9-2"></a>6.2.9-2
 
 ### Requirement
 
@@ -961,7 +960,7 @@ The document contains a reference XObject (Ref key in the form XObject dictionar
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.2.9-3
+## Rule <a name="6.2.9-3"></a>6.2.9-3
 
 ### Requirement
 
@@ -976,7 +975,7 @@ The document contains a PostScript XObject.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.2.10-1
+## Rule <a name="6.2.10-1"></a>6.2.10-1
 
 ### Requirement
 
@@ -992,11 +991,11 @@ The document uses the blend mode not defined in ISO 32000-1:2008.
 			BM == "Hue" || BM == "Saturation" || BM == "Color" || BM == "Luminosity"`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
-* Additional references: 
+* Additional references:
   * ISO32000-1:2008, 11.3.5, Tables 136-137
 
 
-## Rule 6.2.10-2
+## Rule <a name="6.2.10-2"></a>6.2.10-2
 
 ### Requirement
 
@@ -1013,11 +1012,11 @@ specified for any content which has associated transparency.
 * Test condition: `gOutputCS != null || groupCS_size != 0 || containsTransparency == false`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
-* Additional references: 
+* Additional references:
   * ISO32000-1:2008, 11.3.4
 
 
-## Rule 6.2.11.2-1
+## Rule <a name="6.2.11.2-1"></a>6.2.11.2-1
 
 ### Requirement
 
@@ -1033,13 +1032,13 @@ A Font dictionary has missing or invalid Type entry
 * Test condition: `Type == "Font"`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
-* Additional references: 
+* Additional references:
   * ISO32000-1:2008, 9.6.2.1, Table 111
   * ISO32000-1:2008, 9.6.5, Table 112
   * ISO32000-1:2008, 9.7.4.1, Table 117
   * ISO32000-1:2008, 9.7.6.1, Table 121
 
-## Rule 6.2.11.2-2
+## Rule <a name="6.2.11.2-2"></a>6.2.11.2-2
 
 ### Requirement
 
@@ -1054,11 +1053,11 @@ A Font dictionary has missing or invalid Type entry
 A Font dictionary has missing or invalid Subtype entry.
 
 * Object type: `PDFont`
-* Test condition: `Subtype == "Type1" || Subtype == "MMType1" || Subtype == "TrueType" || Subtype == "Type3" || Subtype == "Type0" 
+* Test condition: `Subtype == "Type1" || Subtype == "MMType1" || Subtype == "TrueType" || Subtype == "Type3" || Subtype == "Type0"
 			|| Subtype == "CIDFontType0" || Subtype == "CIDFontType2"`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
-* Additional references: 
+* Additional references:
   * ISO32000-1:2008, 9.6.2.1, Table 111
   * ISO32000-1:2008, 9.6.2.3
   * ISO32000-1:2008, 9.6.3
@@ -1067,7 +1066,7 @@ A Font dictionary has missing or invalid Subtype entry.
   * ISO32000-1:2008, 9.7.6.1, Table 121
 
 
-## Rule 6.2.11.2-3
+## Rule <a name="6.2.11.2-3"></a>6.2.11.2-3
 
 ### Requirement
 
@@ -1084,12 +1083,12 @@ A BaseFont entry is missing or has invalid type
 * Test condition: `Subtype == "Type3" || fontName != null`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
-* Additional references: 
+* Additional references:
   * ISO32000-1:2008, 9.6.2.1, Table 111
   * ISO32000-1:2008, 9.7.4.1, Table 117
   * ISO32000-1:2008, 9.7.6.1, Table 121
 
-## Rule 6.2.11.2-4
+## Rule <a name="6.2.11.2-4"></a>6.2.11.2-4
 
 ### Requirement
 
@@ -1106,11 +1105,11 @@ A non-standard simple font dictionary has missing or invalid FirstChar entry
 * Test condition: `isStandard == true || FirstChar != null`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
-* Additional references: 
+* Additional references:
   * ISO32000-1:2008, 9.6.2.1, Table 111
   * ISO32000-1:2008, 9.6.5, Table 112
 
-## Rule 6.2.11.2-5
+## Rule <a name="6.2.11.2-5"></a>6.2.11.2-5
 
 ### Requirement
 
@@ -1127,11 +1126,11 @@ A non-standard simple font dictionary has missing or invalid LastChar entry
 * Test condition: `isStandard == true || LastChar != null`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
-* Additional references: 
+* Additional references:
   * ISO32000-1:2008, 9.6.2.1, Table 111
   * ISO32000-1:2008, 9.6.5, Table 112
 
-## Rule 6.2.11.2-6
+## Rule <a name="6.2.11.2-6"></a>6.2.11.2-6
 
 ### Requirement
 
@@ -1148,11 +1147,11 @@ Font Widths array is missing or has invalid size.
 * Test condition: `isStandard == true || (Widths_size != null && Widths_size == LastChar - FirstChar + 1)`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
-* Additional references: 
+* Additional references:
   * ISO32000-1:2008, 9.6.2.1, Table 111
   * ISO32000-1:2008, 9.6.5, Table 112
 
-## Rule 6.2.11.3-1
+## Rule <a name="6.2.11.3-1"></a>6.2.11.3-1
 
 ### Requirement
 
@@ -1168,7 +1167,7 @@ CiDSystemInfo entries the CIDFont and CMap dictionaries of a Type 0 font are not
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.2.11.3-2
+## Rule <a name="6.2.11.3-2"></a>6.2.11.3-2
 
 ### Requirement
 
@@ -1184,11 +1183,11 @@ A Type 2 CIDFont dictionary has missing or invalid CIDToGIDMap entry.
 * Test condition: `Subtype != "CIDFontType2" || CIDToGIDMap != null`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
-* Additional references: 
+* Additional references:
   * ISO32000-1:2008, 9.7.4, Table 117
 
 
-## Rule 6.2.11.3-3
+## Rule <a name="6.2.11.3-3"></a>6.2.11.3-3
 
 ### Requirement
 
@@ -1219,11 +1218,11 @@ A non-standard CMap is not embedded
 			embeddedFile_size == 1`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
-* Additional references: 
+* Additional references:
   * ISO32000-1:2008, 9.7.5.2, Table 118
 
 
-## Rule 6.2.11.3-4
+## Rule <a name="6.2.11.3-4"></a>6.2.11.3-4
 
 ### Requirement
 
@@ -1239,7 +1238,7 @@ WMode entry in the embedded CMap and in the CMap dictionary are not identical.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.2.11.4-1
+## Rule <a name="6.2.11.4-1"></a>6.2.11.4-1
 
 ### Requirement
 
@@ -1253,11 +1252,11 @@ The font program is not embedded
 * Test condition: `Subtype == "Type3" || Subtype == "Type0" || fontFile_size == 1`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
-* Additional references: 
+* Additional references:
   * ISO32000-1:2008, 9.9
 
 
-## Rule 6.2.11.4-2
+## Rule <a name="6.2.11.4-2"></a>6.2.11.4-2
 
 ### Requirement
 
@@ -1274,7 +1273,7 @@ Not all glyphs referenced for rendering are present in the embedded font program
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.2.11.4-3
+## Rule <a name="6.2.11.4-3"></a>6.2.11.4-3
 
 ### Requirement
 
@@ -1289,7 +1288,7 @@ A CharSet entry in the Descriptor dictionary of a Type1 font incorrectly lists g
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.2.11.4-4
+## Rule <a name="6.2.11.4-4"></a>6.2.11.4-4
 
 ### Requirement
 
@@ -1304,7 +1303,7 @@ A CID Font subset does not define CIDSet entry in its Descriptor dictionary
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.2.11.5-1
+## Rule <a name="6.2.11.5-1"></a>6.2.11.5-1
 
 ### Requirement
 
@@ -1319,7 +1318,7 @@ Glyph width information in the embedded font program is not consistent with the 
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.2.11.6-1
+## Rule <a name="6.2.11.6-1"></a>6.2.11.6-1
 
 ### Requirement
 
@@ -1334,7 +1333,7 @@ The embedded font program for a non-symbolic TrueType font does not contain any 
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.2.11.6-2
+## Rule <a name="6.2.11.6-2"></a>6.2.11.6-2
 
 ### Requirement
 
@@ -1345,12 +1344,12 @@ The embedded font program for a non-symbolic TrueType font does not contain any 
 A non-symbolic TrueType font has encoding different from MacRomanEncoding or WinAnsiEncoding, or the glyphs in the Differences array can not be mapped to the embedded font glyphs via the Adobe Glyph List.
 
 * Object type: `PDTrueTypeFont`
-* Test condition: `isSymbolic == true || (Encoding == "MacRomanEncoding" || Encoding == "WinAnsiEncoding") || 
+* Test condition: `isSymbolic == true || (Encoding == "MacRomanEncoding" || Encoding == "WinAnsiEncoding") ||
 				(Encoding == "Custom" && differencesAreUnicodeCompliant == true)`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.2.11.6-3
+## Rule <a name="6.2.11.6-3"></a>6.2.11.6-3
 
 ### Requirement
 
@@ -1365,7 +1364,7 @@ A symbolic TrueType font specifies an Encoding entry in its dictionary.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.2.11.6-4
+## Rule <a name="6.2.11.6-4"></a>6.2.11.6-4
 
 ### Requirement
 
@@ -1381,7 +1380,7 @@ The embedded font program for a symbolic TrueType font contains more than one cm
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.2.11.7-1
+## Rule <a name="6.2.11.7-1"></a>6.2.11.7-1
 
 ### Requirement
 
@@ -1405,7 +1404,7 @@ This requirement ensures that the values in the ToUnicode CMap will be useful va
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, U
 
-## Rule 6.2.11.8-1
+## Rule <a name="6.2.11.8-1"></a>6.2.11.8-1
 
 ### Requirement
 
@@ -1420,7 +1419,7 @@ The document contains a reference to the .notdef glyph.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.3.1-1
+## Rule <a name="6.3.1-1"></a>6.3.1-1
 
 ### Requirement
 
@@ -1431,19 +1430,19 @@ The document contains a reference to the .notdef glyph.
 Unknown or not permitted annotation type.
 
 * Object type: `PDAnnot`
-* Test condition: `Subtype == "Text" || Subtype == "Link" || Subtype == "FreeText" || Subtype == "Line" || 
+* Test condition: `Subtype == "Text" || Subtype == "Link" || Subtype == "FreeText" || Subtype == "Line" ||
 			Subtype == "Square" || Subtype == "Circle" || Subtype == "Polygon" || Subtype == "PolyLine" ||
-			Subtype == "Highlight" || Subtype == "Underline" ||	Subtype == "Squiggly" || Subtype == "StrikeOut" || 
-			Subtype == "Stamp" || Subtype == "Caret" || Subtype == "Ink" || Subtype == "Popup" || 
+			Subtype == "Highlight" || Subtype == "Underline" ||	Subtype == "Squiggly" || Subtype == "StrikeOut" ||
+			Subtype == "Stamp" || Subtype == "Caret" || Subtype == "Ink" || Subtype == "Popup" ||
 			Subtype == "FileAttachment" || Subtype == "Widget" || Subtype == "PrinterMark" || Subtype == "TrapNet" ||
 			Subtype == "Watermark" || Subtype == "Redact"`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
-* Additional references: 
+* Additional references:
   * PDF 1.4 Reference, 12.5.6.1, Table 169
 
 
-## Rule 6.3.2-1
+## Rule <a name="6.3.2-1"></a>6.3.2-1
 
 ### Requirement
 
@@ -1458,7 +1457,7 @@ A dictionary of a non-Popup annotation does not contain F key.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.3.2-2
+## Rule <a name="6.3.2-2"></a>6.3.2-2
 
 ### Requirement
 
@@ -1473,7 +1472,7 @@ One of the annotation flags Hidden, Invisible, ToggleNoView, or NoView is set to
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.3.2-3
+## Rule <a name="6.3.2-3"></a>6.3.2-3
 
 ### Requirement
 
@@ -1489,7 +1488,7 @@ Text annotation has one of the flags NoZoom or NoRotate set to 0.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.3.3-1
+## Rule <a name="6.3.3-1"></a>6.3.3-1
 
 ### Requirement
 
@@ -1505,7 +1504,7 @@ An annotation does not contain an appearance dictionary.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.3.3-2
+## Rule <a name="6.3.3-2"></a>6.3.3-2
 
 ### Requirement
 
@@ -1521,7 +1520,7 @@ Annotation's appearance dictionary contains entries other than N or the N entry 
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.4.1-1
+## Rule <a name="6.4.1-1"></a>6.4.1-1
 
 ### Requirement
 
@@ -1536,7 +1535,7 @@ A Widget annotation contains either A or AA entry.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.4.1-2
+## Rule <a name="6.4.1-2"></a>6.4.1-2
 
 ### Requirement
 
@@ -1551,7 +1550,7 @@ A Form field dictionary contains the AA entry.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.4.1-3
+## Rule <a name="6.4.1-3"></a>6.4.1-3
 
 ### Requirement
 
@@ -1566,7 +1565,7 @@ The interactive form dictionary contains the NeedAppearances flag with value tru
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.4.2-1
+## Rule <a name="6.4.2-1"></a>6.4.2-1
 
 ### Requirement
 
@@ -1581,7 +1580,7 @@ The interactive form dictionary contains the XFA key.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.4.2-2
+## Rule <a name="6.4.2-2"></a>6.4.2-2
 
 ### Requirement
 
@@ -1596,7 +1595,7 @@ A document's Catalog contains NeedsRendering flag set to true.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.4.3-1
+## Rule <a name="6.4.3-1"></a>6.4.3-1
 
 ### Requirement
 
@@ -1616,13 +1615,13 @@ covered by the digest, other than the PDF signature itself.
 * Test condition: `doesByteRangeCoverEntireDocument == true`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
-* Additional references: 
+* Additional references:
   * ISO 19005-2:2011, Annex B
   * ISO 32000-1:2008, 12.8.1
   * ISO 32000-1:2008, 12.7.4.5
 
 
-## Rule 6.4.3-2
+## Rule <a name="6.4.3-2"></a>6.4.3-2
 
 ### Requirement
 
@@ -1638,12 +1637,12 @@ The DER-encoded PKCS#7 binary data object representing a PDF Signature does not 
 * Test condition: `signingCertificatePresent == true && SignerInfoCount == 1`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
-* Additional references: 
+* Additional references:
   * ISO 19005-2:2011, Annex B
-  * RFC 2315, 
+  * RFC 2315,
 
 
-## Rule 6.5.1-1
+## Rule <a name="6.5.1-1"></a>6.5.1-1
 
 ### Requirement
 
@@ -1658,11 +1657,11 @@ Unknown or not permitted action type.
 * Test condition: `S == "GoTo" || S == "GoToR" || S == "GotToE" || S == "Thread" || S == "URI" || S == "Named" || S == "SubmitForm"`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
-* Additional references: 
+* Additional references:
   * ISO32000-1:2008, 12.6.4.1, Table 198
 
 
-## Rule 6.5.1-2
+## Rule <a name="6.5.1-2"></a>6.5.1-2
 
 ### Requirement
 
@@ -1676,11 +1675,11 @@ Unknown or not permitted named action.
 * Test condition: `N == "NextPage" || N == "PrevPage" || N == "FirstPage" || N == "LastPage"`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
-* Additional references: 
+* Additional references:
   * ISO32000-1:2008, 12.6.4.11, Table 211
 
 
-## Rule 6.5.2-1
+## Rule <a name="6.5.2-1"></a>6.5.2-1
 
 ### Requirement
 
@@ -1695,7 +1694,7 @@ The document catalog dictionary contains an additional-actions dictionary (AA en
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.5.2-2
+## Rule <a name="6.5.2-2"></a>6.5.2-2
 
 ### Requirement
 
@@ -1710,7 +1709,7 @@ The Page dictionary contains an additional-actions dictionary (AA entry).
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.6.2.1-1
+## Rule <a name="6.6.2.1-1"></a>6.6.2.1-1
 
 ### Requirement
 
@@ -1724,11 +1723,11 @@ The document catalog dictionary doesn't contain metadata key.
 * Test condition: `metadata_size == 1`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
-* Additional references: 
+* Additional references:
   * ISO 32000-1, 14.3.2
 
 
-## Rule 6.6.2.1-2
+## Rule <a name="6.6.2.1-2"></a>6.6.2.1-2
 
 ### Requirement
 
@@ -1743,7 +1742,7 @@ The XMP Package contains bytes attribute.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.6.2.1-3
+## Rule <a name="6.6.2.1-3"></a>6.6.2.1-3
 
 ### Requirement
 
@@ -1758,7 +1757,7 @@ The XMP Package contains encoding attribute.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.6.2.1-4
+## Rule <a name="6.6.2.1-4"></a>6.6.2.1-4
 
 ### Requirement
 
@@ -1772,12 +1771,12 @@ A metadata stream is serialized icorrectly and can not be parsed.
 * Test condition: `isSerializationValid`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
-* Additional references: 
-  * XMP Specification September 2005, 
+* Additional references:
+  * XMP Specification September 2005,
   * Extensible Markup Language (XML) 1.0 (Third Edition), 04 February 2004, 2.1
-  * RDF/XML Syntax Specification (Revised), 10 February 2004, 
+  * RDF/XML Syntax Specification (Revised), 10 February 2004,
 
-## Rule 6.6.2.3-1
+## Rule <a name="6.6.2.3-1"></a>6.6.2.3-1
 
 ### Requirement
 
@@ -1793,7 +1792,7 @@ An extension schema object contains fields not defined by the specification.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.6.2.3-2
+## Rule <a name="6.6.2.3-2"></a>6.6.2.3-2
 
 ### Requirement
 
@@ -1809,7 +1808,7 @@ Invalid syntax of the extension schema container.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.6.2.3-3
+## Rule <a name="6.6.2.3-3"></a>6.6.2.3-3
 
 ### Requirement
 
@@ -1820,7 +1819,7 @@ Invalid syntax of the extension schema container.
 Invalid Extension Schema definition.
 
 * Object type: `ExtensionSchemaDefinition`
-* Test condition: `(isSchemaValidText == true && (schemaPrefix == null || schemaPrefix == "pdfaSchema") ) && 
+* Test condition: `(isSchemaValidText == true && (schemaPrefix == null || schemaPrefix == "pdfaSchema") ) &&
 			(isNamespaceURIValidURI == true && ( (ExtensionSchemaProperties_size == 0 && namespaceURIPrefix == null) || namespaceURIPrefix == "pdfaSchema" ) ) &&
 			(isPrefixValidText == true && (prefixPrefix == null || prefixPrefix == "pdfaSchema") ) &&
 			(isPropertyValidSeq == true && (propertyPrefix == null || propertyPrefix == "pdfaSchema") ) &&
@@ -1828,7 +1827,7 @@ Invalid Extension Schema definition.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.6.2.3-4
+## Rule <a name="6.6.2.3-4"></a>6.6.2.3-4
 
 ### Requirement
 
@@ -1840,14 +1839,14 @@ Invalid Extension Schema definition.
 Invalid extension schema Property type definition
 
 * Object type: `ExtensionSchemaProperty`
-* Test condition: `(isNameValidText == true && namePrefix == "pdfaProperty" ) && 
+* Test condition: `(isNameValidText == true && namePrefix == "pdfaProperty" ) &&
 			(isValueTypeValidText == true && isValueTypeDefined == true && valueTypePrefix == "pdfaProperty" ) &&
 			(isCategoryValidText == true && (category == "external" || category == "internal") && categoryPrefix == "pdfaProperty") &&
 			(isDescriptionValidText == true && descriptionPrefix == "pdfaProperty" )`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.6.2.3-5
+## Rule <a name="6.6.2.3-5"></a>6.6.2.3-5
 
 ### Requirement
 
@@ -1858,7 +1857,7 @@ Invalid extension schema Property type definition
 Invalid extension schema ValueType type definition.
 
 * Object type: `ExtensionSchemaValueType`
-* Test condition: `(isTypeValidText == true && typePrefix == "pdfaType" ) && 
+* Test condition: `(isTypeValidText == true && typePrefix == "pdfaType" ) &&
 			(isNamespaceURIValidURI == true && namespaceURIPrefix == "pdfaType" ) &&
 			(isPrefixValidText == true && (prefixPrefix == null || prefixPrefix == "pdfaType") ) &&
 			(isDescriptionValidText == true && descriptionPrefix == "pdfaType" ) &&
@@ -1866,7 +1865,7 @@ Invalid extension schema ValueType type definition.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.6.2.3-6
+## Rule <a name="6.6.2.3-6"></a>6.6.2.3-6
 
 ### Requirement
 
@@ -1877,13 +1876,13 @@ Invalid extension schema ValueType type definition.
 Invalid extension schema Field type definition
 
 * Object type: `ExtensionSchemaField`
-* Test condition: `(isNameValidText == true && namePrefix == "pdfaField" ) && 
+* Test condition: `(isNameValidText == true && namePrefix == "pdfaField" ) &&
 			(isValueTypeValidText == true && isValueTypeDefined == true && valueTypePrefix == "pdfaField" ) &&
 			(isDescriptionValidText == true && descriptionPrefix == "pdfaField" )`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.6.2.3-7
+## Rule <a name="6.6.2.3-7"></a>6.6.2.3-7
 
 ### Requirement
 
@@ -1899,7 +1898,7 @@ An XMP property is either not not pre-defined, is not defined in any extension s
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.6.4-1
+## Rule <a name="6.6.4-1"></a>6.6.4-1
 
 ### Requirement
 
@@ -1914,7 +1913,7 @@ The document metadata stream doesn't contains PDF/A Identification Schema.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.6.4-2
+## Rule <a name="6.6.4-2"></a>6.6.4-2
 
 ### Requirement
 
@@ -1925,11 +1924,11 @@ The document metadata stream doesn't contains PDF/A Identification Schema.
 The "part" property of the PDF/A Identification Schema is does not match the PDF/A profile part number.
 
 * Object type: `PDFAIdentification`
-* Test condition: `part == 2` (for PDF/A-2); `part == 3` (for PDF/A-3). 
+* Test condition: `part == 2` (for PDF/A-2); `part == 3` (for PDF/A-3).
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.6.4-3
+## Rule <a name="6.6.4-3"></a>6.6.4-3
 
 ### Requirement
 
@@ -1948,7 +1947,7 @@ The "conformance" property of the PDF/A Identification Schema does not confirm t
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.6.4-4
+## Rule <a name="6.6.4-4"></a>6.6.4-4
 
 ### Requirement
 
@@ -1967,7 +1966,7 @@ A property of the PDF/A Identification Schema has an invalid namespace prefix.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.7.2-1
+## Rule <a name="6.7.2-1"></a>6.7.2-1
 
 ### Requirement
 
@@ -1983,11 +1982,11 @@ A property of the PDF/A Identification Schema has an invalid namespace prefix.
 * Test condition: `Marked == true`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A
-* Additional references: 
+* Additional references:
   * ISO 32000-1, 14.7.1
 
 
-## Rule 6.7.3-1
+## Rule <a name="6.7.3-1"></a>6.7.3-1
 
 ### Requirement
 
@@ -2003,11 +2002,11 @@ StructTreeRoot entry is not present in the document catalog
 * Test condition: `StructTreeRoot_size == 1`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A
-* Additional references: 
+* Additional references:
   * ISO 32000-1:2008, 14.7
 
 
-## Rule 6.7.3-2
+## Rule <a name="6.7.3-2"></a>6.7.3-2
 
 ### Requirement
 
@@ -2023,11 +2022,11 @@ Non-standard structure type is not mapped to a standard type.
 * Test condition: `standardType != null`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A
-* Additional references: 
+* Additional references:
   * ISO 32000-1:2008, 14.8.4
 
 
-## Rule 6.8-1
+## Rule <a name="6.8-1"></a>6.8-1
 
 ### Requirement
 
@@ -2042,7 +2041,7 @@ An embedded file dictionary doe snot contain the MIME type information (Subtype 
 * Specifications: ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.8-2
+## Rule <a name="6.8-2"></a>6.8-2
 
 ### Requirement
 
@@ -2057,7 +2056,7 @@ The file specification dictionary for an embedded file does not contain either F
 * Specifications: ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.8-3
+## Rule <a name="6.8-3"></a>6.8-3
 
 ### Requirement
 
@@ -2072,7 +2071,7 @@ The file specification dictionary for an embedded file does not contain the AFRe
 * Specifications: ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.9-1
+## Rule <a name="6.9-1"></a>6.9-1
 
 ### Requirement
 
@@ -2087,7 +2086,7 @@ Missing or empty Name entry of the optional content configuration dictionary.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.9-2
+## Rule <a name="6.9-2"></a>6.9-2
 
 ### Requirement
 
@@ -2102,7 +2101,7 @@ Optional content configuration dictionary has duplicated name.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.9-3
+## Rule <a name="6.9-3"></a>6.9-3
 
 ### Requirement
 
@@ -2117,7 +2116,7 @@ Not all optional content groups are present in the Order entry of the optional c
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.9-4
+## Rule <a name="6.9-4"></a>6.9-4
 
 ### Requirement
 
@@ -2132,7 +2131,7 @@ AS key is present in the optional content configuration dictionary.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.10-1
+## Rule <a name="6.10-1"></a>6.10-1
 
 ### Requirement
 
@@ -2147,7 +2146,7 @@ The document's name dictionary contains the AlternatePresentations entry.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.10-2
+## Rule <a name="6.10-2"></a>6.10-2
 
 ### Requirement
 
@@ -2162,7 +2161,7 @@ A Page dictionary contains the PresSteps entry.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule 6.11-1
+## Rule <a name="6.11-1"></a>6.11-1
 
 ### Requirement
 

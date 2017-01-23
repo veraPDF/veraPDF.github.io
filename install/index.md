@@ -63,7 +63,7 @@ At step two you can specify the installation folder:
 
 ![veraPDF Installer folder selection screen](/images/installer/screen2.png "veraPDF installer step 2 of 5")
 
-### 3: Select components
+### <a name="step3"></a>3: Select components
 Screen three allows you to select the components to be installed:
 
 ![veraPDF Installer pack selection screen](/images/installer/screen3.png "veraPDF installer step 3 of 5")
