@@ -6,10 +6,10 @@ title: veraPDF CLI Getting Help
 {{ page.title }}
 ================
 Once veraPDF has been installed you can get help on the full range of options by
-typing `verapdf -h` or `verapdf --help` at the Mac or Linux command line. This
-should be `verapdf.bat -h` or `verapdf.bat --help` on Windows (we won't keep
-reminding you of the alternative Windows syntax). This should give the following
-output, or something very similar:
+typing <kbd>verapdf -h</kbd> or <kbd>verapdf --help</kbd> at the Mac or Linux
+command line. This should be <kbd>verapdf.bat -h</kbd> or
+<kbd>verapdf.bat --help</kbd> on Windows (we won't keep reminding you of the alternative Windows syntax). This should give the following output, or
+something very similar:
 
     Usage: veraPDF [options] FILES
       Options:

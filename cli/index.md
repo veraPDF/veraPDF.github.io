@@ -32,7 +32,14 @@ sub-directory called `corpus`. The examples assume your terminal session
 is running in the installation directory with a suitable alias set up to avoid
 typing `./verapdf`.
 
-- [Using veraPDF for PDF/A Validation](validation).
+### Links to how-tos
+
+- [Using veraPDF for PDF/A Validation](validation):
+  - [listing built in validation profiles](validation#list-profiles);
+  - [validating using a built in profile](validation#fixed-profiles);
+  - [validating using automated profile selection](validation#auto-profile);
+  - [customising the validation process and reporting](validation#customising); and
+  - [validating mulitple files](validation#batches).
 - [Extracting features (metadata) from PDFs](feature-extraction).
 - [Fixing PDF/A metadata](fixing).
 - [Enforcing institutional policy](policy).
