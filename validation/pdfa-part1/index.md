@@ -23,7 +23,7 @@ File header does not start at byte offset 0 or does not correctly identify the v
 * Additional references:
   * PDF 1.4 Reference, 3.4.1
 
-## Rule <a name="6.1.2-2"></a>$
+## Rule <a name="6.1.2-2"></a>6.1.2-2
 
 ### Requirement
 
@@ -40,7 +40,7 @@ The presence of encoded character byte values greater than decimal 127 near the 
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule <a name="6.1.3-1"></a>$
+## Rule <a name="6.1.3-1"></a>6.1.3-1
 
 ### Requirement
 
@@ -62,7 +62,7 @@ last updated. When a file is first written, both identifiers are set to the same
 * Additional references:
   * PDF 1.4 Reference, 3.3.4, 3.3.5, 9.3, F.2
 
-## Rule <a name="6.1.3-2"></a>$
+## Rule <a name="6.1.3-2"></a>6.1.3-2
 
 ### Requirement
 
@@ -80,7 +80,7 @@ access permissions.
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule <a name="6.1.3-3"></a>$
+## Rule <a name="6.1.3-3"></a>6.1.3-3
 
 ### Requirement
 
@@ -97,7 +97,7 @@ The trailer of a PDF file enables an application reading the file to quickly fin
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule <a name="6.1.3-4"></a>$
+## Rule <a name="6.1.3-4"></a>6.1.3-4
 
 ### Requirement
 
@@ -119,7 +119,7 @@ As a result of this optimization, the ID of the linearized PDF can be fount in t
   * ISO 19005-1:2005/Cor.2:2011, 6.1.3
   * Rule 6.1.3-1
 
-## Rule <a name="6.1.4-1"></a>$
+## Rule <a name="6.1.4-1"></a>6.1.4-1
 
 ### Requirement
 
@@ -138,7 +138,7 @@ The cross-reference table is the only part of a PDF file with a fixed format; th
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule <a name="6.1.4-2"></a>$
+## Rule <a name="6.1.4-2"></a>6.1.4-2
 
 ### Requirement
 
@@ -157,7 +157,7 @@ As mentioned in Rule 6.1.4-1, any variations in cross reference table format may
 * Additional references:
   * Rule 6.1.4-1
 
-## Rule <a name="6.1.6-1"></a>$
+## Rule <a name="6.1.6-1"></a>6.1.6-1
 
 ### Requirement
 
@@ -186,7 +186,7 @@ White-space characters are defined as NULL (00h), TAB (09h), LINE FEED (0Ah), FO
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule <a name="6.1.6-2"></a>$
+## Rule <a name="6.1.6-2"></a>6.1.6-2
 
 ### Requirement
 
@@ -203,7 +203,7 @@ Hexadecimal string contains non-white-space characters outside the range 0 to 9,
 * Other references:
   * Rule 6.1.6-1
 
-## Rule <a name="6.1.7-1"></a>$
+## Rule <a name="6.1.7-1"></a>6.1.7-1
 
 ### Requirement
 
@@ -220,7 +220,7 @@ Every stream dictionary has a Length entry that indicates how many bytes of the 
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule <a name="6.1.7-2"></a>$
+## Rule <a name="6.1.7-2"></a>6.1.7-2
 
 ### Requirement
 
@@ -237,7 +237,7 @@ These requirements remove potential ambiguity regarding the ending of stream con
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule <a name="6.1.7-3"></a>$
+## Rule <a name="6.1.7-3"></a>6.1.7-3
 
 ### Requirement
 
@@ -256,7 +256,7 @@ These keys are used to point to document content external to the file. The expli
 * Additional references:
   * 19005-1:2005/Cor.2:2011, 6.1.7
 
-## Rule <a name="6.1.8-1"></a>$
+## Rule <a name="6.1.8-1"></a>6.1.8-1
 
 ### Requirement
 
@@ -273,7 +273,7 @@ The definition of an indirect object in a PDF file consists of its object number
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule <a name="6.1.10-1"></a>$
+## Rule <a name="6.1.10-1"></a>6.1.10-1
 
 ### Requirement
 
@@ -290,7 +290,7 @@ The use of the LZW compression algorithm has been subject to intellectual proper
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule <a name="6.1.10-2"></a>$
+## Rule <a name="6.1.10-2"></a>6.1.10-2
 
 ### Requirement
 
@@ -309,7 +309,7 @@ Inline images are defined directly within the content stream in which it will be
 * Other references:
   * Rule 6.1.10-1
 
-## Rule <a name="6.1.11-1"></a>$
+## Rule <a name="6.1.11-1"></a>6.1.11-1
 
 ### Requirement
 
@@ -330,7 +330,7 @@ preservation efforts.
 * Additional references:
   * PDF 1.4 Reference, 3.10.2
 
-## Rule <a name="6.1.11-2"></a>$
+## Rule <a name="6.1.11-2"></a>6.1.11-2
 
 ### Requirement
 
@@ -349,7 +349,7 @@ PDF/A-1 standard does not permit embedded files. This requirement was relaxed in
 * Additional references:
   * PDF 1.4 Reference, 3.6.3
 
-## Rule <a name="6.1.12-1"></a>$
+## Rule <a name="6.1.12-1"></a>6.1.12-1
 
 ### Requirement
 
@@ -366,7 +366,7 @@ Integer value is out of range.
 * Additional references:
   * PDF Reference 1.4, Table C.1
 
-## Rule <a name="6.1.12-2"></a>$
+## Rule <a name="6.1.12-2"></a>6.1.12-2
 
 ### Requirement
 
@@ -383,7 +383,7 @@ Real value is out of range.
 * Additional references:
   * PDF Reference 1.4, Table C.1
 
-## Rule <a name="6.1.12-3"></a>$
+## Rule <a name="6.1.12-3"></a>6.1.12-3
 
 ### Requirement
 
@@ -400,7 +400,7 @@ Maximum length of a String (65535) is exceeded.
 * Additional references:
   * PDF Reference 1.4, Table C.1
 
-## Rule <a name="6.1.12-4"></a>$
+## Rule <a name="6.1.12-4"></a>6.1.12-4
 
 ### Requirement
 
@@ -417,7 +417,7 @@ Maximum length of a Name (127 bytes) is exceeded.
 * Additional references:
   * PDF Reference 1.4, Table C.1
 
-## Rule <a name="6.1.12-5"></a>$
+## Rule <a name="6.1.12-5"></a>6.1.12-5
 
 ### Requirement
 
@@ -434,7 +434,7 @@ Maximum capacity of an array (8191) is exceeded.
 * Additional references:
   * PDF Reference 1.4, Table C.1
 
-## Rule <a name="6.1.12-6"></a>$
+## Rule <a name="6.1.12-6"></a>6.1.12-6
 
 ### Requirement
 
@@ -451,7 +451,7 @@ Maximum capacity of a dictionary (4095) is exceeded.
 * Additional references:
   * PDF Reference 1.4, Table C.1
 
-## Rule <a name="6.1.12-7"></a>$
+## Rule <a name="6.1.12-7"></a>6.1.12-7
 
 ### Requirement
 
@@ -468,7 +468,7 @@ Maximum number of indirect objects (8,388,607) in a PDF file is exceeded.
 * Additional references:
   * PDF Reference 1.4, Table C.1
 
-## Rule <a name="6.1.12-8"></a>$
+## Rule <a name="6.1.12-8"></a>6.1.12-8
 
 ### Requirement
 
@@ -485,7 +485,7 @@ Maximum depth of graphics state nesting (q and Q operators) is exceeded.
 * Additional references:
   * PDF Reference 1.4, Table C.1
 
-## Rule <a name="6.1.12-9"></a>$
+## Rule <a name="6.1.12-9"></a>6.1.12-9
 
 ### Requirement
 
@@ -502,7 +502,7 @@ Maximum number of DeviceN components (8) is exceeded.
 * Additional references:
   * PDF Reference 1.4, Table C.1
 
-## Rule <a name="6.1.12-1"></a>$0
+## Rule <a name="6.1.12-1"></a>6.1.12-10
 
 ### Requirement
 
@@ -519,7 +519,7 @@ Maximum value of a CID (65,535) is exceeded.
 * Additional references:
   * PDF Reference 1.4, Table C.1
 
-## Rule <a name="6.1.13-1"></a>$
+## Rule <a name="6.1.13-1"></a>6.1.13-1
 
 ### Requirement
 
@@ -536,7 +536,7 @@ The explicit prohibition of the OCProperties key has the implicit effect of disa
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule <a name="6.2.2-1"></a>$
+## Rule <a name="6.2.2-1"></a>6.2.2-1
 
 ### Requirement
 
@@ -564,7 +564,7 @@ It is generally accepted in practice that PDF/A-1 documents may use any ICC colo
   * PDF 1.4 Reference, 9.4.10
   * International Color Consortium, [ICC Specifications](http://color.org/icc_specs2.xalter)
 
-## Rule <a name="6.2.2-2"></a>$
+## Rule <a name="6.2.2-2"></a>6.2.2-2
 
 ### Requirement
 
@@ -583,7 +583,7 @@ The requirement for all output intent dictionaries to share the same output ICC 
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule <a name="6.2.3-1"></a>$
+## Rule <a name="6.2.3-1"></a>6.2.3-1
 
 ### Requirement
 
@@ -605,7 +605,7 @@ ICC profiles can be used in PDF documents to identify the source color spaces. S
   * International Color Consortium, [ICC Specifications](http://color.org/icc_specs2.xalter)
   * Rule 6.2.2-1
 
-## Rule <a name="6.2.3-2"></a>$
+## Rule <a name="6.2.3-2"></a>6.2.3-2
 
 ### Requirement
 
@@ -628,7 +628,7 @@ in the conforming PDF/A document.
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule <a name="6.2.3-3"></a>$
+## Rule <a name="6.2.3-3"></a>6.2.3-3
 
 ### Requirement
 
@@ -652,7 +652,7 @@ in the conforming PDF/A document.
 * Levels: A, B
 
 
-## Rule <a name="6.2.3-4"></a>$
+## Rule <a name="6.2.3-4"></a>6.2.3-4
 
 ### Requirement
 
@@ -686,7 +686,7 @@ black = 1.0 – gray
 * Additional references:
   * PDF 1.4 Reference, 6.2.1, 6.2.2
 
-## Rule <a name="6.2.3-5"></a>$
+## Rule <a name="6.2.3-5"></a>6.2.3-5
 
 ### Requirement
 
@@ -711,7 +711,7 @@ use the Alternate colour space specified in an ICC profile stream dictionary.
   * PDF 1.4 Reference, 4.5.4, Table 4.16
 
 
-## Rule <a name="6.2.4-1"></a>$
+## Rule <a name="6.2.4-1"></a>6.2.4-1
 
 ### Requirement
 
@@ -730,7 +730,7 @@ Alternate images provide a straightforward and backward-compatible way to includ
 * Additional references:
   * PDF 1.4 Reference, 4.8.4, Alternate Images
 
-## Rule <a name="6.2.4-2"></a>$
+## Rule <a name="6.2.4-2"></a>6.2.4-2
 
 ### Requirement
 
@@ -753,7 +753,7 @@ Similar to Rule 6.2.4-1, this mechanism is prohibited in PDF/A-compliant documen
   * PDF 1.4 Reference, 9.10.6, Open Prepress Interface (OPI)
   * Rule 6.2.4-1
 
-## Rule <a name="6.2.4-3"></a>$
+## Rule <a name="6.2.4-3"></a>6.2.4-3
 
 ### Requirement
 
@@ -775,7 +775,7 @@ However, the interpolation algorithm is implementation-dependent and is not spec
 * Additional references:
   * PDF 1.4 Reference, 4.8.4, Image interpolation
 
-## Rule <a name="6.2.5-1"></a>$
+## Rule <a name="6.2.5-1"></a>6.2.5-1
 
 ### Requirement
 
@@ -794,7 +794,7 @@ In earlier versions of PDF, a content stream can include PostScript language fra
 * Additional references:
   * PDF 1.4 Reference, 4.10, PostScript XObjects
 
-## Rule <a name="6.2.6-1"></a>$
+## Rule <a name="6.2.6-1"></a>6.2.6-1
 
 ### Requirement
 
@@ -815,7 +815,7 @@ As this makes the inital PDF document depentent on the presence of external reso
 * Additional references:
   * PDF 1.4 Reference, 4.9.3, Reference XObjects
 
-## Rule <a name="6.2.7-1"></a>$
+## Rule <a name="6.2.7-1"></a>6.2.7-1
 
 ### Requirement
 
@@ -836,7 +836,7 @@ with reliable and predictable rendering. See Rule 6.2.5-1 for more detail.
   * PDF 1.4 Reference, 4.10, PostScript XObjects
   * Rule 6.2.5-1
 
-## Rule <a name="6.2.8-1"></a>$
+## Rule <a name="6.2.8-1"></a>6.2.8-1
 
 ### Requirement
 
@@ -859,7 +859,7 @@ As this may lead in significantly different visual appearance of PDF documents o
 * Additional references:
   * PDF 1.4 Reference, 6.3, Transfer Functions
 
-## Rule <a name="6.2.8-2"></a>$
+## Rule <a name="6.2.8-2"></a>6.2.8-2
 
 ### Requirement
 
@@ -878,7 +878,7 @@ The TR2 key has the same meaning as TR key (see Rule 6.2.8-1) except that the va
 * Additional references:
   * Rule 6.2.8-1
 
-## Rule <a name="6.2.9-1"></a>$
+## Rule <a name="6.2.9-1"></a>6.2.9-1
 
 ### Requirement
 
@@ -902,7 +902,7 @@ However, that the exact set of rendering intents supported may vary from one out
 * Additional references:
   * PDF 1.4 Reference, 4.5.4, Rendering Intents
 
-## Rule <a name="6.2.10-1"></a>$
+## Rule <a name="6.2.10-1"></a>6.2.10-1
 
 ### Requirement
 
@@ -928,7 +928,7 @@ PDF Reference its use is implicitly prohibited by PDF/A-1 specification.
 * Additional references:
   * PDF 1.4 Specification, 3.7.1, Content Streams
 
-## Rule <a name="6.3.2-1"></a>$
+## Rule <a name="6.3.2-1"></a>6.3.2-1
 
 ### Requirement
 
@@ -950,7 +950,7 @@ A Font dictionary has missing or invalid Type entry
   * PDF 1.4 Reference, 5.6.3 - Table 5.13
   * PDF 1.4 Reference, 5.6.5 - Table 5.17
 
-## Rule <a name="6.3.2-2"></a>$
+## Rule <a name="6.3.2-2"></a>6.3.2-2
 
 ### Requirement
 
@@ -975,7 +975,7 @@ The correct value of the Subtype entry in the font dictionary is critical for th
   * PDF 1.4 Reference, 5.6.3 - Table 5.13
   * PDF 1.4 Reference, 5.6.5 - Table 5.17
 
-## Rule <a name="6.3.2-3"></a>$
+## Rule <a name="6.3.2-3"></a>6.3.2-3
 
 ### Requirement
 
@@ -1001,7 +1001,7 @@ For TrueType fonts the value of BaseFont is determined in one of two ways. It is
   * PDF 1.4 Reference, 5.6.3 - Table 5.13
   * PDF 1.4 Reference, 5.6.5 - Table 5.17
 
-## Rule <a name="6.3.2-4"></a>$
+## Rule <a name="6.3.2-4"></a>6.3.2-4
 
 ### Requirement
 
@@ -1030,7 +1030,7 @@ These fonts, or their font metrics and suitable substitution fonts, are guarante
   * PDF 1.4 Reference, 5.5.1 - Table 5.8
   * PDF 1.4 Reference, 5.5.4 - Table 5.9
 
-## Rule <a name="6.3.2-5"></a>$
+## Rule <a name="6.3.2-5"></a>6.3.2-5
 
 ### Requirement
 
@@ -1053,7 +1053,7 @@ See also Rule 6.3.2-4.
   * PDF 1.4 Reference, 5.5.4 - Table 5.9
   * Rule 6.3.2-4
 
-## Rule <a name="6.3.2-6"></a>$
+## Rule <a name="6.3.2-6"></a>6.3.2-6
 
 ### Requirement
 
@@ -1076,7 +1076,7 @@ See also Rule 6.3.2-4.
   * PDF 1.4 Reference, 5.5.4 - Table 5.9
   * Rule 6.3.2-4
 
-## Rule <a name="6.3.3-1"></a>$
+## Rule <a name="6.3.3-1"></a>6.3.3-1
 
 ### Requirement
 
@@ -1097,7 +1097,7 @@ PDF/A-1 standard requires that the Registry and Ordering strings of the CIDSyste
 * Additional references:
   * PDF 1.4 Reference, 5.6.2
 
-## Rule <a name="6.3.3-2"></a>$
+## Rule <a name="6.3.3-2"></a>6.3.3-2
 
 ### Requirement
 
@@ -1120,7 +1120,7 @@ If the TrueType font program is embedded, the Type 2 CIDFont dictionary must con
   * PDF 1.4 Reference, 5.6.3 - Table 5.13
 
 
-## Rule <a name="6.3.3-3"></a>$
+## Rule <a name="6.3.3-3"></a>6.3.3-3
 
 ### Requirement
 
@@ -1145,7 +1145,7 @@ The "Identity−H" and "Identity−V" CMaps are two predefined CMap names that c
   * PDF 1.4 Reference, 5.6.4
 
 
-## Rule <a name="6.3.3-4"></a>$
+## Rule <a name="6.3.3-4"></a>6.3.3-4
 
 ### Requirement
 
@@ -1164,7 +1164,7 @@ In case of embedded CMap file, the writing mode is specified in two different pl
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule <a name="6.3.4-1"></a>$
+## Rule <a name="6.3.4-1"></a>6.3.4-1
 
 ### Requirement
 
@@ -1186,7 +1186,7 @@ Text rendering mode 3 specifies that glyphs are not stroked, filled or used as a
   * PDF 1.4 Reference, 5.8
 
 
-## Rule <a name="6.3.5-1"></a>$
+## Rule <a name="6.3.5-1"></a>6.3.5-1
 
 ### Requirement
 
@@ -1207,7 +1207,7 @@ There is no exemption from the requirements of this rule for the 14 standard Typ
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule <a name="6.3.5-2"></a>$
+## Rule <a name="6.3.5-2"></a>6.3.5-2
 
 ### Requirement
 
@@ -1226,7 +1226,7 @@ Font subsets are acceptable by PDF/A as long as the embedded font programs provi
 * Additional references:
   * PDF 1.4 Reference, 5.5.3
 
-## Rule <a name="6.3.5-3"></a>$
+## Rule <a name="6.3.5-3"></a>6.3.5-3
 
 ### Requirement
 
@@ -1248,7 +1248,7 @@ See also Rule 6.3.5-2.
   * PDF 1.4 Reference, 5.5.3
   * Rule 6.3.5-2.
 
-## Rule <a name="6.3.6-1"></a>$
+## Rule <a name="6.3.6-1"></a>6.3.6-1
 
 ### Requirement
 
@@ -1265,7 +1265,7 @@ This requirement is necessary to ensure predictable font rendering, regardless o
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule <a name="6.3.7-1"></a>$
+## Rule <a name="6.3.7-1"></a>6.3.7-1
 
 ### Requirement
 
@@ -1291,7 +1291,7 @@ it uses the standard names for those characters. The characters in this characte
   * PDF 1.4 Reference, 5.5.5.
   * PDF 1.4 Reference, Section D.1, "Latin Character Set and Encodings."
 
-## Rule <a name="6.3.7-2"></a>$
+## Rule <a name="6.3.7-2"></a>6.3.7-2
 
 ### Requirement
 
@@ -1313,7 +1313,7 @@ A Font is called symbolic if it contains characters outside the Adobe standard L
   * PDF 1.4 Reference, Section D.1, "Latin Character Set and Encodings."
   * Rule 6.3.7-1
 
-## Rule <a name="6.3.7-3"></a>$
+## Rule <a name="6.3.7-3"></a>6.3.7-3
 
 ### Requirement
 
@@ -1471,7 +1471,7 @@ This provision, along with Rules 6.4-1 to 6.4-5, prohibits the use of transparen
 * Additional references:
   * PDF 1.4 Reference, 7.5.3
 
-## Rule <a name="6.5.2-1"></a>$
+## Rule <a name="6.5.2-1"></a>6.5.2-1
 
 ### Requirement
 
@@ -1495,7 +1495,7 @@ Support for multimedia content is outside the scope of PDF/A-1, and, thus, annot
 * Additional references:
   * PDF 1.4 Reference, 8.4.5
 
-## Rule <a name="6.5.3-1"></a>$
+## Rule <a name="6.5.3-1"></a>6.5.3-1
 
 ### Requirement
 
@@ -1515,7 +1515,7 @@ The CA key specifies the constant opacity value to be used in painting the annot
   * PDF 1.4 Reference, 7.2.6
   * Rules 6.4-5, 6.4-6
 
-## Rule <a name="6.5.3-2"></a>$
+## Rule <a name="6.5.3-2"></a>6.5.3-2
 
 ### Requirement
 
@@ -1542,7 +1542,7 @@ The restrictions on annotation flags prevent the use of annotations that are hid
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule <a name="6.5.3-3"></a>$
+## Rule <a name="6.5.3-3"></a>6.5.3-3
 
 ### Requirement
 
@@ -1560,7 +1560,7 @@ appearance stream are indirectly defined by means of the PDF/A-1 OutputIntent. S
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule <a name="6.5.3-4"></a>$
+## Rule <a name="6.5.3-4"></a>6.5.3-4
 
 ### Requirement
 
@@ -1587,7 +1587,7 @@ Even if a Button form field has only one state, it is still required to have an 
   * ISO19005-1/Cor.2:2011, 6.5.3
   * PDF 1.4 Reference, 8.4.4
 
-## Rule <a name="6.6.1-1"></a>$
+## Rule <a name="6.6.1-1"></a>6.6.1-1
 
 ### Requirement
 
@@ -1607,7 +1607,7 @@ Support for multimedia content is outside the scope of PDF/A-1. The ResetForm ac
   * ISO 19005-1:2005/Cor.2:2011, 6.6.1
 
 
-## Rule <a name="6.6.1-2"></a>$
+## Rule <a name="6.6.1-2"></a>6.6.1-2
 
 ### Requirement
 
@@ -1627,7 +1627,7 @@ any document using them will not be portable.
 * Additional references:
   * PDF 1.4 Reference, 8.5.3 - Named Actions - Table 8.45
 
-## Rule <a name="6.6.1-3"></a>$
+## Rule <a name="6.6.1-3"></a>6.6.1-3
 
 ### Requirement
 
@@ -1644,7 +1644,7 @@ Such actions may modify the values of the forms and alter the visual representat
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule <a name="6.6.2-1"></a>$
+## Rule <a name="6.6.2-1"></a>6.6.2-1
 
 ### Requirement
 
@@ -1659,7 +1659,7 @@ A Widget annotation contains an additional-actions dictionary (AA entry).
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule <a name="6.6.2-2"></a>$
+## Rule <a name="6.6.2-2"></a>6.6.2-2
 
 ### Requirement
 
@@ -1678,7 +1678,7 @@ preservation efforts.
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule <a name="6.6.2-3"></a>$
+## Rule <a name="6.6.2-3"></a>6.6.2-3
 
 ### Requirement
 
@@ -1697,7 +1697,7 @@ preservation efforts.
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule <a name="6.7.2-1"></a>$
+## Rule <a name="6.7.2-1"></a>6.7.2-1
 
 ### Requirement
 
@@ -1718,7 +1718,7 @@ A metadata stream can be attached to a document through the Metadata entry in th
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule <a name="6.7.2-2"></a>$
+## Rule <a name="6.7.2-2"></a>6.7.2-2
 
 ### Requirement
 
@@ -1742,7 +1742,7 @@ However, all other non-document Metadata streams may not conform to XMP or even 
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule <a name="6.7.3-1"></a>$
+## Rule <a name="6.7.3-1"></a>6.7.3-1
 
 ### Requirement
 
@@ -1762,7 +1762,7 @@ their analogous XMP properties has the implicit effect of providing unambiguous 
 * Additional references:
   * ISO 19005-1:2005/Cor.1:2007/Cor.2:2011, 6.7.3
 
-## Rule <a name="6.7.5-1"></a>$
+## Rule <a name="6.7.5-1"></a>6.7.5-1
 
 ### Requirement
 
@@ -1779,7 +1779,7 @@ Both the bytes and encoding attributes are deprecated in XMP Specification.
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule <a name="6.7.5-2"></a>$
+## Rule <a name="6.7.5-2"></a>6.7.5-2
 
 ### Requirement
 
@@ -1796,7 +1796,7 @@ Both the bytes and encoding attributes are deprecated in XMP Specification.
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule <a name="6.7.8-1"></a>$
+## Rule <a name="6.7.8-1"></a>6.7.8-1
 
 ### Requirement
 
@@ -1815,7 +1815,7 @@ An extension schema is any XMP schema that is not defined in the XMP Specificati
 * Additional references:
   * ISO 19005-1:2005/Cor.1:2007, 6.7.8
 
-## Rule <a name="6.7.8-2"></a>$
+## Rule <a name="6.7.8-2"></a>6.7.8-2
 
 ### Requirement
 
@@ -1835,7 +1835,7 @@ Extension schema container stores a sequence of extension schemas defined in the
   * ISO 19005-1:2005/Cor.1:2007, 6.7.8
 
 
-## Rule <a name="6.7.8-3"></a>$
+## Rule <a name="6.7.8-3"></a>6.7.8-3
 
 ### Requirement
 
@@ -1858,7 +1858,7 @@ Invalid Extension Schema definition.
   * ISO 19005-1:2005/Cor.1:2007, 6.7.8
 
 
-## Rule <a name="6.7.8-4"></a>$
+## Rule <a name="6.7.8-4"></a>6.7.8-4
 
 ### Requirement
 
@@ -1878,7 +1878,7 @@ Invalid Property type definition in an extension schema.
 * Additional references:
   * ISO 19005-1:2005/Cor.1:2007, 6.7.8
 
-## Rule <a name="6.7.8-5"></a>$
+## Rule <a name="6.7.8-5"></a>6.7.8-5
 
 ### Requirement
 
@@ -1899,7 +1899,7 @@ Invalid ValueType type definition in an extension schema.
 * Additional references:
   * ISO 19005-1:2005/Cor.1:2007, 6.7.8
 
-## Rule <a name="6.7.8-6"></a>$
+## Rule <a name="6.7.8-6"></a>6.7.8-6
 
 ### Requirement
 
@@ -1918,7 +1918,7 @@ Invalid Field type definition in an extension schema.
 * Additional references:
   * ISO 19005-1:2005/Cor.1:2007, 6.7.8
 
-## Rule <a name="6.7.9-1"></a>$
+## Rule <a name="6.7.9-1"></a>6.7.9-1
 
 ### Requirement
 
@@ -1936,7 +1936,7 @@ The serialization of the metadata stream does not conform to XMP Specification.
   * XMP Specification January 2004,
 
 
-## Rule <a name="6.7.9-2"></a>$
+## Rule <a name="6.7.9-2"></a>6.7.9-2
 
 ### Requirement
 
@@ -1951,7 +1951,7 @@ A property is either not defined in XMP Specification, or is not defined in any 
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule <a name="6.7.11-1"></a>$
+## Rule <a name="6.7.11-1"></a>6.7.11-1
 
 ### Requirement
 
@@ -1966,7 +1966,7 @@ The document metadata stream does not contain a PDF/A Identification Schema.
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule <a name="6.7.11-2"></a>$
+## Rule <a name="6.7.11-2"></a>6.7.11-2
 
 ### Requirement
 
@@ -1981,7 +1981,7 @@ The "part" property of the PDF/A Identification Schema is not equal to 1 for a P
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule <a name="6.7.11-3"></a>$
+## Rule <a name="6.7.11-3"></a>6.7.11-3
 
 ### Requirement
 
@@ -2007,7 +2007,7 @@ As Level B requirements form a strict subset of Level A requirements, validation
   * Specification: ISO 19005-1:2005
   * Levels: B
 
-## Rule <a name="6.7.11-4"></a>$
+## Rule <a name="6.7.11-4"></a>6.7.11-4
 
 ### Requirement
 
@@ -2023,7 +2023,7 @@ A property of the PDF/A Identification Schema has an invalid namespace prefix.
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
-## Rule <a name="6.8.2-1"></a>$
+## Rule <a name="6.8.2-1"></a>6.8.2-1
 
 ### Requirement
 
@@ -2042,7 +2042,7 @@ This setting indicates that the file conforms to the Tagged PDF conventions.
 * Additional references:
   * PDF 1.4 Reference, 9.7.1
 
-## Rule <a name="6.8.3-1"></a>$
+## Rule <a name="6.8.3-1"></a>6.8.3-1
 
 ### Requirement
 
@@ -2061,7 +2061,7 @@ The logical structure of a document is described by a hierarchy of objects calle
 * Additional references:
   * PDF 1.4 Reference, 9.6.1
 
-## Rule <a name="6.8.3-2"></a>$
+## Rule <a name="6.8.3-2"></a>6.8.3-2
 
 ### Requirement
 

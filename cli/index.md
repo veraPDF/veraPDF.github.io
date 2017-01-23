@@ -45,6 +45,10 @@ typing `./verapdf`.
   - [validating using automated profile selection](validation#auto-profile);
   - [customising the validation process and reporting](validation#customising); and
   - [validating mulitple files](validation#batches).
-- [Extracting features (metadata) from PDFs](feature-extraction).
-- [Fixing PDF/A metadata](fixing).
+- [Extracting features (metadata) from PDFs](feature-extraction):
+  - [extracting Information Dictionary metadtata](feature-extraction#info-dict);
+  - [extracting XMP metadtata](feature-extraction#metadata);
+  - [extracting Font information](feature-extraction#fonts); and
+  - [extracting image features](feature-extraction#images).
 - [Enforcing institutional policy](policy).
+- [Fixing PDF/A metadata](fixing).
