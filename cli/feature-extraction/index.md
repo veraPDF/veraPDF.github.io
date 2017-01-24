@@ -36,7 +36,7 @@ To demonstrate these features we'll use an Adobe specification file `adobe_suppl
 directory.
 
 Ensure that the feature extractor is configured properly. To make the
-demonstration clear we suggest you edit your [config/features.xml](../config/features.xml) to read:
+demonstration clear we suggest you edit your [config/features.xml](../config#features.xml) to read:
 
     <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <featuresConfig>
@@ -87,7 +87,7 @@ you should see the following output:
 ### <a name="metadata"></a> XMP Metadata
 We'll use the same [adobe supplement file](http://wwwimages.adobe.com/content/dam/Adobe/en/devnet/pdf/pdfs/adobe_supplement_iso32000.pdf) to demonstrate the extraction of XMP metadata. First
 you'll need touse a text editor to change the contents of your
-[config/features.xml](../config/features.xml) to read:
+[config/features.xml](../config#features.xml) to read:
 
     <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <featuresConfig>
@@ -166,7 +166,7 @@ to get the following output:
 
 ### <a name="fonts"></a> Fonts
 For this demonstration we'll use one of the veraPDF corpus files. First edit
-your [config/features.xml](../config/features.xml) to read:
+your [config/features.xml](../config#features.xml) to read:
 
     <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <featuresConfig>
@@ -246,7 +246,7 @@ information has been removed:
     </report>
 
 ### <a name="images"></a> Images
-First edit your [config/features.xml](../config/features.xml) to read:
+First edit your [config/features.xml](../config#features.xml) to read:
 
     <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <featuresConfig>
