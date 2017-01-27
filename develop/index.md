@@ -3,88 +3,152 @@ layout: page
 title: Developing with veraPDF
 ---
 
-Integrating veraPDF
--------------------
+{{ page.title }}
+================
+This is a quick start guide for developers wanting to work with veraPDF. You'll
+need to know a little Java, Maven and git to follow the instructions. We've
+assumed you either want to:
 
-## Overview
+- integrate veraPDF into your own Java application; or
+- contribute to the veraPDF code base.
 
-The main entry point to integrate veraPDF project into another one is to use the class that implements org.verapdf.processor.Processor interface. Now we have one implementation of that interface based on pdf-box: org.verapdf.processor.ProcessorImpl.
+Whatever your destination, we'll start the journey together. First you'll need to
+decide which version of veraPDF you want to use and how you want to obtain it.
 
-The interface contains one method:
+License
+-------
+VeraPDF free software: you can redistribute it and/or modify it under the terms
+of either:
 
-    validate(InputStream, ItemDetails, Config, OutputStream) : ProcessingResult
+- The [GNU General public license GPLv3+](LICENSE.GPL), see
+  - [http://www.gnu.org/licenses/](http://www.gnu.org/licenses/) or
+  - [https://www.gnu.org/licenses/gpl-3.0.en.html](https://www.gnu.org/licenses/gpl-3.0.en.html).
+- The [Mozilla Public License MPLv2+](LICENSE.MPL), see
+  [http://mozilla.org/MPL/2.0/](http://mozilla.org/MPL/2.0/)
 
-This method can be used as an entry point for veraPDF processing. It takes the following arguments:
+Getting veraPDF
+---------------
+There are two implementations of the veraPDF software library, one that uses a
+fork of the [Apache PDFBox project](https://github.com/veraPDF/veraPDF-pdfbox)
+as a PDF parser and validation model. Since releasing the PDFBox implementation
+the veraPDF consortium have developed their own PDF parsing and valdiation model
+that's avaliable under the same dual open source licenses as the rest of veraPDF.
 
- - `InputStream` is a PDF file input stream for processing;
- - `ItemDetails` contains the filename and file size. In case if the local PDF file it can be derived from the corresponding File object. However, in other cases such as for example HTTP input stream this data should be provided in addition to the stream itself.
- - `Config` contains all configuration parameters for processing.
- - `OutputStream` is used to write the report.
- - As a result of processing, the method returns `ProcessingResult` object that contains general information about status of the process (or processes, if for example feature report generation or metadata fixing is requested in addition to validation) and other debug level info (such as the list of all exceptions caught during processing).
+### Maven for integrators
+If you want to integrate veraPDF into your own Java application and you're using
+Maven you can add the following to your POM:
 
-## Example Integration
-```Java
-public static void main(String[] args) {
-   try {
-     /* Create default config and change its properties if necessary
-        As an example here will be used some setters for changing most
-        important config values, but does not use all of them.
-        See the Config class documentation for additional info */
+    <repositories>
+      <repository>
+        <snapshots>
+          <enabled>true</enabled>
+        </snapshots>
+        <id>vera-dev</id>
+        <name>Vera development</name>
+        <url>http://artifactory.openpreservation.org/artifactory/vera-dev</url>
+      </repository>
+    </repositories>
 
-        Config config = new Config();
+to access the veraPDF Maven repository, we'll be on Maven central soon.
 
-        // Validation will end when reaching this number of failed checks.
-        // Default value: -1 (ignore this property)
-       // config.setMaxNumberOfFailedChecks(-1);
+#### Greenfield POM dependency
+To include veraPDF's greenfield parser and validation model add:
 
-       // Include PDF features into the report
-	     // The use of this option might significantly increase the size
-       // of the report and memory consumption.
-       // Default value: VALIDATION
-       // config.setProcessingType(ProcessingType.VALIDATION_AND_FEATURES);
+    <dependency>
+      <groupId>org.verapdf</groupId>
+      <artifactId>validation-model</artifactId>
+      <version>1.0.5</version>
+    </dependency>
 
-       // Enable metadata fixing.
-       // A modified PDF file will be saved next to the source PDF
-       // Default value: false
-       // config.setFixMetadata(true);
+You can change the version number if you desire.
 
-       // If the next property will be set, then metadata fixer will use specified
-        // folder for saving fixed file. Use empty path (see default) to disable
-        // that property
-        // Default value: FileSystems.getDefault().getPath(“”);
-        // config.setFixMetadataPathFolder(FileSystems.getDefault().getPath(“folder”));
+#### PDFBox POM dependency
+This can be included in your project with this Maven dependency:
 
-        // The fixed file name created by using the next logic:
-        // prefix + filename + index + extension, where
-        // prefix - String that specified by the next property
-        // filename - part of initial file’s name before first ‘.’ symbol,
-        // index - if there is no file with name prefix + filename + extension in
-        // the folder, then index will be empty string, otherwise it will be equal to
-        // “(“ + number + “)”, where number is the least integer such that
-        // there will be no name conflicts
-        // extension - initial file’s extension
-        // Default value: “veraPDF_”
-        // config.setMetadataFixerPrefix(“somePrefix_”);
+    <dependency>
+      <groupId>org.verapdf</groupId>
+      <artifactId>pdfbox-validation-model</artifactId>
+      <version>1.0.5</version>
+    </dependency>
 
-        // Choose report type (MRR, XML, TXT, HTML)
-       // Default value: MRR (machine-readable report)
-       // config.setReportType(FormatOption.MRR);
+### GitHub for source code
+The up to date source repos are on GitHub.
 
-      // Choose validation flavour
-       // Default value: AUTO
-       // config.setFlavour(PDFAFlavour.PDFA_1_B);
+#### Greenfield GithHub project
+The clone and build the veraPDF consortium's greenfield implementation using git
+and Maven:
 
-       // Prepare file for processing and set the output stream for the report
-       File pdf = new File("location/file.pdf");
-       InputStream fileInputStream = new FileInputStream(pdf);
-       OutputStream os = System.out;
+    git clone https://github.com/veraPDF/veraPDF-validation.git
+    cd veraPDF-validation
+    mvn clean install
 
-      // Starting the processing
-      Processor processor = new ProcessorImpl();
-      ProcessingResult result =
-      processor.validate(fileInputStream, ItemDetails.fromFile(pdf), config, os);
-   } catch (FileNotFoundException | ModelParsingException e) {
-       e.printStackTrace();
-   }
-}
-```
+#### PDFBox version GitHub project
+For the PDFBox implementation:
+
+    git clone https://github.com/veraPDF/veraPDF-pdfbox-validation.git
+    cd veraPDF-pdfbox-validation
+    mvn clean install
+
+Validating a PDF
+----------------
+To use the library to validate a PDF file you can do the following:
+
+### Initialising your chosen foundry
+The veraPDF library is unaware of the implementations and needs to be
+initialised before first use. This is a slightly different process, depending on
+whether you've chosed the greenfield or PDFBox implementation.
+
+#### Greenfield Foundry initialise
+
+    import org.verapdf.pdfa.VeraGreenfieldFoundryProvider;
+    import org.verapdf.pdfa.Foundries;
+    import org.verapdf.pdfa.PDFAParser;
+    import org.verapdf.pdfa.results.ValidationResult;
+    import org.verapdf.pdfa.PDFAValidator;
+    import org.verapdf.pdfa.flavours.PDFAFlavour;
+
+    VeraGreenfieldFoundryProvider.initialise();
+
+#### PDFBox Foundry initialise
+
+    import org.verapdf.pdfa.PdfBoxFoundryProvider;
+    import org.verapdf.pdfa.Foundries;
+    import org.verapdf.pdfa.PDFAParser;
+    import org.verapdf.pdfa.results.ValidationResult;
+    import org.verapdf.pdfa.PDFAValidator;
+    import org.verapdf.pdfa.flavours.PDFAFlavour;
+
+    PdfBoxFoundryProvider.initialise();
+
+### Validating a PDF File
+You only need to intialise once, whichever version you're using, now the code to
+validated a file called `mydoc.pdf` against the PDF/A 1b specification is:
+
+    PDFAFlavour flavour = PDFAFlavour.fromString("1b");
+    PDFAValidator validator = Foundries.defaultInstance().createValidator(flavour, false);
+    try (PDFAParser parser = Foundries.defaultInstance().createParser(new FileInputStream(`mydoc.pdf`),
+        flavour)) {
+        ValidationResult result = validator.validate(loader);
+        if (result.isCompliant()) {
+          // File is a valid PDF/A 1b
+        } else {
+          // it isn't
+        }
+    }
+
+If you're not sure what PDF/A specification to use you can let the software decide:
+
+  try (PDFAParser parser = Foundries.defaultInstance().createParser(new FileInputStream(`mydoc.pdf`)) {
+      PDFAValidator validator = Foundries.defaultInstance().createValidator(parser.getFlavour(), false);
+      ValidationResult result = validator.validate(loader);
+      if (result.isCompliant()) {
+        // File is a valid PDF/A 1b
+      } else {
+        // it isn't
+      }
+  }
+
+The veraPDF Processor
+---------------------
+There's a higher level processor API aimed at developers wanting to combine the
+low-level components. You can read more in on the [processor page](processor). 
