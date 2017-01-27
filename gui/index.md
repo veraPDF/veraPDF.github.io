@@ -41,7 +41,11 @@ The interface is fairly simple, we describe the controls int he following sectio
 This opens the file dialog, allowing the user to select a PDF file for validation or feature reporting. The "Execute" button will not be enabled until a file is selected.
 
 #### Choose Profile button and Profile dropdown
-The Choose Profile button and the dropdown immediately below it determine the validation processing. The Choose Profile button allows a user to load a custom Validation Profile from the file system. For most users the built in profiles packaged with the software will be sufficient. The dropdown below the button is used to control profile selection, the options are as follows:
+The Choose Profile button and the dropdown immediately below it determine the validation processing. The Choose Profile button allows a user to load a custom Validation Profile from the file system. For most users the built in profiles packaged with the software will be sufficient. The dropdown below the button is used to control profile selection:
+
+![veraPDF GUI profile dropdown](/images/gui/profile-list.png "veraPDF GUI profile dropdown")
+
+The options are as follows:
 
 | Option         | Description                                                                                               |
 |----------------|-----------------------------------------------------------------------------------------------------------|
@@ -57,15 +61,22 @@ The Choose Profile button and the dropdown immediately below it determine the va
 | Custom Profile | Enables the Choose Profile button allowing the user to load an external validation profile.               |
 {:.table .table-striped}
 
-#### Report Type dropdown and Fix Metadata checkbox
-These controls allow the user to select the processing functionality and the information included in the generated report. The available options are:
+#### Report Type dropdown, Policy button, and Fix Metadata checkbox
+These controls allow the user to select the processing functionality and the information included in the generated report:
+
+![veraPDF GUI report dropdown](/images/gui/report-list.png "veraPDF GUI report dropdown")
+
+The available options are:
 
 | Option                | Description                                                                            |
 |-----------------------|----------------------------------------------------------------------------------------|
 | Validation [default]  | Only perform PDF/A Validation and report the results, feature reporting is disabled.   |
 | Features              | Only carry out feature reporting, don't try to validate the PDF file.                  |
 | Validation & Features | Both PDF/A Validation and features reporting are carried out and the results reported. |
+| Policy                | Perform a Policy check alongside validation and feature extraction.                    |
 {:.table .table-striped}
+
+If Policy is chosed the "Choose Policy" is activated, the user can then press this and load a [policy schematron file](cli/policy).
 
 The Fix Metadata checkbox determines whether the software will attempt to ammend the PDF document metadata to ensure it is compliant whith the PDF/A specification.
 
@@ -85,7 +96,7 @@ Once processing is complete the reporting buttons will be enabled:
 
 The XML report will contain PDF/A Validation Report and PDF Features Report, depending on the chosen processing options. Currently the HTML report only includes the results PDF/A Validation information.
 
-![veraPDF GUI main screen](/images/gui/populated.png "veraPDF GUI main screen")
+![veraPDF GUI populated screen](/images/gui/populated.png "veraPDF GUI main screen")
 
 Once a PDF File is selected, and possibly a custom profile depending upon the dropdown, the ‘Validate’ button becomes enabled.
 
