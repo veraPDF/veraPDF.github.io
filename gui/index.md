@@ -76,7 +76,7 @@ The available options are:
 | Policy                | Perform a Policy check alongside validation and feature extraction.                    |
 {:.table .table-striped}
 
-If Policy is chosed the "Choose Policy" is activated, the user can then press this and load a [policy schematron file](/cli/policy).
+If Policy is chosed the "Choose Policy" is activated, the user can then press this and load a [policy schematron file](/policy).
 
 The Fix Metadata checkbox determines whether the software will attempt to ammend the PDF document metadata to ensure it is compliant whith the PDF/A specification.
 

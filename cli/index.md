@@ -50,5 +50,5 @@ typing `./verapdf`.
   - [extracting XMP metadtata](feature-extraction#metadata);
   - [extracting Font information](feature-extraction#fonts); and
   - [extracting image features](feature-extraction#images).
-- [Enforcing institutional policy](policy).
+- [Enforcing institutional policy](/policy).
 - [Fixing PDF/A metadata](fixing).
