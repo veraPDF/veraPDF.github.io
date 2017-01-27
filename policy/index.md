@@ -1,6 +1,6 @@
 ---
 layout: page
-title: veraPDF CLI Policy Checking
+title: veraPDF Policy Checking
 ---
 
 {{ page.title }}
@@ -134,3 +134,54 @@ confirming that the document only contains the desired font:
       </passedChecks>
       <failedChecks/>
     </policyReport>
+
+### <a name="info-dict"></a> Information Dictionary Metadata
+Next we'll look at enforcing policy for metadata in the PDF Information Dictionary.
+The Information Dictionary is a set of key value pairs used to record document
+metadata. A feature report might look like this, although these are test values:
+
+    <informationDict>
+      <entry key="Title">Test title</entry>
+      <entry key="Author">veraPDF Consortium</entry>
+      <entry key="Subject">Test description</entry>
+      <entry key="Keywords">TEST KEYWORDS</entry>
+      <entry key="Creator">veraPDF Test Builder</entry>
+      <entry key="Producer">veraPDF Test Builder 1.0 </entry>
+      <entry key="CreationDate">2015-03-10T17:19:21.000+01:00</entry>
+      <entry key="ModDate">2015-03-10T17:19:21.000+01:00</entry>
+    </informationDict>
+
+This schmeatron test ensures that a `Title` element is present:
+
+    <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt">
+        <sch:pattern>
+            <sch:rule context="featuresReport/informationDict">
+                <sch:assert test="count(entry[@key='Title']) > 0">Title is presemnt.</sch:assert>
+            </sch:rule>
+        </sch:pattern>
+    </sch:schema>
+
+You'll need to ensure that the feature extractor is configured to report the
+info dictionary metadata, this [features.xml file](info-dict/features.xml) will
+do the trick. You can download the [schematron rule here](info-dict/title-mandatory.sch).
+
+In this example we'll use the GUI to run the policy check. You can configure the
+feature extractor from the Features Config menu. You MUST have the Information
+Dictionary item checked:
+
+![veraPDF Features Config](/images/policy/config-info-dict.png "veraPDF Features Config menu")
+
+You'll need to select the Policy option from the [report dropdown menu](/gui#report-drop)
+which will enable the "Choose Policy" button and you'll be able to load
+[the schmematron policy](info-dict/title-mandatory.sch). You'll then need to
+press the "Choose PDF" button to select the PDF files to check. Navigate to this
+corpus subdirectory `veraPDF-corpus/PDF_A-1b/6.1 File structure/6.1.5 Document
+information dictionary` and select the 4 pass case files at the bottom of the list
+`veraPDF test suite 6-1-5-t02-pass-a.pdf` to `veraPDF test suite 6-1-5-t02-pass-d.pdf`:
+
+![veraPDF Choose PDF](/images/policy/info-dict-select.png "veraPDF Choose PDF dialog")
+
+Now press the "Execute" button and view the
+[HTML report, this is a PDF version](info-dict/report.pdf) to see that `veraPDF
+test suite 6-1-5-t02-pass-d.pdf` has no title. The full details are in the
+[XML Report](info-dict/report.xml).
