@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report>
+<buildInformation>
+<releaseDetails id="core" version="1.0.2" buildDate="2017-01-10T02:34:00Z"/>
+<releaseDetails id="name" version="version" buildDate="2017-01-27T10:12:27.652Z"/>
+<releaseDetails id="gui" version="1.0.6-PDFBOX" buildDate="2017-01-13T11:30:00Z"/>
+<releaseDetails id="pdfbox-validation-model" version="1.0.2" buildDate="2017-01-10T02:39:00Z"/>
+</buildInformation>
+<jobs>
+<job>
+<item size="10130">
+<name>/home/cfw/verapdf/1.0/corpus/veraPDF-corpus-staging/PDF_A-1b/6.1 File structure/6.1.5 Document information dictionary/veraPDF test suite 6-1-5-t02-pass-a.pdf</name>
+</item>
+<validationReport profileName="PDF/A-1B validation profile" statement="PDF file is compliant with Validation Profile requirements." isCompliant="true">
+<details passedRules="102" failedRules="0" passedChecks="452" failedChecks="0"/>
+</validationReport>
+<featuresReport>
+<informationDict>
+<entry key="Title">Test title</entry>
+<entry key="Author">veraPDF Consortium</entry>
+<entry key="Subject">Test description</entry>
+<entry key="Keywords">Test keywords</entry>
+<entry key="Creator">veraPDF Test Builder</entry>
+<entry key="Producer">veraPDF Test Builder 1.0 </entry>
+<entry key="CreationDate">2015-03-10T17:19:21.000+01:00</entry>
+<entry key="ModDate">2015-03-10T17:19:21.000+01:00</entry>
+<entry key="Description">Test description</entry>
+</informationDict>
+</featuresReport>
+<processingTime>00:00:00:077</processingTime>
+<policyReport passedChecks="0" failedChecks="0" xmlns:vera="http://www.verapdf.org/MachineReadableReport">
+<passedChecks/>
+<failedChecks/>
+</policyReport>
+</job>
+<job>
+<item size="10150">
+<name>/home/cfw/verapdf/1.0/corpus/veraPDF-corpus-staging/PDF_A-1b/6.1 File structure/6.1.5 Document information dictionary/veraPDF test suite 6-1-5-t02-pass-b.pdf</name>
+</item>
+<validationReport profileName="PDF/A-1B validation profile" statement="PDF file is compliant with Validation Profile requirements." isCompliant="true">
+<details passedRules="102" failedRules="0" passedChecks="448" failedChecks="0"/>
+</validationReport>
+<featuresReport>
+<informationDict>
+<entry key="Title">Test title</entry>
+<entry key="Author">veraPDF Consortium</entry>
+<entry key="Subject">Test description</entry>
+<entry key="Keywords">Test keywords</entry>
+<entry key="Creator">veraPDF Test Builder</entry>
+<entry key="Producer">veraPDF Test Builder 1.0 </entry>
+<entry key="CreationDate">2015-03-10T17:19:21.000+01:00</entry>
+<entry key="ModDate">2015-03-10T17:19:21.000+01:00</entry>
+</informationDict>
+</featuresReport>
+<processingTime>00:00:00:055</processingTime>
+<policyReport passedChecks="0" failedChecks="0" xmlns:vera="http://www.verapdf.org/MachineReadableReport">
+<passedChecks/>
+<failedChecks/>
+</policyReport>
+</job>
+<job>
+<item size="10198">
+<name>/home/cfw/verapdf/1.0/corpus/veraPDF-corpus-staging/PDF_A-1b/6.1 File structure/6.1.5 Document information dictionary/veraPDF test suite 6-1-5-t02-pass-c.pdf</name>
+</item>
+<validationReport profileName="PDF/A-1B validation profile" statement="PDF file is compliant with Validation Profile requirements." isCompliant="true">
+<details passedRules="102" failedRules="0" passedChecks="449" failedChecks="0"/>
+</validationReport>
+<featuresReport>
+<informationDict>
+<entry key="Title">Test title</entry>
+<entry key="Author">veraPDF Consortium</entry>
+<entry key="Subject">Test description</entry>
+<entry key="Keywords">TEST KEYWORDS</entry>
+<entry key="Creator">veraPDF Test Builder</entry>
+<entry key="Producer">veraPDF Test Builder 1.0 </entry>
+<entry key="CreationDate">2015-03-10T17:19:21.000+01:00</entry>
+<entry key="ModDate">2015-03-10T17:19:21.000+01:00</entry>
+</informationDict>
+</featuresReport>
+<processingTime>00:00:00:057</processingTime>
+<policyReport passedChecks="0" failedChecks="0" xmlns:vera="http://www.verapdf.org/MachineReadableReport">
+<passedChecks/>
+<failedChecks/>
+</policyReport>
+</job>
+<job>
+<item size="10160">
+<name>/home/cfw/verapdf/1.0/corpus/veraPDF-corpus-staging/PDF_A-1b/6.1 File structure/6.1.5 Document information dictionary/veraPDF test suite 6-1-5-t02-pass-d.pdf</name>
+</item>
+<validationReport profileName="PDF/A-1B validation profile" statement="PDF file is compliant with Validation Profile requirements." isCompliant="true">
+<details passedRules="102" failedRules="0" passedChecks="446" failedChecks="0"/>
+</validationReport>
+<featuresReport>
+<informationDict>
+<entry key="Author">veraPDF Consortium</entry>
+<entry key="Subject">Test description</entry>
+<entry key="Keywords">TEST KEYWORDS</entry>
+<entry key="Creator">veraPDF Test Builder</entry>
+<entry key="Producer">veraPDF Test Builder 1.0 </entry>
+<entry key="CreationDate">2015-03-10T17:19:21.000+01:00</entry>
+<entry key="ModDate">2015-03-10T17:19:21.000+01:00</entry>
+</informationDict>
+</featuresReport>
+<processingTime>00:00:00:070</processingTime>
+<policyReport passedChecks="0" failedChecks="1" xmlns:vera="http://www.verapdf.org/MachineReadableReport">
+<passedChecks/>
+<failedChecks>
+<check status="failed" test="count(entry[@key='Title']) &gt; 0" location="/report/jobs/job[4]/featuresReport/informationDict">
+<message>Title is presemnt.</message>
+</check>
+</failedChecks>
+</policyReport>
+</job>
+</jobs>
+<summary jobs="4" failedJobs="0" valid="4" inValid="0" validExcep="0" features="4">
+<duration start="1485516602855" finish="1485516603155">00:00:00:300</duration>
+</summary>
+</report>

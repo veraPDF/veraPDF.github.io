@@ -61,7 +61,7 @@ The options are as follows:
 | Custom Profile | Enables the Choose Profile button allowing the user to load an external validation profile.               |
 {:.table .table-striped}
 
-#### Report Type dropdown, Policy button, and Fix Metadata checkbox
+#### <a name="report-drop"></a>Report Type dropdown, Choose Policy button, and Fix Metadata checkbox
 These controls allow the user to select the processing functionality and the information included in the generated report:
 
 ![veraPDF GUI report dropdown](/images/gui/report-list.png "veraPDF GUI report dropdown")
@@ -76,7 +76,7 @@ The available options are:
 | Policy                | Perform a Policy check alongside validation and feature extraction.                    |
 {:.table .table-striped}
 
-If Policy is chosed the "Choose Policy" is activated, the user can then press this and load a [policy schematron file](/policy).
+If Policy is selected the "Choose Policy" button is activated, the user can use this to load a [policy schematron file](/policy).
 
 The Fix Metadata checkbox determines whether the software will attempt to ammend the PDF document metadata to ensure it is compliant whith the PDF/A specification.
 
