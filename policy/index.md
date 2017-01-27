@@ -28,6 +28,10 @@ the more complex standards that it uses:
 - [XPath](http://www.w3schools.com/xml/xpath_intro.asp) to define the elements of interest in an XML document; and
 - [XQuery](http://www.w3schools.com/xml/xquery_intro.asp) to write queries for XML data.
 
+Schematron assertions allow to verify values of some specificPDF features such as metadata values, 
+image compression, color spaces and fonts, and a lot of other data. The complete list of features 
+can be found at [on this site](../feature-extraction).
+
 This simple schema document, that's also a veraPDF policy document, shows all
 five schematron elements:
 
@@ -63,7 +67,7 @@ in our document. The schematron file is quite simple:
     <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt">
       <sch:pattern name="Disallow Adobe Gothic fonts.">
         <sch:rule context="fonts/font/fontDescriptor">
-          <sch:assert test="fontName != 'UMBSME+AdobeGothicStd-Bold'">Adobe Gothic fonts are not allowed.</sch:assert>
+          <sch:assert test="not(contains(fontName,'AdobeGothicStd-Bold'))">Adobe Gothic fonts are not allowed.</sch:assert>
         </sch:rule>
       </sch:pattern>
     </sch:schema>
@@ -72,12 +76,13 @@ You can download a [copy here](font/font-disallowed.sch) for testing. A quick
 explanation of the key elements:
 
 - `<sch:rule context="fonts/font/fontDescriptor">` sets up the XPath context
-  for any enclosed `<assert>` and `<report>` elements. We've shorthanded the
+  for any enclosed `<assert>` and `<report>` elements. We've short handed the
   context, the full path to the `<fontDescriptor>` element is `/report/jobs/job/featuresReport/documentResources/fonts/font/fontDescriptor`.
   By omitting the starting `/` we can use a relative pattern that is shorter and still unique enough for our purposes.
-- `<sch:assert test="fontName != 'UMBSME+AdobeGothicStd-Bold'">` tests that any
-  `<fontName>` elements do not have the value `UMBSME+AdobeGothicStd-Bold`, the
-  name of the font we want to disallow.
+- `<sch:assert test="not(contains(fontName,'AdobeGothicStd-Bold'))">` tests that any
+  `<fontName>` elements do not contain value `AdobeGothicStd-Bold`, the
+  name of the font we want to disallow. Note that we can not simply use `test="fontName != 'AdobeGothicStd-Bold'"`, as PDF fonts may be subset, 
+  and in this case the font name contains a random six character prefix such as "UMBSME+AdobeGothicStd-Bold". 
 
 If you've downloaded the schematron file to your veraPDF installation directory
 and configured the feature extractor to gather font data, you can issue the
@@ -91,11 +96,11 @@ below:
     <policyReport passedChecks="0" failedChecks="2" xmlns:vera="http://www.verapdf.org/MachineReadableReport">
       <passedChecks/>
       <failedChecks>
-        <check status="failed" test="fontName != 'UMBSME+AdobeGothicStd-Bold'" location="/report/jobs/job/featuresReport/documentResources/fonts/font[1]/fontDescriptor">
-          <message>Adobe Gothic fonts are not allowed.</message>
+        <check status="failed" test="not(contains(fontName,'AdobeGothicStd-Bold'))" location="/report/jobs/job/featuresReport/documentResources/fonts/font[1]/fontDescriptor">
+          <message>Adobe Gothic Bold fonts are not allowed.</message>
         </check>
-        <check status="failed" test="fontName != 'UMBSME+AdobeGothicStd-Bold'" location="/report/jobs/job/featuresReport/documentResources/fonts/font[2]/fontDescriptor">
-          <message>Adobe Gothic fonts are not allowed.</message>
+        <check status="failed" test="not(contains(fontName,'AdobeGothicStd-Bold'))" location="/report/jobs/job/featuresReport/documentResources/fonts/font[2]/fontDescriptor">
+          <message>Adobe Gothic Bold fonts are not allowed.</message>
         </check>
       </failedChecks>
     </policyReport>
@@ -104,14 +109,14 @@ The `<policyReport>` elements show that there were no passed checks and two
 failed checks for this PDF document.
 
 #### Ensuring a named font is present
-Our nextt example will show how to check that only a particular font appears in
-our document. Once again we'll show the schmeatron file:
+Our next example will show how to check that only a particular font appears in
+our document. Once again we'll show the schematron file:
 
     <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt">
       <sch:pattern>
         <sch:rule context="fonts/font/fontDescriptor">
-          <sch:report test="fontName = 'UMBSME+AdobeGothicStd-Bold'">Adobe Gothic is present.</sch:report>
-          <sch:assert test="fontName = 'UMBSME+AdobeGothicStd-Bold'">Only Adobe Gothic fonts are allowed.</sch:assert>
+          <sch:report test="contains(fontName,'AdobeGothicStd-Bold')">Adobe Gothic Bold is present.</sch:report>
+          <sch:assert test="contains(fontName,'AdobeGothicStd-Bold')">Only Adobe Gothic Bold fonts are allowed.</sch:assert>
         </sch:rule>
       </sch:pattern>
     </sch:schema>
@@ -125,10 +130,10 @@ confirming that the document only contains the desired font:
 
     <policyReport passedChecks="2" failedChecks="0" xmlns:vera="http://www.verapdf.org/MachineReadableReport">
       <passedChecks>
-        <check status="passed" test="fontName = 'UMBSME+AdobeGothicStd-Bold'" location="/report/jobs/job/featuresReport/documentResources/fonts/font[1]/fontDescriptor">
+        <check status="passed" test="contains(fontName,'AdobeGothicStd-Bold')" location="/report/jobs/job/featuresReport/documentResources/fonts/font[1]/fontDescriptor">
           <message>Adobe Gothic should be present.</message>
         </check>
-        <check status="passed" test="fontName = 'UMBSME+AdobeGothicStd-Bold'" location="/report/jobs/job/featuresReport/documentResources/fonts/font[2]/fontDescriptor">
+        <check status="passed" test="contains(fontName,'AdobeGothicStd-Bold')" location="/report/jobs/job/featuresReport/documentResources/fonts/font[2]/fontDescriptor">
           <message>Adobe Gothic should be present.</message>
         </check>
       </passedChecks>
