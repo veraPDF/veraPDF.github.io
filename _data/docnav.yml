@@ -10,6 +10,9 @@
 - title: "CLI"
   href: "/cli/"
 
+- title: "Policy"
+  href: "/policy/"
+
 - title: "Validation"
   href: "/validation/"
   subcategories:
@@ -22,4 +25,3 @@
 
 - title: "Get started"
   href: "/"
-
