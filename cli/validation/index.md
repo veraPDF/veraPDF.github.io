@@ -180,3 +180,11 @@ batch summary on the test machine is shown below for reference:
 
 meaning the software took one minute and forty seconds to process one thousand
 and five hundred files.
+
+<a name="disable"></a>Disabling PDF/A validation
+------------------------------------------------
+As demonstrated in the examples above veraPDF validation runs as a default
+option. While convenient this is not always desirable. You can disable
+validation by passing the `-o` or `--off` option. This is usually done during
+[feature-extraction](../feature-extraction), for example
+<kbd>verapdf --off --extract somefile.pdf</kbd>.
