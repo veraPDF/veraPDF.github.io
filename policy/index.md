@@ -15,7 +15,7 @@ Validator and Feature Extractor. This means that the policy checker depends
 upon having the correct information in the report.
 
 You can read more about feature extraction [on this site](../cli/feature-extraction),
- there's also instructions for [configuring feature extraction](../cli/config#features.xml).
+ there's also instructions for [configuring feature extraction](../cli/config/#features.xml).
 
 Schematron Syntax
 -----------------
