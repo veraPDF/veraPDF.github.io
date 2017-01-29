@@ -502,7 +502,7 @@ Maximum number of DeviceN components (8) is exceeded.
 * Additional references:
   * PDF Reference 1.4, Table C.1
 
-## Rule <a name="6.1.12-1"></a>6.1.12-10
+## Rule <a name="6.1.12-10"></a>6.1.12-10
 
 ### Requirement
 
