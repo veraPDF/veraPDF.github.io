@@ -477,7 +477,7 @@ Maximum number of DeviceN components (32) is exceeded
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule <a name="6.1.13-1"></a>6.1.13-10
+## Rule <a name="6.1.13-10"></a>6.1.13-10
 
 ### Requirement
 
@@ -492,7 +492,7 @@ Maximum value of a CID (65535) is exceeded.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
-## Rule <a name="6.1.13-1"></a>6.1.13-11
+## Rule <a name="6.1.13-11"></a>6.1.13-11
 
 ### Requirement
 

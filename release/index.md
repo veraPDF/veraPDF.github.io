@@ -41,4 +41,4 @@ would ALL be release versions, while:
 are all development versions.
 
 ### Patch for buld ID
-The final `PATCH` number is automatically incremented by our [Jenkins build server](http://jenkins.opf-labs.org/view/D-veraPDF-library/) ensuring that each official build is identifiable.
+The final `PATCH` number is automatically incremented by our [Jenkins build server](http://jenkins.openpreservation.org/job/veraPDF-library-dev/) ensuring that each official build is identifiable.
