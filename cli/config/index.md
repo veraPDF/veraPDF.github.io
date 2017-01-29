@@ -261,7 +261,7 @@ This is a placeholder for veraPDF error reporting
 ### <a name="error"></a> ERROR
 This is a placeholder for veraPDF error reporting
 
-<a name="app.xml"></a>Configuring the metadata fixer
+<a name="fixer.xml"></a>Configuring the metadata fixer
 ----------------------------------------------------
 
     <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
