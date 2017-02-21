@@ -187,7 +187,6 @@ enabled:
             <feature>PROPERTIES</feature>
             <feature>SHADING</feature>
             <feature>SIGNATURE</feature>
-            <feature>FAILED_XOBJECT</feature>
             <feature>ERROR</feature>
         </enabledFeatures>
     </featuresConfig>
@@ -289,9 +288,6 @@ Lists the shadings used in the document.
 
 ### <a name="signature"></a> SIGNATURE
 Extracts information about any digital signatures contained in the document.
-
-### <a name="failed"></a> FAILED_XOBJECT
-This is a placeholder for veraPDF error reporting
 
 ### <a name="error"></a> ERROR
 This is a placeholder for veraPDF error reporting
