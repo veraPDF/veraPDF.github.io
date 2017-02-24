@@ -37,7 +37,7 @@ that's avaliable under the same dual open source licenses as the rest of veraPDF
 ### Maven for integrators
 If you want to integrate veraPDF into your own Java application and you're using
 Maven you can add the following to your POM:
-
+```
     <repositories>
       <repository>
         <snapshots>
@@ -48,28 +48,31 @@ Maven you can add the following to your POM:
         <url>http://artifactory.openpreservation.org/artifactory/vera-dev</url>
       </repository>
     </repositories>
+```
 
 to access the veraPDF Maven repository, we'll be on Maven central soon.
 
 #### Greenfield POM dependency
 To include veraPDF's greenfield parser and validation model add:
-
+```
     <dependency>
       <groupId>org.verapdf</groupId>
       <artifactId>validation-model</artifactId>
       <version>1.0.5</version>
     </dependency>
+```
 
 You can change the version number if you desire.
 
 #### PDFBox POM dependency
 This can be included in your project with this Maven dependency:
-
+```
     <dependency>
       <groupId>org.verapdf</groupId>
       <artifactId>pdfbox-validation-model</artifactId>
       <version>1.0.5</version>
     </dependency>
+```
 
 ### GitHub for source code
 The up to date source repos are on GitHub.
@@ -77,17 +80,19 @@ The up to date source repos are on GitHub.
 #### Greenfield GithHub project
 The clone and build the veraPDF consortium's greenfield implementation using git
 and Maven:
-
+```
     git clone https://github.com/veraPDF/veraPDF-validation.git
     cd veraPDF-validation
     mvn clean install
+```
 
 #### PDFBox version GitHub project
 For the PDFBox implementation:
-
+```
     git clone https://github.com/veraPDF/veraPDF-pdfbox-validation.git
     cd veraPDF-pdfbox-validation
     mvn clean install
+```
 
 Validating a PDF
 ----------------
@@ -99,7 +104,7 @@ initialised before first use. This is a slightly different process, depending on
 whether you've chosed the greenfield or PDFBox implementation.
 
 #### Greenfield Foundry initialise
-
+```
     import org.verapdf.pdfa.VeraGreenfieldFoundryProvider;
     import org.verapdf.pdfa.Foundries;
     import org.verapdf.pdfa.PDFAParser;
@@ -108,9 +113,10 @@ whether you've chosed the greenfield or PDFBox implementation.
     import org.verapdf.pdfa.flavours.PDFAFlavour;
 
     VeraGreenfieldFoundryProvider.initialise();
+```
 
 #### PDFBox Foundry initialise
-
+```
     import org.verapdf.pdfa.PdfBoxFoundryProvider;
     import org.verapdf.pdfa.Foundries;
     import org.verapdf.pdfa.PDFAParser;
@@ -119,11 +125,12 @@ whether you've chosed the greenfield or PDFBox implementation.
     import org.verapdf.pdfa.flavours.PDFAFlavour;
 
     PdfBoxFoundryProvider.initialise();
+```
 
 ### Validating a PDF File
 You only need to intialise once, whichever version you're using, now the code to
 validated a file called `mydoc.pdf` against the PDF/A 1b specification is:
-
+```
     PDFAFlavour flavour = PDFAFlavour.fromString("1b");
     PDFAValidator validator = Foundries.defaultInstance().createValidator(flavour, false);
     try (PDFAParser parser = Foundries.defaultInstance().createParser(new FileInputStream(`mydoc.pdf`),
@@ -135,10 +142,11 @@ validated a file called `mydoc.pdf` against the PDF/A 1b specification is:
           // it isn't
         }
     }
+```
 
 If you're not sure what PDF/A specification to use you can let the software decide:
-
-  try (PDFAParser parser = Foundries.defaultInstance().createParser(new FileInputStream(`mydoc.pdf`)) {
+```
+  try (PDFAParser parser = Foundries.defaultInstance().createParser(new FileInputStream("mydoc.pdf")) {
       PDFAValidator validator = Foundries.defaultInstance().createValidator(parser.getFlavour(), false);
       ValidationResult result = validator.validate(loader);
       if (result.isCompliant()) {
@@ -147,6 +155,7 @@ If you're not sure what PDF/A specification to use you can let the software deci
         // it isn't
       }
   }
+```
 
 The veraPDF Processor
 ---------------------
