@@ -135,7 +135,7 @@ validated a file called `mydoc.pdf` against the PDF/A 1b specification is:
     PDFAValidator validator = Foundries.defaultInstance().createValidator(flavour, false);
     try (PDFAParser parser = Foundries.defaultInstance().createParser(new FileInputStream(`mydoc.pdf`),
         flavour)) {
-        ValidationResult result = validator.validate(loader);
+        ValidationResult result = validator.validate(parser);
         if (result.isCompliant()) {
           // File is a valid PDF/A 1b
         } else {
@@ -148,7 +148,7 @@ If you're not sure what PDF/A specification to use you can let the software deci
 ```
   try (PDFAParser parser = Foundries.defaultInstance().createParser(new FileInputStream("mydoc.pdf")) {
       PDFAValidator validator = Foundries.defaultInstance().createValidator(parser.getFlavour(), false);
-      ValidationResult result = validator.validate(loader);
+      ValidationResult result = validator.validate(parser);
       if (result.isCompliant()) {
         // File is a valid PDF/A 1b
       } else {
