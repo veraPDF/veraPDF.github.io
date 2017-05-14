@@ -178,8 +178,8 @@ Each pair of hexadecimal digits defines one byte of the string. White-space char
 
 White-space characters are defined as NULL (00h), TAB (09h), LINE FEED (0Ah), FORM FEED (0Ch), CARRIGE RETURN (0Dh), SPACE (20h). They may appear within hexadecimal strings for formatting purposes:
 
-`<4E6F 7620 7368 6D6F`
-` 7A20 6B61 2070 6F70>`
+    <4E6F 7620 7368 6D6F
+    7A20 6B61 2070 6F70>
 
 * Object type: `CosString`
 * Test condition: `(isHex != true) || hexCount % 2 == 0`
