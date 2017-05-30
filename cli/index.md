@@ -3,8 +3,6 @@ layout: page
 title: veraPDF CLI Quick Start Guide
 ---
 
-{{ page.title }}
-================
 The veraPDF command line interface is the best way of processing batches of
 PDF/A files. It's designed for integrating with scripted workflows, or for
 shell invocation from programs.
@@ -20,7 +18,7 @@ supported platforms [here](terminal).
 Getting help
 ------------
 You can get the software to output its built in CLI usage message by typing
-`verapdf.bat -h` or `verapdf --help`, an online version is [available here](help).
+<kbd>verapdf.bat -h</kbd> or <kbd>verapdf --help</kbd>, an online version is [available here](help).
 
 Configuring veraPDF
 -------------------
@@ -31,11 +29,11 @@ How-tos
 -------
 The following examples all make use of the veraPDF test corpus. This is
 available [on GitHub](https://github.com/veraPDF/veraPDF-corpus). It is also
-installed with the veraPDF software unless you disable it
+installed with the veraPDF software if you enable it
 [at step 3](/install#step3). The test corpus will be installed in a
 sub-directory called `corpus`. The examples assume your terminal session
 is running in the installation directory with a suitable alias set up to avoid
-typing `./verapdf`.
+typing <kbd>path-to-verapdf/verapdf</kbd>. On a Mac or Linux box this can be set up by typing <kbd>export verapdf='export verapdf='path-to-verapdf/verapdf'</kbd> at the command line.
 
 ### Links to how-tos
 

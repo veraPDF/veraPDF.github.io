@@ -3,8 +3,6 @@ layout: page
 title: Developing with veraPDF
 ---
 
-{{ page.title }}
-================
 This is a quick start guide for developers wanting to work with veraPDF. You'll
 need to know a little Java, Maven and git to follow the instructions. We've
 assumed you either want to:
@@ -37,41 +35,44 @@ that's avaliable under the same dual open source licenses as the rest of veraPDF
 ### Maven for integrators
 If you want to integrate veraPDF into your own Java application and you're using
 Maven you can add the following to your POM:
-```
-    <repositories>
-      <repository>
-        <snapshots>
-          <enabled>true</enabled>
-        </snapshots>
-        <id>vera-dev</id>
-        <name>Vera development</name>
-        <url>http://artifactory.openpreservation.org/artifactory/vera-dev</url>
-      </repository>
-    </repositories>
+
+```xml
+<repositories>
+  <repository>
+    <snapshots>
+      <enabled>true</enabled>
+    </snapshots>
+    <id>vera-dev</id>
+    <name>Vera development</name>
+    <url>http://artifactory.openpreservation.org/artifactory/vera-dev</url>
+  </repository>
+</repositories>
 ```
 
 to access the veraPDF Maven repository, we'll be on Maven central soon.
 
 #### Greenfield POM dependency
 To include veraPDF's greenfield parser and validation model add:
-```
-    <dependency>
-      <groupId>org.verapdf</groupId>
-      <artifactId>validation-model</artifactId>
-      <version>1.0.5</version>
-    </dependency>
+
+```xml
+<dependency>
+  <groupId>org.verapdf</groupId>
+  <artifactId>validation-model</artifactId>
+  <version>1.0.5</version>
+</dependency>
 ```
 
 You can change the version number if you desire.
 
 #### PDFBox POM dependency
 This can be included in your project with this Maven dependency:
-```
-    <dependency>
-      <groupId>org.verapdf</groupId>
-      <artifactId>pdfbox-validation-model</artifactId>
-      <version>1.0.5</version>
-    </dependency>
+
+```xml
+<dependency>
+  <groupId>org.verapdf</groupId>
+  <artifactId>pdfbox-validation-model</artifactId>
+  <version>1.0.5</version>
+</dependency>
 ```
 
 ### GitHub for source code
@@ -80,18 +81,20 @@ The up to date source repos are on GitHub.
 #### Greenfield GithHub project
 The clone and build the veraPDF consortium's greenfield implementation using git
 and Maven:
-```
-    git clone https://github.com/veraPDF/veraPDF-validation.git
-    cd veraPDF-validation
-    mvn clean install
+
+```shell
+git clone https://github.com/veraPDF/veraPDF-validation.git
+cd veraPDF-validation
+mvn clean install
 ```
 
 #### PDFBox version GitHub project
 For the PDFBox implementation:
-```
-    git clone https://github.com/veraPDF/veraPDF-pdfbox-validation.git
-    cd veraPDF-pdfbox-validation
-    mvn clean install
+
+```shell
+git clone https://github.com/veraPDF/veraPDF-pdfbox-validation.git
+cd veraPDF-pdfbox-validation
+mvn clean install
 ```
 
 Validating a PDF
@@ -104,60 +107,64 @@ initialised before first use. This is a slightly different process, depending on
 whether you've chosed the greenfield or PDFBox implementation.
 
 #### Greenfield Foundry initialise
-```
-    import org.verapdf.pdfa.VeraGreenfieldFoundryProvider;
-    import org.verapdf.pdfa.Foundries;
-    import org.verapdf.pdfa.PDFAParser;
-    import org.verapdf.pdfa.results.ValidationResult;
-    import org.verapdf.pdfa.PDFAValidator;
-    import org.verapdf.pdfa.flavours.PDFAFlavour;
 
-    VeraGreenfieldFoundryProvider.initialise();
+```java
+import org.verapdf.pdfa.VeraGreenfieldFoundryProvider;
+import org.verapdf.pdfa.Foundries;
+import org.verapdf.pdfa.PDFAParser;
+import org.verapdf.pdfa.results.ValidationResult;
+import org.verapdf.pdfa.PDFAValidator;
+import org.verapdf.pdfa.flavours.PDFAFlavour;
+
+VeraGreenfieldFoundryProvider.initialise();
 ```
 
 #### PDFBox Foundry initialise
-```
-    import org.verapdf.pdfa.PdfBoxFoundryProvider;
-    import org.verapdf.pdfa.Foundries;
-    import org.verapdf.pdfa.PDFAParser;
-    import org.verapdf.pdfa.results.ValidationResult;
-    import org.verapdf.pdfa.PDFAValidator;
-    import org.verapdf.pdfa.flavours.PDFAFlavour;
 
-    PdfBoxFoundryProvider.initialise();
+```java
+import org.verapdf.pdfa.PdfBoxFoundryProvider;
+import org.verapdf.pdfa.Foundries;
+import org.verapdf.pdfa.PDFAParser;
+import org.verapdf.pdfa.results.ValidationResult;
+import org.verapdf.pdfa.PDFAValidator;
+import org.verapdf.pdfa.flavours.PDFAFlavour;
+
+PdfBoxFoundryProvider.initialise();
 ```
 
 ### Validating a PDF File
 You only need to intialise once, whichever version you're using, now the code to
 validated a file called `mydoc.pdf` against the PDF/A 1b specification is:
-```
-    PDFAFlavour flavour = PDFAFlavour.fromString("1b");
-    PDFAValidator validator = Foundries.defaultInstance().createValidator(flavour, false);
-    try (PDFAParser parser = Foundries.defaultInstance().createParser(new FileInputStream(`mydoc.pdf`),
-        flavour)) {
-        ValidationResult result = validator.validate(parser);
-        if (result.isCompliant()) {
-          // File is a valid PDF/A 1b
-        } else {
-          // it isn't
-        }
+
+```java
+PDFAFlavour flavour = PDFAFlavour.fromString("1b");
+PDFAValidator validator = Foundries.defaultInstance().createValidator(flavour, false);
+try (PDFAParser parser = Foundries.defaultInstance().createParser(new FileInputStream(`mydoc.pdf`),
+    flavour)) {
+    ValidationResult result = validator.validate(parser);
+    if (result.isCompliant()) {
+      // File is a valid PDF/A 1b
+    } else {
+      // it isn't
     }
+}
 ```
 
 If you're not sure what PDF/A specification to use you can let the software decide:
-```
-  try (PDFAParser parser = Foundries.defaultInstance().createParser(new FileInputStream("mydoc.pdf")) {
-      PDFAValidator validator = Foundries.defaultInstance().createValidator(parser.getFlavour(), false);
-      ValidationResult result = validator.validate(parser);
-      if (result.isCompliant()) {
-        // File is a valid PDF/A 1b
-      } else {
-        // it isn't
-      }
-  }
+
+```java
+try (PDFAParser parser = Foundries.defaultInstance().createParser(new FileInputStream("mydoc.pdf")) {
+    PDFAValidator validator = Foundries.defaultInstance().createValidator(parser.getFlavour(), false);
+    ValidationResult result = validator.validate(parser);
+    if (result.isCompliant()) {
+      // File is a valid PDF/A 1b
+    } else {
+      // it isn't
+    }
+}
 ```
 
 The veraPDF Processor
 ---------------------
 There's a higher level processor API aimed at developers wanting to combine the
-low-level components. You can read more in on the [processor page](processor). 
+low-level components. You can read more in on the [processor page](processor).

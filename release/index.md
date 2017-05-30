@@ -3,9 +3,6 @@ layout: page
 title: Semanitic versioning
 ---
 
-Semantic Versioning
-====================
-
 ## Introduction
 
 ### Audience

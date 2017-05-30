@@ -3,9 +3,6 @@ layout: page
 title: Getting Started
 ---
 
-{{ page.title }}
-================
-
 Installing veraPDF
 ------------------
 The veraPDF installer works on any Windows, Mac OS or Linux machine that's

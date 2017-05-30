@@ -3,33 +3,32 @@ layout: page
 title: Installing veraPDF
 ---
 
-{{ page.title }}
-================
+Downloading the Installer
+-------------------------
 There are currently two versions of veraPDF:
 
-- a version that uses [Apache PDFBox](https://pdfbox.apache.org/) as a PDF
-  parser and to implement the PDF/A validation model; and
 - the veraPDF Greenfield implementation built around a bespoke PDF parser and
-  PDF/A validation model developed by the veraPDF team.
+  PDF/A validation model developed by the veraPDF team; and
+- a version that uses [Apache PDFBox](https://pdfbox.apache.org/) as a PDF
+  parser and to implement the PDF/A validation model.
 
 It's possible to download the latest release and development builds for each
-version. The release versions are considered stable but the development builds
-aren't guaranteed to be stable and may contain unfinished features.
+version. The release versions are stable and you should use these unless you're sure you want the development build and stability / reliability isn't important to you. The development builds aren't guaranteed to be stable and may contain unfinished features. You should use these if you're testing a bug fix or new feature.
 
 This gives four possible downloads:
 
-- [PDFBox Release](http://downloads.verapdf.org/rel/verapdf-installer.zip):
-  this is currently the oldest and most tested version but will be superceded
-  by the Greenfield version;
-- [Greenfield Release](http://downloads.verapdf.org/gf/verapdf-gf-installer.zip):
-  this is a more recent implementation and has not been subjected to as much
-  real world testing, it's also the future of veraPDF;
-- [PDFBox Development](http://downloads.verapdf.org/dev/verapdf-installer.zip):
-  download this if you want to try the latest features or fixes and stability
-  isn't crucial; or
-- [Greenfield Development](http://downloads.verapdf.org/dev/verapdf-gf-installer.zip):
-  again you should only download this if you want to test new functionality and
-  stability isn't important.
+| Dowload | Greenfield Implementation | Apache PDFBox Implementation |
+|----------------|-----------------------------------------------------------------------------------------------------------|
+| Release Installer | <a href="http://downloads.verapdf.org/rel/verapdf-installer.zip"  onclick="ga('send', { hitType: 'event', eventCategory: 'gf-rel',  eventAction: 'download',  eventLabel: 'zip'});"><i class="fa fa-file-zip-o" aria-hidden="true"></i> The latest stable veraPDF zip package.</a> | <a href="http://downloads.verapdf.org/rel/verapdf-pdfbox-installer.zip"  onclick="ga('send', { hitType: 'event', eventCategory: 'pb-rel',  eventAction: 'download',  eventLabel: 'zip'});"><i class="fa fa-file-zip-o" aria-hidden="true"></i> The latest stable PDF Box zip package.</a> |
+|  | <a href="http://downloads.verapdf.org/rel/verapdf-installer.zip.asc"  onclick="ga('send', { hitType: 'event', eventCategory: 'gf-rel',  eventAction: 'download',  eventLabel: 'gpg'});"><i class="fa fa-certificate" aria-hidden="true"></i> GPG signature.</a> | <a href="http://downloads.verapdf.org/rel/verapdf-pdfbox-installer.zip.asc"  onclick="ga('send', { hitType: 'event', eventCategory: 'pb-rel',  eventAction: 'download',  eventLabel: 'gpg'});"><i class="fa fa-certificate" aria-hidden="true"></i> GPG signature.</a> |
+| Development Installer | <a href="http://downloads.verapdf.org/dev/verapdf-installer.zip"  onclick="ga('send', { hitType: 'event', eventCategory: 'gf-dev',  eventAction: 'download',  eventLabel: 'zip'});"><i class="fa fa-file-zip-o" aria-hidden="true"></i> Development veraPDF zip package.</a> | <a href="http://downloads.verapdf.org/dev/verapdf-pdfbox-installer.zip"  onclick="ga('send', { hitType: 'event', eventCategory: 'pb-dev',  eventAction: 'download',  eventLabel: 'zip'});"><i class="fa fa-file-zip-o" aria-hidden="true"></i> Development PDFBox zip</a> |
+| | <a href="http://downloads.verapdf.org/dev/verapdf-installer.zip.asc"  onclick="ga('send', { hitType: 'event', eventCategory: 'gf-rel',  eventAction: 'download',  eventLabel: 'gpg'});"><i class="fa fa-certificate" aria-hidden="true"></i> GPG signature.</a> | <a href="http://downloads.verapdf.org/dev/verapdf-pdfbox-installer.zip.asc"  onclick="ga('send', { hitType: 'event', eventCategory: 'pb-dev',  eventAction: 'download',  eventLabel: 'gpg'});"><i class="fa fa-certificate" aria-hidden="true"></i> GPG signature.</a> |
+{:.table }
+
+### Verifying the installer download
+If you want to verify your download for security and integrity then first download the GPG signature file into the same directory as the installer zip. You'll need a copy of our GPG key, you can get it [from our downloads site](http://downloads.verapdf.org/keys/KEY) or from a keyserver:
+<kbd>gpg --keyserver pgp.mit.edu --recv 1C124847</kbd>. Once the key is imported you can use it to verify the zip archive with the signature, e.g.
+<kbd>gpg --verify verapdf-pdfbox-installer.zip.asc</kbd>
 
 What's in the installer?
 ------------------------
@@ -56,28 +55,28 @@ computer. It consists of the five steps:
 ### 1: About veraPDF
 The first tells you which version of the software you're installing:
 
-![veraPDF Installer folder selection screen](/images/installer/screen1.png "veraPDF installer step 1 of 5")
+![veraPDF Installer folder selection screen](/images/installer/screen1.png "veraPDF installer step 1 of 5"){: .img-responsive .center-block}
 
 ### 2: Choose installation location
 At step two you can specify the installation folder:
 
-![veraPDF Installer folder selection screen](/images/installer/screen2.png "veraPDF installer step 2 of 5")
+![veraPDF Installer folder selection screen](/images/installer/screen2.png "veraPDF installer step 2 of 5"){: .img-responsive .center-block}
 
 ### <a name="step3"></a>3: Select components
 Screen three allows you to select the components to be installed:
 
-![veraPDF Installer pack selection screen](/images/installer/screen3.png "veraPDF installer step 3 of 5")
+![veraPDF Installer pack selection screen](/images/installer/screen3.png "veraPDF installer step 3 of 5"){: .img-responsive .center-block}
 
 ### 4: Installation
 The fourth stage installs the selected components to the chosen location:
 
-![veraPDF Installer pack selection screen](/images/installer/screen4.png "veraPDF installer step 4 of 5")
+![veraPDF Installer pack selection screen](/images/installer/screen4.png "veraPDF installer step 4 of 5"){: .img-responsive .center-block}
 
 ### 5: Generate installation script
 It is possible to generate an installation script that can be used to repeat
 the installation on another computer:
 
-![veraPDF Installer script screen](/images/installer/screen5.png "veraPDF installer step 4 of 5")
+![veraPDF Installer script screen](/images/installer/screen5.png "veraPDF installer step 4 of 5"){: .img-responsive .center-block}
 
 What's installed where?
 -----------------------

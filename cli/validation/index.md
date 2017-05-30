@@ -3,9 +3,6 @@ layout: page
 title: veraPDF CLI Validation
 ---
 
-{{ page.title }}
-================
-
 <a name="list-profiles"></a>Listing built in validation profiles
 ----------------------------------------------------------------
 The veraPDF software comes with eight sets of rules built in. These are known
@@ -13,15 +10,17 @@ as validation profiles and there's one for each level and part of the PDF/A
 specification. You can list them by typing <kbd>verapdf -l</kbd> or <kbd>verapdf.bat --list</kbd> for Windows users. The `-l` and `--list` are interchangeable on all platforms.
 You'll be greeted with:
 
-    veraPDF supported PDF/A profiles:
-      1a - PDF/A-1A validation profile
-      1b - PDF/A-1B validation profile
-      2a - PDF/A-2A validation profile
-      2b - PDF/A-2B validation profile
-      2u - PDF/A-2U validation profile
-      3a - PDF/A-3A validation profile
-      3b - PDF/A-3B validation profile
-      3u - PDF/A-3U validation profile
+```bash
+veraPDF supported PDF/A profiles:
+  1a - PDF/A-1A validation profile
+  1b - PDF/A-1B validation profile
+  2a - PDF/A-2A validation profile
+  2b - PDF/A-2B validation profile
+  2u - PDF/A-2U validation profile
+  3a - PDF/A-3A validation profile
+  3b - PDF/A-3B validation profile
+  3u - PDF/A-3U validation profile
+```
 
 <a name="fixed-profiles"></a>Validation using built in profiles
 -------------------------------------------------
@@ -35,30 +34,31 @@ To validate a single PDF/A file from the corpus using the PDF/A-1B profile type
 
 You should see something very similar too the following output:
 
-    cfw@dm-wrkstn:~/verapdf/dev$ verapdf -f 1b corpus/veraPDF-corpus-staging/PDF_A-1b/6.6\ Actions/6.6.1\ General/veraPDF\ test\ suite\ 6-6-1-t02-pass-a.pdf
-    <?xml version="1.0" encoding="utf-8"?>
-      <report>
-        <buildInformation>
-          <releaseDetails id="core" version="1.0.2" buildDate="2017-01-10T02:34:00Z"></releaseDetails>
-          <releaseDetails id="gui" version="1.0.6-PDFBOX" buildDate="2017-01-13T11:30:00Z"></releaseDetails>
-          <releaseDetails id="pdfbox-validation-model" version="1.0.2" buildDate="2017-01-10T02:39:00Z"></releaseDetails>
-        </buildInformation>
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+  <report>
+    <buildInformation>
+      <releaseDetails id="core" version="1.0.2" buildDate="2017-01-10T02:34:00Z"></releaseDetails>
+      <releaseDetails id="gui" version="1.0.6-PDFBOX" buildDate="2017-01-13T11:30:00Z"></releaseDetails>
+      <releaseDetails id="pdfbox-validation-model" version="1.0.2" buildDate="2017-01-10T02:39:00Z"></releaseDetails>
+    </buildInformation>
 
-        <jobs>
-          <job>
-            <item size="10230">
-              <name>/home/cfw/verapdf/dev/corpus/veraPDF-corpus-staging/PDF_A-1b/6.6 Actions/6.6.1 General/veraPDF test suite 6-6-1-t02-pass-a.pdf</name>
-              </item>
-              <validationReport profileName="PDF/A-1B validation profile" statement="PDF file is compliant with Validation Profile requirements." isCompliant="true">
-                <details passedRules="102" failedRules="0" passedChecks="504" failedChecks="0"></details>
-            </validationReport>
-            <processingTime>00:00:00:393</processingTime>
-          </job>
-        </jobs>
-      <summary jobs="1" failedJobs="0" valid="1" inValid="0" validExcep="0" features="0">
-        <duration start="1485134290384" finish="1485134290846">00:00:00:462</duration>
-      </summary>
-    </report>
+    <jobs>
+      <job>
+        <item size="10230">
+          <name>/home/cfw/verapdf/dev/corpus/veraPDF-corpus-staging/PDF_A-1b/6.6 Actions/6.6.1 General/veraPDF test suite 6-6-1-t02-pass-a.pdf</name>
+          </item>
+          <validationReport profileName="PDF/A-1B validation profile" statement="PDF file is compliant with Validation Profile requirements." isCompliant="true">
+            <details passedRules="102" failedRules="0" passedChecks="504" failedChecks="0"></details>
+        </validationReport>
+        <processingTime>00:00:00:393</processingTime>
+      </job>
+    </jobs>
+  <summary jobs="1" failedJobs="0" valid="1" inValid="0" validExcep="0" features="0">
+    <duration start="1485134290384" finish="1485134290846">00:00:00:462</duration>
+  </summary>
+</report>
+```
 
 This tells us that the file is valid through the `<validationReport isCompliant="true">` attribute.
 
@@ -82,41 +82,43 @@ veraPDF test suite 6-6-1-t01-fail-a.pdf</kbd>.
 
 This time the ouput looks like:
 
-    <?xml version="1.0" encoding="utf-8"?>
-      <report>
-        <buildInformation>
-          <releaseDetails id="core" version="1.0.2" buildDate="2017-01-10T02:34:00Z"></releaseDetails>
-          <releaseDetails id="gui" version="1.0.6-PDFBOX" buildDate="2017-01-13T11:30:00Z"></releaseDetails>
-          <releaseDetails id="pdfbox-validation-model" version="1.0.2" buildDate="2017-01-10T02:39:00Z"></releaseDetails>
-        </buildInformation>
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+  <report>
+    <buildInformation>
+      <releaseDetails id="core" version="1.0.2" buildDate="2017-01-10T02:34:00Z"></releaseDetails>
+      <releaseDetails id="gui" version="1.0.6-PDFBOX" buildDate="2017-01-13T11:30:00Z"></releaseDetails>
+      <releaseDetails id="pdfbox-validation-model" version="1.0.2" buildDate="2017-01-10T02:39:00Z"></releaseDetails>
+    </buildInformation>
 
-        <jobs>
-          <job>
-            <item size="6213">
-              <name>/home/cfw/verapdf/dev/corpus/veraPDF-corpus-staging/PDF_A-1b/6.6 Actions/6.6.1 General/veraPDF test suite 6-6-1-t01-fail-a.pdf</name>
-            </item>
-            <validationReport profileName="PDF/A-1B validation profile" statement="PDF file is not compliant with Validation Profile requirements." isCompliant="false">
-              <details passedRules="101" failedRules="1" passedChecks="358" failedChecks="1">
-                <rule specification="ISO 19005-1:2005" clause="6.6.1" testNumber="1" status="failed" passedChecks="0" failedChecks="1">
-                  <description>
-                    The Launch, Sound, Movie, ResetForm, ImportData and JavaScript actions shall not be permitted.
-                    Additionally, the deprecated set-state and no-op actions shall not be permitted. The Hide action shall not be permitted (Corrigendum 2)
-                  </description>
-                  <object>PDAction</object>
-                  <test>S == "GoTo" || S == "GoToR" || S == "Thread" || S == "URI" || S == "Named" || S == "SubmitForm"</test>
-                  <check status="failed">
-                    <context>root/document[0]/OpenAction[0](5 0 obj PDAction)</context>
-                  </check>
-                </rule>
-              </details>
-            </validationReport>
-            <processingTime>00:00:00:500</processingTime>
-          </job>
-        </jobs>
-      <summary jobs="1" failedJobs="0" valid="0" inValid="1" validExcep="0" features="0">
-        <duration start="1485163106741" finish="1485163107379">00:00:00:638</duration>
-      </summary>
-    </report>
+    <jobs>
+      <job>
+        <item size="6213">
+          <name>/home/cfw/verapdf/dev/corpus/veraPDF-corpus-staging/PDF_A-1b/6.6 Actions/6.6.1 General/veraPDF test suite 6-6-1-t01-fail-a.pdf</name>
+        </item>
+        <validationReport profileName="PDF/A-1B validation profile" statement="PDF file is not compliant with Validation Profile requirements." isCompliant="false">
+          <details passedRules="101" failedRules="1" passedChecks="358" failedChecks="1">
+            <rule specification="ISO 19005-1:2005" clause="6.6.1" testNumber="1" status="failed" passedChecks="0" failedChecks="1">
+              <description>
+                The Launch, Sound, Movie, ResetForm, ImportData and JavaScript actions shall not be permitted.
+                Additionally, the deprecated set-state and no-op actions shall not be permitted. The Hide action shall not be permitted (Corrigendum 2)
+              </description>
+              <object>PDAction</object>
+              <test>S == "GoTo" || S == "GoToR" || S == "Thread" || S == "URI" || S == "Named" || S == "SubmitForm"</test>
+              <check status="failed">
+                <context>root/document[0]/OpenAction[0](5 0 obj PDAction)</context>
+              </check>
+            </rule>
+          </details>
+        </validationReport>
+        <processingTime>00:00:00:500</processingTime>
+      </job>
+    </jobs>
+  <summary jobs="1" failedJobs="0" valid="0" inValid="1" validExcep="0" features="0">
+    <duration start="1485163106741" finish="1485163107379">00:00:00:638</duration>
+  </summary>
+</report>
+```
 
 This time the report tells us that the file is invalid through the `<validationReport isCompliant="false">` attribute. It also shows the details
 of the failed test.
@@ -174,9 +176,11 @@ type:
 This obviously generates a lot of output and takes a little time to run, the
 batch summary on the test machine is shown below for reference:
 
-    <summary jobs="1526" failedJobs="0" valid="636" inValid="890" validExcep="1" features="0">
-      <duration start="1485171727902" finish="1485171827790">00:01:39:888</duration>
-    </summary>
+```xml
+<summary jobs="1526" failedJobs="0" valid="636" inValid="890" validExcep="1" features="0">
+  <duration start="1485171727902" finish="1485171827790">00:01:39:888</duration>
+</summary>
+```
 
 meaning the software took one minute and forty seconds to process one thousand
 and five hundred files.

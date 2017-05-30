@@ -3,8 +3,6 @@ layout: page
 title: Using the terminal
 ---
 
-{{ page.title }}
-================
 The guide also assumes some familiarity with using the command line interface
 on your operating system. If you're unsure the following should help get you
 started.
@@ -16,19 +14,23 @@ the default location then it should be available directly below the directory
 the command shell starts in. The initial prompt on my machine reads `C:\Users\cfw>`, so to go to the veraPDF install directly simply issue the
 command <kbd>cd verapdf</kbd>, the session output should look as follows:
 
-    C:\Users\cfw>cd verapdf
-    C:\Users\cfw\verapdf>
+```
+C:\Users\cfw>cd verapdf
+C:\Users\cfw\verapdf>
+```
 
 You're now ready to start, you can check which version of veraPDF is installed
 by typing <kbd>verapdf.bat --version</kbd> from the installation directory. You should see something like:
 
-    C:\Users\cfw\verapdf>verapdf.bat --version
-    veraPDF 1.0.6-PDFBOX
-    Built: Fri Jan 13 11:30:00 GMT 2017
-    Developed and released by the veraPDF Consortium.
-    Funded by the PREFORMA project.
-    Released under the GNU General Public License v3
-    and the Mozilla Public License v2 or later.
+```
+C:\Users\cfw\verapdf>verapdf.bat --version
+veraPDF 1.0.6-PDFBOX
+Built: Fri Jan 13 11:30:00 GMT 2017
+Developed and released by the veraPDF Consortium.
+Funded by the PREFORMA project.
+Released under the GNU General Public License v3
+and the Mozilla Public License v2 or later.
+```
 
 although the version information might be different.
 
@@ -43,19 +45,23 @@ Mac OS
 This is a good guide to starting a terminal session on a Mac: http://www.macworld.co.uk/feature/mac-software/get-more-out-of-os-x-terminal-3608274/. If you've installed veraPDF in the default directory then you should be
 able to type the command <kbd>cd verapdf</kbd> to move into the installation directory. The session output should look like this:
 
-    dm-macmini:~ cfw$ cd verapdf
-    dm-macmini:verapdf cfw$
+```bash
+dm-macmini:~ cfw$ cd verapdf
+dm-macmini:verapdf cfw$
+```
 
 You can now check which version of the software is installed by typing
 <kbd>./verapdf --version</kbd>, the output will look something like this:
 
-    dm-macmini:verapdf cfw$ ./verapdf --version
-    veraPDF 1.0.6-PDFBOX
-    Built: Fri Jan 13 11:30:00 GMT 2017
-    Developed and released by the veraPDF Consortium.
-    Funded by the PREFORMA project.
-    Released under the GNU General Public License v3
-    and the Mozilla Public License v2 or later.
+```bash
+dm-macmini:verapdf cfw$ ./verapdf --version
+veraPDF 1.0.6-PDFBOX
+Built: Fri Jan 13 11:30:00 GMT 2017
+Developed and released by the veraPDF Consortium.
+Funded by the PREFORMA project.
+Released under the GNU General Public License v3
+and the Mozilla Public License v2 or later.
+```
 
 but perhaps with different version information.
 
@@ -67,19 +73,23 @@ particular distribution. If you're using a Debian based distribution you can
 often start a terminal using the <kbd>CTRL+ALT+t</kbd> shortcut. If you've installed veraPDF in the default directory then you should be
 able to type the command <kbd>cd verapdf</kbd> to move into the installation directory. The session output should look like this:
 
-    cfw@dm-wrkstn:~$ cd verapdf
-    cfw@dm-wrkstn:~/verapdf$
+```bash
+cfw@dm-wrkstn:~$ cd verapdf
+cfw@dm-wrkstn:~/verapdf$
+```
 
 You can now check which version of the software is installed by typing
 <kbd>./verapdf --version</kbd>, the output will look something like this:
 
-    cfw@dm-wrkstn:~/verapdf$ ./verapdf --version
-    veraPDF 1.0.6-PDFBOX
-    Built: Fri Jan 13 11:30:00 GMT 2017
-    Developed and released by the veraPDF Consortium.
-    Funded by the PREFORMA project.
-    Released under the GNU General Public License v3
-    and the Mozilla Public License v2 or later.
+```bash
+cfw@dm-wrkstn:~/verapdf$ ./verapdf --version
+veraPDF 1.0.6-PDFBOX
+Built: Fri Jan 13 11:30:00 GMT 2017
+Developed and released by the veraPDF Consortium.
+Funded by the PREFORMA project.
+Released under the GNU General Public License v3
+and the Mozilla Public License v2 or later.
+```
 
 Commands, aliases and paths
 ---------------------------
@@ -97,9 +107,11 @@ issue the command: <kbd>set PATH=%PATH%;C:\Users\cfw\verapdf</kbd> BUT replace
 `cfw` with the name of your user home directory. On my machine this looks as
 follows:
 
-    C:\Users\cfw>set PATH=%PATH%;C:\Users\cfw\verapdf
+```
+C:\Users\cfw>set PATH=%PATH%;C:\Users\cfw\verapdf
 
-    C:\Users\cfw>
+C:\Users\cfw>
+```
 
 ### Linux or Mac OS: set up an alias for the veraPDF command
 On these platforms you can extend the path, but it's often as convenient to
