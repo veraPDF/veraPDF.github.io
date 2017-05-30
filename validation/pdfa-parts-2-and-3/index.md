@@ -3,9 +3,6 @@ layout: page
 title: PDF/A-2 and PDF/A-3 validation rules
 ---
 
-{{ page.title }}
-================
-
 ## Rule <a name="6.1.2-1"></a>6.1.2-1
 
 ### Requirement

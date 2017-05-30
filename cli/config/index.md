@@ -3,9 +3,6 @@ layout: page
 title: veraPDF CLI Configuration
 ---
 
-{{ page.title }}
-================
-
 Introduction
 ------------
 
@@ -16,20 +13,22 @@ in the installation root directory type <kbd>ls config/</kbd> on Mac or Linux
 machines or <kbd>dir config</kbd> on Windows machines. On my Windows test VM
 this outputs the following:
 
-    C:\Users\cfw\verapdf>dir config
-     Volume in drive C has no label.
-     Volume Serial Number is 1C45-2074
+```
+C:\Users\cfw\verapdf>dir config
+ Volume in drive C has no label.
+ Volume Serial Number is 1C45-2074
 
-     Directory of C:\Users\cfw\verapdf\config
+ Directory of C:\Users\cfw\verapdf\config
 
-    22/01/2017  12:44    <DIR>          .
-    22/01/2017  12:44    <DIR>          ..
-    22/01/2017  12:44               411 app.xml
-    22/01/2017  12:44               186 features.xml
-    22/01/2017  12:44               109 fixer.xml
-    22/01/2017  12:44               131 validator.xml
-                   4 File(s)            837 bytes
-                   2 Dir(s)   3,695,038,464 bytes free
+22/01/2017  12:44    <DIR>          .
+22/01/2017  12:44    <DIR>          ..
+22/01/2017  12:44               411 app.xml
+22/01/2017  12:44               186 features.xml
+22/01/2017  12:44               109 fixer.xml
+22/01/2017  12:44               131 validator.xml
+               4 File(s)            837 bytes
+               2 Dir(s)   3,695,038,464 bytes free
+```
 
 If you can't see any files then it's likely you've not run the application after
 installation. The software generates default configuration files on start-up if
@@ -41,32 +40,30 @@ All of the aboive assumes that you've installed veraPDF with the downloaded
 installer. If you're running a version of the application you've built
 yourself and not installed you won't have an application home directory. The
 following only applies if you're running a jar directly from the command line,
-that is something like:
-
-    java -jar target/gui-1.1.0-SNAPSHOT.jar
-
-from the [`veraPDF-apps/gui` module](https://github.com/veraPDF/veraPDF-apps/tree/integration/gui).
+that is something like : <kbd>java -jar target/gui-1.1.0-SNAPSHOT.jar</kbd>, from the [`veraPDF-apps/gui` module](https://github.com/veraPDF/veraPDF-apps/tree/integration/gui).
 The problem is that the installer adds a couple of invocation scripts that set
 up the application home directory. The solution is to choose a config directory
 and pass it to the application when you call it. Here's an example:
 
-1, Select a folder you want to use as home and create it, a good suggestion is `~/.verapdf` beneath your home directory, in my case `/home/cfw/.verapdf`.
-2. Execute the following command: `java -Dapp.home="/home/cfw/.verapdf" -jar gui-1.1.0-SNAPSHOT.jar --version`
-3. `ls ~/.verapdf/config`
+1. Select a folder you want to use as home and create it, a good suggestion is `~/.verapdf` beneath your home directory, in my case `/home/cfw/.verapdf`.
+2. Execute the following command: <kbd>java -Dapp.home="/home/cfw/.verapdf" -jar gui-1.1.0-SNAPSHOT.jar --version</kbd>
+3. <kbd>ls ~/.verapdf/config</kbd>
 
 and you should see
 
-    -rw-rw-r-- 1 cfw cfw 375 Jan 28 20:36 app.xml
-    -rw-rw-r-- 1 cfw cfw 186 Jan 28 20:36 features.xml
-    -rw-rw-r-- 1 cfw cfw 109 Jan 28 20:36 fixer.xml
-    -rw-rw-r-- 1 cfw cfw   0 Jan 28 20:36 plugins.xml
-    -rw-rw-r-- 1 cfw cfw 131 Jan 28 20:36 validator.xml
+```bash
+-rw-rw-r-- 1 cfw cfw 375 Jan 28 20:36 app.xml
+-rw-rw-r-- 1 cfw cfw 186 Jan 28 20:36 features.xml
+-rw-rw-r-- 1 cfw cfw 109 Jan 28 20:36 fixer.xml
+-rw-rw-r-- 1 cfw cfw   0 Jan 28 20:36 plugins.xml
+-rw-rw-r-- 1 cfw cfw 131 Jan 28 20:36 validator.xml
+```
 
 Now proceed to use the config files in this directory, which will work as long as you use `java -Dapp.home="/home/cfw/.verapdf" -jar gui-1.1.0-SNAPSHOT.jar` as oppose to `java -jar gui-1.0.0.jar` when you start the app. This form of invocation supports all command line options, e.g.
 
-- `java -Dapp.home="/home/cfw/.verapdf" -jar gui-1.1.0-SNAPSHOT.jar -f 1b somefile.pdf`
-- `java -Dapp.home="/home/cfw/.verapdf" -jar gui-1.1.0-SNAPSHOT.jar --extract somefile.pdf`
-- `java -Dapp.home="/home/cfw/.verapdf" -jar gui-1.1.0-SNAPSHOT.jar --policyfile my-policy.sch somefile.pdf`
+- <kbd>java -Dapp.home="/home/cfw/.verapdf" -jar gui-1.1.0-SNAPSHOT.jar -f 1b somefile.pdf</kbd>
+- <kbd>java -Dapp.home="/home/cfw/.verapdf" -jar gui-1.1.0-SNAPSHOT.jar --extract somefile.pdf</kbd>
+- <kbd>java -Dapp.home="/home/cfw/.verapdf" -jar gui-1.1.0-SNAPSHOT.jar --policyfile my-policy.sch somefile.pdf</kbd>
 
 ### veraPDF config files
 There are four config files available:
@@ -82,15 +79,17 @@ The sections below give a brief overview of these files and their options.
 ---------------------------------------------------------
 A default application config file looks like:
 
-    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-    <appConfig type="VALIDATE" maxFails="100" isOverwrite="false" format="MRR" isVerbose="false">
-        <fixerFolder></fixerFolder>
-        <wikiPath>https://github.com/veraPDF/veraPDF-validation-profiles/wiki/</wikiPath>
-        <reportFile></reportFile>
-        <reportFolder></reportFolder>
-        <policyFile></policyFile>
-        <pluginsFolder></pluginsFolder>
-    </appConfig>
+```xml
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<appConfig type="VALIDATE" maxFails="100" isOverwrite="false" format="MRR" isVerbose="false">
+    <fixerFolder></fixerFolder>
+    <wikiPath>https://github.com/veraPDF/veraPDF-validation-profiles/wiki/</wikiPath>
+    <reportFile></reportFile>
+    <reportFolder></reportFolder>
+    <policyFile></policyFile>
+    <pluginsFolder></pluginsFolder>
+</appConfig>
+```
 
 ### <a name="appConfig"></a> appConfig
 The `appConfig` element has a set of attributes can be used as follows:
@@ -135,8 +134,10 @@ The `pluginsFolder` element sets the folder location for any plug in components 
 --------------------------------------------------------
 The default validation config file contains:
 
-    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-    <validatorConfig flavour="NO_FLAVOUR" recordPasses="false" maxFails="-1"/>
+```xml
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<validatorConfig flavour="NO_FLAVOUR" recordPasses="false" maxFails="-1"/>
+```
 
 ### <a name="validatorConfig"></a> The validatorConfig element
 The `validatorConfig` element defines the following attributes:
@@ -150,12 +151,14 @@ The `validatorConfig` element defines the following attributes:
 The `config/features.xml` file configures the types of PDF features extracted by the
 veraPDF software. The default file contains a single entry:
 
-    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-    <featuresConfig>
-        <enabledFeatures>
-            <feature>INFORMATION_DICTIONARY</feature>
-        </enabledFeatures>
-    </featuresConfig>
+```xml
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<featuresConfig>
+    <enabledFeatures>
+        <feature>INFORMATION_DICTIONARY</feature>
+    </enabledFeatures>
+</featuresConfig>
+```
 
 This enables the extraction of the PDF document metadata held in the information
 dictionary. You can enable the extraction of other features by adding new
@@ -164,32 +167,34 @@ dictionary. You can enable the extraction of other features by adding new
 For reference here's a version of `features.xml` with every type of feature
 enabled:
 
-    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-    <featuresConfig>
-        <enabledFeatures>
-            <feature>ANNOTATION</feature>
-            <feature>COLORSPACE</feature>
-            <feature>DOCUMENT_SECURITY</feature>
-            <feature>EMBEDDED_FILE</feature>
-            <feature>EXT_G_STATE</feature>
-            <feature>FONT</feature>
-            <feature>FORM_XOBJECT</feature>
-            <feature>ICCPROFILE</feature>
-            <feature>IMAGE_XOBJECT</feature>
-            <feature>INFORMATION_DICTIONARY</feature>
-            <feature>LOW_LEVEL_INFO</feature>
-            <feature>METADATA</feature>
-            <feature>OUTLINES</feature>
-            <feature>OUTPUTINTENT</feature>
-            <feature>PAGE</feature>
-            <feature>PATTERN</feature>
-            <feature>POSTSCRIPT_XOBJECT</feature>
-            <feature>PROPERTIES</feature>
-            <feature>SHADING</feature>
-            <feature>SIGNATURE</feature>
-            <feature>ERROR</feature>
-        </enabledFeatures>
-    </featuresConfig>
+```xml
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<featuresConfig>
+    <enabledFeatures>
+        <feature>ANNOTATION</feature>
+        <feature>COLORSPACE</feature>
+        <feature>DOCUMENT_SECURITY</feature>
+        <feature>EMBEDDED_FILE</feature>
+        <feature>EXT_G_STATE</feature>
+        <feature>FONT</feature>
+        <feature>FORM_XOBJECT</feature>
+        <feature>ICCPROFILE</feature>
+        <feature>IMAGE_XOBJECT</feature>
+        <feature>INFORMATION_DICTIONARY</feature>
+        <feature>LOW_LEVEL_INFO</feature>
+        <feature>METADATA</feature>
+        <feature>OUTLINES</feature>
+        <feature>OUTPUTINTENT</feature>
+        <feature>PAGE</feature>
+        <feature>PATTERN</feature>
+        <feature>POSTSCRIPT_XOBJECT</feature>
+        <feature>PROPERTIES</feature>
+        <feature>SHADING</feature>
+        <feature>SIGNATURE</feature>
+        <feature>ERROR</feature>
+    </enabledFeatures>
+</featuresConfig>
+```
 
 ### <a name="annotation"></a> ANNOTATION
 Lists all of the annotations found within the document. The extracted annotation
@@ -294,6 +299,7 @@ This is a placeholder for veraPDF error reporting
 
 <a name="fixer.xml"></a>Configuring the metadata fixer
 ----------------------------------------------------
-
-    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-    <fixerConfig fixId="true" fixesPrefix="veraFixMd_"/>
+```xml
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<fixerConfig fixId="true" fixesPrefix="veraFixMd_"/>
+```

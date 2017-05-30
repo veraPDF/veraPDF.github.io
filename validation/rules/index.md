@@ -3,8 +3,6 @@ layout: page
 title: Structure of validation rules
 ---
 
-{{ page.title }}
-================
 Validation profiles define a set of requirements - rules in a formal syntax - based on the generic veraPDF validation model.
 
 The syntax of rules is based on the PDF model consisting of an object-oriented hierarchy of object types to be validated. Each object type contains a predefined inheritable set of simple properties and named links to lists of objects of other types. The complete description of the PDF model is located in [GitHub veraPDF-model repository](https://github.com/veraPDF/veraPDF-model).

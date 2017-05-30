@@ -3,8 +3,6 @@ layout: page
 title: veraPDF Validation
 ---
 
-{{ page.title }}
-================
 The veraPDF validation engine implements the PDF/A specification using formalizations of each "shall" statement (i.e., each requirement) in PDF/A-1, PDF/A-2 and PDF/A-3. These rules are implemented as XML documents known as Validation Profiles and are applied by veraPDF software at runtime.
 
 [Read a little more about the veraPDF PDF/A validation model, rules and profiles.](./rules)

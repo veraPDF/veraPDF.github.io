@@ -3,15 +3,12 @@ layout: page
 title: The veraPDF Processor API
 ---
 
-{{ page.title }}
-================
-
 ## Overview
 
 The main entry point to integrate veraPDF project into another one is to use the class that implements org.verapdf.processor.Processor interface.
 
 ## Example Integration
-```Java
+```java
 public static void main(String[] args) {
 	// Foundry initialising. Can be changed into PDFBox based one
 	VeraGreenfieldFoundryProvider.initialise();

@@ -3,9 +3,6 @@ layout: page
 title: veraPDF Plugins
 ---
 
-veraPDF Plugins
----------------
-
 ## Overview
 If a user wants to use a third-party Tool for extracting additional features he needs to have the Adaptor for it that shall be a part of the Plugin for veraPDF software. After the Plugin is loaded by veraPDF software the Tool becomes available for the Features Reporter through the Extractor interface.
 
@@ -24,25 +21,26 @@ The veraPDF software loads the Plugins on startup. It uses plugins.xml file for 
 {:.table .table-bordered .table-striped}
 
 ### Example plugin configuration file
-
-    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-    <pluginsConfig>
-      <plugin enabled="true">
-        <name>Font Sample</name>
-        <version>1.0</version>
-        <description>The font sample plugin</description>
-        <pluginJar>file:///home/userName/verapdf/plugins/fontSample.jar</pluginJar>
-      </plugin>
-      <plugin enabled="false">
-        <name>iccdump</name>
-        <version>1.0</version>
-        <description>Collecting icc profile’s features with Argyll iccdump</description>
-        <pluginJar>file:///home/userName/verapdf/plugins/iccdump.jar</pluginJar>
-        <attributes>
-          <attribute key="cliPath" value="/home/userName/verapdf/plugins/iccdump"/>
-        </attributes>
-      </plugin>
-    </pluginsConfig>
+```xml
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<pluginsConfig>
+  <plugin enabled="true">
+    <name>Font Sample</name>
+    <version>1.0</version>
+    <description>The font sample plugin</description>
+    <pluginJar>file:///home/userName/verapdf/plugins/fontSample.jar</pluginJar>
+  </plugin>
+  <plugin enabled="false">
+    <name>iccdump</name>
+    <version>1.0</version>
+    <description>Collecting icc profile’s features with Argyll iccdump</description>
+    <pluginJar>file:///home/userName/verapdf/plugins/iccdump.jar</pluginJar>
+    <attributes>
+      <attribute key="cliPath" value="/home/userName/verapdf/plugins/iccdump"/>
+    </attributes>
+  </plugin>
+</pluginsConfig>
+```
 
 Each Plugin `.jar` file must contain a single Extractor implementation. If `.jar` file contains more than one Extractor implementation the Plugin will not be loaded and the error will be logged. The created Extractor is registered in the Features Reporter.
 
@@ -62,16 +60,17 @@ The veraPDF software expects that Extractor returns the list of elements describ
 For example, a Plugin defines the Extractor that for some specific ICC profile (object with type ICCPROFILE) returns two elements describing the custom features. The element names are `theCustomFeature1` and `theCustomFeature2`. The element values are `theFeatureValue1` and `theFeatureValue2` accordingly. In this case in the Features Report the element `iccProfile` for the ICC profile object will have the additional element `customFeatures` with the following content:
 
 #### Example
-
-    <iccProfile id="someID">
-      ...
-      <customFeatures>
-        <pluginFeatures description="This plugin reports the features of the ICC profiles" name="plugin name" version=”1.0”>
-          <theCustomFeature1>theFeatureValue1</theCustomFeature1>
-          <theCustomFeature2>theFeatureValue2</theCustomFeature2>
-        </pluginFeatures>
-      </customFeatures>
-    </iccProfile>
+```xml
+<iccProfile id="someID">
+  ...
+  <customFeatures>
+    <pluginFeatures description="This plugin reports the features of the ICC profiles" name="plugin name" version=”1.0”>
+      <theCustomFeature1>theFeatureValue1</theCustomFeature1>
+      <theCustomFeature2>theFeatureValue2</theCustomFeature2>
+    </pluginFeatures>
+  </customFeatures>
+</iccProfile>
+```
 
 The `customFeatures` element may contain many `pluginFeatures` elements if there are multiple Extractors registered for this object type. The name and version attributes identify the Plugin that was used to generate the features list. The attributes contains the value obtained from the plugins config file.
 
