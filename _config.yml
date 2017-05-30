@@ -1,5 +1,11 @@
 gems:
   - jekyll-redirect-from
-# Google services
+  - jekyll-sitemap
+
+title : veraPDF Docs
+description : Home to the veraPDF documentation community.
+baseurl: ""
+
+# Google Analytics IDs
 vera_google_analytics: UA-64476051-2
 preforma_google_analytics: UA-25697327-3

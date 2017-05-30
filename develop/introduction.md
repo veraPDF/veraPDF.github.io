@@ -1,6 +1,8 @@
 ---
 layout: page
-title: Developing with veraPDF
+title: Introduction
+description: An introduction to developing software that uses veraPDF.
+group: develop
 ---
 
 This is a quick start guide for developers wanting to work with veraPDF. You'll

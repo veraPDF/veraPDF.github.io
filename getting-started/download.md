@@ -1,14 +1,16 @@
 ---
 layout: page
-title: Installing veraPDF
-redirect-from:
-  - /download/
+title: Download
+redirect_from:
   - /install/
+  - /download/
+description: Find out how to download and install the veraPDF software.
 group: getting-started
 ---
+Download and install the latest version of the veraPDF software.
 
-## Contents
-
+Contents
+--------
 * Will be replaced with the ToC, excluding the "Contents" header
 {:toc}
 
@@ -56,8 +58,8 @@ resources, including:
 - test PDF Documents; and
 - the veraPDF Validation Profiles.
 
-Using the veraPDF installer
----------------------------
+Installing veraPDF
+------------------
 The installer simply unpacks components from the installer package to the local
 computer. It consists of the five steps:
 
@@ -71,7 +73,7 @@ At step two you can specify the installation folder:
 
 ![veraPDF Installer folder selection screen](/images/installer/screen2.png "veraPDF installer step 2 of 5"){: .img-responsive .center-block}
 
-### <a name="step3"></a>3: Select components
+### 3: Select components
 Screen three allows you to select the components to be installed:
 
 ![veraPDF Installer pack selection screen](/images/installer/screen3.png "veraPDF installer step 3 of 5"){: .img-responsive .center-block}

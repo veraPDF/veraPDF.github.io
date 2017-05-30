@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Greenfield validation using the Processor API
+title: Validation
 ---
 
 This guide shows how to use the veraPDF Processor API to perform simple PDF/A

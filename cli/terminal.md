@@ -1,7 +1,14 @@
 ---
 layout: page
 title: Using the terminal
+description: A quick introduction to using the command line terminal.
+group: cli
 ---
+
+Contents
+--------
+* Will be replaced with the ToC, excluding the "Contents" header
+{:toc}
 
 The guide also assumes some familiarity with using the command line interface
 on your operating system. If you're unsure the following should help get you

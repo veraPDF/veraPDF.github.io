@@ -1,9 +1,16 @@
 ---
 layout: page
 title: veraPDF CLI Validation
+description: Learn to perform PDF/A validation from the command line.
+group: cli
 ---
 
-<a name="list-profiles"></a>Listing built in validation profiles
+Contents
+--------
+* Will be replaced with the ToC, excluding the "Contents" header
+{:toc}
+
+Listing built in validation profiles
 ----------------------------------------------------------------
 The veraPDF software comes with eight sets of rules built in. These are known
 as validation profiles and there's one for each level and part of the PDF/A

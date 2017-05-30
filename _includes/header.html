@@ -7,7 +7,13 @@
 	<meta name="author" content="veraPDF Consortium">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	<title>veraPDF Docs | {{ page.title }}</title>
+	<title>{{ site.title }} |
+		{% if page.title %}
+			{{ page.title }}
+		{% else %}
+			{{ site.description }}
+		{% endif %}
+	</title>
 
   <!-- favicon shenaningans -->
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
