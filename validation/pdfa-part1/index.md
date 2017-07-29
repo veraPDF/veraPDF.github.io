@@ -1073,6 +1073,35 @@ See also Rule 6.3.2-4.
   * PDF 1.4 Reference, 5.5.4 - Table 5.9
   * Rule 6.3.2-4
 
+## Rule <a name="6.3.2-7"></a>6.3.2-7
+
+### Requirement
+
+>*All fonts used in a conforming file shall conform to the font specifications defined in PDF Reference 5.5.*
+
+>*The use of OpenType fonts is not allowed in PDF/A Part 1.*
+
+### Error details
+
+The subtype of the embedded font program is determined as follows. 
+
+* PostScript Type1, if referenced by /FontFile key in the font descriptor dictionary
+* TrueType, if referenced by /FontFile2 key in the font descriptor dictionary
+* Type1 (or CID Type1), if referenced by /FontFile3 key. 
+
+In the latter case the Subtype key in the referenced stream object is used to determine the exact font type. The only valid values of this key in PDF 1.4 are:
+* Type1C - Type 1–equivalent font program represented in the Compact Font Format (CFF) and 
+* CIDFontType0C - Type 0 CIDFont program represented in the Compact Font Format (CFF).
+
+* Object type: `PDFont`
+* Test condition: `fontFileSubtype == null || fontFileSubtype == 'Type1C' || fontFileSubtype == 'CIDFontType0C'`
+* Specification: ISO 19005-1:2005
+* Levels: A, B
+* Additional references:
+  * PDF 1.4 Reference, 5.8 - Table 5.22
+  * PAdobe Technical Note #5176, The Compact Font Format Specification
+  
+  
 ## Rule <a name="6.3.3-1"></a>6.3.3-1
 
 ### Requirement
@@ -1088,11 +1117,12 @@ CIDFont and CMap dictionaries contain a CIDSystemInfo entry specifying the chara
 PDF/A-1 standard requires that the Registry and Ordering strings of the CIDSystemInfo dictionaries for that font shall be identical, unless the value of the CMap dictionary UserCMap key is "Identity-H" or "Identity-V".
 
 * Object type: `PDType0Font`
-* Test condition: `areRegistryOrderingCompatible == true`
+* Test condition: `cmapName == 'Identity-H' || cmapName == 'Identity-V' || areRegistryOrderingCompatible == true`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 * Additional references:
   * PDF 1.4 Reference, 5.6.2
+  * ISO 19005-1:2005/Cor.2:2011, 6.3.3
 
 ## Rule <a name="6.3.3-2"></a>6.3.3-2
 
@@ -1187,7 +1217,7 @@ Text rendering mode 3 specifies that glyphs are not stroked, filled or used as a
 
 ### Requirement
 
->*The font programs for all fonts used within a conforming file shall be embedded within that file, as defined in PDF Reference 5.8, except when the fonts are used exclusively with text rendering mode 3.*
+>*Embedded font programs shall define all font glyphs referenced for rendering with conforming file.*
 
 ### Error details
 
@@ -1195,12 +1225,12 @@ Not all glyphs referenced for rendering are present in the embedded font program
 
 All conforming PDF/A readers shall use the embedded fonts, rather than other locally resident, substituted or simulated fonts, for rendering.
 
-The fonts used exclusively with text rendering mode 3 (invisible) are excempt from this requirement. OCR solutions often use such invisible fonts on top of the original scanned image to enable selection and copying of recognized text.
+The fonts used exclusively with text rendering mode 3 (invisible) are exempt from this requirement. OCR solutions often use such invisible fonts on top of the original scanned image to enable selection and copying of recognized text.
 
 There is no exemption from the requirements of this rule for the 14 standard Type 1 fonts. See Rule 6.3.2-4 for the list of all standard fonts.
 
 * Object type: `Glyph`
-* Test condition: `renderingMode == 3 || isGlyphPresent == true`
+* Test condition: `renderingMode == 3 || isGlyphPresent == null || isGlyphPresent == true`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
@@ -1257,8 +1287,10 @@ Glyph width information in the embedded font program is not consistent with the 
 
 This requirement is necessary to ensure predictable font rendering, regardless of whether a given reader uses the metrics in the Widths entry or those in the font program.
 
+Fonts used exclusively in text rendering mode 3 (invisible) are exempt from this requirement. 
+
 * Object type: `Glyph`
-* Test condition: `isWidthConsistent == true`
+* Test condition: `renderingMode == 3 || isWidthConsistent == null || isWidthConsistent == true`
 * Specification: ISO 19005-1:2005
 * Levels: A, B
 
@@ -1335,6 +1367,25 @@ A Font is called symbolic if it contains characters outside the Adobe standard L
   * PDF 1.4 Reference, Section D.1, "Latin Character Set and Encodings."
   * Rule 6.3.7-2
 
+## Rule <a name="6.3.8-1"></a>6.3.8-1
+
+### Requirement
+
+>*Each character used in the page shall be mapped to Unicode.*
+
+### Error details
+According to PDF Reference, characters can be mapped to Unicode in several ways:
+
+* The font dictionary shall include a ToUnicode entry whose value is a CMap stream object that maps character codes to Unicode values, as described in PDF Reference 5.9, unless the font meets any of the following three conditions: 
+* fonts that use the predefined encodings MacRomanEncoding, MacExpertEncoding or WinAnsiEncoding, or that use the predefined Identity-H or Identity-V CMaps;
+* Type 1 fonts whose character names are taken from the Adobe standard Latin character set or the set of named characters in the Symbol font, as defined in PDF Reference Appendix D;
+* Type 0 fonts whose descendant CIDFont uses the Adobe-GB1, Adobe-CNS1, Adobe-Japan1 or Adobe-Korea1 character collections.
+
+* Object type: `Glyph`
+* Test condition: `toUnicode != null`
+* Specification: ISO 19005-1:2005
+* Levels: A
+  
 ## Rule <a name="6.4-1"></a>6.4-1
 
 ### Requirement
@@ -2024,7 +2075,7 @@ A property of the PDF/A Identification Schema has an invalid namespace prefix.
 
 ### Requirement
 
->*The document catalog dictionary shall include a MarkInfo dictionary whose sole entry, Marked, shall have a value of true.*
+>*The document catalog dictionary shall include a MarkInfo dictionary with a Marked entry in it, whose value shall be true.*
 
 ### Error details
 
@@ -2038,6 +2089,7 @@ This setting indicates that the file conforms to the Tagged PDF conventions.
 * Levels: A
 * Additional references:
   * PDF 1.4 Reference, 9.7.1
+  * ISO 19005-1:2005/Cor.2:2011, 6.8.2
 
 ## Rule <a name="6.8.3-1"></a>6.8.3-1
 
