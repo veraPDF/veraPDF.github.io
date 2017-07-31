@@ -393,7 +393,7 @@ Real value is out of range.
 Maximum length of a String (32767) is exceeded.
 
 * Object type: `CosString`
-* Test condition: `value.length() < 32767`
+* Test condition: `value.length() < 32768`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
@@ -484,8 +484,8 @@ Maximum number of DeviceN components (32) is exceeded
 
 Maximum value of a CID (65535) is exceeded.
 
-* Object type: `CIDGlyph`
-* Test condition: `CID <= 65535`
+* Object type: `CMapFile`
+* Test condition: `maximalCID <= 65535`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
@@ -615,7 +615,7 @@ The embedded ICC profile is either invalid or does not satisfy PDF 1.7 requireme
 
 ### Requirement
 
->*Overprint mode (as set by the OPM value in an ExtGState dictionary) shall not be one (1) when an ICCBased CMYK colour space is used and when overprinting for stroke or fill or both is set to true.*
+>*Overprint mode (as set by the OPM value in an ExtGState dictionary) shall not be one (1) when an ICCBased CMYK colour space is used for stroke and overprinting for stroke is set to true, or when ICCBased CMYK colour space is used for fill and overprinting for fill is set to true, or both.*
 
 ### Error details
 
@@ -790,6 +790,29 @@ A Halftone dictionary contains the HalftoneName key
 * Test condition: `HalftoneName == null`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
+
+
+## Rule <a name="6.2.5-6"></a>6.2.5-6
+
+### Requirement
+
+>*The TransferFunction key in a halftone dictionary shall be used only as required by ISO 32000-1.*
+
+### Error details
+
+Invalid use of TransferFunction key in the Halftone dictionary.
+
+This entry shall only be present if the Halftone dictionary is a component of a type 5 halftone and represents either a nonprimary or nonstandard primary colour component.
+
+* Object type: `PDHalftone`
+* Test condition: `colorantName == null || colorantName == 'Default' ||
+ +			( (colorantName == 'Cyan' || colorantName == 'Magenta' || colorantName == 'Yellow' || colorantName == 'Black' || colorantName == 'Red' || 
+ +			colorantName == 'Green' || colorantName == 'Blue') ? TransferFunction == null : TransferFunction != null)`
+* Specifications: ISO 19005-2:2011, ISO 19005-3:2012
+* Levels: A, B, U
+* Additional references:
+  * ISO32000-1:2008, 10.5.5.2, Table 130
+  * ISO32000-1:2008, 10.5.5.6
 
 ## Rule <a name="6.2.6-1"></a>6.2.6-1
 
@@ -1006,7 +1029,7 @@ PDF transparency (as described in ISO 32000-1:2008, Clause 11) may be used in a 
 specified for any content which has associated transparency.
 
 * Object type: `PDPage`
-* Test condition: `gOutputCS != null || groupCS_size != 0 || containsTransparency == false`
+* Test condition: `gOutputCS != null || containsGroupCS == true || containsTransparency == false`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 * Additional references:
@@ -1134,7 +1157,7 @@ A non-standard simple font dictionary has missing or invalid LastChar entry
 
 >*All fonts and font programs used in a conforming file, regardless of rendering mode usage, shall conform to the provisions in ISO 32000-1:2008, 9.6 and 9.7, as well as to the font specifications referenced by these provisions.*
 
->*Widths - array - (Required except for the standard 14 fonts; indirect reference preferred) An array of (LastChar âˆ’ FirstChar + 1) widths*
+>*Widths - array - (Required except for the standard 14 fonts; indirect reference preferred) An array of (LastChar - FirstChar + 1) widths*
 
 ### Error details
 
@@ -1142,11 +1165,43 @@ Font Widths array is missing or has invalid size.
 
 * Object type: `PDSimpleFont`
 * Test condition: `isStandard == true || (Widths_size != null && Widths_size == LastChar - FirstChar + 1)`
-* Specifications: ISO 19005-2:2011, ISO 19005-3:2012
+* Specification: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 * Additional references:
   * ISO32000-1:2008, 9.6.2.1, Table 111
-  * ISO32000-1:2008, 9.6.5, Table 112
+  * ISO32000-1:2008, 9.6.5, Table 112  
+
+  
+## Rule <a name="6.2.11.2-7"></a>6.2.11.2-7
+
+### Requirement
+
+>*All fonts and font programs used in a conforming file, regardless of rendering mode usage, shall conform to the provisions in ISO 32000-1:2008, 9.6 and 9.7, as well as to the font specifications referenced by these provisions.*
+
+>*The only valid embedded font programs are PostScript Type1, CFF (compact font format) Type1, TrueType or OpenType.*
+
+### Error details
+
+The subtype of the embedded font program is determined as follows. 
+
+* PostScript Type1, if referenced by /FontFile key in the font descriptor dictionary
+* TrueType, if referenced by /FontFile2 key in the font descriptor dictionary
+* Type1 (or CID Type1), if referenced by /FontFile3 key. 
+
+In the latter case the Subtype key in the referenced stream object is used to determine the exact font type. The only valid values of this key in PDF 1.4 are:
+* Type1C - Type1–equivalent font program represented in the Compact Font Format (CFF); 
+* CIDFontType0C - Type0 CIDFont program represented in the Compact Font Format (CFF);
+* OpenType - OpenType font program.
+
+* Object type: `PDFont`
+* Test condition: `fontFileSubtype == null || fontFileSubtype == 'Type1C' || fontFileSubtype == 'CIDFontType0C' || fontFileSubtype == 'OpenType'`
+* Specifications: ISO 19005-2:2011, ISO 19005-3:2012
+* Levels: A, B, U
+* Additional references:
+  * ISO32000-1:2008, 9.9, Table 126
+  * Adobe Technical Note #5176, The Compact Font Format Specification
+  * OpenType Font Specification 1.4, December 2004, Microsoft
+  
 
 ## Rule <a name="6.2.11.3-1"></a>6.2.11.3-1
 
@@ -1235,6 +1290,37 @@ WMode entry in the embedded CMap and in the CMap dictionary are not identical.
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
+## Rule <a name="6.2.11.3-5"></a>6.2.11.3-5
+
+### Requirement
+
+>*A CMap shall not reference any other CMap except those listed in ISO 32000-1:2008, 9.7.5.2, Table 118.*
+
+### Error details
+
+A CMap references another non-standard CMap
+
+* Object type: `PDReferencedCMap`
+* Test condition: `CMapName == "Identity-H" || CMapName == "Identity-V" || CMapName == "GB-EUC-H" || CMapName == "GB-EUC-V" ||
+			CMapName == "GBpc-EUC-H" || CMapName == "GBpc-EUC-V" || CMapName == "GBK-EUC-H" || CMapName == "GBK-EUC-V" ||
+			CMapName == "GBKp-EUC-H" || CMapName == "GBKp-EUC-V" || CMapName == "GBK2K-EUC-H" || CMapName == "GBK2K-EUC-V" ||
+			CMapName == "UniGB-UCS2-H" || CMapName == "UniGB-UCS2-V" || CMapName == "UniGB-UFT16-H" || CMapName == "UniGB-UFT16-V" ||
+			CMapName == "B5pc-H" || CMapName == "B5pc-V" || CMapName == "HKscs-B5-H" || CMapName == "HKscs-B5-V" ||
+			CMapName == "ETen-B5-H" || CMapName == "ETen-B5-V" || CMapName == "ETenms-B5-H" || CMapName == "ETenms-B5-V" ||
+			CMapName == "CNS-EUC-H" || CMapName == "CNS-EUC-V" || CMapName == "UniCNS-UCS2-H" || CMapName == "UniCNS-UCS2-V" ||
+			CMapName == "UniCNS-UFT16-H" || CMapName == "UniCNS-UTF16-V" || CMapName == "83pv-RKSJ-H" || CMapName == "90ms-RKSJ-H" ||
+			CMapName == "90ms-RKSJ-V" || CMapName == "90msp-RKSJ-H" || CMapName == "90msp-RKSJ-V" || CMapName == "90pv-RKSJ-H" ||
+			CMapName == "Add-RKSJ-H" || CMapName == "Add-RKSJ-V" || CMapName == "EUC-H" || CMapName == "EUC-V" ||
+			CMapName == "Ext-RKSJ-H" || CMapName == "Ext-RKSJ-V" || CMapName == "H" || CMapName == "V" ||
+			CMapName == "UniJIS-UCS2-H" || CMapName == "UniJIS-UCS2-V" || CMapName == "UniJIS-UCS2-HW-H" || CMapName == "UniJIS-UCS2-HW-V" ||
+			CMapName == "UniJIS-UTF16-H" || CMapName == "UniJIS-UTF16-V" || CMapName == "KSC-EUC-H" || CMapName == "KSC-EUC-V" ||
+			CMapName == "KSCms-UHC-H" || CMapName == "KSCms-UHC-V" || CMapName == "KSCms-UHC-HW-H" || CMapName == "KSCms-UHC-HW-V" ||
+			CMapName == "KSCpc-EUC-H" || CMapName == "UniKS-UCS2-H" || CMapName == "UniKS-UCS2-V" || CMapName == "UniKS-UTF16-H" || CMapName == "UniKS-UTF16-V"`
+* Specifications: ISO 19005-2:2011, ISO 19005-3:2012
+* Levels: A, B, U
+* Additional references:
+  * ISO32000-1:2008, 9.7.5.2, Table 118
+
 ## Rule <a name="6.2.11.4-1"></a>6.2.11.4-1
 
 ### Requirement
@@ -1266,7 +1352,7 @@ The font program is not embedded
 Not all glyphs referenced for rendering are present in the embedded font program.
 
 * Object type: `Glyph`
-* Test condition: `renderingMode == 3 || isGlyphPresent == true`
+* Test condition: `renderingMode == 3 || isGlyphPresent == null || isGlyphPresent == true`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
@@ -1311,7 +1397,7 @@ A CID Font subset does not define CIDSet entry in its Descriptor dictionary
 Glyph width information in the embedded font program is not consistent with the Widths entry of the font dictionary.
 
 * Object type: `Glyph`
-* Test condition: `renderingMode == 3 || isWidthConsistent == true`
+* Test condition: `renderingMode == 3 || isWidthConsistent == null || isWidthConsistent == true`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
@@ -1381,7 +1467,7 @@ The embedded font program for a symbolic TrueType font contains more than one cm
 
 ### Requirement
 
->*The Unicode values specified in the ToUnicode CMap shall all be greater than zero (0), but not equal to either U+FEFF or U+FFFE.*
+>*The Font dictionary of all fonts shall define the map of all used character codes to Unicode values, either via a ToUnicode entry, or other mechanisms as defined in ISO 19005-2:2011, 6.2.11.7.2.*
 
 ### Error details
 
@@ -1394,12 +1480,42 @@ to Unicode values, as described in ISO 32000-1:2008, 9.10.3, unless the font mee
 - Type 0 fonts whose descendant CIDFont uses the Adobe-GB1, Adobe-CNS1, Adobe-Japan1 or Adobe-Korea1 character collections.
 - Non-symbolic TrueType fonts.
 
-This requirement ensures that the values in the ToUnicode CMap will be useful values and not simply placeholders.
-
 * Object type: `Glyph`
-* Test condition: `toUnicode != null && toUnicode.indexOf("\u0000") == -1 && toUnicode.indexOf("\uFFFE") == -1 && toUnicode.indexOf("\uFEFF")  == -1`
+* Test condition: `toUnicode != null`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, U
+
+## Rule <a name="6.2.11.7-2"></a>6.2.11.7-2
+
+### Requirement
+
+>*The Unicode values specified in the ToUnicode CMap shall all be greater than zero (0), but not equal to either U+FEFF or U+FFFE.*
+
+### Error details
+
+This requirement ensures that the Unicode value of the glyph complies to the Unicode specification, which reserves several code values as markers for auxiliary purposes.
+
+* Object type: `Glyph`
+* Test condition: `toUnicode == null || (toUnicode.indexOf("\u0000") == -1 && toUnicode.indexOf("\uFFFE") == -1 && toUnicode.indexOf("\uFEFF")  == -1)`
+* Specifications: ISO 19005-2:2011, ISO 19005-3:2012
+* Levels: A, U
+
+## Rule <a name="6.2.11.7-3"></a>6.2.11.7-3
+
+### Requirement
+
+>*For any character, regardless of its rendering mode, that is mapped to a code or codes in the Unicode Private Use Area (PUA), an ActualText entry as described in ISO 32000-1:2008, 14.9.4 shall be present for this character or a sequence of characters of which such a character is a part.*
+
+### Error details
+
+This requirement ensures that the Unicode values of the glyph have well-defined semantic meaning, or otherwise this Unicode value is provided via so-called Actual text mechanism.
+
+* Object type: `Glyph`
+* Test condition: `unicodePUA == false || actualTextPresent == true`
+* Specifications: ISO 19005-2:2011, ISO 19005-3:2012
+* Levels: A
+* Additional references:
+  * ISO 32000-1:2008, 14.9.4
 
 ## Rule <a name="6.2.11.8-1"></a>6.2.11.8-1
 
@@ -1816,7 +1932,7 @@ Invalid syntax of the extension schema container.
 Invalid Extension Schema definition.
 
 * Object type: `ExtensionSchemaDefinition`
-* Test condition: `(isSchemaValidText == true && (schemaPrefix == null || schemaPrefix == "pdfaSchema") ) &&
+* Test condition: `(isSchemaValidText == true && schemaPrefix == "pdfaSchema") &&
 			(isNamespaceURIValidURI == true && ( (ExtensionSchemaProperties_size == 0 && namespaceURIPrefix == null) || namespaceURIPrefix == "pdfaSchema" ) ) &&
 			(isPrefixValidText == true && (prefixPrefix == null || prefixPrefix == "pdfaSchema") ) &&
 			(isPropertyValidSeq == true && (propertyPrefix == null || propertyPrefix == "pdfaSchema") ) &&
@@ -1856,9 +1972,9 @@ Invalid extension schema ValueType type definition.
 * Object type: `ExtensionSchemaValueType`
 * Test condition: `(isTypeValidText == true && typePrefix == "pdfaType" ) &&
 			(isNamespaceURIValidURI == true && namespaceURIPrefix == "pdfaType" ) &&
-			(isPrefixValidText == true && (prefixPrefix == null || prefixPrefix == "pdfaType") ) &&
+			(isPrefixValidText == true && prefixPrefix == "pdfaType" ) &&
 			(isDescriptionValidText == true && descriptionPrefix == "pdfaType" ) &&
-			(isFieldValidSeq == true && fieldPrefix == "pdfaType")`
+			(isFieldValidSeq == true && (fieldPrefix == null || fieldPrefix == "pdfaType") )`
 * Specifications: ISO 19005-2:2011, ISO 19005-3:2012
 * Levels: A, B, U
 
@@ -2021,6 +2137,25 @@ Non-standard structure type is not mapped to a standard type.
 * Levels: A
 * Additional references:
   * ISO 32000-1:2008, 14.8.4
+  
+
+## Rule <a name="6.7.4-1"></a>6.7.4-1
+
+### Requirement
+
+>*If the Lang entry is present in the document's Catalog dictionary or in a structure element dictionary or property list, its value shall be a language identifier as described in ISO 32000-1:2008, 14.9.2.*
+
+### Error details
+
+A language identifier shall either be the empty text string, to indicate that the language is unknown, or a Language Tag as defined in RFC 3066, Tags for the Identification of Languages.
+
+* Object type: `CosLang`
+* Test condition: `value == '' || /^[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*$/.test(value)`
+* Specifications: ISO 19005-2:2011, ISO 19005-3:2012
+* Levels: A
+* Additional references:
+  * ISO 32000-1:2008, 14.9.2
+  * RFC 3066, Tags for the Identification of Languages
 
 
 ## Rule <a name="6.8-1"></a>6.8-1
@@ -2031,10 +2166,10 @@ Non-standard structure type is not mapped to a standard type.
 
 ### Error details
 
-An embedded file dictionary doe snot contain the MIME type information (Subtype entry).
+The MIME type information (Subtype entry) of an embedded file is missing or invalid.
 
 * Object type: `EmbeddedFile`
-* Test condition: `Subtype != null`
+* Test condition: `Subtype != null && /^[-\w+\.]+\/[-\w+\.]+$/.test(Subtype)`
 * Specifications: ISO 19005-3:2012
 * Levels: A, B, U
 
@@ -2067,6 +2202,23 @@ The file specification dictionary for an embedded file does not contain the AFRe
 * Test condition: `AFRelationship != null`
 * Specifications: ISO 19005-3:2012
 * Levels: A, B, U
+
+## Rule <a name="6.8-4"></a>6.8-4
+
+### Requirement
+
+>*The additional information provided for associated files as well as the usage requirements for associated files indicate the relationship	between the embedded file and the PDF document or the part of the PDF document with which it is associated.*
+
+### Error details
+
+The embedded file is not associated with the PDF document or any of its parts. An embedded file can be associated (via the /AF entry) with the complete PDF document, 
+or a page, an image, a form XObject, an annotation, a structure element or a marked content sequence in the page content. 
+
+* Object type: `CosFileSpecification`
+* Test condition: `isAssociatedFile == true`
+* Specifications: ISO 19005-3:2012, Annex E
+* Levels: A, B, U
+
 
 ## Rule <a name="6.9-1"></a>6.9-1
 
