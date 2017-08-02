@@ -1,16 +1,25 @@
 {% include header.html %}
 <body role="document">
-{% include navbar.html nav=site.data.docnav %}
+{% include navbar.html nav=site.data.nav %}
 <section class="main-content">
+  <div class="vera-docs-pageheader">
     <div class="container">
-      <div class="row">
-        <div id="content" class="main-content-inner col-sm-12">
-          <article>
-<h1>{{ page.title }}</h1>
-
-{{ content }}
-          </article><!-- #post-## -->
-        </div><!-- close .*-inner (main-content or sidebar, depending if sidebar is used) -->
+      {% include page-headers.html %}
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div id="content" class="col-12 col-md-9 pull-md-3 bd-content">
+        <h1 class="bd-title" id="content">{{ page.title }}</h1>
+        <p class="lead">{{ page.description }}</p>
+        <article>
+          {{ content }}
+        </article><!-- #post-## -->
+      </div><!-- close .*-inner (main-content or sidebar, depending if sidebar is used) -->
+      <div id="sidebar" class="col-12 col-md-3 push-md-9 bd-sidebar">
+        <h1>Sections</h1>
+        {% include nav-docs.html %}
+      </div>
     </div><!-- close .row -->
   </div><!-- close .container -->
 </section><!-- close .main-content -->

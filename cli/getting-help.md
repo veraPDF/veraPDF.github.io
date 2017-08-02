@@ -1,7 +1,14 @@
 ---
 layout: page
-title: veraPDF CLI Getting Help
+title: Getting Help
+description: The command line interface help text.
+group: cli
 ---
+
+Contents
+--------
+* Will be replaced with the ToC, excluding the "Contents" header
+{:toc}
 
 Once veraPDF has been installed you can get help on the full range of options by
 typing <kbd>verapdf -h</kbd> or <kbd>verapdf --help</kbd> at the Mac or Linux

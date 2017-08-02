@@ -1,6 +1,8 @@
 ---
 layout: page
 title: veraPDF Plugins
+description: Learn how to write custom plugins for veraPDF.
+group: develop
 ---
 
 ## Overview

@@ -1,6 +1,8 @@
 ---
 layout: page
-title: The veraPDF Processor API
+title: ProcessorConfig
+description: An introduction to developing software that uses veraPDF.
+group: develop
 ---
 
 ## Overview

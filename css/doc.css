@@ -1,7 +1,125 @@
+.vera-docs-pageheader, div.vera-docs-pageheader h1 {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  line-height: 1.42857143;
+  background: #D0404F;
+  color: #FFFFFF;
+}
+section.main-content {
+  padding-top: 0;
+}
+
+div.vera-docs-pageheader h1 {
+  font-size: 50px;
+}
+
 img.center-block {
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.3), 0 8px 20px 0 rgba(0, 0, 0, 0.15);
 }
 
 p {
   padding-bottom: 10px;
+}
+
+.bd-sidebar {
+  padding-left: 1em;
+}
+
+.bd-search {
+  position: relative;
+  margin-bottom: 1.5em;
+
+  .form-control {
+    height: 2.45em;
+    padding-top: .4em;
+    padding-bottom: .4em;
+    background-color: #fafafa;
+
+    &:focus {
+      background-color: #fff;
+    }
+  }
+}
+
+.bd-search-results {
+  right: 0;
+  display: block;
+  padding: 0;
+  overflow: hidden;
+  font-size: .9em;
+  border: none
+
+  &:empty {
+    display: none;
+  }
+
+  .dropdown-item {
+    padding-right: .75em;
+    padding-left: .75em;
+
+    &:first-child { margin-top: .25em; }
+    &:last-child { margin-bottom: .25em; }
+  }
+
+  .no-results {
+    padding: .75em 1em;
+    color: #7a7a7a;
+    text-align: center;
+    white-space: normal;
+  }
+}
+
+.bd-sidenav {
+  display: none;
+}
+
+.nav > li > a.bd-toc-link {
+  display: block;
+  padding: .05em .1em;
+}
+
+.bd-toc-link:hover,
+.bd-toc-link:focus {
+  color: #337ab7;
+  text-decoration: none;
+}
+
+.bd-toc-link,
+.bd-toc-link:visited {
+  color: #bbb;
+  text-decoration: none;
+}
+
+.active > .bd-toc-link {
+  font-weight: 500;
+  color: #0A0A0A;
+}
+.active > .bd-sidenav {
+  display: block;
+}
+
+.bd-toc-item.active {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+.bd-toc-item:first-child {
+  margin-top: 0;
+}
+.bd-toc-item:last-child {
+  margin-bottom: 1em;
+}
+
+// All levels of nav
+.nav > li > a {
+  display: block;
+  padding: .05em .1em;
+  font-size: 90%;
+  color: #333;
+}
+
+.bd-sidebar .nav > li > a:hover,
+.bd-sidebar .nav > li > a:focus {
+  padding: .05em .1em;
+  color: #337ab7;
+  text-decoration: none;
+  background-color: transparent;
 }

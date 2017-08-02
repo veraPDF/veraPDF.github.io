@@ -1,0 +1,25 @@
+- title: Getting Started
+  pages:
+      - title: Introduction
+      - title: Download
+
+- title: Developers
+  pages:
+    - title: Plugins
+
+- title: CLI
+  pages:
+    - title: Introduction
+    - title: Terminal
+    - title: Getting Help
+    - title: Configuration
+    - title: Validation
+    - title: Feature Extraction
+    - title: Policy Checking
+    - title: Metadata Repair
+
+- title: Features
+  pages:
+    - title: Validation
+    - title: Feature Extraction
+    - title: Policy Checking
