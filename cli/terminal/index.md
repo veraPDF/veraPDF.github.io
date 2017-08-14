@@ -24,7 +24,7 @@ by typing <kbd>verapdf.bat --version</kbd> from the installation directory. You 
 
 ```
 C:\Users\cfw\verapdf>verapdf.bat --version
-veraPDF 1.0.6-PDFBOX
+veraPDF {{ site.verapdf_version_number }}-PDFBOX
 Built: Fri Jan 13 11:30:00 GMT 2017
 Developed and released by the veraPDF Consortium.
 Funded by the PREFORMA project.
@@ -55,7 +55,7 @@ You can now check which version of the software is installed by typing
 
 ```bash
 dm-macmini:verapdf cfw$ ./verapdf --version
-veraPDF 1.0.6-PDFBOX
+veraPDF {{ site.verapdf_version_number }}-PDFBOX
 Built: Fri Jan 13 11:30:00 GMT 2017
 Developed and released by the veraPDF Consortium.
 Funded by the PREFORMA project.
@@ -83,7 +83,7 @@ You can now check which version of the software is installed by typing
 
 ```bash
 cfw@dm-wrkstn:~/verapdf$ ./verapdf --version
-veraPDF 1.0.6-PDFBOX
+veraPDF {{ site.verapdf_version_number }}-PDFBOX
 Built: Fri Jan 13 11:30:00 GMT 2017
 Developed and released by the veraPDF Consortium.
 Funded by the PREFORMA project.

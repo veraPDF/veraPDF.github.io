@@ -40,13 +40,13 @@ All of the aboive assumes that you've installed veraPDF with the downloaded
 installer. If you're running a version of the application you've built
 yourself and not installed you won't have an application home directory. The
 following only applies if you're running a jar directly from the command line,
-that is something like : <kbd>java -jar target/gui-1.1.0-SNAPSHOT.jar</kbd>, from the [`veraPDF-apps/gui` module](https://github.com/veraPDF/veraPDF-apps/tree/integration/gui).
+that is something like : <kbd>java -jar target/{{ site.verapdf_version_number }}.jar</kbd>, from the [`veraPDF-apps/gui` module](https://github.com/veraPDF/veraPDF-apps/tree/integration/gui).
 The problem is that the installer adds a couple of invocation scripts that set
 up the application home directory. The solution is to choose a config directory
 and pass it to the application when you call it. Here's an example:
 
 1. Select a folder you want to use as home and create it, a good suggestion is `~/.verapdf` beneath your home directory, in my case `/home/cfw/.verapdf`.
-2. Execute the following command: <kbd>java -Dapp.home="/home/cfw/.verapdf" -jar gui-1.1.0-SNAPSHOT.jar --version</kbd>
+2. Execute the following command: <kbd>java -Dapp.home="/home/cfw/.verapdf" -jar gui-{{ site.verapdf_version_number }}-SNAPSHOT.jar --version</kbd>
 3. <kbd>ls ~/.verapdf/config</kbd>
 
 and you should see
@@ -59,11 +59,11 @@ and you should see
 -rw-rw-r-- 1 cfw cfw 131 Jan 28 20:36 validator.xml
 ```
 
-Now proceed to use the config files in this directory, which will work as long as you use `java -Dapp.home="/home/cfw/.verapdf" -jar gui-1.1.0-SNAPSHOT.jar` as oppose to `java -jar gui-1.0.0.jar` when you start the app. This form of invocation supports all command line options, e.g.
+Now proceed to use the config files in this directory, which will work as long as you use `java -Dapp.home="/home/cfw/.verapdf" -jar gui-{{ site.verapdf_version_number }}-SNAPSHOT.jar` as oppose to `java -jar gui-{{ site.verapdf_version_number }}.jar` when you start the app. This form of invocation supports all command line options, e.g.
 
-- <kbd>java -Dapp.home="/home/cfw/.verapdf" -jar gui-1.1.0-SNAPSHOT.jar -f 1b somefile.pdf</kbd>
-- <kbd>java -Dapp.home="/home/cfw/.verapdf" -jar gui-1.1.0-SNAPSHOT.jar --extract somefile.pdf</kbd>
-- <kbd>java -Dapp.home="/home/cfw/.verapdf" -jar gui-1.1.0-SNAPSHOT.jar --policyfile my-policy.sch somefile.pdf</kbd>
+- <kbd>java -Dapp.home="/home/cfw/.verapdf" -jar gui-{{ site.verapdf_version_number }}-SNAPSHOT.jar -f 1b somefile.pdf</kbd>
+- <kbd>java -Dapp.home="/home/cfw/.verapdf" -jar gui-{{ site.verapdf_version_number }}-SNAPSHOT.jar --extract somefile.pdf</kbd>
+- <kbd>java -Dapp.home="/home/cfw/.verapdf" -jar gui-{{ site.verapdf_version_number }}-SNAPSHOT.jar --policyfile my-policy.sch somefile.pdf</kbd>
 
 ### veraPDF config files
 There are four config files available:

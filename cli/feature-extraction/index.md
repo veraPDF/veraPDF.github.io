@@ -56,9 +56,9 @@ you should see the following output:
 <?xml version="1.0" encoding="utf-8"?>
 <report>
   <buildInformation>
-    <releaseDetails id="core" version="1.0.2" buildDate="2017-01-10T02:34:00Z"></releaseDetails>
-    <releaseDetails id="gui" version="1.0.6-PDFBOX" buildDate="2017-01-13T11:30:00Z"></releaseDetails>
-    <releaseDetails id="pdfbox-validation-model" version="1.0.2" buildDate="2017-01-10T02:39:00Z"></releaseDetails>
+    <releaseDetails id="core" version="{{ site.verapdf_version_number }}" buildDate="2017-01-10T02:34:00Z"></releaseDetails>
+    <releaseDetails id="gui" version="{{ site.verapdf_version_number }}-PDFBOX" buildDate="2017-01-13T11:30:00Z"></releaseDetails>
+    <releaseDetails id="pdfbox-validation-model" version="{{ site.verapdf_version_number }}" buildDate="2017-01-10T02:39:00Z"></releaseDetails>
   </buildInformation>
 
   <jobs>
@@ -110,9 +110,9 @@ to get the following output:
 <?xml version="1.0" encoding="utf-8"?>
 <report>
   <buildInformation>
-    <releaseDetails id="core" version="1.0.2" buildDate="2017-01-10T02:34:00Z"></releaseDetails>
-    <releaseDetails id="gui" version="1.0.6-PDFBOX" buildDate="2017-01-13T11:30:00Z"></releaseDetails>
-    <releaseDetails id="pdfbox-validation-model" version="1.0.2" buildDate="2017-01-10T02:39:00Z"></releaseDetails>
+    <releaseDetails id="core" version="{{ site.verapdf_version_number }}" buildDate="2017-01-10T02:34:00Z"></releaseDetails>
+    <releaseDetails id="gui" version="{{ site.verapdf_version_number }}-PDFBOX" buildDate="2017-01-13T11:30:00Z"></releaseDetails>
+    <releaseDetails id="pdfbox-validation-model" version="{{ site.verapdf_version_number }}" buildDate="2017-01-10T02:39:00Z"></releaseDetails>
   </buildInformation>
 
   <jobs>
@@ -194,9 +194,9 @@ information has been removed:
 <?xml version="1.0" encoding="utf-8"?>
   <report>
     <buildInformation>
-      <releaseDetails id="core" version="1.0.2" buildDate="2017-01-10T02:34:00Z"></releaseDetails>
-      <releaseDetails id="gui" version="1.0.6-PDFBOX" buildDate="2017-01-13T11:30:00Z"></releaseDetails>
-      <releaseDetails id="pdfbox-validation-model" version="1.0.2" buildDate="2017-01-10T02:39:00Z"></releaseDetails>
+      <releaseDetails id="core" version="{{ site.verapdf_version_number }}" buildDate="2017-01-10T02:34:00Z"></releaseDetails>
+      <releaseDetails id="gui" version="{{ site.verapdf_version_number }}-PDFBOX" buildDate="2017-01-13T11:30:00Z"></releaseDetails>
+      <releaseDetails id="pdfbox-validation-model" version="{{ site.verapdf_version_number }}" buildDate="2017-01-10T02:39:00Z"></releaseDetails>
     </buildInformation>
 
     <jobs>
@@ -276,9 +276,9 @@ which will return:
 <?xml version="1.0" encoding="utf-8"?>
 <report>
   <buildInformation>
-    <releaseDetails id="core" version="1.0.2" buildDate="2017-01-10T02:34:00Z"></releaseDetails>
-    <releaseDetails id="gui" version="1.0.6-PDFBOX" buildDate="2017-01-13T11:30:00Z"></releaseDetails>
-    <releaseDetails id="pdfbox-validation-model" version="1.0.2" buildDate="2017-01-10T02:39:00Z"></releaseDetails>
+    <releaseDetails id="core" version="{{ site.verapdf_version_number }}" buildDate="2017-01-10T02:34:00Z"></releaseDetails>
+    <releaseDetails id="gui" version="{{ site.verapdf_version_number }}-PDFBOX" buildDate="2017-01-13T11:30:00Z"></releaseDetails>
+    <releaseDetails id="pdfbox-validation-model" version="{{ site.verapdf_version_number }}" buildDate="2017-01-10T02:39:00Z"></releaseDetails>
   </buildInformation>
 
   <jobs>
