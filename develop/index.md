@@ -28,28 +28,14 @@ Getting veraPDF
 ---------------
 There are two implementations of the veraPDF software library, one that uses a
 fork of the [Apache PDFBox project](https://github.com/veraPDF/veraPDF-pdfbox)
-as a PDF parser and validation model. Since releasing the PDFBox implementation
-the veraPDF consortium have developed their own PDF parsing and valdiation model
+as a PDF parser and validation model. 
+
+#### Greenfield vs PDFbox
+
+Since releasing the PDFBox implementation
+the veraPDF consortium have developed their own "Greenfield" PDF parsing and validation model 
 that's avaliable under the same dual open source licenses as the rest of veraPDF.
-
-### Maven for integrators
-If you want to integrate veraPDF into your own Java application and you're using
-Maven you can add the following to your POM:
-
-```xml
-<repositories>
-  <repository>
-    <snapshots>
-      <enabled>true</enabled>
-    </snapshots>
-    <id>vera-dev</id>
-    <name>Vera development</name>
-    <url>http://artifactory.openpreservation.org/artifactory/vera-dev</url>
-  </repository>
-</repositories>
-```
-
-to access the veraPDF Maven repository, we'll be on Maven central soon.
+You can also use PDFBox under the APL license.
 
 #### Greenfield POM dependency
 To include veraPDF's greenfield parser and validation model add:
@@ -58,7 +44,7 @@ To include veraPDF's greenfield parser and validation model add:
 <dependency>
   <groupId>org.verapdf</groupId>
   <artifactId>validation-model</artifactId>
-  <version>1.0.5</version>
+  <version>1.4.5</version>
 </dependency>
 ```
 
@@ -71,7 +57,7 @@ This can be included in your project with this Maven dependency:
 <dependency>
   <groupId>org.verapdf</groupId>
   <artifactId>pdfbox-validation-model</artifactId>
-  <version>1.0.5</version>
+  <version>1.4.5</version>
 </dependency>
 ```
 
@@ -139,7 +125,7 @@ validated a file called `mydoc.pdf` against the PDF/A 1b specification is:
 ```java
 PDFAFlavour flavour = PDFAFlavour.fromString("1b");
 PDFAValidator validator = Foundries.defaultInstance().createValidator(flavour, false);
-try (PDFAParser parser = Foundries.defaultInstance().createParser(new FileInputStream(`mydoc.pdf`),
+try (PDFAParser parser = Foundries.defaultInstance().createParser(new FileInputStream("mydoc.pdf")),
     flavour)) {
     ValidationResult result = validator.validate(parser);
     if (result.isCompliant()) {
