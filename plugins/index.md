@@ -100,3 +100,103 @@ The method normally implements the following steps:
   2. Trigger the Tool to process it (for example, start CLI with corresponding arguments that include paths to temporary files with the input data)
   3. Transform the output of the Tool into the list of FeaturesTreeNode objects (for example, parse the CLI output XML file and add the required information as a child nodes of some root FeaturesTreeNode object)
   4. Return the generated list of FeaturesTreeNode objects to the Features Reporter
+
+## Hello-Embedded plugin
+This is an example setup for a plugin running on embedded files
+### Maven
+In your pom.xml you will need the possibility to refer to VeraPDF classes, i.e., a VeraPDF dependency, 
+and the possibility to create a Jar file with your code but without the VeraPDF classes you just referred, e.g. using the
+Maven shade plugin.
+
+```xml
+	<dependencies>
+		<dependency>
+			<groupId>org.verapdf</groupId>
+			<artifactId>core</artifactId>
+			<version>1.6.2</version>
+		</dependency>
+	</dependencies>
+	<build>
+
+		<plugins>
+			<plugin>
+				<configuration>
+					<minimizeJar>true</minimizeJar>
+					<filters>
+						<filter>
+							<artifact>*:*</artifact>
+							<excludes>
+								<exclude>META-INF/*.SF</exclude>
+								<exclude>META-INF/*.DSA</exclude>
+								<exclude>META-INF/*.RSA</exclude>
+								<exclude>org/verapdf/**</exclude>
+							</excludes>
+							<includes>
+								<include>**/**</include>
+							</includes>
+						</filter>
+					</filters>
+				</configuration>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>3.0.0</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+```
+### Java
+
+The VeraPDF plugin loader will scan for all suitable subclasses, so the class and file name, in this case EmbeddedFilePlugin, is not relevant.
+
+```java
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+// and from VeraPDF:
+import org.verapdf.core.FeatureParsingException;
+import org.verapdf.features.AbstractEmbeddedFileFeaturesExtractor;
+import org.verapdf.features.EmbeddedFileFeaturesData;
+import org.verapdf.features.tools.FeatureTreeNode;
+
+
+public class EmbeddedFilePlugin extends AbstractEmbeddedFileFeaturesExtractor {
+
+	private static final Logger LOGGER = Logger.getLogger(EmbeddedFilePlugin.class.getCanonicalName());
+
+	@Override
+	public List<FeatureTreeNode> getEmbeddedFileFeatures(EmbeddedFileFeaturesData embeddedFileFeaturesData) {
+		List<FeatureTreeNode> res = new ArrayList<FeatureTreeNode>();
+		try {
+			FeatureTreeNode node = FeatureTreeNode.createRootNode("Hello");
+			node.setValue("World");
+			res.add(node);
+		} catch (FeatureParsingException e) {
+			LOGGER.log(Level.SEVERE, e.getMessage(), e);
+		}
+		return res;
+	}
+
+}
+```
+
+### Compile, deploy and run
+
+
+Compile with `mvn clean package` and Example plugin configuration file and mention and activate the target JAR as mentioned in [Example plugin configuration file](#example-plugin-configuration-file) above.
+
+
+Run `verapdf-gui` and ensure that embedded files is checked in Config|Features Config.
+Select a PDF file containing embedded files like [the mustangproject sample file](http://www.mustangproject.org/MustangGnuaccountingBeispielRE-20170509_505.pdf),
+select "Validation and Features" as report type and hit the execute button.
+If you then click the "View XML" button you should see a `<hello>world</hello>` in the XML output.
