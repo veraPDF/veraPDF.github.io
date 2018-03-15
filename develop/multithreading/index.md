@@ -3,8 +3,12 @@ layout: page
 title: Developing with veraPDF
 ---
 
-This is a quick start guide for developers wanting to work with veraPDF. You'll
-need to know a little Java, Maven and git to follow the instructions. We've
+This is a quick start guide for developers wanting to work with veraPDF in multithreading. 
+VeraPDF is thread safety application,
+but if you need to move your performance on higher level please use multiprocessing option ("--processes")
+in our VeraPDF CLI version. 
+
+You'll need to know a little Java, Maven and git to follow the instructions. We've
 assumed you either want to:
 
 - integrate veraPDF into your own Java application; or
@@ -119,19 +123,27 @@ PdfBoxFoundryProvider.initialise();
 ```
 
 ### Validating a PDF File
-You only need to intialise once, whichever version you're using, now the code to
-validated a file called `mydoc.pdf` against the PDF/A 1b specification is:
-
+You only need to intialise once, whichever version you're using, 
+create a new class which implements runnable or callable interface 
+and paste code below in method call(run).
+Now the code to validated a file called `mydoc.pdf` against the PDF/A 1b specification is:
 ```java
+//you can put this two rows in Validator.class or in another place
 PDFAFlavour flavour = PDFAFlavour.fromString("1b");
 PDFAValidator validator = Foundries.defaultInstance().createValidator(flavour, false);
-try (PDFAParser parser = Foundries.defaultInstance().createParser(new FileInputStream("mydoc.pdf")),
-    flavour)) {
-    ValidationResult result = validator.validate(parser);
-    if (result.isCompliant()) {
-      // File is a valid PDF/A 1b
-    } else {
-      // it isn't
+
+public class Validator implements Runnable {
+    @Override
+    public ValidationResult run() {
+	        try (PDFAParser parser = Foundries.defaultInstance().createParser(new FileInputStream("mydoc.pdf"))) {
+            PDFAValidator validator = Foundries.defaultInstance().createValidator(parser.getFlavour(), false);
+            ValidationResult result = validator.validate(parser);
+            if (result.isCompliant()) {
+                // File is a valid PDF/A 1b
+            } else {
+                // it isn't
+            }
+        }
     }
 }
 ```
@@ -139,13 +151,17 @@ try (PDFAParser parser = Foundries.defaultInstance().createParser(new FileInputS
 If you're not sure what PDF/A specification to use you can let the software decide:
 
 ```java
-try (PDFAParser parser = Foundries.defaultInstance().createParser(new FileInputStream("mydoc.pdf"))) {
-    PDFAValidator validator = Foundries.defaultInstance().createValidator(parser.getFlavour(), false);
-    ValidationResult result = validator.validate(parser);
-    if (result.isCompliant()) {
-      // File is a valid PDF/A 1b
-    } else {
-      // it isn't
+public class Validator implements Runnable {
+    public ValidationResult run() {
+	        try (PDFAParser parser = Foundries.defaultInstance().createParser(new FileInputStream("mydoc.pdf"))) {
+            PDFAValidator validator = Foundries.defaultInstance().createValidator(parser.getFlavour(), false);
+            ValidationResult result = validator.validate(parser);
+            if (result.isCompliant()) {
+                // File is a valid PDF/A 1b
+            } else {
+                // it isn't
+            }
+        }
     }
 }
 ```
