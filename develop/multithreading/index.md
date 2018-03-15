@@ -3,8 +3,8 @@ layout: page
 title: Developing with veraPDF
 ---
 
-This is a quick start guide for developers wanting to work with veraPDF in multithreading. 
-VeraPDF is thread safety application,
+This is a quick start guide for developers wanting to work with veraPDF in multithreaded mode. 
+VeraPDF is thread safe application,
 but if you need to move your performance on higher level please use multiprocessing option ("--processes")
 in our VeraPDF CLI version. 
 
@@ -125,8 +125,8 @@ PdfBoxFoundryProvider.initialise();
 ### Validating a PDF File
 You only need to intialise once, whichever version you're using, 
 create a new class which implements runnable or callable interface 
-and paste code below in method call(run).
-Now the code to validated a file called `mydoc.pdf` against the PDF/A 1b specification is:
+and paste code below in the method call(run).
+Now the code to validate a file called `mydoc.pdf` in a separate thread against the PDF/A 1b specification is:
 ```java
 //you can put this two rows in Validator.class or in another place,
 // but should be executed before validator will start
