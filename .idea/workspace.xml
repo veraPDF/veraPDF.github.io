@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2e40550d-4f39-443c-b7f6-e58e76756603" name="Default" comment="Syntax fixes in develop&gt;index.md. Multithreading tutorial page added">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/veraPDF.github.io.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/develop/index.md" afterPath="$PROJECT_DIR$/develop/index.md" />
+    <list default="true" id="2e40550d-4f39-443c-b7f6-e58e76756603" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/develop/multithreading/index.md" afterPath="$PROJECT_DIR$/develop/multithreading/index.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -39,15 +36,16 @@
         <entry file="file://$PROJECT_DIR$/develop/multithreading/index.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="-119">
-                <caret line="5" column="89" lean-forward="false" selection-start-line="5" selection-start-column="89" selection-end-line="5" selection-end-column="89" />
+              <first_editor relative-caret-position="226">
+                <caret line="131" column="3" lean-forward="false" selection-start-line="131" selection-start-column="3" selection-end-line="131" selection-end-column="3" />
                 <folding>
-                  <marker date="1521103256578" expanded="true" signature="1780:1898" ph="..." />
-                  <marker date="1521103256578" expanded="true" signature="2066:2191" ph="..." />
-                  <marker date="1521103256578" expanded="true" signature="3109:3362" ph="..." />
-                  <marker date="1521103256578" expanded="true" signature="3460:3705" ph="..." />
-                  <marker date="1521103256578" expanded="true" signature="4349:4802" ph="{...}" />
-                  <marker date="1521103256578" expanded="true" signature="4982:5435" ph="{...}" />
+                  <marker date="1521103566103" expanded="true" signature="1780:1898" ph="..." />
+                  <marker date="1521103566103" expanded="true" signature="2066:2191" ph="..." />
+                  <marker date="1521103566103" expanded="true" signature="3109:3362" ph="..." />
+                  <marker date="1521103566103" expanded="true" signature="3460:3705" ph="..." />
+                  <marker date="1521103566103" expanded="true" signature="4049:4170" ph="/.../" />
+                  <marker date="1521103566103" expanded="true" signature="4404:4857" ph="{...}" />
+                  <marker date="1521103566103" expanded="true" signature="5037:5490" ph="{...}" />
                 </folding>
               </first_editor>
               <second_editor />
@@ -87,6 +85,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <push-targets>
+      <push-target-info target-remote="origin" target-branch="master" repo="$PROJECT_DIR$" source="master" />
+    </push-targets>
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -98,6 +99,7 @@
       <list>
         <option value="$PROJECT_DIR$/develop/index.md" />
         <option value="$PROJECT_DIR$/develop/multithread/index.md" />
+        <option value="$PROJECT_DIR$/develop/multithreading/index.md" />
       </list>
     </option>
   </component>
@@ -288,12 +290,20 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1521100266602</updated>
-      <workItem from="1521100268350" duration="3116000" />
+      <workItem from="1521100268350" duration="3293000" />
     </task>
+    <task id="LOCAL-00001" summary="Syntax fixes in develop -&gt; index.md. Multithreading tutorial page added">
+      <created>1521103426419</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1521103426419</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3116000" />
+    <option name="totallyTimeSpent" value="3293000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
@@ -307,10 +317,10 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32950193" sideWeight="0.4978678" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32950193" sideWeight="0.4978678" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -331,6 +341,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Syntax fixes in develop -&gt; index.md. Multithreading tutorial page added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Syntax fixes in develop -&gt; index.md. Multithreading tutorial page added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -383,15 +397,16 @@
     <entry file="file://$PROJECT_DIR$/develop/multithreading/index.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-119">
-            <caret line="5" column="89" lean-forward="false" selection-start-line="5" selection-start-column="89" selection-end-line="5" selection-end-column="89" />
+          <first_editor relative-caret-position="226">
+            <caret line="131" column="3" lean-forward="false" selection-start-line="131" selection-start-column="3" selection-end-line="131" selection-end-column="3" />
             <folding>
-              <marker date="1521103256578" expanded="true" signature="1780:1898" ph="..." />
-              <marker date="1521103256578" expanded="true" signature="2066:2191" ph="..." />
-              <marker date="1521103256578" expanded="true" signature="3109:3362" ph="..." />
-              <marker date="1521103256578" expanded="true" signature="3460:3705" ph="..." />
-              <marker date="1521103256578" expanded="true" signature="4349:4802" ph="{...}" />
-              <marker date="1521103256578" expanded="true" signature="4982:5435" ph="{...}" />
+              <marker date="1521103566103" expanded="true" signature="1780:1898" ph="..." />
+              <marker date="1521103566103" expanded="true" signature="2066:2191" ph="..." />
+              <marker date="1521103566103" expanded="true" signature="3109:3362" ph="..." />
+              <marker date="1521103566103" expanded="true" signature="3460:3705" ph="..." />
+              <marker date="1521103566103" expanded="true" signature="4049:4170" ph="/.../" />
+              <marker date="1521103566103" expanded="true" signature="4404:4857" ph="{...}" />
+              <marker date="1521103566103" expanded="true" signature="5037:5490" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />

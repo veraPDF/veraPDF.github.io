@@ -128,7 +128,8 @@ create a new class which implements runnable or callable interface
 and paste code below in method call(run).
 Now the code to validated a file called `mydoc.pdf` against the PDF/A 1b specification is:
 ```java
-//you can put this two rows in Validator.class or in another place
+//you can put this two rows in Validator.class or in another place,
+// but should be executed before validator will start
 PDFAFlavour flavour = PDFAFlavour.fromString("1b");
 PDFAValidator validator = Foundries.defaultInstance().createValidator(flavour, false);
 
