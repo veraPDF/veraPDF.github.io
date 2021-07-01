@@ -6,12 +6,12 @@ title: veraPDF CLI Validation
 <a name="list-profiles"></a>Listing built in validation profiles
 ----------------------------------------------------------------
 The veraPDF software comes with eight sets of rules built in. These are known
-as validation profiles and there's one for each level and part of the PDF/A
+as validation profiles and there's one for each level and part of the PDF/A and PDF/UA
 specification. You can list them by typing <kbd>verapdf -l</kbd> or <kbd>verapdf.bat --list</kbd> for Windows users. The `-l` and `--list` are interchangeable on all platforms.
 You'll be greeted with:
 
 ```bash
-veraPDF supported PDF/A profiles:
+veraPDF supported PDF/A and PDF/UA profiles:
   1a - PDF/A-1A validation profile
   1b - PDF/A-1B validation profile
   2a - PDF/A-2A validation profile
@@ -20,6 +20,7 @@ veraPDF supported PDF/A profiles:
   3a - PDF/A-3A validation profile
   3b - PDF/A-3B validation profile
   3u - PDF/A-3U validation profile
+  ua1 - PDF/UA-1 validation profile
 ```
 
 <a name="fixed-profiles"></a>Validation using built in profiles
