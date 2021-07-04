@@ -37,7 +37,7 @@ typing <kbd>path-to-verapdf/verapdf</kbd>. On a Mac or Linux box this can be set
 
 ### Links to how-tos
 
-- [Using veraPDF for PDF/A Validation](validation):
+- [Using veraPDF for PDF/A and PDF/UA Validation](validation):
   - [listing built in validation profiles](validation#list-profiles);
   - [validating using a built in profile](validation#fixed-profiles);
   - [validating using automated profile selection](validation#auto-profile);

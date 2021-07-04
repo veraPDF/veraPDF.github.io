@@ -21,9 +21,9 @@ Usage: veraPDF [options] FILES
       -f, --flavour
         Chooses built-in Validation Profile flavour, e.g. '1b'. Alternatively, 
         supply '0' or no argument for automatic flavour detection based on a 
-        file's metadata.
+        file`s metadata.
         Default: 0
-        Possible Values: [0, 1a, 1b, 2a, 2b, 2u, 3a, 3b, 3u, 4]
+        Possible Values: [0, 1a, 1b, 2a, 2b, 2u, 3a, 3b, 3u, 4, ua1]
       --format
         Chooses output format.
         Default: mrr
@@ -39,6 +39,9 @@ Usage: veraPDF [options] FILES
       --maxfailuresdisplayed
         Sets maximum amount of failed checks displayed for each rule.
         Default: 100
+      --nonpdfext
+        Select files without .pdf extension
+        Default: false
       -o, --off
         Turns off PDF/A validation
         Default: false
