@@ -15,6 +15,8 @@ For each error the Object type, test condition, applicable specification and con
 
 Understandings based on the discussions of the PDF Validation Technical Working Group are included as appropriate.
 
-[Rules for PDF/A-1](./pdfa-part1).
+[Rules for PDF/A-1](http://github.com/veraPDF/veraPDF-validation-profiles/wiki/PDFA-Part-1-rules/).
 
-[Rules for PDF/A-2 and PDF/A-3](./pdfa-parts-2-and-3).
+[Rules for PDF/A-2 and PDF/A-3](http://github.com/veraPDF/veraPDF-validation-profiles/wiki/PDFA-Parts-2-and-3-rules/).
+
+[Rules for PDF/UA-1](http://github.com/veraPDF/veraPDF-validation-profiles/wiki/PDFUA-Part-1-rules/).
