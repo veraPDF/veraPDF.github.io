@@ -138,7 +138,7 @@ The default validation config file contains:
 ### <a name="validatorConfig"></a> The validatorConfig element
 The `validatorConfig` element defines the following attributes:
 
-- `flavour` the default flavour to use when none is specified by the user, can be PDF_A_1A, PDF_A_1B, PDF_A_2A, PDF_A_2B, PDF_A_2U, PDF_A_3A, PDF_A_3B, PDF_A_3U, or NO_FLAVOUR (for automatic detection).
+- `flavour` the default flavour to use when none is specified by the user, can be PDF_A_1A, PDF_A_1B, PDF_A_2A, PDF_A_2B, PDF_A_2U, PDF_A_3A, PDF_A_3B, PDF_A_3U, PDF_UA1, or NO_FLAVOUR (for automatic detection).
 - `recordPasses` set `true` to report passed validation checks, `false` to report failures only.
 - `maxFails` specifies the maximum number of failed checks before validation is terminated, the default value of -1 means report all failures.
 
@@ -297,9 +297,6 @@ Lists the shadings used in the document.
 
 ### <a name="signature"></a> SIGNATURE
 Extracts information about any digital signatures contained in the document.
-
-### <a name="error"></a> ERROR
-This is a placeholder for veraPDF error reporting
 
 <a name="plugins.xml"></a> Configuring plugins
 ----------------------------------------------------
