@@ -167,6 +167,7 @@ enabled:
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <featuresConfig>
     <enabledFeatures>
+        <feature>ACTION</feature>
         <feature>ANNOTATION</feature>
         <feature>COLORSPACE</feature>
         <feature>DOCUMENT_SECURITY</feature>
@@ -177,6 +178,7 @@ enabled:
         <feature>ICCPROFILE</feature>
         <feature>IMAGE_XOBJECT</feature>
         <feature>INFORMATION_DICTIONARY</feature>
+        <feature>INTERACTIVE_FORM_FIELDS</feature>
         <feature>LOW_LEVEL_INFO</feature>
         <feature>METADATA</feature>
         <feature>OUTLINES</feature>
@@ -187,10 +189,13 @@ enabled:
         <feature>PROPERTIES</feature>
         <feature>SHADING</feature>
         <feature>SIGNATURE</feature>
-        <feature>ERROR</feature>
     </enabledFeatures>
 </featuresConfig>
 ```
+
+### <a name="action"></a> ACTION
+Lists all acton elements assiocated with various document, page, interactive form events. The extracted action
+element contains information about the action type and location (document, page, annotation, outline) to which this action was associated.
 
 ### <a name="annotation"></a> ANNOTATION
 Lists all of the annotations found within the document. The extracted annotation
@@ -247,6 +252,9 @@ Extracts information about the images contained in the document like height, wid
 
 ### <a name="info-dict"></a> INFORMATION_DICTIONARY
 This enables the extraction of key-value pairs from the PDF Document information dictionary. The dictionary key name is saved as the value of the key argument; the dictionary value is saved as the value of the entry element
+
+### <a name="form-fields"></a> INTERACTIVE_FORM_FIELDS
+Extracts information about all interactive form fields found in the document. The extracted information includes the name of the form field and its value. 
 
 ### <a name="low-level"></a> LOW_LEVEL_INFO
 Extract information about indirect objects, the document ID as well as
