@@ -176,7 +176,7 @@ public class EmbeddedFilePlugin extends AbstractEmbeddedFileFeaturesExtractor {
 
 	@Override
 	public List<FeatureTreeNode> getEmbeddedFileFeatures(EmbeddedFileFeaturesData embeddedFileFeaturesData) {
-		List<FeatureTreeNode> res = new ArrayList<FeatureTreeNode>();
+		List<FeatureTreeNode> res = new ArrayList<>();
 		try {
 			FeatureTreeNode node = FeatureTreeNode.createRootNode("Hello");
 			node.setValue("World");

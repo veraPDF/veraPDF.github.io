@@ -124,22 +124,23 @@ validated a file called `mydoc.pdf` against the PDF/A 1b specification is:
 
 ```java
 PDFAFlavour flavour = PDFAFlavour.fromString("1b");
-PDFAValidator validator = Foundries.defaultInstance().createValidator(flavour, false);
-try (PDFAParser parser = Foundries.defaultInstance().createParser(new FileInputStream("mydoc.pdf")),
-    flavour)) {
+try (PDFAParser parser = Foundries.defaultInstance().createParser(new FileInputStream("mydoc.pdf"), flavour)) {
+    PDFAValidator validator = Foundries.defaultInstance().createValidator(flavour, false);
     ValidationResult result = validator.validate(parser);
     if (result.isCompliant()) {
       // File is a valid PDF/A 1b
     } else {
       // it isn't
     }
+} catch (IOException | ValidationException | ModelParsingException | EncryptedPdfException exception) {
+	// Exception during validation
 }
 ```
 
 If you're not sure what PDF/A specification to use you can let the software decide:
 
 ```java
-try (PDFAParser parser = Foundries.defaultInstance().createParser(new FileInputStream("mydoc.pdf")) {
+try (PDFAParser parser = Foundries.defaultInstance().createParser(new FileInputStream("mydoc.pdf"))) {
     PDFAValidator validator = Foundries.defaultInstance().createValidator(parser.getFlavour(), false);
     ValidationResult result = validator.validate(parser);
     if (result.isCompliant()) {
@@ -147,6 +148,8 @@ try (PDFAParser parser = Foundries.defaultInstance().createParser(new FileInputS
     } else {
       // it isn't
     }
+} catch (IOException | ValidationException | ModelParsingException | EncryptedPdfException exception) {
+	// Exception during validation
 }
 ```
 
