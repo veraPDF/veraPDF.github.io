@@ -12,6 +12,15 @@ something very similar:
 ```bash
 Usage: veraPDF [options] FILES
   Options:
+      -d, --debug
+        Outputs all processed file names.
+        Default: false
+      -df, --defaultflavour
+        Chooses built-in Validation Profile default flavour, e.g. '1b'. This 
+        flavor will be applied if automatic flavour detection based on a file`s 
+        metadata doesn`t work.
+        Default: 1b
+        Possible Values: [0, 1a, 1b, 2a, 2b, 2u, 3a, 3b, 3u, 4, 4f, 4e, ua1, wcag2]
       -x, --extract
         Extracts and reports PDF features.
         Default: false
