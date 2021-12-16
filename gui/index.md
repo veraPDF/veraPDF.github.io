@@ -52,6 +52,9 @@ The options are as follows:
 | PDF/A-3a       | Use the PDF/A-3a validation profile, i.e. assume that the file is a PDF/A-3a.                             |
 | PDF/A-3b       | Use the PDF/A-3b validation profile, i.e. assume that the file is a PDF/A-3b.                             |
 | PDF/A-3u       | Use the PDF/A-3u validation profile, i.e. assume that the file is a PDF/A-3u.                             |
+| PDF/A-4        | Use the PDF/A-4 validation profile, i.e. assume that the file is a PDF/A-4.                               |
+| PDF/A-4e       | Use the PDF/A-4e validation profile, i.e. assume that the file is a PDF/A-4e.                             |
+| PDF/A-4f       | Use the PDF/A-4f validation profile, i.e. assume that the file is a PDF/A-4f.                             |
 | PDF/UA-1       | Use the PDF/UA-1 validation profile, i.e. assume that the file is a PDF/UA-1.                             |
 | Custom Profile | Enables the Choose Profile button allowing the user to load an external validation profile.               |
 {:.table .table-striped .table-bordered}

@@ -20,6 +20,9 @@ veraPDF supported PDF/A and PDF/UA profiles:
   3a - PDF/A-3A validation profile
   3b - PDF/A-3B validation profile
   3u - PDF/A-3U validation profile
+  4 - PDF/A-4 validation profile
+  4e - PDF/A-4E validation profile
+  4f - PDF/A-4F validation profile
   ua1 - PDF/UA-1 validation profile
 ```
 
