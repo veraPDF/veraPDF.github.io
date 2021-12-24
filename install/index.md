@@ -8,7 +8,7 @@ Downloading the Installer
 There are currently two versions of veraPDF:
 
 - the veraPDF Greenfield implementation built around a bespoke PDF parser and
-  PDF/A validation model developed by the veraPDF team; and
+  PDF/A and PDF/UA validation models developed by the veraPDF team; and
 - a version that uses [Apache PDFBox](https://pdfbox.apache.org/) as a PDF
   parser and to implement the PDF/A validation model.
 
