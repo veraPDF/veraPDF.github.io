@@ -68,9 +68,9 @@ The available options are:
 
 | Option                | Description                                                                            |
 |-----------------------|----------------------------------------------------------------------------------------|
-| Validation [default]  | Only perform PDF/A Validation and report the results, feature reporting is disabled.   |
+| Validation [default]  | Only perform Validation and report the results, feature reporting is disabled.   |
 | Features              | Only carry out feature reporting, don't try to validate the PDF file.                  |
-| Validation & Features | Both PDF/A Validation and features reporting are carried out and the results reported. |
+| Validation & Features | Both Validation and Features reporting are carried out and the results reported. |
 | Policy                | Perform a Policy check alongside validation and feature extraction.                    |
 {:.table .table-striped .table-bordered}
 
