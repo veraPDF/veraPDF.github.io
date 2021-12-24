@@ -6,16 +6,16 @@ title: Desktop GUI Quick Start Guide
 ![veraPDF logo](/images/vera-logo-shadow.jpg "veraPDF logo")
 
 ## Introduction
-The veraPDF Consortium provides open source PDF/A validation developed with the support of the PDF industry. The veraPDF Conformance Checker uses the veraPDF Java library, which provides the APIs and implementations for PDF/A Validation, Policy Checking, Metadata Repair, and Reporting. The veraPDF Desktop Graphical User Interface (GUI) allows users to run the software on a desktop computer or workstation.
+The veraPDF Consortium provides open source PDF/A and PDF/UA validation developed with the support of the PDF industry. The veraPDF Conformance Checker uses the veraPDF Java library, which provides the APIs and implementations for PDF/A and PDF/UA Validation, Policy Checking, Metadata Repair, and Reporting. The veraPDF Desktop Graphical User Interface (GUI) allows users to run the software on a desktop computer or workstation.
 
 This Quick Start Guide explains some basic concepts relavent to the veraPDF Conformance Checker and helps you to get started with veraPDF Desktop GUI.
 
 ### The veraPDF Desktop GUI overview
-The veraPDF GUI provides the features of veraPDF PDF/A Java Library in a desktop windows GUI. Users can configure their own PDF/A validation and policy checking jobs by selecting:
+The veraPDF GUI provides the features of veraPDF Java Library in a desktop windows GUI. Users can configure their own validation and policy checking jobs by selecting:
 - which combination of tasks to perform;
 - PDF Documents to analyse;
 - the PDF/A part and conformance level to test for; and
-- various task specific settings).
+- various task specific settings.
 
 The software carries out the configured task and reports the results in both XML and HTML formats. The XML report is intended for consumption by automated processes while the HTML report is designed for human readablilty.
 
@@ -92,7 +92,7 @@ Once processing is complete the reporting buttons will be enabled:
 | View HTML | Opens the human friendly report in the default HTML viewer.    |
 {:.table .table-striped .table-bordered}
 
-The XML report will contain PDF/A Validation Report and PDF Features Report, depending on the chosen processing options. Currently the HTML report only includes the results PDF/A Validation information.
+The XML report will contain Validation Report and PDF Features Report, depending on the chosen processing options. Currently the HTML report only includes the results Validation information.
 
 ![veraPDF GUI populated screen](/images/gui/populated.png "veraPDF GUI main screen"){: .img-responsive .center-block}
 
