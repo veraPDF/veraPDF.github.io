@@ -44,7 +44,7 @@ To include veraPDF's greenfield parser and validation model add:
 <dependency>
   <groupId>org.verapdf</groupId>
   <artifactId>validation-model</artifactId>
-  <version>1.18.8</version>
+  <version>1.20.1</version>
 </dependency>
 ```
 
@@ -57,7 +57,7 @@ This can be included in your project with this Maven dependency:
 <dependency>
   <groupId>org.verapdf</groupId>
   <artifactId>pdfbox-validation-model</artifactId>
-  <version>1.18.8</version>
+  <version>1.20.1</version>
 </dependency>
 ```
 
