@@ -95,7 +95,10 @@ whether you've chosed the greenfield or PDFBox implementation.
 #### Greenfield Foundry initialise
 
 ```java
-import org.verapdf.pdfa.VeraGreenfieldFoundryProvider;
+import org.verapdf.core.EncryptedPdfException;
+import org.verapdf.core.ModelParsingException;
+import org.verapdf.core.ValidationException;
+import org.verapdf.gf.foundry.VeraGreenfieldFoundryProvider;
 import org.verapdf.pdfa.Foundries;
 import org.verapdf.pdfa.PDFAParser;
 import org.verapdf.pdfa.results.ValidationResult;
@@ -108,7 +111,10 @@ VeraGreenfieldFoundryProvider.initialise();
 #### PDFBox Foundry initialise
 
 ```java
-import org.verapdf.pdfa.PdfBoxFoundryProvider;
+import org.verapdf.core.EncryptedPdfException;
+import org.verapdf.core.ModelParsingException;
+import org.verapdf.core.ValidationException;
+import org.verapdf.pdfbox.foundry.PdfBoxFoundryProvider;
 import org.verapdf.pdfa.Foundries;
 import org.verapdf.pdfa.PDFAParser;
 import org.verapdf.pdfa.results.ValidationResult;

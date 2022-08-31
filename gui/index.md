@@ -109,12 +109,16 @@ The advanced settings are described in the table below:
 
 | Setting              | Description |
 |----------------------|-------------|
-| Include passed rules | If checked the passed validation rules are included into the resulting PDF/A Validation Report in addition to the failed rules. This setting is unchecked by default to reduce the size of the resulting Report |
-| Stop validating after failed checks | Specifies the maximum number of failed checks to be performed for all rules in the Validation Profile. Validation is halted once the number of failed checks is reached in order to speed up validation.  |
+| Include passed rules | If checked, the passed validation rules are included into the resulting Validation Report in addition to the failed rules. This setting is unchecked by default to reduce the size of the resulting Report. |
+| Add logs to xml report | Specifies, if the logs generated during validation will be added into the Validation Report. |
+| Add detailed errors to report | If checked, the detailed error message for every failed rule will be shown in the resulting Validation Report. |
+| Halt validation after failed checks | Specifies the maximum number of failed checks to be performed for all rules in the Validation Profile. Validation is halted once the number of failed checks is reached in order to speed up validation.  |
 | Display failed checks for rule | Specifies the maximum number of failed checks to be reported for each rule from the Validation Profile. The specified value is used as the limit for the number of failed checks that shall be included into the resulting Report to reduce the size of the Report. |
-| Save fixed files with prefix | Specifies the prefix that is added to the name of the original PDF document when saving it after automatic metadata fixing was performed. This setting is used only when ‘Fix metadata’ option is enabled |
-| Save fixed files into the folder | Specifies the output folder for saving the PDF Documents after automatic metadata fixing was performed. Again this setting is relevant only when ‘Fix metadata’ option is enabled |
-| Validation profile wiki root | Specifies the base URL of the veraPDF validation profiles wiki. This provides contextual information about validation issues. |
+| Save repaired files with prefix | Specifies the prefix that is added to the name of the original PDF document when saving it after automatic metadata fixing was performed. This setting is used only when `Fix metadata` option is enabled. |
+| Save repaired files into the folder | Specifies the output folder for saving the PDF Documents after automatic metadata fixing was performed. Again this setting is relevant only when `Fix metadata` option is enabled. |
+| Validation Profiles wiki root | Specifies the base URL of the veraPDF validation profiles wiki. This provides contextual information about validation issues. |
+| Default flavour | Specifies built-in Validation Profile default flavour, e.g. `1b`. This flavor will be applied if automatic flavour detection based on a file's metadata doesn't work. Possible Values: `[1a, 1b, 2a, 2b, 2u, 3a, 3b, 3u, 4, 4f, 4e, ua1].` |
+| Logging level |  Enables logs with level: `0 - OFF, 1 - SEVERE, 2 - WARNING, SEVERE (default), 3 - CONFIG, INFO, WARNING, SEVERE, 4 - ALL.` |
 {:.table .table-striped .table-bordered}
 
 ## Processing and Reporting
