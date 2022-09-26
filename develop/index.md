@@ -34,7 +34,7 @@ as a PDF parser and validation model.
 
 Since releasing the PDFBox implementation
 the veraPDF consortium have developed their own "Greenfield" PDF parsing and validation model 
-that's avaliable under the same dual open source licenses as the rest of veraPDF.
+that's available under the same dual open source licenses as the rest of veraPDF.
 You can also use PDFBox under the APL license.
 
 #### Greenfield POM dependency
@@ -64,7 +64,7 @@ This can be included in your project with this Maven dependency:
 ### GitHub for source code
 The up to date source repos are on GitHub.
 
-#### Greenfield GithHub project
+#### Greenfield GitHub project
 The clone and build the veraPDF consortium's greenfield implementation using git
 and Maven:
 
@@ -125,7 +125,7 @@ PdfBoxFoundryProvider.initialise();
 ```
 
 ### Validating a PDF File
-You only need to intialise once, whichever version you're using, now the code to
+You only need to initialise once, whichever version you're using, now the code to
 validated a file called `mydoc.pdf` against the PDF/A 1b specification is:
 
 ```java
