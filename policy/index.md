@@ -189,7 +189,7 @@ Dictionary item checked:
 
 You'll need to select the Policy option from the [report dropdown menu](/gui#report-drop)
 which will enable the "Choose Policy" button and you'll be able to load
-[the schmematron policy](info-dict/title-mandatory.sch). You'll then need to
+[the schematron policy](info-dict/title-mandatory.sch). You'll then need to
 press the "Choose PDF" button to select the PDF files to check. Navigate to this
 corpus subdirectory `veraPDF-corpus/PDF_A-1b/6.1 File structure/6.1.5 Document
 information dictionary` and select the 4 pass case files at the bottom of the list

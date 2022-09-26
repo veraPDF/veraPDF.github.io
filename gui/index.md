@@ -8,7 +8,7 @@ title: Desktop GUI Quick Start Guide
 ## Introduction
 The veraPDF Consortium provides open source PDF/A and PDF/UA validation developed with the support of the PDF industry. The veraPDF Conformance Checker uses the veraPDF Java library, which provides the APIs and implementations for PDF/A and PDF/UA Validation, Policy Checking, Metadata Repair, and Reporting. The veraPDF Desktop Graphical User Interface (GUI) allows users to run the software on a desktop computer or workstation.
 
-This Quick Start Guide explains some basic concepts relavent to the veraPDF Conformance Checker and helps you to get started with veraPDF Desktop GUI.
+This Quick Start Guide explains some basic concepts relevant to the veraPDF Conformance Checker and helps you to get started with veraPDF Desktop GUI.
 
 ### The veraPDF Desktop GUI overview
 The veraPDF GUI provides the features of veraPDF Java Library in a desktop windows GUI. Users can configure their own validation and policy checking jobs by selecting:
@@ -17,7 +17,7 @@ The veraPDF GUI provides the features of veraPDF Java Library in a desktop windo
 - the PDF/A part and conformance level to test for; and
 - various task specific settings.
 
-The software carries out the configured task and reports the results in both XML and HTML formats. The XML report is intended for consumption by automated processes while the HTML report is designed for human readablilty.
+The software carries out the configured task and reports the results in both XML and HTML formats. The XML report is intended for consumption by automated processes while the HTML report is designed for human readability.
 
 ## Using veraPDF Desktop GUI
 The application installation folder contains the script that shall be executed to launch veraPDF Desktop GUI application. The script name depends on the platform:
@@ -76,7 +76,7 @@ The available options are:
 
 If Policy is selected the "Choose Policy" button is activated, the user can use this to load a [policy schematron file](/policy).
 
-The Fix Metadata checkbox determines whether the software will attempt to ammend the PDF document metadata to ensure it is compliant whith the PDF/A specification.
+The Fix Metadata checkbox determines whether the software will attempt to amend the PDF document metadata to ensure it is compliant with the PDF/A specification.
 
 ### Execute button
 This button is only enabled when a PDF file has been chosen. If you've chosen to use a custom validation profile from the dropdown then you must also select an external profile file. Once enabled and pressed the PDF file will be processed according to the selected options.

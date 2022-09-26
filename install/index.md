@@ -17,7 +17,7 @@ version. The release versions are stable and you should use these unless you're 
 
 This gives four possible downloads:
 
-| Dowload | Greenfield Implementation | Apache PDFBox Implementation |
+| Download | Greenfield Implementation | Apache PDFBox Implementation |
 |----------------|-----------------------------------------------------------------------------------------------------------|
 | Release Installer | <a href="http://downloads.verapdf.org/rel/verapdf-installer.zip"  onclick="ga('send', { hitType: 'event', eventCategory: 'gf-rel',  eventAction: 'download',  eventLabel: 'zip'});"><i class="fa fa-file-zip-o" aria-hidden="true"></i> The latest stable veraPDF zip package.</a> | <a href="http://downloads.verapdf.org/rel/verapdf-pdfbox-installer.zip"  onclick="ga('send', { hitType: 'event', eventCategory: 'pb-rel',  eventAction: 'download',  eventLabel: 'zip'});"><i class="fa fa-file-zip-o" aria-hidden="true"></i> The latest stable PDF Box zip package.</a> |
 |  | <a href="http://downloads.verapdf.org/rel/verapdf-installer.zip.asc"  onclick="ga('send', { hitType: 'event', eventCategory: 'gf-rel',  eventAction: 'download',  eventLabel: 'gpg'});"><i class="fa fa-certificate" aria-hidden="true"></i> GPG signature.</a> | <a href="http://downloads.verapdf.org/rel/verapdf-pdfbox-installer.zip.asc"  onclick="ga('send', { hitType: 'event', eventCategory: 'pb-rel',  eventAction: 'download',  eventLabel: 'gpg'});"><i class="fa fa-certificate" aria-hidden="true"></i> GPG signature.</a> |

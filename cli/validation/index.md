@@ -72,7 +72,7 @@ documents to conform to a particular specification. In real word use you may
 not have the luxury of been able to decide on a single validation profile.
 
 It's possible to tell the veraPDF software to parse PDF files, examine the
-metadata and select the appropriate PDF/A profile for valdition. This is
+metadata and select the appropriate PDF/A profile for validation. This is
 requested by specifying the special `-f 0` or `--flavour 0` option, or passing
 no flavour option at all. There's an invalid PDF/A file in the same corpus directory. you can validate it by typing:
 

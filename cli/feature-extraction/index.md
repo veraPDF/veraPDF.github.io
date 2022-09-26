@@ -88,7 +88,7 @@ you should see the following output:
 
 ### <a name="metadata"></a> XMP Metadata
 We'll use the same [adobe supplement file](https://web.archive.org/web/20200621050243/https://www.adobe.com/content/dam/acom/en/devnet/acrobat/pdfs/adobe_supplement_iso32000.pdf) to demonstrate the extraction of XMP metadata. First
-you'll need touse a text editor to change the contents of your
+you'll need to use a text editor to change the contents of your
 [config/features.xml](../config#features.xml) to read:
 
 ```xml

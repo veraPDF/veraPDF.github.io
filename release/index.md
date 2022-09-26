@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Semanitic versioning
+title: Semantic versioning
 ---
 
 ## Introduction
@@ -37,5 +37,5 @@ would ALL be release versions, while:
 
 are all development versions.
 
-### Patch for buld ID
+### Patch for build ID
 The final `PATCH` number is automatically incremented by our [Jenkins build server](https://jenkins.openpreservation.org/job/veraPDF/) ensuring that each official build is identifiable.
