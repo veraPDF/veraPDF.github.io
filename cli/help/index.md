@@ -12,6 +12,9 @@ something very similar:
 ```bash
 Usage: veraPDF [options] FILES
   Options:
+      --addlogs
+        Add logs to xml report.
+        Default: false
       -d, --debug
         Outputs all processed file names.
         Default: false
@@ -21,6 +24,9 @@ Usage: veraPDF [options] FILES
         metadata doesn`t work.
         Default: 1b
         Possible Values: [1a, 1b, 2a, 2b, 2u, 3a, 3b, 3u, 4, 4f, 4e, ua1]
+      --disableerrormessages
+        Disable detailed error messages in the validation report.
+        Default: false
       -x, --extract
         Extracts and reports PDF features.
         Default: false
@@ -36,12 +42,16 @@ Usage: veraPDF [options] FILES
       --format
         Chooses output format.
         Default: mrr
-        Possible Values: [xml, mrr, text]
+        Possible Values: [xml, mrr, text, html, json]
       -h, --help
         Shows this message and exits.
       -l, --list
         Lists built-in Validation Profiles.
         Default: false
+      --loglevel
+        Enables logs with level: 0 - OFF, 1 - SEVERE, 2 - WARNING, SEVERE
+        (default), 3 - CONFIG, INFO, WARNING, SEVERE, 4 - ALL.
+        Default: 2 
       --maxfailures
         Sets maximum amount of failed checks.
         Default: -1

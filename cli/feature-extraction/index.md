@@ -30,7 +30,7 @@ documents.
 ### <a name="info-dict"></a> Information Dictionary
 Many of the files in the veraPDF test corpus don't have any information in the
 information dictionary as they're designed to be minimal, sythetic test files.
-To demonstrate these features we'll use an Adobe specification file `adobe_supplement_iso32000.pdf`, available for [download here](http://wwwimages.adobe.com/content/dam/Adobe/en/devnet/pdf/pdfs/adobe_supplement_iso32000.pdf). We'll assume that it's downloaded in the current
+To demonstrate these features we'll use an Adobe specification file `adobe_supplement_iso32000.pdf`, available for [download here](https://web.archive.org/web/20200621050243/https://www.adobe.com/content/dam/acom/en/devnet/acrobat/pdfs/adobe_supplement_iso32000.pdf). We'll assume that it's downloaded in the current
 directory.
 
 Ensure that the feature extractor is configured properly. To make the
@@ -87,7 +87,7 @@ you should see the following output:
 ```
 
 ### <a name="metadata"></a> XMP Metadata
-We'll use the same [adobe supplement file](http://wwwimages.adobe.com/content/dam/Adobe/en/devnet/pdf/pdfs/adobe_supplement_iso32000.pdf) to demonstrate the extraction of XMP metadata. First
+We'll use the same [adobe supplement file](https://web.archive.org/web/20200621050243/https://www.adobe.com/content/dam/acom/en/devnet/acrobat/pdfs/adobe_supplement_iso32000.pdf) to demonstrate the extraction of XMP metadata. First
 you'll need touse a text editor to change the contents of your
 [config/features.xml](../config#features.xml) to read:
 
