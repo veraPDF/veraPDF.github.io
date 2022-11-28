@@ -44,7 +44,7 @@ typing <kbd>path-to-verapdf/verapdf</kbd>. On a Mac or Linux box this can be set
   - [customising the validation process and reporting](validation#customising); and
   - [validating multiple files](validation#batches).
 - [Extracting features (metadata) from PDFs](feature-extraction):
-  - [extracting Information Dictionary metadtata](feature-extraction#info-dict);
+  - [extracting Information Dictionary metadata](feature-extraction#info-dict);
   - [extracting XMP metadata](feature-extraction#metadata);
   - [extracting Font information](feature-extraction#fonts); and
   - [extracting image features](feature-extraction#images).

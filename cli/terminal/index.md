@@ -117,5 +117,5 @@ C:\Users\cfw>
 On these platforms you can extend the path, but it's often as convenient to
 define an alias for the command. To be able to use the `verapdf` command from
 any location type the command <kbd>alias verapdf='~/verapdf/verapdf'</kbd>.
-This assumesyou've used the default installation directory, the `~` is
+This assumes you've used the default installation directory, the `~` is
 shorthand for the current users home directory.

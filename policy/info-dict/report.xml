@@ -106,7 +106,7 @@
 <passedChecks/>
 <failedChecks>
 <check status="failed" test="count(entry[@key='Title']) &gt; 0" location="/report/jobs/job[4]/featuresReport/informationDict">
-<message>Title is presemnt.</message>
+<message>Title is present.</message>
 </check>
 </failedChecks>
 </policyReport>

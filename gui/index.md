@@ -117,7 +117,7 @@ The advanced settings are described in the table below:
 | Save repaired files with prefix | Specifies the prefix that is added to the name of the original PDF document when saving it after automatic metadata fixing was performed. This setting is used only when `Fix metadata` option is enabled. |
 | Save repaired files into the folder | Specifies the output folder for saving the PDF Documents after automatic metadata fixing was performed. Again this setting is relevant only when `Fix metadata` option is enabled. |
 | Validation Profiles wiki root | Specifies the base URL of the veraPDF validation profiles wiki. This provides contextual information about validation issues. |
-| Default flavour | Specifies built-in Validation Profile default flavour, e.g. `1b`. This flavor will be applied if automatic flavour detection based on a file's metadata doesn't work. Possible Values: `[1a, 1b, 2a, 2b, 2u, 3a, 3b, 3u, 4, 4f, 4e, ua1].` |
+| Default flavour | Specifies built-in Validation Profile default flavour, e.g. `1b`. This flavour will be applied if automatic flavour detection based on a file's metadata doesn't work. Possible Values: `[1a, 1b, 2a, 2b, 2u, 3a, 3b, 3u, 4, 4f, 4e, ua1].` |
 | Logging level |  Enables logs with level: `0 - OFF, 1 - SEVERE, 2 - WARNING, SEVERE (default), 3 - CONFIG, INFO, WARNING, SEVERE, 4 - ALL.` |
 {:.table .table-striped .table-bordered}
 
