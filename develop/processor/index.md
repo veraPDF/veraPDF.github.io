@@ -21,7 +21,7 @@ public static void main(String[] args) {
 	// Default fixer config
 	MetadataFixerConfig fixerConfig = FixerFactory.defaultConfig();
 	// Tasks configuring
-	EnumSet tasks = EnumSet.noneOf(TaskType.class);
+	EnumSet<TaskType> tasks = EnumSet.noneOf(TaskType.class);
 	tasks.add(TaskType.VALIDATE);
 	tasks.add(TaskType.EXTRACT_FEATURES);
 	tasks.add(TaskType.FIX_METADATA);
@@ -35,7 +35,7 @@ public static void main(String[] args) {
 		files.add(new File("location/file.pdf"));
 		// starting the processor
 		processor.process(files, ProcessorFactory.getHandler(FormatOption.MRR, true, reportStream,
-						100, processorConfig.getValidatorConfig().isRecordPasses()));
+						processorConfig.getValidatorConfig().isRecordPasses()));
 	} catch (VeraPDFException e) {
 		System.err.println("Exception raised while processing batch");
 		e.printStackTrace();

@@ -36,7 +36,7 @@ none exist. Try running <kbd>verapdf --version</kbd> which should generate the
 missing files.
 
 ### Running veraPDF without installation gives no configuration files
-All of the aboive assumes that you've installed veraPDF with the downloaded
+All of the above assumes that you've installed veraPDF with the downloaded
 installer. If you're running a version of the application you've built
 yourself and not installed you won't have an application home directory. The
 following only applies if you're running a jar directly from the command line,
@@ -194,7 +194,7 @@ enabled:
 ```
 
 ### <a name="action"></a> ACTION
-Lists all acton elements assiocated with various document, page, interactive form events. The extracted action
+Lists all acton elements associated with various document, page, interactive form events. The extracted action
 element contains information about the action type and location (document, page, annotation, outline) to which this action was associated.
 
 ### <a name="annotation"></a> ANNOTATION

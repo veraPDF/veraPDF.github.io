@@ -44,7 +44,7 @@ To include veraPDF's greenfield parser and validation model add:
 <dependency>
   <groupId>org.verapdf</groupId>
   <artifactId>validation-model</artifactId>
-  <version>1.20.1</version>
+  <version>1.22.2</version>
 </dependency>
 ```
 
@@ -57,7 +57,7 @@ This can be included in your project with this Maven dependency:
 <dependency>
   <groupId>org.verapdf</groupId>
   <artifactId>pdfbox-validation-model</artifactId>
-  <version>1.20.1</version>
+  <version>1.22.2</version>
 </dependency>
 ```
 
@@ -90,7 +90,7 @@ To use the library to validate a PDF file you can do the following:
 ### Initialising your chosen foundry
 The veraPDF library is unaware of the implementations and needs to be
 initialised before first use. This is a slightly different process, depending on
-whether you've chosed the greenfield or PDFBox implementation.
+whether you've chosen the greenfield or PDFBox implementation.
 
 #### Greenfield Foundry initialise
 
@@ -143,7 +143,7 @@ try (PDFAParser parser = Foundries.defaultInstance().createParser(new FileInputS
 }
 ```
 
-If you're not sure what PDF/A specification to use you can let the software decide:
+If you're not sure what specification to use you can let the software decide:
 
 ```java
 try (PDFAParser parser = Foundries.defaultInstance().createParser(new FileInputStream("mydoc.pdf"))) {

@@ -20,7 +20,7 @@ Usage: veraPDF [options] FILES
         Default: false
       -df, --defaultflavour
         Chooses built-in Validation Profile default flavour, e.g. '1b'. This 
-        flavor will be applied if automatic flavour detection based on a file`s 
+        flavour will be applied if automatic flavour detection based on a file`s 
         metadata doesn`t work.
         Default: 1b
         Possible Values: [1a, 1b, 2a, 2b, 2u, 3a, 3b, 3u, 4, 4f, 4e, ua1]
@@ -62,7 +62,7 @@ Usage: veraPDF [options] FILES
         Select files without .pdf extension
         Default: false
       -o, --off
-        Turns off PDF/A validation
+        Turns off validation
         Default: false
       --policyfile
         Select a policy schematron or XSL file.

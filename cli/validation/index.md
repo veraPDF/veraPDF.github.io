@@ -84,7 +84,7 @@ or even
 <kbd>verapdf corpus/veraPDF-corpus-staging/PDF_A-1b/6.6\ Actions/6.6.1\ General/veraPDF\ test\ suite\ 6-6-1-t0
 veraPDF test suite 6-6-1-t01-fail-a.pdf</kbd>.
 
-This time the ouput looks like:
+This time the output looks like:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -141,7 +141,7 @@ a set number of failed checks, e.g `--maxfailures 10` would mean stop after 10
 failed checks. The default value is -1, meaning process all failures.
 
 ### Don't display all failed checks for a particular rule
-Sometimes PDF/A files fail validation checks many times for a particular
+Sometimes files fail validation checks many times for a particular
 validation rule. This is particularly true for rules relating to fonts and
 colour profiles. You can use the `--maxfailuresdisplayed` option to control the
 maximum number of failures reported for a particular rule.
