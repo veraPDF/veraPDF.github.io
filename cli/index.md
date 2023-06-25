@@ -4,7 +4,7 @@ title: veraPDF CLI Quick Start Guide
 ---
 
 The veraPDF command line interface is the best way of processing batches of
-PDF/A files. It's designed for integrating with scripted workflows, or for
+PDF files. It's designed for integrating with scripted workflows, or for
 shell invocation from programs.
 
 We assume you've already downloaded and installed the software, if not please
@@ -28,12 +28,7 @@ overview here](config).
 How-tos
 -------
 The following examples all make use of the veraPDF test corpus. This is
-available [on GitHub](https://github.com/veraPDF/veraPDF-corpus). It is also
-installed with the veraPDF software if you enable it
-[at step 3](/install#step3). The test corpus will be installed in a
-sub-directory called `corpus`. The examples assume your terminal session
-is running in the installation directory with a suitable alias set up to avoid
-typing <kbd>path-to-verapdf/verapdf</kbd>. On a Mac or Linux box this can be set up by typing <kbd>export verapdf='export verapdf='path-to-verapdf/verapdf'</kbd> at the command line.
+available [on GitHub](https://github.com/veraPDF/veraPDF-corpus).
 
 ### Links to how-tos
 
@@ -49,4 +44,4 @@ typing <kbd>path-to-verapdf/verapdf</kbd>. On a Mac or Linux box this can be set
   - [extracting Font information](feature-extraction#fonts); and
   - [extracting image features](feature-extraction#images).
 - [Enforcing institutional policy](/policy).
-- [Fixing PDF/A metadata](fixing).
+- [Fixing metadata](fixing).

@@ -3,7 +3,7 @@ layout: page
 title: veraPDF CLI Feature Extraction
 ---
 
-As well as validating PDF/A documents the veraPDF software can also be used to
+As well as validating PDF/A and PDF/UA documents the veraPDF software can also be used to
 extract metadata from PDF files. This is known as Feature Extraction. Before we
 look at this functionality a word about configuration to control the features
 the software extracts.
@@ -17,10 +17,10 @@ on the [configuration page](../config#features.xml). As we work through some
 examples we'll show how to configure the application to extract the necessary
 information.
 
-Disabling PDF/A validation
+Disabling validation
 --------------------------
-veraPDF runs PDF/A validation by default, when calling the feature extractor you
-may want to [disable PDF/A validation](../validation#disable).
+veraPDF runs PDF/A or PDF/UA validation by default, when calling the feature extractor you
+may want to [disable validation](../validation#disable).
 
 Extracting PDF Features
 -----------------------
@@ -56,11 +56,10 @@ you should see the following output:
 <?xml version="1.0" encoding="utf-8"?>
 <report>
   <buildInformation>
-    <releaseDetails id="core" version="{{ site.verapdf_version_number }}" buildDate="2017-01-10T02:34:00Z"></releaseDetails>
-    <releaseDetails id="gui" version="{{ site.verapdf_version_number }}-PDFBOX" buildDate="2017-01-13T11:30:00Z"></releaseDetails>
-    <releaseDetails id="pdfbox-validation-model" version="{{ site.verapdf_version_number }}" buildDate="2017-01-10T02:39:00Z"></releaseDetails>
+    <releaseDetails id="core" version="{{ site.verapdf_version_number }}" buildDate="2023-01-10T02:34:00Z"></releaseDetails>
+    <releaseDetails id="gui" version="{{ site.verapdf_version_number }}" buildDate="2023-01-13T11:30:00Z"></releaseDetails>
+    <releaseDetails id="validation-model" version="{{ site.verapdf_version_number }}" buildDate="2023-01-10T02:39:00Z"></releaseDetails>
   </buildInformation>
-
   <jobs>
     <job>
       <item size="1373256">
@@ -77,12 +76,13 @@ you should see the following output:
           <entry key="ModDate">2008-05-29T17:07:38.000-07:00</entry>
         </informationDict>
       </featuresReport>
-      <processingTime>00:00:00:053</processingTime>
+      <duration start="1485202393855" finish="1485202394208">00:00:00:053</duration>
     </job>
   </jobs>
-  <summary jobs="1" failedJobs="0" valid="0" inValid="0" validExcep="0" features="1">
-    <duration start="1485201793805" finish="1485201794254">00:00:00:449</duration>
-  </summary>
+  <batchSummary totalJobs="1" failedToParse="0" encrypted="0" outOfMemory="0" veraExceptions="0">
+    <featureReports failedJobs="0">0</featureReports>
+    <duration start="1485202393805" finish="1485202394254">00:00:00:449</duration>
+  </batchSummary>
 </report>
 ```
 
@@ -110,11 +110,10 @@ to get the following output:
 <?xml version="1.0" encoding="utf-8"?>
 <report>
   <buildInformation>
-    <releaseDetails id="core" version="{{ site.verapdf_version_number }}" buildDate="2017-01-10T02:34:00Z"></releaseDetails>
-    <releaseDetails id="gui" version="{{ site.verapdf_version_number }}-PDFBOX" buildDate="2017-01-13T11:30:00Z"></releaseDetails>
-    <releaseDetails id="pdfbox-validation-model" version="{{ site.verapdf_version_number }}" buildDate="2017-01-10T02:39:00Z"></releaseDetails>
+    <releaseDetails id="core" version="{{ site.verapdf_version_number }}" buildDate="2023-01-10T02:34:00Z"></releaseDetails>
+    <releaseDetails id="gui" version="{{ site.verapdf_version_number }}" buildDate="2023-01-13T11:30:00Z"></releaseDetails>
+    <releaseDetails id="validation-model" version="{{ site.verapdf_version_number }}" buildDate="2023-01-10T02:39:00Z"></releaseDetails>
   </buildInformation>
-
   <jobs>
     <job>
       <item size="1373256">
@@ -161,12 +160,15 @@ to get the following output:
           </xmpPackage>
         </metadata>
       </featuresReport>
-      <processingTime>00:00:00:038</processingTime>
+        <duration start="1485202088037" finish="1485202088009">00:00:00:038</duration>
     </job>
   </jobs>
-  <summary jobs="1" failedJobs="0" valid="0" inValid="0" validExcep="0" features="1">
+  <batchSummary totalJobs="1" failedToParse="0" encrypted="0" outOfMemory="0" veraExceptions="0">
+    <validationReports compliant="0" nonCompliant="0" failedJobs="0">0</validationReports>
+    <featureReports failedJobs="0">1</featureReports>
+    <repairReports failedJobs="0">0</repairReports>  
     <duration start="1485202087637" finish="1485202088042">00:00:00:405</duration>
-  </summary>
+  </batchSummary>
 </report>
 ```
 
@@ -194,11 +196,10 @@ information has been removed:
 <?xml version="1.0" encoding="utf-8"?>
   <report>
     <buildInformation>
-      <releaseDetails id="core" version="{{ site.verapdf_version_number }}" buildDate="2017-01-10T02:34:00Z"></releaseDetails>
-      <releaseDetails id="gui" version="{{ site.verapdf_version_number }}-PDFBOX" buildDate="2017-01-13T11:30:00Z"></releaseDetails>
-      <releaseDetails id="pdfbox-validation-model" version="{{ site.verapdf_version_number }}" buildDate="2017-01-10T02:39:00Z"></releaseDetails>
+      <releaseDetails id="core" version="{{ site.verapdf_version_number }}" buildDate="2023-01-10T02:34:00Z"></releaseDetails>
+      <releaseDetails id="gui" version="{{ site.verapdf_version_number }}" buildDate="2023-01-13T11:30:00Z"></releaseDetails>
+      <releaseDetails id="validation-model" version="{{ site.verapdf_version_number }}" buildDate="2023-01-10T02:39:00Z"></releaseDetails>
     </buildInformation>
-
     <jobs>
       <job>
         <item size="29813">
@@ -246,12 +247,15 @@ information has been removed:
             </fonts>
           </documentResources>
         </featuresReport>
-        <processingTime>00:00:00:413</processingTime>
+        <duration start="1485203090990" finish="1485203091403">00:00:00:413</duration>
       </job>
     </jobs>
-  <summary jobs="1" failedJobs="0" valid="0" inValid="0" validExcep="0" features="1">
+  <batchSummary totalJobs="1" failedToParse="0" encrypted="0" outOfMemory="0" veraExceptions="0">
+    <validationReports compliant="0" nonCompliant="0" failedJobs="0">0</validationReports>
+    <featureReports failedJobs="0">1</featureReports>
+    <repairReports failedJobs="0">0</repairReports>      
     <duration start="1485203090960" finish="1485203091479">00:00:00:519</duration>
-  </summary>
+  </batchSummary>
 </report>
 ```
 
@@ -276,11 +280,10 @@ which will return:
 <?xml version="1.0" encoding="utf-8"?>
 <report>
   <buildInformation>
-    <releaseDetails id="core" version="{{ site.verapdf_version_number }}" buildDate="2017-01-10T02:34:00Z"></releaseDetails>
-    <releaseDetails id="gui" version="{{ site.verapdf_version_number }}-PDFBOX" buildDate="2017-01-13T11:30:00Z"></releaseDetails>
-    <releaseDetails id="pdfbox-validation-model" version="{{ site.verapdf_version_number }}" buildDate="2017-01-10T02:39:00Z"></releaseDetails>
+    <releaseDetails id="core" version="{{ site.verapdf_version_number }}" buildDate="2023-01-10T02:34:00Z"></releaseDetails>
+    <releaseDetails id="gui" version="{{ site.verapdf_version_number }}" buildDate="2023-01-13T11:30:00Z"></releaseDetails>
+    <releaseDetails id="validation-model" version="{{ site.verapdf_version_number }}" buildDate="2023-01-10T02:39:00Z"></releaseDetails>
   </buildInformation>
-
   <jobs>
     <job>
       <item size="77857">
@@ -302,10 +305,13 @@ which will return:
           </xobjects>
         </documentResources>
       </featuresReport>
-      <processingTime>00:00:00:084</processingTime>
+      <duration start="1485206502952" finish="1485206503036">00:00:00:084</duration>
     </job>
   </jobs>
-  <summary jobs="1" failedJobs="0" valid="0" inValid="0" validExcep="0" features="1">
+  <batchSummary totalJobs="1" failedToParse="0" encrypted="0" outOfMemory="0" veraExceptions="0">
+    <validationReports compliant="0" nonCompliant="0" failedJobs="0">0</validationReports>
+    <featureReports failedJobs="0">1</featureReports>
+    <repairReports failedJobs="0">0</repairReports>
     <duration start="1485206502872" finish="1485206503041">00:00:00:169</duration>
   </summary>
 </report>

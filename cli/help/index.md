@@ -13,7 +13,10 @@ something very similar:
 Usage: veraPDF [options] FILES
   Options:
       --addlogs
-        Add logs to xml report.
+        Add logs to xml (mrr), json or html report.
+        Default: false
+      --config
+        Sets settings from the config files, if no cli parameters are specified.
         Default: false
       -d, --debug
         Outputs all processed file names.
@@ -28,8 +31,8 @@ Usage: veraPDF [options] FILES
         Disable detailed error messages in the validation report.
         Default: false
       -x, --extract
-        Extracts and reports PDF features.
-        Default: false
+        Extracts and reports PDF features. Features must be passed separated by commas without spaces between them.
+        Possible Values: [actions, annotations, colorSpace, ds, embeddedFile, exGSt, font, formXobject, iccProfile, imageXobject, informationDict, interactiveFormField, lowLevelInfo, metadata, outlines, outputIntent, page, pattern, postscriptXobject, properties, shading, signature, error]
       --fixmetadata
         Performs metadata fixes.
         Default: false
@@ -41,7 +44,7 @@ Usage: veraPDF [options] FILES
         Possible Values: [0, 1a, 1b, 2a, 2b, 2u, 3a, 3b, 3u, 4, 4f, 4e, ua1]
       --format
         Chooses output format.
-        Default: mrr
+        Default: xml
         Possible Values: [xml, mrr, text, html, json]
       -h, --help
         Shows this message and exits.
@@ -56,7 +59,8 @@ Usage: veraPDF [options] FILES
         Sets maximum amount of failed checks.
         Default: -1
       --maxfailuresdisplayed
-        Sets maximum amount of failed checks displayed for each rule.
+        Sets maximum amount of failed checks displayed for each rule. -1 for 
+        unlimited number of failed checks.
         Default: 100
       --nonpdfext
         Select files without .pdf extension
@@ -64,18 +68,26 @@ Usage: veraPDF [options] FILES
       -o, --off
         Turns off validation
         Default: false
+      --password
+        Sets the password for an encrypted document.
       --policyfile
         Select a policy schematron or XSL file.
       --prefix
         Sets file name prefix for any fixed files.
         Default: veraFixMd_
       --processes
-        The Number of processes which will be used.
+        The number of processes which will be used.
         Default: 1
       -p, --profile
         Loads a Validation Profile from given path and exits if loading fails. 
         This overrides any choice or default implied by the -f / --flavour 
         option. 
+      -pw, --profilesWiki
+        Sets location of the Validation Profiles wiki.
+        Default: https://github.com/veraPDF/veraPDF-validation-profiles/wiki/
+      --progress
+        Shows the current status of the validation job.
+        Default: false
       -r, --recurse
         Recurses through directories. Only files with .pdf extensions are 
         processed. 

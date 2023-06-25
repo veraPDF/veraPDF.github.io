@@ -9,12 +9,12 @@ title: Semantic versioning
 Anyone who's curious how we create our software version numbers.
 
 ### Pre-requisites
-Reading this home page [Semantic Versioning](http://semver.org/) is a good idea.
+Reading this home page [Semantic Versioning](https://semver.org/) is a good idea.
 
 ## Versioning Policy
 
 ### Major version zero
-We're currently developing `(0.y.z)` software, [Semantic Versioning](http://semver.org/) this to say:
+We're currently developing `(0.y.z)` software, [Semantic Versioning](https://semver.org/) this to say:
 
     Major version zero `(0.y.z)` is for initial development.
     Anything may change at any time.

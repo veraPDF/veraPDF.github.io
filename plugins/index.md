@@ -113,11 +113,10 @@ Maven shade plugin.
 		<dependency>
 			<groupId>org.verapdf</groupId>
 			<artifactId>core</artifactId>
-			<version>[1.22.0,1.23.0)</version>
+			<version>[1.24.0,1.25.0)</version>
 		</dependency>
 	</dependencies>
 	<build>
-
 		<plugins>
 			<plugin>
 				<configuration>
@@ -197,6 +196,6 @@ Compile with `mvn clean package` and Example plugin configuration file and menti
 
 
 Run `verapdf-gui` and ensure that embedded files is checked in Config|Features Config.
-Select a PDF file containing embedded files like [the mustangproject sample file](http://www.mustangproject.org/files/MustangGnuaccountingBeispielRE-20170509_505.pdf),
+Select a PDF file containing embedded files like [the mustangproject sample file](https://www.mustangproject.org/files/MustangGnuaccountingBeispielRE-20170509_505.pdf),
 select "Validation and Features" as report type and hit the execute button.
 If you then click the "View XML" button you should see a `<hello>world</hello>` in the XML output.

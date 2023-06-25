@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <report>
 <buildInformation>
-<releaseDetails id="core" version="1.0.2" buildDate="2017-01-10T02:34:00Z"/>
-<releaseDetails id="name" version="version" buildDate="2017-01-27T10:12:27.652Z"/>
-<releaseDetails id="gui" version="1.0.6-PDFBOX" buildDate="2017-01-13T11:30:00Z"/>
-<releaseDetails id="pdfbox-validation-model" version="1.0.2" buildDate="2017-01-10T02:39:00Z"/>
+<releaseDetails id="core" version="1.24.1" buildDate="2023-01-10T02:34:00Z"/>
+<releaseDetails id="gui" version="1.24.1" buildDate="2023-01-13T11:30:00Z"/>
+<releaseDetails id="validation-model" version="1.24.1" buildDate="2023-01-10T02:39:00Z"/>
 </buildInformation>
 <jobs>
 <job>
@@ -27,7 +26,7 @@
 <entry key="Description">Test description</entry>
 </informationDict>
 </featuresReport>
-<processingTime>00:00:00:077</processingTime>
+<duration start="1485516602863" finish="1485516602940">00:00:00:077</duration>
 <policyReport passedChecks="0" failedChecks="0" xmlns:vera="http://www.verapdf.org/MachineReadableReport">
 <passedChecks/>
 <failedChecks/>
@@ -52,7 +51,7 @@
 <entry key="ModDate">2015-03-10T17:19:21.000+01:00</entry>
 </informationDict>
 </featuresReport>
-<processingTime>00:00:00:055</processingTime>
+<duration start="1485516602945" finish="1485516603000">00:00:00:055</duration>
 <policyReport passedChecks="0" failedChecks="0" xmlns:vera="http://www.verapdf.org/MachineReadableReport">
 <passedChecks/>
 <failedChecks/>
@@ -77,7 +76,7 @@
 <entry key="ModDate">2015-03-10T17:19:21.000+01:00</entry>
 </informationDict>
 </featuresReport>
-<processingTime>00:00:00:057</processingTime>
+<duration start="1485516603001" finish="1485516603058">00:00:00:057</duration>
 <policyReport passedChecks="0" failedChecks="0" xmlns:vera="http://www.verapdf.org/MachineReadableReport">
 <passedChecks/>
 <failedChecks/>
@@ -101,7 +100,7 @@
 <entry key="ModDate">2015-03-10T17:19:21.000+01:00</entry>
 </informationDict>
 </featuresReport>
-<processingTime>00:00:00:070</processingTime>
+<duration start="1485516603060" finish="1485516603130">00:00:00:070</duration>
 <policyReport passedChecks="0" failedChecks="1" xmlns:vera="http://www.verapdf.org/MachineReadableReport">
 <passedChecks/>
 <failedChecks>
@@ -112,7 +111,10 @@
 </policyReport>
 </job>
 </jobs>
-<summary jobs="4" failedJobs="0" valid="4" inValid="0" validExcep="0" features="4">
+<batchSummary totalJobs="4" failedToParse="0" encrypted="0" outOfMemory="0" veraExceptions="0">
+<validationReports compliant="4" nonCompliant="0" failedJobs="0">4</validationReports>
+<featureReports failedJobs="0">4</featureReports>
+<repairReports failedJobs="0">4</repairReports>
 <duration start="1485516602855" finish="1485516603155">00:00:00:300</duration>
-</summary>
+</batchSummary>
 </report>
