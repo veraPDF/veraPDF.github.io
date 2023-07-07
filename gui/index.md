@@ -31,11 +31,11 @@ When the application is started the following screen is displayed:
 
 The interface is fairly simple, we describe the controls in the following sections.
 
-### Choose PDF button
-This opens the file dialog, allowing the user to select a PDF file for validation or feature reporting. The "Execute" button will not be enabled until a file is selected.
+### Choose PDF
+User can select PDF file(s) for validation or feature reporting by drag&drop file(s) into `PDF file not chosen` area or by pushing button `Choose PDF`. User also can drag&drop or choose file(s) with any (even missing) extension or a zip file containing PDF documents. The `Execute` button is not enabled until any files are selected.
 
 ### Choose Profile button and Profile dropdown
-The Choose Profile button and the dropdown immediately below it determine the validation processing. The Choose Profile button allows a user to load a custom Validation Profile from the file system. For most users the built in profiles packaged with the software will be sufficient. The dropdown below the button is used to control profile selection:
+The Choose Profile button and the dropdown immediately below it determine the validation processing. The `Choose Profile` button allows a user to load a custom Validation Profile from the file system or user can drag&drop a profile into `Please, specify validation profile` area. For most users the built in profiles packaged with the software will be sufficient. The dropdown below the button is used to control profile selection:
 
 ![veraPDF GUI profile dropdown](/images/gui/profile-list.png "veraPDF GUI profile dropdown"){: .img-responsive .center-block}
 
@@ -43,7 +43,7 @@ The options are as follows:
 
 | Option         | Description                                                                                               |
 |----------------|-----------------------------------------------------------------------------------------------------------|
-| Auto-detection | The veraPDF software will detect the PDF/A flavour when parsing the file and use the appropriate profile. |
+| Auto-detection | The veraPDF software will detect the PDF/A or PDF/UA flavour when parsing the file and use the appropriate profile. |
 | PDF/A-1a       | Use the PDF/A-1a validation profile, i.e. assume that the file is a PDF/A-1a.                             |
 | PDF/A-1b       | Use the PDF/A-1b validation profile, i.e. assume that the file is a PDF/A-1b.                             |
 | PDF/A-2a       | Use the PDF/A-2a validation profile, i.e. assume that the file is a PDF/A-2a.                             |
@@ -74,9 +74,9 @@ The available options are:
 | Policy                | Perform a Policy check alongside validation and feature extraction.                    |
 {:.table .table-striped .table-bordered}
 
-If Policy is selected the "Choose Policy" button is activated, the user can use this to load a [policy schematron file](/policy).
+If Policy is selected the `Choose Policy` button is activated, the user can use this to load a [policy schematron file](/policy) or user can drag&drop policy file into `Policy file not chosen` area.
 
-The Fix Metadata checkbox determines whether the software will attempt to amend the PDF document metadata to ensure it is compliant with the PDF/A specification.
+The Fix Metadata checkbox determines whether the software will attempt to amend the PDF document metadata to ensure it is compliant with the PDF/A or PDF/UA specification.
 
 ### Execute button
 This button is only enabled when a PDF file has been chosen. If you've chosen to use a custom validation profile from the dropdown then you must also select an external profile file. Once enabled and pressed the PDF file will be processed according to the selected options.
@@ -96,12 +96,12 @@ The XML report will contain Validation Report and PDF Features Report, depending
 
 ![veraPDF GUI populated screen](/images/gui/populated.png "veraPDF GUI main screen"){: .img-responsive .center-block}
 
-Once a PDF File is selected, and possibly a custom profile depending upon the dropdown, the ‘Validate’ button becomes enabled.
+Once a PDF File is selected, and possibly a custom profile depending upon the dropdown, the `Validate` button becomes enabled.
 
 The main window allows specifying the basic settings of the validation process: the type of the data included into the resulting Machine-readable Report and if automatic metadata fixing is enabled.
 
 ## Advanced Settings
-The additional ‘Settings’ dialog allows the user to configure the advanced settings:
+The additional `Settings` dialog allows the user to configure the advanced settings:
 
 ![veraPDF GUI settings](/images/gui/settings.png "veraPDF GUI settings dialog"){: .img-responsive .center-block}
 
@@ -110,21 +110,21 @@ The advanced settings are described in the table below:
 | Setting              | Description |
 |----------------------|-------------|
 | Include passed rules | If checked, the passed validation rules are included into the resulting Validation Report in addition to the failed rules. This setting is unchecked by default to reduce the size of the resulting Report. |
-| Add logs to xml report | Specifies, if the logs generated during validation will be added into the Validation Report. |
+| Add logs to xml and html reports | Specifies, if the logs generated during validation will be added into the Validation Report. |
 | Add detailed errors to report | If checked, the detailed error message for every failed rule will be shown in the resulting Validation Report. |
 | Halt validation after failed checks | Specifies the maximum number of failed checks to be performed for all rules in the Validation Profile. Validation is halted once the number of failed checks is reached in order to speed up validation.  |
 | Display failed checks for rule | Specifies the maximum number of failed checks to be reported for each rule from the Validation Profile. The specified value is used as the limit for the number of failed checks that shall be included into the resulting Report to reduce the size of the Report. |
 | Save repaired files with prefix | Specifies the prefix that is added to the name of the original PDF document when saving it after automatic metadata fixing was performed. This setting is used only when `Fix metadata` option is enabled. |
 | Save repaired files into the folder | Specifies the output folder for saving the PDF Documents after automatic metadata fixing was performed. Again this setting is relevant only when `Fix metadata` option is enabled. |
 | Validation Profiles wiki root | Specifies the base URL of the veraPDF validation profiles wiki. This provides contextual information about validation issues. |
-| Default flavour | Specifies built-in Validation Profile default flavour, e.g. `1b`. This flavour will be applied if automatic flavour detection based on a file's metadata doesn't work. Possible Values: `[1a, 1b, 2a, 2b, 2u, 3a, 3b, 3u, 4, 4f, 4e, ua1].` |
-| Logging level |  Enables logs with level: `0 - OFF, 1 - SEVERE, 2 - WARNING, SEVERE (default), 3 - CONFIG, INFO, WARNING, SEVERE, 4 - ALL.` |
+| Default flavour | Specifies built-in Validation Profile default flavour, e.g. `1b`. This flavour will be applied if automatic flavour detection based on a file's metadata doesn't work. Possible Values: `[PDF/A-1A, PDF/A-1B, PDF/A-2A, PDF/A-2B, PDF/A-2U, PDF/A-3A, PDF/A-3B, PDF/A-3U, PDF/A-4, PDF/A-4F, PDF/A-4E, PDF/UA-1].` |
+| Logging level |  Enables logs with level: `OFF, SEVERE, WARNING, SEVERE (default), CONFIG, INFO, WARNING, SEVERE, ALL.` |
 {:.table .table-striped .table-bordered}
 
 ## Processing and Reporting
 A Validation Profile describes the tests that shall be performed during the validation. These tests are represented by rules that define a certain restrictions on the PDF Document features. When validation is performed the restrictions from the rules are checked for the relevant objects from PDF Document. A check may either fail or pass. In case of large Documents the number of passed and failed checks may be big so the settings described above allow reducing the number of redundant checks and thus optimizing validation time and the size of resulting Report.
 
-When all the required settings are specified the validation may be started by pressing the ‘Execute’ button. During the processing the progress bar is displayed. After the validation is finished the resulting statement is shown as in the example image below:
+When all the required settings are specified the validation may be started by pressing the `Execute` button. During the processing the progress bar is displayed. After the validation is finished the resulting statement is shown as in the example image below:
 
 ![veraPDF GUI results](/images/gui/results.png "veraPDF GUI results display"){: .img-responsive .center-block}
 

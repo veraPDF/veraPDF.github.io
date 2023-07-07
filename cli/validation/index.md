@@ -36,17 +36,16 @@ To validate a single PDF/A file from the corpus using the PDF/A-1B profile type
 
 <kbd>verapdf -f 1b corpus/veraPDF-corpus-staging/PDF_A-1b/6.6\ Actions/6.6.1\ General/veraPDF\ test\ suite\ 6-6-1-t02-pass-a.pdf</kbd>
 
-You should see something very similar too the following output:
+You should see something very similar to the following output:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
   <report>
     <buildInformation>
-      <releaseDetails id="core" version="{{ site.verapdf_version_number }}" buildDate="2017-01-10T02:34:00Z"></releaseDetails>
-      <releaseDetails id="gui" version="{{ site.verapdf_version_number }}-PDFBOX" buildDate="2017-01-13T11:30:00Z"></releaseDetails>
-      <releaseDetails id="pdfbox-validation-model" version="{{ site.verapdf_version_number }}" buildDate="2017-01-10T02:39:00Z"></releaseDetails>
+      <releaseDetails id="core" version="{{ site.verapdf_version_number }}" buildDate="2023-01-10T02:34:00Z"></releaseDetails>
+      <releaseDetails id="gui" version="{{ site.verapdf_version_number }}" buildDate="2023-01-13T11:30:00Z"></releaseDetails>
+      <releaseDetails id="validation-model" version="{{ site.verapdf_version_number }}" buildDate="2023-01-10T02:39:00Z"></releaseDetails>
     </buildInformation>
-
     <jobs>
       <job>
         <item size="10230">
@@ -55,24 +54,27 @@ You should see something very similar too the following output:
           <validationReport profileName="PDF/A-1B validation profile" statement="PDF file is compliant with Validation Profile requirements." isCompliant="true">
             <details passedRules="102" failedRules="0" passedChecks="504" failedChecks="0"></details>
         </validationReport>
-        <processingTime>00:00:00:393</processingTime>
+        <duration start="1485134290404" finish="1485134290797">00:00:00:393</duration>
       </job>
     </jobs>
-  <summary jobs="1" failedJobs="0" valid="1" inValid="0" validExcep="0" features="0">
-    <duration start="1485134290384" finish="1485134290846">00:00:00:462</duration>
-  </summary>
+    <batchSummary totalJobs="1" failedToParse="0" encrypted="0" outOfMemory="0" veraExceptions="0">
+      <validationReports compliant="1" nonCompliant="0" failedJobs="0">1</validationReports>
+      <featureReports failedJobs="0">0</featureReports>
+      <repairReports failedJobs="0">0</repairReports>
+      <duration start="1485134290384" finish="1485134290846">00:00:00:462</duration>
+  </batchSummary>
 </report>
 ```
 
 This tells us that the file is valid through the `<validationReport isCompliant="true">` attribute.
 
 ### <a name="auto-profile"></a>Letting veraPDF control the profile choice
-Specifying a particular profile is useful if you're expecting all of your PDF/A
+Specifying a particular profile is useful if you're expecting all of your PDF/A or PDF/UA
 documents to conform to a particular specification. In real word use you may
 not have the luxury of been able to decide on a single validation profile.
 
 It's possible to tell the veraPDF software to parse PDF files, examine the
-metadata and select the appropriate PDF/A profile for validation. This is
+metadata and select the appropriate PDF/A or PDF/UA profile for validation. This is
 requested by specifying the special `-f 0` or `--flavour 0` option, or passing
 no flavour option at all. There's an invalid PDF/A file in the same corpus directory. you can validate it by typing:
 
@@ -90,11 +92,10 @@ This time the output looks like:
 <?xml version="1.0" encoding="utf-8"?>
   <report>
     <buildInformation>
-      <releaseDetails id="core" version="{{ site.verapdf_version_number }}" buildDate="2017-01-10T02:34:00Z"></releaseDetails>
-      <releaseDetails id="gui" version="{{ site.verapdf_version_number }}-PDFBOX" buildDate="2017-01-13T11:30:00Z"></releaseDetails>
-      <releaseDetails id="pdfbox-validation-model" version="{{ site.verapdf_version_number }}" buildDate="2017-01-10T02:39:00Z"></releaseDetails>
+      <releaseDetails id="core" version="{{ site.verapdf_version_number }}" buildDate="2023-01-10T02:34:00Z"></releaseDetails>
+      <releaseDetails id="gui" version="{{ site.verapdf_version_number }}" buildDate="2023-01-13T11:30:00Z"></releaseDetails>
+      <releaseDetails id="validation-model" version="{{ site.verapdf_version_number }}" buildDate="2023-01-10T02:39:00Z"></releaseDetails>
     </buildInformation>
-
     <jobs>
       <job>
         <item size="6213">
@@ -103,10 +104,8 @@ This time the output looks like:
         <validationReport profileName="PDF/A-1B validation profile" statement="PDF file is not compliant with Validation Profile requirements." isCompliant="false">
           <details passedRules="101" failedRules="1" passedChecks="358" failedChecks="1">
             <rule specification="ISO 19005-1:2005" clause="6.6.1" testNumber="1" status="failed" passedChecks="0" failedChecks="1">
-              <description>
-                The Launch, Sound, Movie, ResetForm, ImportData and JavaScript actions shall not be permitted.
-                Additionally, the deprecated set-state and no-op actions shall not be permitted. The Hide action shall not be permitted (Corrigendum 2)
-              </description>
+              <description>The Launch, Sound, Movie, ResetForm, ImportData and JavaScript actions shall not be permitted.
+                Additionally, the deprecated set-state and no-op actions shall not be permitted. The Hide action shall not be permitted (Corrigendum 2)</description>
               <object>PDAction</object>
               <test>S == "GoTo" || S == "GoToR" || S == "Thread" || S == "URI" || S == "Named" || S == "SubmitForm"</test>
               <check status="failed">
@@ -115,12 +114,15 @@ This time the output looks like:
             </rule>
           </details>
         </validationReport>
-        <processingTime>00:00:00:500</processingTime>
+        <duration start="1485163106779" finish="1485163107279">00:00:00:500</duration>
       </job>
     </jobs>
-  <summary jobs="1" failedJobs="0" valid="0" inValid="1" validExcep="0" features="0">
-    <duration start="1485163106741" finish="1485163107379">00:00:00:638</duration>
-  </summary>
+    <batchSummary totalJobs="1" failedToParse="0" encrypted="0" outOfMemory="0" veraExceptions="0">
+      <validationReports compliant="0" nonCompliant="1" failedJobs="0">1</validationReports>
+      <featureReports failedJobs="0">0</featureReports>
+      <repairReports failedJobs="0">0</repairReports>
+      <duration start="1485163106741" finish="1485163107379">00:00:00:638</duration>
+  </batchSummary>
 </report>
 ```
 
@@ -181,15 +183,18 @@ This obviously generates a lot of output and takes a little time to run, the
 batch summary on the test machine is shown below for reference:
 
 ```xml
-<summary jobs="1526" failedJobs="0" valid="636" inValid="890" validExcep="1" features="0">
+<batchSummary totalJobs="1526" failedToParse="0" encrypted="0" outOfMemory="0" veraExceptions="0">
+  <validationReports compliant="636" nonCompliant="890" failedJobs="0">1526</validationReports>
+  <featureReports failedJobs="0">0</featureReports>
+  <repairReports failedJobs="0">0</repairReports>
   <duration start="1485171727902" finish="1485171827790">00:01:39:888</duration>
-</summary>
+</batchSummary>
 ```
 
 meaning the software took one minute and forty seconds to process one thousand
 and five hundred files.
 
-<a name="disable"></a>Disabling PDF/A validation
+<a name="disable"></a>Disabling validation
 ------------------------------------------------
 As demonstrated in the examples above veraPDF validation runs as a default
 option. While convenient this is not always desirable. You can disable

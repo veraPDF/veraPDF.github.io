@@ -19,10 +19,10 @@ VeraPDF free software: you can redistribute it and/or modify it under the terms
 of either:
 
 - The [GNU General public license GPLv3+](LICENSE.GPL), see
-  - [http://www.gnu.org/licenses/](http://www.gnu.org/licenses/) or
+  - [https://www.gnu.org/licenses/](https://www.gnu.org/licenses/) or
   - [https://www.gnu.org/licenses/gpl-3.0.en.html](https://www.gnu.org/licenses/gpl-3.0.en.html).
 - The [Mozilla Public License MPLv2+](LICENSE.MPL), see
-  [http://mozilla.org/MPL/2.0/](http://mozilla.org/MPL/2.0/)
+  [https://mozilla.org/MPL/2.0/](https://mozilla.org/MPL/2.0/)
 
 Getting veraPDF
 ---------------
@@ -35,7 +35,7 @@ as a PDF parser and validation model.
 Since releasing the PDFBox implementation
 the veraPDF consortium have developed their own "Greenfield" PDF parsing and validation model 
 that's available under the same dual open source licenses as the rest of veraPDF.
-You can also use PDFBox under the APL license.
+You can also use PDFBox under the APL license. We recommend using Greenfield parser, as the support for PDFBox parser is not guaranteed to be available long term.
 
 #### Greenfield POM dependency
 To include veraPDF's greenfield parser and validation model add:
@@ -44,7 +44,7 @@ To include veraPDF's greenfield parser and validation model add:
 <dependency>
   <groupId>org.verapdf</groupId>
   <artifactId>validation-model</artifactId>
-  <version>1.22.2</version>
+  <version>1.24.1</version>
 </dependency>
 ```
 
@@ -57,9 +57,32 @@ This can be included in your project with this Maven dependency:
 <dependency>
   <groupId>org.verapdf</groupId>
   <artifactId>pdfbox-validation-model</artifactId>
-  <version>1.22.2</version>
+  <version>1.24.1</version>
 </dependency>
 ```
+
+### javax vs jakarta
+Both implementations above depend on javax. If your project uses jakarta, you should use alternative dependencies:
+
+```xml
+<dependency>
+  <groupId>org.verapdf</groupId>
+  <artifactId>validation-model-arlington</artifactId>
+  <version>1.24.1</version>
+</dependency>
+```
+
+for Greenfield implementation and 
+
+```xml
+<dependency>
+  <groupId>org.verapdf</groupId>
+  <artifactId>pdfbox-validation-model-arlington</artifactId>
+  <version>1.24.1</version>
+</dependency>
+```
+
+for PDFBox implementation.
 
 ### GitHub for source code
 The up to date source repos are on GitHub.
