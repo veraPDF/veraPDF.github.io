@@ -30,7 +30,7 @@ There are two implementations of the veraPDF software library, one that uses a
 fork of the [Apache PDFBox project](https://github.com/veraPDF/veraPDF-pdfbox)
 as a PDF parser and validation model. 
 
-#### Greenfield vs PDFbox
+#### Greenfield vs PDFBox
 
 Since releasing the PDFBox implementation
 the veraPDF consortium have developed their own "Greenfield" PDF parsing and validation model 
@@ -67,7 +67,7 @@ Both implementations above depend on javax. If your project uses jakarta, you sh
 ```xml
 <dependency>
   <groupId>org.verapdf</groupId>
-  <artifactId>validation-model-arlington</artifactId>
+  <artifactId>validation-model-jakarta</artifactId>
   <version>1.24.1</version>
 </dependency>
 ```
@@ -77,7 +77,7 @@ for Greenfield implementation and
 ```xml
 <dependency>
   <groupId>org.verapdf</groupId>
-  <artifactId>pdfbox-validation-model-arlington</artifactId>
+  <artifactId>pdfbox-validation-model-jakarta</artifactId>
   <version>1.24.1</version>
 </dependency>
 ```
@@ -149,7 +149,7 @@ PdfBoxFoundryProvider.initialise();
 
 ### Validating a PDF File
 You only need to initialise once, whichever version you're using, now the code to
-validated a file called `mydoc.pdf` against the PDF/A 1b specification is:
+validate a file called `mydoc.pdf` against the PDF/A 1b specification is:
 
 ```java
 PDFAFlavour flavour = PDFAFlavour.fromString("1b");

@@ -14,7 +14,7 @@ This Quick Start Guide explains some basic concepts relevant to the veraPDF Conf
 The veraPDF GUI provides the features of veraPDF Java Library in a desktop windows GUI. Users can configure their own validation and policy checking jobs by selecting:
 - which combination of tasks to perform;
 - PDF Documents to analyse;
-- the PDF/A part and conformance level to test for; and
+- the PDF/A or PDF/UA part and conformance level to test for; and
 - various task specific settings.
 
 The software carries out the configured task and reports the results in both XML and HTML formats. The XML report is intended for consumption by automated processes while the HTML report is designed for human readability.
@@ -43,7 +43,7 @@ The options are as follows:
 
 | Option         | Description                                                                                               |
 |----------------|-----------------------------------------------------------------------------------------------------------|
-| Auto-detection | The veraPDF software will detect the PDF/A or PDF/UA flavour when parsing the file and use the appropriate profile. |
+| Auto-detect | The veraPDF software will detect the PDF/A or PDF/UA flavour when parsing the file and use the appropriate profile. |
 | PDF/A-1a       | Use the PDF/A-1a validation profile, i.e. assume that the file is a PDF/A-1a.                             |
 | PDF/A-1b       | Use the PDF/A-1b validation profile, i.e. assume that the file is a PDF/A-1b.                             |
 | PDF/A-2a       | Use the PDF/A-2a validation profile, i.e. assume that the file is a PDF/A-2a.                             |
@@ -76,7 +76,7 @@ The available options are:
 
 If Policy is selected the `Choose Policy` button is activated, the user can use this to load a [policy schematron file](/policy) or user can drag&drop policy file into `Policy file not chosen` area.
 
-The Fix Metadata checkbox determines whether the software will attempt to amend the PDF document metadata to ensure it is compliant with the PDF/A or PDF/UA specification.
+The Fix Metadata checkbox (enabled only in the Greenfield version) determines whether the software will attempt to amend the PDF document metadata to ensure it is compliant with the PDF/A or PDF/UA specification.
 
 ### Execute button
 This button is only enabled when a PDF file has been chosen. If you've chosen to use a custom validation profile from the dropdown then you must also select an external profile file. Once enabled and pressed the PDF file will be processed according to the selected options.
