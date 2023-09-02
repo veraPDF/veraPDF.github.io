@@ -31,7 +31,7 @@ veraPDF supported PDF/A and PDF/UA profiles:
 You can specify a built in profile for validation using either the `-f` or
 `--flavour` options followed by the 2 character profile code.
 
-### <a name="choose-profile"></a>Choosing a PDF/A profile
+### <a name="choose-profile"></a>Choosing a profile
 To validate a single PDF/A file from the corpus using the PDF/A-1B profile type
 
 <kbd>verapdf -f 1b corpus/veraPDF-corpus-staging/PDF_A-1b/6.6\ Actions/6.6.1\ General/veraPDF\ test\ suite\ 6-6-1-t02-pass-a.pdf</kbd>
@@ -50,8 +50,8 @@ You should see something very similar to the following output:
       <job>
         <item size="10230">
           <name>/home/cfw/verapdf/dev/corpus/veraPDF-corpus-staging/PDF_A-1b/6.6 Actions/6.6.1 General/veraPDF test suite 6-6-1-t02-pass-a.pdf</name>
-          </item>
-          <validationReport profileName="PDF/A-1B validation profile" statement="PDF file is compliant with Validation Profile requirements." isCompliant="true">
+        </item>
+        <validationReport profileName="PDF/A-1B validation profile" statement="PDF file is compliant with Validation Profile requirements." isCompliant="true">
             <details passedRules="102" failedRules="0" passedChecks="504" failedChecks="0"></details>
         </validationReport>
         <duration start="1485134290404" finish="1485134290797">00:00:00:393</duration>
@@ -201,3 +201,17 @@ option. While convenient this is not always desirable. You can disable
 validation by passing the `-o` or `--off` option. This is usually done during
 [feature-extraction](../feature-extraction), for example
 <kbd>verapdf --off --extract somefile.pdf</kbd>.
+
+<a name="extension"></a>Non pdf extension
+------------------------------------------------
+You can validate pdf files with non-pdf extension by passing the `--nonpdfext` option. For example
+<kbd>verapdf somefile --nonpdfext</kbd>.
+
+<a name="encrypted-pdf"></a>Encrypted pdf
+------------------------------------------------
+By default, verapdf is trying to decrypt encrypted PDF file using empty user password. You can validate encrypted pdf  files with non-empty password by passing the `--password` option. 
+For example <kbd>verapdf --password "12345" encrypted.pdf</kbd>.
+
+<a name="wiki-path"></a>Profiles wiki
+------------------------------------------------
+HTML report contains reference links to veraPDF validation rule wiki https://github.com/veraPDF/veraPDF-validation-profiles/wiki/. You are unlikely going to change this unless you intend to host your own local version of the veraPDF validation rule wiki by using `--wikiPath` option.
