@@ -72,7 +72,7 @@ The `appConfig` element has a set of attributes can be used as follows:
   - `POLICY_FIX` : Policy checking and metadata fixing, again PDF/A or PDF/UA validation and feature extraction are also enabled.
 - `format` chooses the default reporting format, valid values are:
   - `XML`(`MRR`) : machine readable report, an XML file that has been formatted for  machine parsing and reporting.
-  - `RAW` : the raw XML data used by the veraPDF APIs, it's not quite as readable as the MRR format but can be de-serialised by the veraPDF API for further processing.
+  - `RAW` : the RAW xml report format contains all application configuration properties and the ungrouped and unsorted list of all failed checks (assertions). The RAW xml data used by the veraPDF APIs, it's not quite as readable as the XML format but can be de-serialised by the veraPDF API for further processing. 
   - `HTML` : a formatted HTML report intended for human consumption.
   - `TEXT` : very brief single line text output.
 - `isVerbose` can be set to `false` for brief output which is the default, or `true` for verbose output in text report.
