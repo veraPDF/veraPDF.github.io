@@ -48,7 +48,7 @@ demonstration clear we suggest you edit your [config/features.xml](../config#fea
 ensuring that only the information dictionary fields are extracted. Then issue
 the following command:
 
-<kbd>verapdf --off --extract adobe_supplement_iso32000.pdf</kbd>
+<kbd>verapdf --off --config adobe_supplement_iso32000.pdf</kbd>
 
 you should see the following output:
 
@@ -85,6 +85,21 @@ you should see the following output:
   </batchSummary>
 </report>
 ```
+
+Alternatively, the features to be extracted from the PDF document can be explicitly specified in CLI option `--extract` or `-x` as follows:
+
+<kbd>verapdf --off --extract informationDict adobe_supplement_iso32000.pdf</kbd>
+
+Multiple features can be specified via comma-separated list:
+
+<kbd>verapdf --off --extract informationDict,metadata adobe_supplement_iso32000.pdf</kbd>
+
+The complete set of features for the option `--extract` is: 
+
+<kbd>actions, annotations, colorSpace, ds, embeddedFile, exGSt, font, formXobject, iccProfile, imageXobject, informationDict, interactiveFormField, lowLevelInfo, metadata, outlines, outputIntent, page, pattern, postscriptXobject, properties, shading, signature</kbd> 
+
+It matches the features specified in the `features.xml` configuration file: https://docs.verapdf.org/cli/config/#configuring-feature-extraction
+
 
 ### <a name="metadata"></a> XMP Metadata
 We'll use the same [adobe supplement file](https://web.archive.org/web/20200621050243/https://www.adobe.com/content/dam/acom/en/devnet/acrobat/pdfs/adobe_supplement_iso32000.pdf) to demonstrate the extraction of XMP metadata. First
