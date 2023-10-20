@@ -129,6 +129,14 @@ This time the output looks like:
 This time the report tells us that the file is invalid through the `<validationReport isCompliant="false">` attribute. It also shows the details
 of the failed test.
 
+<a name="default-flavour"></a>Default flavour
+---------------------------------------------------
+
+Automatic flavour detection is based on the document conformance specified in the embedded XMP metadata. If this metadata is not available or invalid, the default validation flavour is applied.
+It is PDF/A-1b by default, but the user can change it by using `--defaultflavour` or `-df` option, for example
+
+<kbd>verapdf --defaultflavour 2b test.pdf</kbd>
+
 <a name="customising"></a>Customising validation processing and reporting
 -------------------------------------------------------------------------
 The test documents are deliberately quite small and there aren't too many checks
@@ -136,6 +144,19 @@ made during validation, five hundred or less in each case. Large PDF documents
 can mean that the software makes hundreds of thousands of tests, sometimes with
 thousands of failed checks. It's possible to control various aspects of this
 process by using some of the CLI options.
+
+### Using config files in CLI
+
+veraPDF CLI can reuse configuration files of GUI application by specifying `--config` option. The set of configuration XML files is described in https://docs.verapdf.org/cli/config/. Note that any explicitly specified CLI parameters will override the corresponding parameters from the config files.
+
+### Report format
+By default, veraPDF generates report in xml format. The user can specify a different report format (`text`, `raw`, `html`, `json`) by using `--format` option with argument `text`, `raw`, `html` or `json` accordingly.
+
+Note. Before veraPDF release 1.24 `raw` report was called `xml`. Starting from veraPDF release 1.24 `xml` and `mrr` refer to the same report format, and `mrr` report format is deprecated.
+
+### Show error in text report
+Text report contains only failed rule numbers. If the numbers of passed rules are needed, `--verbose` or `-v` should be used.
+
 
 ### Stop processing after a set number of failures
 The `--maxfailures` option tells veraPDF to halt processing after it encounters
@@ -163,6 +184,25 @@ We won't show the output here as it's quite long. The lack of any `-f` or
 `--flavour` option means that veraPDF will select the appropriate Validation
 Profile, meaning it's equivalent to `-f 0` or `--flavour 0`,
 [see automatic profile selection above](#auto-profile).
+
+### Disable error messages
+By default, veraPDF contains detailed error messages for each error case in report. The user can disable these messages to speed up the validation by using option `--disableerrormessages`.
+
+### Show progress
+
+The user can see the current status of the validation job in console by using option `--progress`.
+
+<a name="logs-customising"></a>Customising logs
+-------------------------------------------------------------------------
+
+The user can add logs into the report by using option `--addlogs`. The level of displayed logs is specified in option `--loglevel` (`WARNING` and `SEVERE` messages by default).
+
+<a name="custom-profile"></a>Choose custom profile
+------------------------------------------------
+
+The user can validate PDF files against a custom validation profile by using option `--profile` or `-p`. For example
+
+<kbd>verapdf --profile profile.xml test.pdf</kbd>
 
 <a name="batches"></a>Processing multiple PDF files
 ---------------------------------------------------
@@ -193,6 +233,18 @@ batch summary on the test machine is shown below for reference:
 
 meaning the software took one minute and forty seconds to process one thousand
 and five hundred files.
+
+<a name="zip-archive-validation"></a>ZIP archive validation
+------------------------------------------------
+
+It is also possible to validate multiple PDF documents within a ZIP archive. If an input file has ZIP format, veraPDF recursively scans and validates PDF files in all subfolders within the archive. For example
+
+<kbd>verapdf test.zip</kbd>
+
+<a name="show-file-names"></a>Show file names
+------------------------------------------------
+
+You may see all processed file names in console by using option `--debug` or `-d`.
 
 <a name="disable"></a>Disabling validation
 ------------------------------------------------

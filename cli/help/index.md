@@ -45,7 +45,7 @@ Usage: veraPDF [options] FILES
       --format
         Chooses output format.
         Default: xml
-        Possible Values: [xml, mrr, text, html, json]
+        Possible Values: [raw, xml, text, html, json]
       -h, --help
         Shows this message and exits.
       -l, --list

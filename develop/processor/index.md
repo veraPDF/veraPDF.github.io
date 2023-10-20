@@ -14,6 +14,8 @@ public static void main(String[] args) {
 	VeraGreenfieldFoundryProvider.initialise();
 	// Default validator config
 	ValidatorConfig validatorConfig = ValidatorFactory.defaultConfig();
+	// or it is possible to specify required parameters using ValidatorConfigBuilder. For example, to specify a validation flavour explicitly:
+	// ValidatorConfig validatorConfig = new ValidatorConfigBuilder().flavour(PDFAFlavour.PDFA_4).build();
 	// Default features config
 	FeatureExtractorConfig featureConfig = FeatureFactory.defaultConfig();
 	// Default plugins config
