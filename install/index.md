@@ -27,8 +27,8 @@ This gives four possible downloads:
 
 ### Verifying the installer download
 If you want to verify your download for security and integrity then first download the GPG signature file into the same directory as the installer zip. You'll need a copy of our GPG key, you can get it [from our downloads site](https://downloads.verapdf.org/keys/KEY) or from a keyserver:
-<kbd>gpg --keyserver pgp.mit.edu --recv 1C124847</kbd>. Once the key is imported you can use it to verify the zip archive with the signature, e.g.
-<kbd>gpg --verify verapdf-pdfbox-installer.zip.asc</kbd>
+<kbd>gpg --keyserver keyserver.ubuntu.com --recv-key C66D0A8BF0CFFBA1942AA8A527BF11E81C124847</kbd>. Once the key is imported you can use it to verify the zip archive with the signature, e.g.
+<kbd>gpg --verify verapdf-installer.zip.asc</kbd>
 
 What's in the installer?
 ------------------------
