@@ -13,7 +13,7 @@ There are currently two versions of veraPDF:
   parser and to implement the PDF/A validation model.
 
 It's possible to download the latest release and development builds for each
-version. The release versions are stable and you should use these unless you're sure you want the development build and stability / reliability isn't important to you. The development builds aren't guaranteed to be stable and may contain unfinished features. You should use these if you're testing a bug fix or new feature.
+version. The release versions are stable and you should use these unless you're sure you want the development build and stability/reliability isn't important to you. The development builds aren't guaranteed to be stable and may contain unfinished features. You should use these if you're testing a bug fix or new feature.
 
 This gives four possible downloads:
 
@@ -26,9 +26,8 @@ This gives four possible downloads:
 {:.table }
 
 ### Verifying the installer download
-If you want to verify your download for security and integrity then first download the GPG signature file into the same directory as the installer zip. You'll need a copy of our GPG key, you can get it [from our downloads site](https://software.verapdf.org/keys/KEY) or from a keyserver:
-<kbd>gpg --keyserver keyserver.ubuntu.com --recv-key C66D0A8BF0CFFBA1942AA8A527BF11E81C124847</kbd>. Once the key is imported you can use it to verify the zip archive with the signature, e.g.
-<kbd>gpg --verify verapdf-installer.zip.asc</kbd>
+If you want to verify your download for security and integrity then first download the GPG signature file into the same directory as the installer zip. You'll need a copy of our GPG key. You can get it [from our downloads site](https://software.verapdf.org/keys/KEY) or from a keyserver:
+<kbd>gpg --keyserver keyserver.ubuntu.com --recv 78B17FE7</kbd>. Once the key is imported you can use it to verify the zip archive with the signature, e.g. <kbd>gpg --verify verapdf-installer.zip.asc</kbd>.The public key fingerprint is `13DD 102B 4DD6 9354 D12D E5A8 3184 8632 78B1 7FE7`.
 
 What's in the installer?
 ------------------------
@@ -50,7 +49,7 @@ resources, including:
 Using the veraPDF installer
 ---------------------------
 The installer simply unpacks components from the installer package to the local
-computer. It consists of the five steps:
+computer. It consists of five steps:
 
 ### 1: About veraPDF
 The first tells you which version of the software you're installing:
@@ -58,7 +57,7 @@ The first tells you which version of the software you're installing:
 ![veraPDF Installer folder selection screen](/images/installer/screen1.png "veraPDF installer step 1 of 5"){: .img-responsive .center-block}
 
 ### 2: Choose installation location
-At step two you can specify the installation folder:
+At step two, you can specify the installation folder:
 
 ![veraPDF Installer folder selection screen](/images/installer/screen2.png "veraPDF installer step 2 of 5"){: .img-responsive .center-block}
 
@@ -80,7 +79,7 @@ the installation on another computer:
 
 What's installed where?
 -----------------------
-Following installation test PDF Documents can be found in the ‘corpus’ subfolder
+Following installation, test PDF Documents can be found in the ‘corpus’ subfolder
 below the application installation folder, the Validation Model description is
 located in the ‘model’ subfolder, while the Validation Profiles are located in
 the ‘profiles’ subfolder.
