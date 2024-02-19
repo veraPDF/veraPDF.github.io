@@ -34,7 +34,7 @@ available [on GitHub](https://github.com/veraPDF/veraPDF-corpus).
 
 - [Using veraPDF for PDF/A and PDF/UA Validation](validation):
   - [listing built in validation profiles](validation#list-profiles);
-  - [validating using a built in profile](validation#fixed-profiles);
+  - [validating using a built in profile](validation#choose-profile);
   - [validating using automated profile selection](validation#auto-profile);
   - [customising the validation process and reporting](validation#customising); and
   - [validating multiple files](validation#batches).
