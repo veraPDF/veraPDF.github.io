@@ -3,9 +3,11 @@ layout: page
 title: veraPDF CLI Validation
 ---
 
-<a name="list-profiles"></a>Listing built in validation profiles
+## Choosing the right validation profile
 ----------------------------------------------------------------
-The veraPDF software comes with eight sets of rules built in. These are known
+
+### <a name="list-profiles"></a>Listing built in validation profiles
+The veraPDF software comes with predefined sets of rules covering PDF/A and PDF/UA standards. These are known
 as validation profiles and there's one for each level and part of the PDF/A and PDF/UA
 specification. You can list them by typing <kbd>verapdf -l</kbd> or <kbd>verapdf.bat --list</kbd> for Windows users. The `-l` and `--list` are interchangeable on all platforms.
 You'll be greeted with:
@@ -26,13 +28,9 @@ veraPDF supported PDF/A and PDF/UA profiles:
   ua1 - PDF/UA-1 validation profile
 ```
 
-<a name="fixed-profiles"></a>Validation using built in profiles
--------------------------------------------------
-You can specify a built in profile for validation using either the `-f` or
-`--flavour` options followed by the 2 character profile code.
-
-### <a name="choose-profile"></a>Choosing a profile
-To validate a single PDF/A file from the corpus using the PDF/A-1B profile type
+### <a name="choose-profile"></a>Choosing a built-in profile
+You can specify a built in profile for validation using either the `-f` or `--flavour` options followed by the 2 character profile code. 
+For example, to validate a single PDF/A file from the corpus using the PDF/A-1B profile type
 
 <kbd>verapdf -f 1b corpus/veraPDF-corpus-staging/PDF_A-1b/6.6\ Actions/6.6.1\ General/veraPDF\ test\ suite\ 6-6-1-t02-pass-a.pdf</kbd>
 
@@ -129,39 +127,24 @@ This time the output looks like:
 This time the report tells us that the file is invalid through the `<validationReport isCompliant="false">` attribute. It also shows the details
 of the failed test.
 
-<a name="default-flavour"></a>Default flavour
----------------------------------------------------
-
+### <a name="default-flavour"></a>Default flavour
 Automatic flavour detection is based on the document conformance specified in the embedded XMP metadata. If this metadata is not available or invalid, the default validation flavour is applied.
 It is PDF/A-1b by default, but the user can change it by using `--defaultflavour` or `-df` option, for example
 
 <kbd>verapdf --defaultflavour 2b test.pdf</kbd>
 
-<a name="customising"></a>Customising validation processing and reporting
--------------------------------------------------------------------------
-The test documents are deliberately quite small and there aren't too many checks
-made during validation, five hundred or less in each case. Large PDF documents
-can mean that the software makes hundreds of thousands of tests, sometimes with
-thousands of failed checks. It's possible to control various aspects of this
-process by using some of the CLI options.
+### <a name="custom-profile"></a>Choosing custom profile
+The user can validate PDF files against a custom validation profile by using option `--profile` or `-p`. For example
 
-### Using config files in CLI
+<kbd>verapdf --profile profile.xml test.pdf</kbd>
 
-veraPDF CLI can reuse configuration files of GUI application by specifying `--config` option. The set of configuration XML files is described in https://docs.verapdf.org/cli/config/. Note that any explicitly specified CLI parameters will override the corresponding parameters from the config files.
+## Defining validation report
+----------------------------------------------------------------
 
 ### Report format
 By default, veraPDF generates report in xml format. The user can specify a different report format (`text`, `raw`, `html`, `json`) by using `--format` option with argument `text`, `raw`, `html` or `json` accordingly.
 
 Note. Before veraPDF release 1.24 `raw` report was called `xml`. Starting from veraPDF release 1.24 `xml` and `mrr` refer to the same report format, and `mrr` report format is deprecated.
-
-### Show error in text report
-Text report contains only failed rule numbers. If the numbers of passed rules are needed, `--verbose` or `-v` should be used.
-
-
-### Stop processing after a set number of failures
-The `--maxfailures` option tells veraPDF to halt processing after it encounters
-a set number of failed checks, e.g `--maxfailures 10` would mean stop after 10
-failed checks. The default value is -1, meaning process all failures.
 
 ### Don't display all failed checks for a particular rule
 Sometimes files fail validation checks many times for a particular
@@ -171,9 +154,9 @@ maximum number of failures reported for a particular rule.
 
 The veraPDF software will continue to process all checks without terminating, it
 just won't report all the results for every rule. The default is to report one
-hundred failed checks per-rule. To change the limit to 10 add the `--maxfailuresdisplayed 10` option.
+hundred failed checks per rule. To change the limit to 10 add the `--maxfailuresdisplayed 10` option.
 
-### Log successful checks as well as failures
+### Report successful checks as well as failures
 By default veraPDF only reports failed checks. It is possible to report passed
 checks by adding the `--success` or `--passed` option to the CLI. In order to
 see the passed checks for one of the test files type:
@@ -185,27 +168,28 @@ We won't show the output here as it's quite long. The lack of any `-f` or
 Profile, meaning it's equivalent to `-f 0` or `--flavour 0`,
 [see automatic profile selection above](#auto-profile).
 
-### Disable error messages
-By default, veraPDF contains detailed error messages for each error case in report. The user can disable these messages to speed up the validation by using option `--disableerrormessages`.
+### <a name="logs-customising"></a>Include console logs into the report
+veraPDF CLI generates log messages into the standard error (`stderr`) output. By default they will go into the same console output as the generated report and may corrupt it. To redirect these log messages to a file (for example, `logs.txt`), use the command `verapdf 2>logs.txt ...`.  
 
-### Show progress
+The user can also include logs into the report by using option `--addlogs`. 
 
-The user can see the current status of the validation job in console by using option `--progress`.
+The level of displayed logs is specified in option `--loglevel`. Available levels are: 
+- 0 - OFF, 
+- 1 - SEVERE, 
+- 2 - WARNING, SEVERE
+- 3 - CONFIG, INFO, WARNING, SEVERE, 
+- 4 - ALL.
 
-<a name="logs-customising"></a>Customising logs
--------------------------------------------------------------------------
+### <a name="wiki-path"></a>Profiles wiki
+HTML report contains reference links to veraPDF validation rule wiki https://github.com/veraPDF/veraPDF-validation-profiles/wiki/. You are unlikely going to change this unless you intend to host your own local version of the veraPDF validation rule wiki by using `--wikiPath` option.
 
-The user can add logs into the report by using option `--addlogs`. The level of displayed logs is specified in option `--loglevel` (`WARNING` and `SEVERE` messages by default).
+### Show validation errors in text report
+Text report contains only failed rule numbers. If the numbers of passed rules are needed, `--verbose` or `-v` should be used.
 
-<a name="custom-profile"></a>Choose custom profile
-------------------------------------------------
-
-The user can validate PDF files against a custom validation profile by using option `--profile` or `-p`. For example
-
-<kbd>verapdf --profile profile.xml test.pdf</kbd>
-
-<a name="batches"></a>Processing multiple PDF files
+## <a name="batches"></a>Processing multiple PDF files
 ---------------------------------------------------
+
+### Process all PDF files in the folder
 So far we've only validated single PDF/A documents. It's easy to validate
 multiple PDF documents using the command line interface. You can do this by
 passing the name of a directory rather than a file. To validate both of the
@@ -234,36 +218,56 @@ batch summary on the test machine is shown below for reference:
 meaning the software took one minute and forty seconds to process one thousand
 and five hundred files.
 
-<a name="zip-archive-validation"></a>ZIP archive validation
-------------------------------------------------
-
+### <a name="zip-archive-validation"></a>ZIP archive validation
 It is also possible to validate multiple PDF documents within a ZIP archive. If an input file has ZIP format, veraPDF recursively scans and validates PDF files in all subfolders within the archive. For example
 
 <kbd>verapdf test.zip</kbd>
 
-<a name="show-file-names"></a>Show file names
-------------------------------------------------
+### <a name="extension"></a>Non pdf extension
+You can validate pdf files with non-pdf extension by passing the `--nonpdfext` option. For example
+<kbd>verapdf somefile --nonpdfext</kbd>.
 
-You may see all processed file names in console by using option `--debug` or `-d`.
+### <a name="show-file-names"></a>Show file names
+While doing batch processing you may see all processed file names in console by using option `--debug` or `-d`.
 
-<a name="disable"></a>Disabling validation
-------------------------------------------------
+
+## <a name="customising"></a>Optimizing validation processing
+-------------------------------------------------------------------------
+
+The test documents are deliberately quite small and there aren't too many checks
+made during validation, five hundred or less in each case. Large PDF documents
+can mean that the software makes hundreds of thousands of tests, sometimes with
+thousands of failed checks. It's possible to control various aspects of this
+process by using some of the CLI options.
+
+### Stop processing after a set number of failures
+The `--maxfailures` option tells veraPDF to halt processing after it encounters
+a set number of failed checks, e.g `--maxfailures 10` would mean stop after 10
+failed checks. The default value is -1, meaning process all failures.
+
+### Disable error messages
+By default, veraPDF contains detailed error messages for each error case in report. The user can disable these messages to speed up the validation by using option `--disableerrormessages`.
+
+### Show progress
+The user can see the current status of the validation job in console by using option `--progress`.
+
+### Use several CPU processes in parallel
+veraPDF can parallelize validation of multiple files in several processes. The number of processes can be specified by `--processes` option (1 by default). Independent of the number of processes used a single report for the while batch job will be generated.
+
+
+## Other topics
+----------------------------------------------------------------
+
+### <a name="disable"></a>Disabling validation
 As demonstrated in the examples above veraPDF validation runs as a default
 option. While convenient this is not always desirable. You can disable
 validation by passing the `-o` or `--off` option. This is usually done during
 [feature-extraction](../feature-extraction), for example
 <kbd>verapdf --off --extract somefile.pdf</kbd>.
 
-<a name="extension"></a>Non pdf extension
-------------------------------------------------
-You can validate pdf files with non-pdf extension by passing the `--nonpdfext` option. For example
-<kbd>verapdf somefile --nonpdfext</kbd>.
-
-<a name="encrypted-pdf"></a>Encrypted pdf
-------------------------------------------------
+### <a name="encrypted-pdf"></a>Encrypted PDF
 By default, verapdf is trying to decrypt encrypted PDF file using empty user password. You can validate encrypted pdf  files with non-empty password by passing the `--password` option. 
 For example <kbd>verapdf --password "12345" encrypted.pdf</kbd>.
 
-<a name="wiki-path"></a>Profiles wiki
-------------------------------------------------
-HTML report contains reference links to veraPDF validation rule wiki https://github.com/veraPDF/veraPDF-validation-profiles/wiki/. You are unlikely going to change this unless you intend to host your own local version of the veraPDF validation rule wiki by using `--wikiPath` option.
+### Using config files in CLI
+veraPDF CLI can reuse configuration files of GUI application by specifying `--config` option. The set of configuration XML files is described in https://docs.verapdf.org/cli/config/. Note that any explicitly specified CLI parameters will override the corresponding parameters from the config files.
