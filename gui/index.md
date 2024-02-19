@@ -32,7 +32,7 @@ When the application is started the following screen is displayed:
 The interface is fairly simple, we describe the controls in the following sections.
 
 ### Choose PDF
-The user can select PDF file(s) for validation or feature reporting by drag&drop file(s) into `PDF file not chosen` area or by pushing button `Choose PDF`. User also can drag&drop or choose file(s) with any (even missing) extension or a zip file containing PDF documents. The `Execute` button is not enabled until any files are selected.
+The user can select PDF file(s) for validation or feature reporting by drag&drop file(s) into `PDF file not chosen` area or by pushing button `Choose PDF`. User also can drag&drop or choose file(s) with any (even missing) extension, or a zip archive containing PDF documents, or a folder with multiple PDFs processed recusrsively. The `Execute` button is not enabled until any files or folders are selected.
 
 ### Choose Profile button and Profile dropdown
 The Choose Profile button and the dropdown immediately below it determine the validation processing. The `Choose Profile` button allows the user to load a custom Validation Profile from the file system or user can drag&drop a profile into `Please, specify validation profile` area. For most users the built in profiles packaged with the software will be sufficient. The dropdown below the button is used to control profile selection:
