@@ -4,20 +4,20 @@ title: veraPDF Plugins
 ---
 
 ## Overview
-If the user wants to use a third-party Tool for extracting additional features he needs to have the Adaptor for it that shall be a part of the Plugin for veraPDF software. After the Plugin is loaded by veraPDF software the Tool becomes available for the Features Reporter through the Extractor interface.
+If the user wants to use a third-party Tool for extracting additional features from the embedded data in PDF he needs to implement the Adaptor that shall be a part of the Plugin for veraPDF software. After the Plugin is loaded by veraPDF software the Tool becomes available for the Features Reporter through the Extractor interface.
 
-A Plugin is represented by a `.jar` file with the Extractor class definition. This Extractor class is an extension of the [FeaturesExtractor](https://github.com/veraPDF/veraPDF-library/blob/integration/core/src/main/java/org/verapdf/features/AbstractFeaturesExtractor.java) - the base class defining the interfaces for the Features Reporter.
+A Plugin is represented by a `.jar` file with the `Extractor` class definition. This `Extractor` class is an extension of the [FeaturesExtractor](https://github.com/veraPDF/veraPDF-library/blob/integration/core/src/main/java/org/verapdf/features/AbstractFeaturesExtractor.java) - the base class defining the interfaces for the Features Reporter.
 
-The veraPDF software loads the Plugins on startup. It uses plugins.xml file for enabling and configuring the plugins. That config file should be placed near the app config file `.../verapdf/config/plugins.xml`. The plugins config xml file should contain a root element `pluginsConfig`. That root element contains child elements `plugin`. Each of plugin element refers to one plugin. It can contain five children and one attribute. The attribute’s name is `enabled` and its value should be a `boolean true|false` value. If this value is true, then the specified plugin will be used in features collection. The child elements of the plugin element are listed in the following table:
+The veraPDF software loads the Plugins on startup. It uses `plugins.xml` file for enabling and configuring the plugins. That config file should be placed in the veraPDF configuration folder `.../verapdf/config/plugins.xml`. The plugins config xml file should contain a root element `pluginsConfig`. That root element contains child elements `plugin`. Each of `plugin` element refers to one plugin. It can contain five children and one XML attribute. The attribute’s name is `enabled` and its value should be a `boolean true|false` value. If this value is true, then the specified plugin will be used in features collection. The child elements of the plugin element are listed in the following table:
 
 
-| Element      | Description            |
-|--------------|------------------------|
-| name         | The name of the plugin |
-| version      | The version of the plugin |
-| description  | The description of the plugin |
-| pluginJar    | A URL that specifies the plugin’s .jar file |
-| attributes   | This element contain a number of child elements attribute. Each of child element should contain two attributes: key and value. The values of that attributes will be used for passing to the plugins attributes map which plugin can use for additional purposes (specifying the path to some external binary, additional configurations for the plugins output and etc.) |
+| Element        | Description            |
+|----------------|------------------------|
+| `name`         | The name of the plugin |
+| `version`      | The version of the plugin |
+| `description`  | The description of the plugin |
+| `pluginJar`    | A URL that specifies the plugin’s .jar file |
+| `attributes`   | Contains an arbitrary number of child elements named `attribute`. Each `attribue` element should contain two XML attributes: `key` and `value`. They will be passed to the plugin attributes map and can be used as additional configuration of the plugin (for example, specifying the path to some external binary executable, additional configurations for the plugin output, etc.) |
 {:.table .table-bordered .table-striped}
 
 ### Example plugin configuration file
@@ -42,7 +42,7 @@ The veraPDF software loads the Plugins on startup. It uses plugins.xml file for 
 </pluginsConfig>
 ```
 
-Each Plugin `.jar` file must contain a single Extractor implementation. If `.jar` file contains more than one Extractor implementation the Plugin will not be loaded and the error will be logged. The created Extractor is registered in the Features Reporter.
+Each plugin `.jar` file must contain a single `Extractor` implementation. If `.jar` file contains more than one Extractor implementation the plugin will not be loaded and the error will be logged. The created `Extractor` is registered in the Features Reporter.
 
 When the Features Reporter collects features of a PDF object it also checks if there are any registered Extractors available for the object type. In this case the Reporter creates the dataset describing the object and passes it to each registered Extractor as argument for the method to get the custom features. Extractor transforms the dataset into the form that can be understood by the Tool and requests the Tool to process it. The Tool reports the processing results which are converted by the Extractor to the custom features description. The returned custom features are added to the Features Report.
 
@@ -104,7 +104,7 @@ The method normally implements the following steps:
 ## Hello-Embedded plugin
 This is an example setup for a plugin running on embedded files
 ### Maven
-In your pom.xml you will need the possibility to refer to VeraPDF classes, i.e., a VeraPDF dependency, 
+In your `pom.xml` you will need the possibility to refer to veraPDF classes, i.e., a veraPDF dependency, 
 and the possibility to create a Jar file with your code but without the VeraPDF classes you just referred, e.g. using the
 Maven shade plugin.
 
@@ -154,7 +154,7 @@ Maven shade plugin.
 ```
 ### Java
 
-The VeraPDF plugin loader will scan for all suitable subclasses, so the class and file name, in this case EmbeddedFilePlugin, is not relevant.
+The veraPDF plugin loader will scan for all suitable subclasses, so the class and file name, in this case EmbeddedFilePlugin, is not relevant.
 
 ```java
 
