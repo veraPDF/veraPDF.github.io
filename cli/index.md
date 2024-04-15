@@ -36,8 +36,11 @@ available [on GitHub](https://github.com/veraPDF/veraPDF-corpus).
   - [listing built in validation profiles](validation#list-profiles);
   - [validating using a built in profile](validation#choose-profile);
   - [validating using automated profile selection](validation#auto-profile);
-  - [customising the validation process and reporting](validation#customising); and
-  - [validating multiple files](validation#batches).
+  - [defining validation report](validation#defining-validation-report);
+  - [controlling console logs](validation#logs-customising)
+  - [validating multiple files in the folder](validation#batches);
+  - [validating PDFs from ZIP archives](validation#zip-archive-validation)
+  - [optimizing the validation process](validation#customising);
 - [Extracting features (metadata) from PDFs](feature-extraction):
   - [extracting Information Dictionary metadata](feature-extraction#info-dict);
   - [extracting XMP metadata](feature-extraction#metadata);
