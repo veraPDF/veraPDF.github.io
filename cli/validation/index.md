@@ -138,7 +138,7 @@ The user can validate PDF files against a custom validation profile by using opt
 
 <kbd>verapdf --profile profile.xml test.pdf</kbd>
 
-## Defining validation report
+## <a name="defining-validation-report"></a>Defining validation report
 ----------------------------------------------------------------
 
 ### Report format
