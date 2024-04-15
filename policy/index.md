@@ -201,3 +201,10 @@ Now press the "Execute" button and view the
 [HTML report, this is a PDF version](info-dict/report.pdf) to see that `veraPDF
 test suite 6-1-5-t02-pass-d.pdf` has no title. The full details are in the
 [XML Report](info-dict/report.xml).
+
+## GUI for creating Policy files
+
+GUI application contains a visual Policy Creator wizard helping to build most common policy checks. The Policy Creator is available from the GUI menu "Configs->Policy Config":
+![veraPDF Policy Creator](/images/policy/gui-policy-creator.png "veraPDF Policy Creator"){: .img-responsive .center-block}
+
+The designed policy is then saved as a Schematron file that is also set as a current policy in the main GUI dialog. 
