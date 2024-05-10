@@ -113,7 +113,7 @@ Maven shade plugin.
 		<dependency>
 			<groupId>org.verapdf</groupId>
 			<artifactId>core</artifactId>
-			<version>[1.24.0,1.25.0)</version>
+			<version>[1.26.0,1.27.0)</version>
 		</dependency>
 	</dependencies>
 	<build>
