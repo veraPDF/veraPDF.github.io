@@ -26,6 +26,7 @@ veraPDF supported PDF/A and PDF/UA profiles:
   4e - PDF/A-4E validation profile
   4f - PDF/A-4F validation profile
   ua1 - PDF/UA-1 validation profile
+  ua2 - PDF/UA-2 validation profile
 ```
 
 ### <a name="choose-profile"></a>Choosing a built-in profile
