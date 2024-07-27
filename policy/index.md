@@ -54,7 +54,7 @@ appropriate `features.xml` file, which should be used to overwrite your
 `<verapdf-install-path>/config/features.xml` file.
 
 ### <a name="fonts"></a> Fonts
-We'll work through tow examples, one to disallow a particular font the other ensuring that documents contain only a certain font.
+We'll work through two examples, one to disallow a particular font the other ensuring that documents contain only a certain font.
 
 In order to configure the feature extractor to generate font data please
 download this [features config file](font/features.xml) and replace the current

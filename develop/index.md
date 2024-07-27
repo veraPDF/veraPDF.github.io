@@ -84,6 +84,8 @@ for Greenfield implementation and
 
 for PDFBox implementation.
 
+If your project uses `core` or `verapdf-library` dependencies, they also have alternative jakarta versions (`core-jakarta` or `verapdf-library-jakarta` accordingly).
+
 ### GitHub for source code
 The up to date source repos are on GitHub.
 
