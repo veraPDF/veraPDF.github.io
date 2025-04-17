@@ -35,7 +35,7 @@ jobs:
 
       - name: Cache HTMLProofer
         id: cache-htmlproofer
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: tmp/.htmlproofer
           key: ${{ runner.os }}-htmlproofer
