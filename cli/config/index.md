@@ -99,7 +99,7 @@ The default validation config file contains:
 ### <a name="validatorConfig"></a> The validatorConfig element
 The `validatorConfig` element defines the following attributes:
 
-- `flavour` the default flavour to use when none is specified by the user, can be PDF_A_1A, PDF_A_1B, PDF_A_2A, PDF_A_2B, PDF_A_2U, PDF_A_3A, PDF_A_3B, PDF_A_3U, PDF_A_4, PDF_A_4E, PDF_A_4F, PDF_UA1, PDF_UA2 or NO_FLAVOUR (for automatic detection).
+- `flavour` the default flavour to use when none is specified by the user, can be PDF_A_1A, PDF_A_1B, PDF_A_2A, PDF_A_2B, PDF_A_2U, PDF_A_3A, PDF_A_3B, PDF_A_3U, PDF_A_4, PDF_A_4E, PDF_A_4F, PDF_UA1, PDF_UA2, WTPDF_1_0_ACCESSIBILITY, WTPDF_1_0_REUSE or NO_FLAVOUR (for automatic detection).
 - `recordPasses` set `true` to report passed validation checks, `false` to report failures only.
 - `maxFails` specifies the maximum number of failed checks before validation is terminated, the default value of -1 means report all failures.
 - `maxNumberOfDisplayedFailedChecks` specifies how many failed tests are reported per validation rule.

@@ -41,23 +41,25 @@ The Choose Profile button and the dropdown immediately below it determine the va
 
 The options are as follows:
 
-| Option         | Description                                                                                                         |
-|----------------|---------------------------------------------------------------------------------------------------------------------|
-| Auto-detect    | The veraPDF software will detect the PDF/A or PDF/UA flavour when parsing the file and use the appropriate profile. |
-| PDF/A-1a       | Use the PDF/A-1a validation profile, i.e. assume that the file is a PDF/A-1a.                                       |
-| PDF/A-1b       | Use the PDF/A-1b validation profile, i.e. assume that the file is a PDF/A-1b.                                       |
-| PDF/A-2a       | Use the PDF/A-2a validation profile, i.e. assume that the file is a PDF/A-2a.                                       |
-| PDF/A-2b       | Use the PDF/A-2b validation profile, i.e. assume that the file is a PDF/A-2b.                                       |
-| PDF/A-2u       | Use the PDF/A-2u validation profile, i.e. assume that the file is a PDF/A-2u.                                       |
-| PDF/A-3a       | Use the PDF/A-3a validation profile, i.e. assume that the file is a PDF/A-3a.                                       |
-| PDF/A-3b       | Use the PDF/A-3b validation profile, i.e. assume that the file is a PDF/A-3b.                                       |
-| PDF/A-3u       | Use the PDF/A-3u validation profile, i.e. assume that the file is a PDF/A-3u.                                       |
-| PDF/A-4        | Use the PDF/A-4 validation profile, i.e. assume that the file is a PDF/A-4.                                         |
-| PDF/A-4e       | Use the PDF/A-4e validation profile, i.e. assume that the file is a PDF/A-4e.                                       |
-| PDF/A-4f       | Use the PDF/A-4f validation profile, i.e. assume that the file is a PDF/A-4f.                                       |
-| PDF/UA-1       | Use the PDF/UA-1 validation profile, i.e. assume that the file is a PDF/UA-1.                                       |
-| PDF/UA-2       | Use the PDF/UA-2 validation profile, i.e. assume that the file is a PDF/UA-2.                                       |
-| Custom Profile | Enables the Choose Profile button allowing the user to load an external validation profile.                         |
+| Option                  | Description                                                                                                         |
+|-------------------------|---------------------------------------------------------------------------------------------------------------------|
+| Auto-detect             | The veraPDF software will detect the PDF/A or PDF/UA flavour when parsing the file and use the appropriate profile. |
+| PDF/A-1a                | Use the PDF/A-1a validation profile, i.e. assume that the file is a PDF/A-1a.                                       |
+| PDF/A-1b                | Use the PDF/A-1b validation profile, i.e. assume that the file is a PDF/A-1b.                                       |
+| PDF/A-2a                | Use the PDF/A-2a validation profile, i.e. assume that the file is a PDF/A-2a.                                       |
+| PDF/A-2b                | Use the PDF/A-2b validation profile, i.e. assume that the file is a PDF/A-2b.                                       |
+| PDF/A-2u                | Use the PDF/A-2u validation profile, i.e. assume that the file is a PDF/A-2u.                                       |
+| PDF/A-3a                | Use the PDF/A-3a validation profile, i.e. assume that the file is a PDF/A-3a.                                       |
+| PDF/A-3b                | Use the PDF/A-3b validation profile, i.e. assume that the file is a PDF/A-3b.                                       |
+| PDF/A-3u                | Use the PDF/A-3u validation profile, i.e. assume that the file is a PDF/A-3u.                                       |
+| PDF/A-4                 | Use the PDF/A-4 validation profile, i.e. assume that the file is a PDF/A-4.                                         |
+| PDF/A-4e                | Use the PDF/A-4e validation profile, i.e. assume that the file is a PDF/A-4e.                                       |
+| PDF/A-4f                | Use the PDF/A-4f validation profile, i.e. assume that the file is a PDF/A-4f.                                       |
+| PDF/UA-1                | Use the PDF/UA-1 validation profile, i.e. assume that the file is a PDF/UA-1.                                       |
+| PDF/UA-2                | Use the PDF/UA-2 validation profile, i.e. assume that the file is a PDF/UA-2.                                       |
+| WTPDF 1.0 Accessibility | Use the WTPDF 1.0 Accessibility validation profile, i.e. assume that the file is a WTPDF 1.0 Accessibility.         |
+| WTPDF 1.0 Reuse         | Use the WTPDF 1.0 Reuse validation profile, i.e. assume that the file is a WTPDF 1.0 Reuse.                         |
+| Custom Profile          | Enables the Choose Profile button allowing the user to load an external validation profile.                         |
 {:.table .table-striped .table-bordered}
 
 ### <a name="report-drop"></a>Report Type dropdown, Choose Policy button, and Fix Metadata checkbox
@@ -108,18 +110,18 @@ The additional `Settings` dialog allows the user to configure the advanced setti
 
 The advanced settings are described in the table below:
 
-| Setting              | Description                                                                                                                                                                                                                                                                                                                  |
-|----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Include passed rules | If checked, the passed validation rules are included into the resulting Validation Report in addition to the failed rules. This setting is unchecked by default to reduce the size of the resulting Report.                                                                                                                  |
-| Add logs to xml and html reports | Specifies, if the logs generated during processing will be added into the Report.                                                                                                                                                                                                                                            |
-| Add detailed errors to report | If checked, the detailed error message for every failed rule will be shown in the resulting Validation Report.                                                                                                                                                                                                               |
-| Halt validation after failed checks | Specifies the maximum number of failed checks to be performed for all rules in the Validation Profile. Validation is halted once the number of failed checks is reached in order to speed up validation.                                                                                                                     |
-| Display failed checks for rule | Specifies the maximum number of failed checks to be reported for each rule from the Validation Profile. The specified value is used as the limit for the number of failed checks that shall be included into the resulting Report to reduce the size of the Report.                                                          |
-| Save repaired files with prefix | Specifies the prefix that is added to the name of the original PDF document when saving it after automatic metadata fixing was performed. This setting is used only when `Fix metadata` option is enabled.                                                                                                                   |
-| Save repaired files into the folder | Specifies the output folder for saving the PDF Documents after automatic metadata fixing was performed. Again this setting is relevant only when `Fix metadata` option is enabled.                                                                                                                                           |
-| Validation Profiles wiki root | Specifies the base URL of the veraPDF validation profiles wiki. This provides contextual information about validation issues.                                                                                                                                                                                                |
-| Default flavour | Specifies built-in Validation Profile default flavour, e.g. `1b`. This flavour will be applied if automatic flavour detection based on a file's metadata doesn't work. Possible Values: `[PDF/A-1A, PDF/A-1B, PDF/A-2A, PDF/A-2B, PDF/A-2U, PDF/A-3A, PDF/A-3B, PDF/A-3U, PDF/A-4, PDF/A-4F, PDF/A-4E, PDF/UA-1, PDF/UA-2].` |
-| Logging level | Enables logs with level: `OFF; SEVERE; WARNING, SEVERE (default); CONFIG, INFO, WARNING, SEVERE; ALL.`                                                                                                                                                                                                                       |
+| Setting                             | Description                                                                                                                                                                                                                                                                                                                                                            |
+|-------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Include passed rules                | If checked, the passed validation rules are included into the resulting Validation Report in addition to the failed rules. This setting is unchecked by default to reduce the size of the resulting Report.                                                                                                                                                            |
+| Add logs to xml and html reports    | Specifies, if the logs generated during processing will be added into the Report.                                                                                                                                                                                                                                                                                      |
+| Add detailed errors to report       | If checked, the detailed error message for every failed rule will be shown in the resulting Validation Report.                                                                                                                                                                                                                                                         |
+| Halt validation after failed checks | Specifies the maximum number of failed checks to be performed for all rules in the Validation Profile. Validation is halted once the number of failed checks is reached in order to speed up validation.                                                                                                                                                               |
+| Display failed checks for rule      | Specifies the maximum number of failed checks to be reported for each rule from the Validation Profile. The specified value is used as the limit for the number of failed checks that shall be included into the resulting Report to reduce the size of the Report.                                                                                                    |
+| Save repaired files with prefix     | Specifies the prefix that is added to the name of the original PDF document when saving it after automatic metadata fixing was performed. This setting is used only when `Fix metadata` option is enabled.                                                                                                                                                             |
+| Save repaired files into the folder | Specifies the output folder for saving the PDF Documents after automatic metadata fixing was performed. Again this setting is relevant only when `Fix metadata` option is enabled.                                                                                                                                                                                     |
+| Validation Profiles wiki root       | Specifies the base URL of the veraPDF validation profiles wiki. This provides contextual information about validation issues.                                                                                                                                                                                                                                          |
+| Default flavour                     | Specifies built-in Validation Profile default flavour, e.g. `1b`. This flavour will be applied if automatic flavour detection based on a file's metadata doesn't work. Possible Values: `[PDF/A-1A, PDF/A-1B, PDF/A-2A, PDF/A-2B, PDF/A-2U, PDF/A-3A, PDF/A-3B, PDF/A-3U, PDF/A-4, PDF/A-4F, PDF/A-4E, PDF/UA-1, PDF/UA-2, WTPDF 1.0 Accessibility, WTPDF 1.0 Reuse].` |
+| Logging level                       | Enables logs with level: `OFF; SEVERE; WARNING, SEVERE (default); CONFIG, INFO, WARNING, SEVERE; ALL.`                                                                                                                                                                                                                                                                 |
 {:.table .table-striped .table-bordered}
 
 ## Processing and Reporting
