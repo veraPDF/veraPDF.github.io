@@ -44,7 +44,7 @@ To include veraPDF's greenfield parser and validation model add:
 <dependency>
   <groupId>org.verapdf</groupId>
   <artifactId>validation-model</artifactId>
-  <version>1.26.1</version>
+  <version>1.28.1</version>
 </dependency>
 ```
 
@@ -57,7 +57,7 @@ This can be included in your project with this Maven dependency:
 <dependency>
   <groupId>org.verapdf</groupId>
   <artifactId>pdfbox-validation-model</artifactId>
-  <version>1.26.1</version>
+  <version>1.28.1</version>
 </dependency>
 ```
 
@@ -68,7 +68,7 @@ Both implementations above depend on javax. If your project uses jakarta, you sh
 <dependency>
   <groupId>org.verapdf</groupId>
   <artifactId>validation-model-jakarta</artifactId>
-  <version>1.26.1</version>
+  <version>1.28.1</version>
 </dependency>
 ```
 
@@ -78,7 +78,7 @@ for Greenfield implementation and
 <dependency>
   <groupId>org.verapdf</groupId>
   <artifactId>pdfbox-validation-model-jakarta</artifactId>
-  <version>1.26.1</version>
+  <version>1.28.1</version>
 </dependency>
 ```
 

@@ -27,6 +27,8 @@ veraPDF supported PDF/A and PDF/UA profiles:
   4f - PDF/A-4F validation profile
   ua1 - PDF/UA-1 validation profile
   ua2 - PDF/UA-2 validation profile
+  wt1r - WTPDF 1.0 Reuse validation profile
+  wt1a - WTPDF 1.0 Accessibility validation profile
 ```
 
 ### <a name="choose-profile"></a>Choosing a built-in profile
