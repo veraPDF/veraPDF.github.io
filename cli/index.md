@@ -36,7 +36,7 @@ available [on GitHub](https://github.com/veraPDF/veraPDF-corpus).
   - [listing built in validation profiles](validation#list-profiles);
   - [validating using a built in profile](validation#choose-profile);
   - [validating using automated profile selection](validation#auto-profile);
-  - [validating multiple conformance claims in one go](validation#multiple-profiles);
+  - [validating against several profiles in one go](validation#multiple-profiles);
   - [defining validation report](validation#defining-validation-report);
   - [controlling console logs](validation#logs-customising)
   - [validating multiple files in the folder](validation#batches);
