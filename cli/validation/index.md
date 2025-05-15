@@ -130,6 +130,16 @@ This time the output looks like:
 This time the report tells us that the file is invalid through the `<validationReport isCompliant="false">` attribute. It also shows the details
 of the failed test.
 
+### <a name="multiple-profiles"></a>Validating against several profiles in one go
+If a PDF document contains multiple conformance declarations in its XMP Metadata, by default veraPDF will try to perform validation agaist all conformance claims based on the same core PDF version:
+- PDF/A-4, PDF/UA-2, WTPDF based on PDF 2.0
+- PDF/A-2, PDF/A-3, PDF/UA-1 based on PDF 1.7
+- or PDF/A-1 based on PDF 1.4
+
+If the document contains conformance claims based on different core PDF versions, the priority will be given to PDF/A profile, then to PDF/UA profile and all other profiles having the same base PDF version. For example, if the document claims conformance against PDF/A-3 and PDF/UA-2, only PDF/A-3 validation will be performed with the warning that PDF/UA-2 conformance claim is detected but not validated. 
+
+Note that if the option `-f` is specified, then only a validation against the profile in this option is performed. 
+
 ### <a name="default-flavour"></a>Default flavour
 Automatic flavour detection is based on the document conformance specified in the embedded XMP metadata. If this metadata is not available or invalid, the default validation flavour is applied.
 It is PDF/A-1b by default, but the user can change it by using `--defaultflavour` or `-df` option, for example
