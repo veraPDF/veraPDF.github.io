@@ -124,6 +124,13 @@ The advanced settings are described in the table below:
 | Logging level                       | Enables logs with level: `OFF; SEVERE; WARNING, SEVERE (default); CONFIG, INFO, WARNING, SEVERE; ALL.`                                                                                                                                                                                                                                                                 |
 {:.table .table-striped .table-bordered}
 
+### Locating the configuration files
+
+
+All settings are stored in the several XML [configuration files](/cli/config/) located in a sub-directory called `config` below the veraPDF installation directory or in folder `verapdf` in the user directory. To find the location of the configuration files, use menu item `Configs->Open config location`:
+
+![config location](https://github.com/user-attachments/assets/991a307f-1703-40db-964f-9216932517f0)
+
 ## Processing and Reporting
 A Validation Profile describes the tests that shall be performed during the validation. These tests are represented by rules that define a certain restrictions on the PDF Document features. When validation is performed the restrictions from the rules are checked for the relevant objects from PDF Document. A check may either fail or pass. In case of large Documents the number of passed and failed checks may be big so the settings described above allow reducing the number of redundant checks and thus optimizing validation time and the size of resulting Report.
 
