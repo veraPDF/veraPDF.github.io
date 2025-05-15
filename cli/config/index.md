@@ -36,6 +36,17 @@ missing files.
 
 If you are running a version of the application you have built yourself and not installed, config folder would be located in folder `verapdf` in the user directory.
 
+### Finding where config files are located
+To find the location of config files on your system, run
+```
+verapdf --config
+```
+
+A sample output (on Windows) will be:
+```
+CONFIG: Config location: C:\Users\<User name>\AppData\Roaming\verapdf\config
+```
+
 ### veraPDF config files
 There are four config files available:
 
