@@ -184,6 +184,33 @@ try (PDFAParser parser = Foundries.defaultInstance().createParser(new FileInputS
 }
 ```
 
+Another example shows how to get the list of all conformance declarations (PDF/A, PDF/UA, WTPDF) from a given PDF and validate PDF against some of them:
+```java
+VeraGreenfieldFoundryProvider.initialise();
+try (PDFAParser parser = Foundries.defaultInstance().createParser(new FileInputStream("mydoc.pdf"))) {
+	List<PDFAFlavour> detectedFlavours = parser.getFlavours();
+	List<PDFAFlavour> flavours = new LinkedList<>();
+	for (PDFAFlavour flavour : detectedFlavours) {
+		// iterate through all detected flavours and pick up PDF/A and PDF/UA ones for validation
+		if (PDFFlavours.isFlavourFamily(flavour, PDFAFlavour.SpecificationFamily.PDF_A) || 
+				PDFFlavours.isFlavourFamily(flavour, PDFAFlavour.SpecificationFamily.PDF_UA)) {
+			flavours.add(flavour);
+		}
+	}
+	PDFAValidator validator = Foundries.defaultInstance().createValidator(flavours);
+	List<ValidationResult> results = validator.validateAll(parser);
+	for (ValidationResult result : results) {
+		if (result.isCompliant()) {
+			// File complies to flavour
+		} else {
+			// File doesn't comply to flavour
+		}
+	}
+} catch (IOException | ValidationException | ModelParsingException | EncryptedPdfException exception) {
+	// Exception during validation
+}
+```
+
 The veraPDF Processor
 ---------------------
 There's a higher level processor API aimed at developers wanting to combine the
