@@ -194,7 +194,7 @@ The level of displayed logs is specified in option `--loglevel`. Available level
 - 4 - ALL.
 
 ### <a name="wiki-path"></a>Profiles wiki
-HTML report contains reference links to veraPDF validation rule wiki https://github.com/veraPDF/veraPDF-validation-profiles/wiki/. You are unlikely going to change this unless you intend to host your own local version of the veraPDF validation rule wiki by using `--wikiPath` option.
+HTML report contains reference links to veraPDF validation rule wiki [https://github.com/veraPDF/veraPDF-validation-profiles/wiki/](https://github.com/veraPDF/veraPDF-validation-profiles/wiki/). You are unlikely going to change this unless you intend to host your own local version of the veraPDF validation rule wiki by using `--wikiPath` option.
 
 ### Show validation errors in text report
 Text report contains only failed rule numbers. If the numbers of passed rules are needed, `--verbose` or `-v` should be used.
@@ -283,4 +283,4 @@ By default, verapdf is trying to decrypt encrypted PDF file using empty user pas
 For example <kbd>verapdf --password "12345" encrypted.pdf</kbd>.
 
 ### Using config files in CLI
-veraPDF CLI can reuse configuration files of GUI application by specifying `--config` option. The set of configuration XML files is described in https://docs.verapdf.org/cli/config/. Note that any explicitly specified CLI parameters will override the corresponding parameters from the config files.
+veraPDF CLI can reuse configuration files of GUI application by specifying `--config` option. The set of configuration XML files is described in [https://docs.verapdf.org/cli/config/](https://docs.verapdf.org/cli/config/). Note that any explicitly specified CLI parameters will override the corresponding parameters from the config files.

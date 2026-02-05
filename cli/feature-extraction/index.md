@@ -98,7 +98,7 @@ The complete set of features for the option `--extract` is:
 
 <kbd>actions, annotations, colorSpace, ds, embeddedFile, exGSt, font, formXobject, iccProfile, imageXobject, informationDict, interactiveFormField, lowLevelInfo, metadata, outlines, outputIntent, page, pattern, postscriptXobject, properties, shading, signature</kbd> 
 
-It matches the features specified in the `features.xml` configuration file: https://docs.verapdf.org/cli/config/#configuring-feature-extraction
+It matches the features specified in the `features.xml` configuration file: [https://docs.verapdf.org/cli/config/#configuring-feature-extraction](https://docs.verapdf.org/cli/config/#configuring-feature-extraction)
 
 
 ### <a name="metadata"></a> XMP Metadata

@@ -9,7 +9,7 @@ started.
 
 Windows
 -------
-This guide shows how to start a Windows command line client: https://www.computerhope.com/issues/chusedos.htm. If you've installed veraPDF to
+This guide shows how to start a Windows command line client: [https://www.computerhope.com/issues/chusedos.htm](https://www.computerhope.com/issues/chusedos.htm). If you've installed veraPDF to
 the default location then it should be available directly below the directory
 the command shell starts in. The initial prompt on my machine reads `C:\Users\cfw>`, so to go to the veraPDF install directly simply issue the
 command <kbd>cd verapdf</kbd>, the session output should look as follows:
@@ -42,7 +42,7 @@ extension, this isn't necessary on other platforms. This means that you'll have 
 
 Mac OS
 ------
-This is a good guide to starting a terminal session on a Mac: https://www.macworld.co.uk/feature/mac-software/get-more-out-of-os-x-terminal-3608274/. If you've installed veraPDF in the default directory then you should be
+This is a good guide to starting a terminal session on a Mac: [https://www.macworld.co.uk/feature/mac-software/get-more-out-of-os-x-terminal-3608274/](https://www.macworld.co.uk/feature/mac-software/get-more-out-of-os-x-terminal-3608274/). If you've installed veraPDF in the default directory then you should be
 able to type the command <kbd>cd verapdf</kbd> to move into the installation directory. The session output should look like this:
 
 ```bash
