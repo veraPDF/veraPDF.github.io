@@ -10,7 +10,7 @@
 <item size="10130">
 <name>/home/cfw/verapdf/1.0/corpus/veraPDF-corpus-staging/PDF_A-1b/6.1 File structure/6.1.5 Document information dictionary/veraPDF test suite 6-1-5-t02-pass-a.pdf</name>
 </item>
-<validationReport profileName="PDF/A-1B validation profile" statement="PDF file is compliant with Validation Profile requirements." isCompliant="true">
+<validationReport profileName="PDF/A-1b validation profile" statement="PDF file is compliant with Validation Profile requirements." isCompliant="true">
 <details passedRules="102" failedRules="0" passedChecks="452" failedChecks="0"/>
 </validationReport>
 <featuresReport>
@@ -36,7 +36,7 @@
 <item size="10150">
 <name>/home/cfw/verapdf/1.0/corpus/veraPDF-corpus-staging/PDF_A-1b/6.1 File structure/6.1.5 Document information dictionary/veraPDF test suite 6-1-5-t02-pass-b.pdf</name>
 </item>
-<validationReport profileName="PDF/A-1B validation profile" statement="PDF file is compliant with Validation Profile requirements." isCompliant="true">
+<validationReport profileName="PDF/A-1b validation profile" statement="PDF file is compliant with Validation Profile requirements." isCompliant="true">
 <details passedRules="102" failedRules="0" passedChecks="448" failedChecks="0"/>
 </validationReport>
 <featuresReport>
@@ -61,7 +61,7 @@
 <item size="10198">
 <name>/home/cfw/verapdf/1.0/corpus/veraPDF-corpus-staging/PDF_A-1b/6.1 File structure/6.1.5 Document information dictionary/veraPDF test suite 6-1-5-t02-pass-c.pdf</name>
 </item>
-<validationReport profileName="PDF/A-1B validation profile" statement="PDF file is compliant with Validation Profile requirements." isCompliant="true">
+<validationReport profileName="PDF/A-1b validation profile" statement="PDF file is compliant with Validation Profile requirements." isCompliant="true">
 <details passedRules="102" failedRules="0" passedChecks="449" failedChecks="0"/>
 </validationReport>
 <featuresReport>
@@ -86,7 +86,7 @@
 <item size="10160">
 <name>/home/cfw/verapdf/1.0/corpus/veraPDF-corpus-staging/PDF_A-1b/6.1 File structure/6.1.5 Document information dictionary/veraPDF test suite 6-1-5-t02-pass-d.pdf</name>
 </item>
-<validationReport profileName="PDF/A-1B validation profile" statement="PDF file is compliant with Validation Profile requirements." isCompliant="true">
+<validationReport profileName="PDF/A-1b validation profile" statement="PDF file is compliant with Validation Profile requirements." isCompliant="true">
 <details passedRules="102" failedRules="0" passedChecks="446" failedChecks="0"/>
 </validationReport>
 <featuresReport>

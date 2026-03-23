@@ -14,17 +14,17 @@ You'll be greeted with:
 
 ```bash
 veraPDF supported PDF/A and PDF/UA profiles:
-  1a - PDF/A-1A validation profile
-  1b - PDF/A-1B validation profile
-  2a - PDF/A-2A validation profile
-  2b - PDF/A-2B validation profile
-  2u - PDF/A-2U validation profile
-  3a - PDF/A-3A validation profile
-  3b - PDF/A-3B validation profile
-  3u - PDF/A-3U validation profile
+  1a - PDF/A-1a validation profile
+  1b - PDF/A-1b validation profile
+  2a - PDF/A-2a validation profile
+  2b - PDF/A-2b validation profile
+  2u - PDF/A-2u validation profile
+  3a - PDF/A-3a validation profile
+  3b - PDF/A-3b validation profile
+  3u - PDF/A-3u validation profile
   4 - PDF/A-4 validation profile
-  4e - PDF/A-4E validation profile
-  4f - PDF/A-4F validation profile
+  4e - PDF/A-4e validation profile
+  4f - PDF/A-4f validation profile
   ua1 - PDF/UA-1 validation profile
   ua2 - PDF/UA-2 validation profile
   wt1r - WTPDF 1.0 Reuse validation profile
@@ -33,7 +33,7 @@ veraPDF supported PDF/A and PDF/UA profiles:
 
 ### <a name="choose-profile"></a>Choosing a built-in profile
 You can specify a built in profile for validation using either the `-f` or `--flavour` options followed by the 2 character profile code. 
-For example, to validate a single PDF/A file from the corpus using the PDF/A-1B profile type
+For example, to validate a single PDF/A file from the corpus using the PDF/A-1b profile type
 
 <kbd>verapdf -f 1b corpus/veraPDF-corpus-staging/PDF_A-1b/6.6\ Actions/6.6.1\ General/veraPDF\ test\ suite\ 6-6-1-t02-pass-a.pdf</kbd>
 
@@ -52,7 +52,7 @@ You should see something very similar to the following output:
         <item size="10230">
           <name>/home/cfw/verapdf/dev/corpus/veraPDF-corpus-staging/PDF_A-1b/6.6 Actions/6.6.1 General/veraPDF test suite 6-6-1-t02-pass-a.pdf</name>
         </item>
-        <validationReport profileName="PDF/A-1B validation profile" statement="PDF file is compliant with Validation Profile requirements." isCompliant="true">
+        <validationReport profileName="PDF/A-1b validation profile" statement="PDF file is compliant with Validation Profile requirements." isCompliant="true">
             <details passedRules="102" failedRules="0" passedChecks="504" failedChecks="0"></details>
         </validationReport>
         <duration start="1485134290404" finish="1485134290797">00:00:00:393</duration>
@@ -102,7 +102,7 @@ This time the output looks like:
         <item size="6213">
           <name>/home/cfw/verapdf/dev/corpus/veraPDF-corpus-staging/PDF_A-1b/6.6 Actions/6.6.1 General/veraPDF test suite 6-6-1-t01-fail-a.pdf</name>
         </item>
-        <validationReport profileName="PDF/A-1B validation profile" statement="PDF file is not compliant with Validation Profile requirements." isCompliant="false">
+        <validationReport profileName="PDF/A-1b validation profile" statement="PDF file is not compliant with Validation Profile requirements." isCompliant="false">
           <details passedRules="101" failedRules="1" passedChecks="358" failedChecks="1">
             <rule specification="ISO 19005-1:2005" clause="6.6.1" testNumber="1" status="failed" passedChecks="0" failedChecks="1">
               <description>The Launch, Sound, Movie, ResetForm, ImportData and JavaScript actions shall not be permitted.
