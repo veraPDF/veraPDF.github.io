@@ -10,7 +10,7 @@ The main entry point to integrate veraPDF project into another one is to use the
 ## Example Integration
 ```java
 public static void main(String[] args) {
-	// Foundry initialising. Can be changed into PDFBox based one
+	// Foundry initialising.
 	VeraGreenfieldFoundryProvider.initialise();
 	// Default validator config
 	ValidatorConfig validatorConfig = ValidatorFactory.defaultConfig();
