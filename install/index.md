@@ -5,24 +5,19 @@ title: Installing veraPDF
 
 ## Downloading the Installer
 
-There are currently two versions of veraPDF:
+There is currently one version of veraPDF: the veraPDF Greenfield implementation built around a bespoke PDF parser and
+  PDF/A and PDF/UA validation models developed by the veraPDF team
 
-- the veraPDF Greenfield implementation built around a bespoke PDF parser and
-  PDF/A and PDF/UA validation models developed by the veraPDF team; and
-- a version that uses [Apache PDFBox](https://pdfbox.apache.org/) as a PDF
-  parser and to implement the PDF/A validation model.
-
-It's possible to download the latest release and development builds for each
-version. The release versions are stable and you should use these unless you're sure you want the development build and stability/reliability isn't important to you. The development builds aren't guaranteed to be stable and may contain unfinished features. You should use these if you're testing a bug fix or new feature.
+It's possible to download the latest release or development builds. The release versions are stable and you should use these unless you're sure you want the development build and stability/reliability isn't important to you. The development builds aren't guaranteed to be stable and may contain unfinished features. You should use these if you're testing a bug fix or new feature.
 
 This gives four possible downloads:
 
-| Download | Greenfield Implementation | Apache PDFBox Implementation |
+| Download | Greenfield Implementation |
 |----------------|-----------------------------------------------------------------------------------------------------------|
-| Release Installer | <a href="https://software.verapdf.org/releases/verapdf-installer.zip"  onclick="ga('send', { hitType: 'event', eventCategory: 'gf-rel',  eventAction: 'download',  eventLabel: 'zip'});"><i class="fa fa-file-zip-o" aria-hidden="true"></i> The latest stable veraPDF zip package.</a> | <a href="https://software.verapdf.org/releases/verapdf-pdfbox-installer.zip"  onclick="ga('send', { hitType: 'event', eventCategory: 'pb-rel',  eventAction: 'download',  eventLabel: 'zip'});"><i class="fa fa-file-zip-o" aria-hidden="true"></i> The latest stable PDF Box zip package.</a> |
-|  | <a href="https://software.verapdf.org/releases/verapdf-installer.zip.asc"  onclick="ga('send', { hitType: 'event', eventCategory: 'gf-rel',  eventAction: 'download',  eventLabel: 'gpg'});"><i class="fa fa-certificate" aria-hidden="true"></i> GPG signature.</a> | <a href="https://software.verapdf.org/releases/verapdf-pdfbox-installer.zip.asc"  onclick="ga('send', { hitType: 'event', eventCategory: 'pb-rel',  eventAction: 'download',  eventLabel: 'gpg'});"><i class="fa fa-certificate" aria-hidden="true"></i> GPG signature.</a> |
-| Development Installer | <a href="https://software.verapdf.org/develop/verapdf-installer.zip"  onclick="ga('send', { hitType: 'event', eventCategory: 'gf-dev',  eventAction: 'download',  eventLabel: 'zip'});"><i class="fa fa-file-zip-o" aria-hidden="true"></i> Development veraPDF zip package.</a> | <a href="https://software.verapdf.org/develop/verapdf-pdfbox-installer.zip"  onclick="ga('send', { hitType: 'event', eventCategory: 'pb-dev',  eventAction: 'download',  eventLabel: 'zip'});"><i class="fa fa-file-zip-o" aria-hidden="true"></i> Development PDFBox zip</a> |
-| | <a href="https://software.verapdf.org/develop/verapdf-installer.zip.asc"  onclick="ga('send', { hitType: 'event', eventCategory: 'gf-rel',  eventAction: 'download',  eventLabel: 'gpg'});"><i class="fa fa-certificate" aria-hidden="true"></i> GPG signature.</a> | <a href="https://software.verapdf.org/develop/verapdf-pdfbox-installer.zip.asc"  onclick="ga('send', { hitType: 'event', eventCategory: 'pb-dev',  eventAction: 'download',  eventLabel: 'gpg'});"><i class="fa fa-certificate" aria-hidden="true"></i> GPG signature.</a> |
+| Release Installer | <a href="https://software.verapdf.org/releases/verapdf-installer.zip"  onclick="ga('send', { hitType: 'event', eventCategory: 'gf-rel',  eventAction: 'download',  eventLabel: 'zip'});"><i class="fa fa-file-zip-o" aria-hidden="true"></i> The latest stable veraPDF zip package.</a> |
+|  | <a href="https://software.verapdf.org/releases/verapdf-installer.zip.asc"  onclick="ga('send', { hitType: 'event', eventCategory: 'gf-rel',  eventAction: 'download',  eventLabel: 'gpg'});"><i class="fa fa-certificate" aria-hidden="true"></i> GPG signature.</a> |
+| Development Installer | <a href="https://software.verapdf.org/develop/verapdf-installer.zip"  onclick="ga('send', { hitType: 'event', eventCategory: 'gf-dev',  eventAction: 'download',  eventLabel: 'zip'});"><i class="fa fa-file-zip-o" aria-hidden="true"></i> Development veraPDF zip package.</a> |
+| | <a href="https://software.verapdf.org/develop/verapdf-installer.zip.asc"  onclick="ga('send', { hitType: 'event', eventCategory: 'gf-rel',  eventAction: 'download',  eventLabel: 'gpg'});"><i class="fa fa-certificate" aria-hidden="true"></i> GPG signature.</a> |
 {:.table }
 
 ### Verifying the installer download
