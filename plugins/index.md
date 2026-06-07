@@ -57,7 +57,7 @@ The additional features reported by third-party Tools are listed in the PDF Feat
 
 The veraPDF software expects that Extractor returns the list of elements describing the custom features. They will be added as child elements to the `pluginFeatures` element. This element is automatically added to the element `customFeatures` as soon as the Extractor returns the custom features list.
 
-For example, a Plugin defines the Extractor that for some specific ICC profile (object with type ICCPROFILE) returns two elements describing the custom features. The element names are `theCustomFeature1` and `theCustomFeature2`. The element values are `theFeatureValue1` and `theFeatureValue2` accordingly. In this case in the Features Report the element `iccProfile` for the ICC profile object will have the additional element `customFeatures` with the following content:
+For example, a Plugin defines the Extractor that for some specific ICC profile (object with type ICCPROFILE) returns two elements describing the custom features. The element names are `theCustomFeature1` and `theCustomFeature2`. The element values are `theFeatureValue1` and `theFeatureValue2` respectively. In this case in the Features Report the element `iccProfile` for the ICC profile object will have the additional element `customFeatures` with the following content:
 
 #### Example
 ```xml
@@ -113,7 +113,7 @@ Maven shade plugin.
 		<dependency>
 			<groupId>org.verapdf</groupId>
 			<artifactId>core</artifactId>
-			<version>[1.28.0,1.29.0)</version>
+			<version>[1.30.0,1.31.0)</version>
 		</dependency>
 	</dependencies>
 	<build>

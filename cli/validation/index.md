@@ -155,7 +155,7 @@ The user can validate PDF files against a custom validation profile by using opt
 ----------------------------------------------------------------
 
 ### Report format
-By default, veraPDF generates report in xml format. The user can specify a different report format (`text`, `raw`, `html`, `json`) by using `--format` option with argument `text`, `raw`, `html` or `json` accordingly.
+By default, veraPDF generates report in xml format. The user can specify a different report format (`text`, `raw`, `html`, `json`) by using `--format` option with argument `text`, `raw`, `html` or `json` respectively.
 
 Note. Before veraPDF release 1.24 `raw` report was called `xml`. Starting from veraPDF release 1.24 `xml` and `mrr` refer to the same report format, and `mrr` report format is deprecated.
 
