@@ -26,16 +26,6 @@ of either:
 
 Getting veraPDF
 ---------------
-There are two implementations of the veraPDF software library, one that uses a
-fork of the [Apache PDFBox project](https://github.com/veraPDF/veraPDF-pdfbox)
-as a PDF parser and validation model. 
-
-#### Greenfield vs PDFBox
-
-Since releasing the PDFBox implementation
-the veraPDF consortium have developed their own "Greenfield" PDF parsing and validation model 
-that's available under the same dual open source licenses as the rest of veraPDF.
-You can also use PDFBox under the APL license. We recommend using Greenfield parser, as the support for PDFBox parser is not guaranteed to be available long term.
 
 #### Greenfield POM dependency
 To include veraPDF's greenfield parser and validation model add:
@@ -44,47 +34,24 @@ To include veraPDF's greenfield parser and validation model add:
 <dependency>
   <groupId>org.verapdf</groupId>
   <artifactId>validation-model</artifactId>
-  <version>1.28.1</version>
+  <version>1.30.2</version>
 </dependency>
 ```
 
 You can change the version number if you desire.
 
-#### PDFBox POM dependency
-This can be included in your project with this Maven dependency:
-
-```xml
-<dependency>
-  <groupId>org.verapdf</groupId>
-  <artifactId>pdfbox-validation-model</artifactId>
-  <version>1.28.1</version>
-</dependency>
-```
-
 ### javax vs jakarta
-Both implementations above depend on javax. If your project uses jakarta, you should use alternative dependencies:
+The implementation above depends on javax. If your project uses jakarta, you should use the alternative dependency:
 
 ```xml
 <dependency>
   <groupId>org.verapdf</groupId>
   <artifactId>validation-model-jakarta</artifactId>
-  <version>1.28.1</version>
+  <version>1.30.2</version>
 </dependency>
 ```
 
-for Greenfield implementation and 
-
-```xml
-<dependency>
-  <groupId>org.verapdf</groupId>
-  <artifactId>pdfbox-validation-model-jakarta</artifactId>
-  <version>1.28.1</version>
-</dependency>
-```
-
-for PDFBox implementation.
-
-If your project uses `core` or `verapdf-library` dependencies, they also have alternative jakarta versions (`core-jakarta` or `verapdf-library-jakarta` accordingly).
+If your project uses `core` or `verapdf-library` dependencies, they also have alternative jakarta versions (`core-jakarta` or `verapdf-library-jakarta` respectively).
 
 ### GitHub for source code
 The up to date source repos are on GitHub.
@@ -99,25 +66,13 @@ cd veraPDF-validation
 mvn clean install
 ```
 
-#### PDFBox version GitHub project
-For the PDFBox implementation:
-
-```shell
-git clone https://github.com/veraPDF/veraPDF-pdfbox-validation.git
-cd veraPDF-pdfbox-validation
-mvn clean install
-```
-
 Validating a PDF
 ----------------
 To use the library to validate a PDF file you can do the following:
 
-### Initialising your chosen foundry
-The veraPDF library is unaware of the implementations and needs to be
-initialised before first use. This is a slightly different process, depending on
-whether you've chosen the greenfield or PDFBox implementation.
+### Initialising Greenfield Foundry
 
-#### Greenfield Foundry initialise
+The veraPDF library needs to be initialised before first use.
 
 ```java
 import org.verapdf.core.EncryptedPdfException;
@@ -131,22 +86,6 @@ import org.verapdf.pdfa.PDFAValidator;
 import org.verapdf.pdfa.flavours.PDFAFlavour;
 
 VeraGreenfieldFoundryProvider.initialise();
-```
-
-#### PDFBox Foundry initialise
-
-```java
-import org.verapdf.core.EncryptedPdfException;
-import org.verapdf.core.ModelParsingException;
-import org.verapdf.core.ValidationException;
-import org.verapdf.pdfbox.foundry.PdfBoxFoundryProvider;
-import org.verapdf.pdfa.Foundries;
-import org.verapdf.pdfa.PDFAParser;
-import org.verapdf.pdfa.results.ValidationResult;
-import org.verapdf.pdfa.PDFAValidator;
-import org.verapdf.pdfa.flavours.PDFAFlavour;
-
-PdfBoxFoundryProvider.initialise();
 ```
 
 ### Validating a PDF File

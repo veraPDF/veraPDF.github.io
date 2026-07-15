@@ -5,24 +5,19 @@ title: Installing veraPDF
 
 ## Downloading the Installer
 
-There are currently two versions of veraPDF:
+There is currently one version of veraPDF: the veraPDF Greenfield implementation built around a bespoke PDF parser and
+  PDF/A and PDF/UA validation models developed by the veraPDF team
 
-- the veraPDF Greenfield implementation built around a bespoke PDF parser and
-  PDF/A and PDF/UA validation models developed by the veraPDF team; and
-- a version that uses [Apache PDFBox](https://pdfbox.apache.org/) as a PDF
-  parser and to implement the PDF/A validation model.
-
-It's possible to download the latest release and development builds for each
-version. The release versions are stable and you should use these unless you're sure you want the development build and stability/reliability isn't important to you. The development builds aren't guaranteed to be stable and may contain unfinished features. You should use these if you're testing a bug fix or new feature.
+It's possible to download the latest release or development builds. The release versions are stable and you should use these unless you're sure you want the development build and stability/reliability isn't important to you. The development builds aren't guaranteed to be stable and may contain unfinished features. You should use these if you're testing a bug fix or new feature.
 
 This gives four possible downloads:
 
-| Download | Greenfield Implementation | Apache PDFBox Implementation |
+| Download | Greenfield Implementation |
 |----------------|-----------------------------------------------------------------------------------------------------------|
-| Release Installer | <a href="https://software.verapdf.org/releases/verapdf-installer.zip"  onclick="ga('send', { hitType: 'event', eventCategory: 'gf-rel',  eventAction: 'download',  eventLabel: 'zip'});"><i class="fa fa-file-zip-o" aria-hidden="true"></i> The latest stable veraPDF zip package.</a> | <a href="https://software.verapdf.org/releases/verapdf-pdfbox-installer.zip"  onclick="ga('send', { hitType: 'event', eventCategory: 'pb-rel',  eventAction: 'download',  eventLabel: 'zip'});"><i class="fa fa-file-zip-o" aria-hidden="true"></i> The latest stable PDF Box zip package.</a> |
-|  | <a href="https://software.verapdf.org/releases/verapdf-installer.zip.asc"  onclick="ga('send', { hitType: 'event', eventCategory: 'gf-rel',  eventAction: 'download',  eventLabel: 'gpg'});"><i class="fa fa-certificate" aria-hidden="true"></i> GPG signature.</a> | <a href="https://software.verapdf.org/releases/verapdf-pdfbox-installer.zip.asc"  onclick="ga('send', { hitType: 'event', eventCategory: 'pb-rel',  eventAction: 'download',  eventLabel: 'gpg'});"><i class="fa fa-certificate" aria-hidden="true"></i> GPG signature.</a> |
-| Development Installer | <a href="https://software.verapdf.org/develop/verapdf-installer.zip"  onclick="ga('send', { hitType: 'event', eventCategory: 'gf-dev',  eventAction: 'download',  eventLabel: 'zip'});"><i class="fa fa-file-zip-o" aria-hidden="true"></i> Development veraPDF zip package.</a> | <a href="https://software.verapdf.org/develop/verapdf-pdfbox-installer.zip"  onclick="ga('send', { hitType: 'event', eventCategory: 'pb-dev',  eventAction: 'download',  eventLabel: 'zip'});"><i class="fa fa-file-zip-o" aria-hidden="true"></i> Development PDFBox zip</a> |
-| | <a href="https://software.verapdf.org/develop/verapdf-installer.zip.asc"  onclick="ga('send', { hitType: 'event', eventCategory: 'gf-rel',  eventAction: 'download',  eventLabel: 'gpg'});"><i class="fa fa-certificate" aria-hidden="true"></i> GPG signature.</a> | <a href="https://software.verapdf.org/develop/verapdf-pdfbox-installer.zip.asc"  onclick="ga('send', { hitType: 'event', eventCategory: 'pb-dev',  eventAction: 'download',  eventLabel: 'gpg'});"><i class="fa fa-certificate" aria-hidden="true"></i> GPG signature.</a> |
+| Release Installer | <a href="https://software.verapdf.org/releases/verapdf-installer.zip"  onclick="ga('send', { hitType: 'event', eventCategory: 'gf-rel',  eventAction: 'download',  eventLabel: 'zip'});"><i class="fa fa-file-zip-o" aria-hidden="true"></i> The latest stable veraPDF zip package.</a> |
+|  | <a href="https://software.verapdf.org/releases/verapdf-installer.zip.asc"  onclick="ga('send', { hitType: 'event', eventCategory: 'gf-rel',  eventAction: 'download',  eventLabel: 'gpg'});"><i class="fa fa-certificate" aria-hidden="true"></i> GPG signature.</a> |
+| Development Installer | <a href="https://software.verapdf.org/develop/verapdf-installer.zip"  onclick="ga('send', { hitType: 'event', eventCategory: 'gf-dev',  eventAction: 'download',  eventLabel: 'zip'});"><i class="fa fa-file-zip-o" aria-hidden="true"></i> Development veraPDF zip package.</a> |
+| | <a href="https://software.verapdf.org/develop/verapdf-installer.zip.asc"  onclick="ga('send', { hitType: 'event', eventCategory: 'gf-rel',  eventAction: 'download',  eventLabel: 'gpg'});"><i class="fa fa-certificate" aria-hidden="true"></i> GPG signature.</a> |
 {:.table }
 
 ### Verifying the installer download
@@ -40,12 +35,7 @@ All versions of the installer are provided as a zip file that contains:
 - a bash script that executes the installer on Linux or Mac OS machines,
   `vera-install`.
 
-The installer jar file includes the application binary files and supplementary
-resources, including:
-
-- Validation Model description;
-- test PDF Documents; and
-- the veraPDF Validation Profiles.
+The installer jar file includes the application binary files.
 
 ## Using the veraPDF installer
 
@@ -85,11 +75,6 @@ the installation on another computer, see [Automated installation](#autoinstall)
 
 ## What's installed where?
 
-Following installation, test PDF Documents can be found in the ‘corpus’ subfolder
-below the application installation folder, the Validation Model description is
-located in the ‘model’ subfolder, while the Validation Profiles are located in
-the ‘profiles’ subfolder.
-
 The implementation of the veraPDF Command line application, Desktop GUI and
 other software components are located in ‘bin’ subfolder.
 
@@ -109,10 +94,9 @@ A typical example is shown below:
     </com.izforge.izpack.panels.target.TargetPanel>
     <com.izforge.izpack.panels.packs.PacksPanel id="sdk_pack_select">
         <pack index="0" name="veraPDF GUI" selected="true"/>
-        <pack index="1" name="veraPDF Mac and *nix Scripts" selected="true"/>
-        <pack index="2" name="veraPDF Validation model" selected="false"/>
-        <pack index="3" name="veraPDF Documentation" selected="true"/>
-        <pack index="4" name="veraPDF Sample Plugins" selected="false"/>
+        <pack index="1" name="veraPDF CLI" selected="true"/>
+        <pack index="2" name="veraPDF Documentation" selected="true"/>
+        <pack index="3" name="veraPDF Sample Plugins" selected="false"/>
     </com.izforge.izpack.panels.packs.PacksPanel>
     <com.izforge.izpack.panels.install.InstallPanel id="install"/>
     <com.izforge.izpack.panels.finish.FinishPanel id="finish"/>
@@ -136,11 +120,13 @@ Installation started
 Framework: 5.1.3-84aaf (IzPack)
 Platform: linux,version=6.1.27-gentoo-r1-x86_64,arch=x64,symbolicName=null,javaVersion=17.0.8.1
 [ Starting to unpack ]
-[ Processing package: veraPDF GUI (1/3) ]
+[ Processing package: veraPDF GUI (1/4) ]
 Cleaning up the target folder ...
-[ Processing package: veraPDF Mac and *nix Scripts (2/3) ]
+[ Processing package: veraPDF CLI (2/4) ]
 Cleaning up the target folder ...
-[ Processing package: veraPDF Documentation (3/3) ]
+[ Processing package: veraPDF Documentation (3/4) ]
+Cleaning up the target folder ...
+[ Processing package: veraPDF Sample Plugins (4/4) ]
 Cleaning up the target folder ...
 [ Unpacking finished ]
 Installation finished
