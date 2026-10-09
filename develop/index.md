@@ -34,7 +34,7 @@ To include veraPDF's greenfield parser and validation model add:
 <dependency>
   <groupId>org.verapdf</groupId>
   <artifactId>validation-model</artifactId>
-  <version>1.30.2</version>
+  <version>1.30.3</version>
 </dependency>
 ```
 
@@ -47,7 +47,7 @@ The implementation above depends on javax. If your project uses jakarta, you sho
 <dependency>
   <groupId>org.verapdf</groupId>
   <artifactId>validation-model-jakarta</artifactId>
-  <version>1.30.2</version>
+  <version>1.30.3</version>
 </dependency>
 ```
 
