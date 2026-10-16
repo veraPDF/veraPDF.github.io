@@ -107,7 +107,7 @@ The above configuration will install the CLI, GUI, startup scripts and documenta
 To invoke the installer from the command line with the an XML config file called `auto-install.xml` in the current directory, use the following command. Windows users should use `vera-install.bat` instead of `vera-install`:
 
 ```bash
-./verapdf-install ./auto-install.xml
+./vera-install ./auto-install.xml
 ```
 
 Typical output looks as follows:
