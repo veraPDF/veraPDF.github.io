@@ -32,7 +32,7 @@ veraPDF supported PDF/A and PDF/UA profiles:
 ```
 
 ### <a name="choose-profile"></a>Choosing a built-in profile
-You can specify a built in profile for validation using either the `-f` or `--flavour` options followed by the 2 character profile code. 
+You can specify a built in profile for validation using either the `-f` or `--flavour` options followed by the profile code listed above.
 For example, to validate a single PDF/A file from the corpus using the PDF/A-1b profile type
 
 <kbd>verapdf -f 1b corpus/veraPDF-corpus-staging/PDF_A-1b/6.6\ Actions/6.6.1\ General/veraPDF\ test\ suite\ 6-6-1-t02-pass-a.pdf</kbd>
@@ -79,13 +79,11 @@ metadata and select the appropriate PDF/A or PDF/UA profile for validation. This
 requested by specifying the special `-f 0` or `--flavour 0` option, or passing
 no flavour option at all. There's an invalid PDF/A file in the same corpus directory. you can validate it by typing:
 
-<kbd>verapdf -f 0 corpus/veraPDF-corpus-staging/PDF_A-1b/6.6\ Actions/6.6.1\ General/veraPDF\ test\ suite\ 6-6-1-t0
-veraPDF test suite 6-6-1-t01-fail-a.pdf  veraPDF test suite 6-6-1-t02-pass-a.pdf</kbd>
+<kbd>verapdf -f 0 "corpus/veraPDF-corpus-staging/PDF_A-1b/6.6 Actions/6.6.1 General/veraPDF test suite 6-6-1-t01-fail-a.pdf"</kbd>
 
 or even
 
-<kbd>verapdf corpus/veraPDF-corpus-staging/PDF_A-1b/6.6\ Actions/6.6.1\ General/veraPDF\ test\ suite\ 6-6-1-t0
-veraPDF test suite 6-6-1-t01-fail-a.pdf</kbd>.
+<kbd>verapdf "corpus/veraPDF-corpus-staging/PDF_A-1b/6.6 Actions/6.6.1 General/veraPDF test suite 6-6-1-t01-fail-a.pdf"</kbd>.
 
 This time the output looks like:
 
@@ -194,7 +192,7 @@ The level of displayed logs is specified in option `--loglevel`. Available level
 - 4 - ALL.
 
 ### <a name="wiki-path"></a>Profiles wiki
-HTML report contains reference links to veraPDF validation rule wiki [https://github.com/veraPDF/veraPDF-validation-profiles/wiki/](https://github.com/veraPDF/veraPDF-validation-profiles/wiki/). You are unlikely going to change this unless you intend to host your own local version of the veraPDF validation rule wiki by using `--wikiPath` option.
+HTML report contains reference links to veraPDF validation rule wiki [https://github.com/veraPDF/veraPDF-validation-profiles/wiki/](https://github.com/veraPDF/veraPDF-validation-profiles/wiki/). You are unlikely going to change this unless you intend to host your own local version of the veraPDF validation rule wiki by using `--profilesWiki` (or `-pw`) option.
 
 ### Show validation errors in text report
 Text report contains only failed rule numbers. If the numbers of passed rules are needed, `--verbose` or `-v` should be used.
@@ -276,7 +274,7 @@ As demonstrated in the examples above veraPDF validation runs as a default
 option. While convenient this is not always desirable. You can disable
 validation by passing the `-o` or `--off` option. This is usually done during
 [feature-extraction](../feature-extraction), for example
-<kbd>verapdf --off --extract somefile.pdf</kbd>.
+<kbd>verapdf --off --extract informationDict somefile.pdf</kbd>.
 
 ### <a name="encrypted-pdf"></a>Encrypted PDF
 By default, verapdf is trying to decrypt encrypted PDF file using empty user password. You can validate encrypted pdf  files with non-empty password by passing the `--password` option. 
