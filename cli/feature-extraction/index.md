@@ -117,7 +117,7 @@ you'll need to use a text editor to change the contents of your
 
 then type:
 
-<kbd>verapdf --off --extract adobe_supplement_iso32000.pdf</kbd>
+<kbd>verapdf --off --config adobe_supplement_iso32000.pdf</kbd>
 
 to get the following output:
 
@@ -202,7 +202,7 @@ your [config/features.xml](../config#features.xml) to read:
 
 then type:
 
-<kbd>verapdf --off --extract corpus/veraPDF-corpus-staging/PDF_A-1b/6.3\ Fonts/6.3.6\ Font\ metrics/veraPDF\ test\ suite\ 6-3-6-t01-pass-a.pdf</kbd>
+<kbd>verapdf --off --config corpus/veraPDF-corpus-staging/PDF_A-1b/6.3\ Fonts/6.3.6\ Font\ metrics/veraPDF\ test\ suite\ 6-3-6-t01-pass-a.pdf</kbd>
 
 which should produce something like the following, although the font width
 information has been removed:
@@ -287,7 +287,7 @@ First edit your [config/features.xml](../config#features.xml) to read:
 ```
 then type:
 
-<kbd>verapdf --off --extract corpus/veraPDF-corpus-staging/PDF_A-1b/6.2\ Graphics/6.2.4\ Images/veraPDF\ test\ suite\ 6-2-4-t03-pass-a.pdf</kbd>
+<kbd>verapdf --off --config corpus/veraPDF-corpus-staging/PDF_A-1b/6.2\ Graphics/6.2.4\ Images/veraPDF\ test\ suite\ 6-2-4-t03-pass-a.pdf</kbd>
 
 which will return:
 
