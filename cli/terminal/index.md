@@ -38,7 +38,7 @@ although the version information might be different.
 The instructions below assume you're running a Linux or Mac OS environment.
 You'll still be able to follow them on a Windows machine but you'll have to
 change the command slightly. Windows batch files have to end with a `.bat`
-extension, this isn't necessary on other platforms. This means that you'll have to use `verpdf.bat` to run the Windows batch script instead of executing the `verapdf` command used on other platforms.
+extension, this isn't necessary on other platforms. This means that you'll have to use `verapdf.bat` to run the Windows batch script instead of executing the `verapdf` command used on other platforms.
 
 Mac OS
 ------
